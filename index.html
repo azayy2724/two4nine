@@ -3,504 +3,415 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>two4nine — News • Memes • People</title>
+<title>two4nine — Social • News • Reels</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#080b12;
+  background:#08090d;
   color:#fff;
-  line-height:1.5;
+  padding-bottom:75px;
 }
+button,input,textarea{font:inherit}
+button{cursor:pointer}
 
-button{
-  cursor:pointer;
-  border:0;
-}
-
-header{
+.topbar{
+  height:62px;
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(8,11,18,.96);
-  border-bottom:1px solid #202838;
-  backdrop-filter:blur(12px);
-}
-
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:16px 20px;
+  background:rgba(8,9,13,.96);
+  border-bottom:1px solid #22242d;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  padding:0 12px;
+  gap:8px;
 }
 
-.logo{
-  font-size:27px;
+.brand{
+  font-size:22px;
   font-weight:900;
   letter-spacing:-1px;
 }
+.brand span{color:#ff304f}
 
-.tagline{
-  color:#9ca6b8;
-  font-size:12px;
-  margin-top:2px;
-}
-
-.login-btn{
-  background:#fff;
-  color:#080b12;
-  padding:10px 17px;
-  border-radius:22px;
-  font-weight:800;
-}
-
-.user-box{
-  display:none;
-  align-items:center;
-  gap:8px;
-}
-
-.user-email{
-  color:#aeb8ca;
-  font-size:12px;
-  max-width:130px;
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-}
-
-.logout-btn{
-  background:#252d3d;
+.topbtn{
+  background:#151821;
   color:#fff;
-  padding:8px 12px;
-  border-radius:18px;
-  font-size:12px;
-}
-
-nav{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  gap:8px;
-  padding:0 20px 12px;
-  overflow-x:auto;
-}
-
-nav button{
-  background:#121827;
-  color:#dbe2ef;
-  padding:9px 14px;
-  border-radius:18px;
-  white-space:nowrap;
-}
-
-nav button:hover{
-  background:#25304a;
-}
-
-.ticker{
-  background:#d91f3c;
-  padding:9px 20px;
-  font-size:13px;
+  border:1px solid #292d38;
+  border-radius:10px;
+  padding:9px 11px;
   font-weight:700;
-  overflow:hidden;
-  white-space:nowrap;
+  font-size:13px;
 }
 
-.ticker span{
-  display:inline-block;
-  animation:scroll 22s linear infinite;
+.createBtn{
+  background:#ff304f;
+  border:0;
+  color:#fff;
 }
 
-@keyframes scroll{
-  from{transform:translateX(100%);}
-  to{transform:translateX(-100%);}
-}
-
-main{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 20px 70px;
-}
-
-.hero{
-  background:
-    radial-gradient(circle at 90% 10%,#26375f 0,transparent 30%),
-    linear-gradient(135deg,#111827,#090d16);
-  border:1px solid #263148;
-  border-radius:26px;
-  padding:40px 28px;
-  margin-bottom:25px;
-}
-
-.hero h1{
-  font-size:clamp(32px,7vw,62px);
-  line-height:1.02;
-  max-width:720px;
-}
-
-.hero p{
-  color:#aab4c7;
-  margin:15px 0 22px;
+.feed{
+  width:100%;
   max-width:650px;
+  margin:auto;
 }
 
-.hero-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+.searchBox{
+  padding:12px;
+  background:#08090d;
 }
 
-.primary{
-  background:#ff3150;
+.searchBox input{
+  width:100%;
+  background:#151821;
   color:#fff;
-  padding:12px 18px;
-  border-radius:22px;
-  font-weight:800;
+  border:1px solid #292d38;
+  padding:13px 16px;
+  border-radius:25px;
+  outline:none;
 }
 
-.secondary{
-  background:#20293b;
-  color:#fff;
-  padding:12px 18px;
-  border-radius:22px;
-  font-weight:800;
-}
-
-.section{
-  margin-top:28px;
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:14px;
-}
-
-.section-head h2{
-  font-size:24px;
-}
-
-.section-head span{
-  color:#7f8aa0;
-  font-size:12px;
-}
-
-.meme-grid{
+.storyRow{
   display:flex;
   gap:14px;
   overflow-x:auto;
-  padding-bottom:8px;
+  padding:8px 12px 15px;
+}
+.storyRow::-webkit-scrollbar{display:none}
+
+.story{
+  min-width:65px;
+  text-align:center;
+  font-size:11px;
+}
+.storyCircle{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto auto 5px;
+  background:linear-gradient(135deg,#ff304f,#7b2cff,#00c6ff);
+  font-size:25px;
+  border:3px solid #11131a;
 }
 
-.meme-card{
-  min-width:230px;
-  background:#111725;
-  border:1px solid #202a3e;
-  border-radius:20px;
-  padding:18px;
+.card{
+  background:#101219;
+  border-top:1px solid #22242d;
+  border-bottom:1px solid #22242d;
+  margin-bottom:12px;
 }
 
-.meme-emoji{
-  font-size:40px;
+.cardHead{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+}
+
+.avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff304f,#7b2cff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+.userInfo{
+  flex:1;
+}
+.userInfo b{font-size:14px}
+.userInfo small{
+  display:block;
+  color:#8e93a1;
+  margin-top:3px;
+}
+
+.more{
+  color:#aaa;
+  font-size:20px;
+}
+
+.cardText{
+  padding:0 12px 12px;
+  line-height:1.45;
+}
+
+.media{
+  width:100%;
+  min-height:230px;
+  background:#171a23;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:75px;
+  position:relative;
+  overflow:hidden;
+}
+
+.media.newsMedia{
+  min-height:200px;
+  padding:25px;
+  text-align:center;
+  font-size:20px;
+  line-height:1.3;
+  font-weight:800;
+  background:linear-gradient(135deg,#151923,#242936);
+}
+
+.media.memeMedia{
+  min-height:240px;
+  padding:30px;
+  text-align:center;
+  font-size:30px;
+  font-weight:900;
+  background:linear-gradient(135deg,#25202b,#121722);
+}
+
+.reelMedia{
+  min-height:420px;
+  background:linear-gradient(145deg,#151923,#2c1830,#111827);
+  flex-direction:column;
+  text-align:center;
+  padding:30px;
+}
+
+.reelPlay{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+.reelTitle{
+  font-size:25px;
+  font-weight:900;
+  max-width:400px;
+}
+
+.reelTag{
+  margin-top:12px;
+  color:#bfc4d1;
+}
+
+.cardActions{
+  display:flex;
+  gap:6px;
+  padding:9px 10px 5px;
+}
+
+.action{
+  background:none;
+  border:0;
+  color:#d8dbe3;
+  padding:8px;
+  font-size:18px;
+}
+
+.action span{
+  font-size:12px;
+  margin-left:3px;
+}
+
+.action.liked{color:#ff304f}
+
+.likes{
+  padding:0 12px 8px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.caption{
+  padding:0 12px 14px;
+  font-size:14px;
+}
+.caption b{margin-right:5px}
+
+.newsLabel{
+  display:inline-block;
+  background:#e31e3c;
+  color:white;
+  padding:4px 7px;
+  border-radius:5px;
+  font-size:10px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.trending{
+  padding:14px 12px;
+  background:#0d0f15;
+  border-top:1px solid #22242d;
+  border-bottom:1px solid #22242d;
+}
+
+.trending h3{
   margin-bottom:10px;
-}
-
-.meme-card h3{
   font-size:15px;
 }
 
-.meme-card p{
-  color:#9da8ba;
-  font-size:12px;
-  margin-top:7px;
+.tags{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
 }
-
-.reactions{
-  margin-top:15px;
-  color:#9faabd;
-  font-size:13px;
-}
-
-.news-list{
-  display:grid;
-  gap:12px;
-}
-
-.news-card{
-  background:#111725;
-  border:1px solid #202a3e;
-  border-radius:18px;
-  padding:17px;
-}
-
-.news-category{
-  color:#ff4864;
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
-}
-
-.news-card h3{
-  margin-top:5px;
-  font-size:17px;
-}
-
-.news-card p{
-  color:#9ca7b9;
-  font-size:12px;
-  margin-top:6px;
-}
-
-.news-link{
-  display:inline-block;
-  margin-top:10px;
-  color:#76a9ff;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.community{
-  background:#111725;
-  border:1px solid #202a3e;
-  border-radius:22px;
-  padding:22px;
-}
-
-.community p{
-  color:#9da8ba;
-}
-
-.chat-btn{
-  margin-top:15px;
-  background:#ff3150;
-  color:#fff;
-  padding:12px 18px;
+.tags span{
+  white-space:nowrap;
+  background:#171a23;
+  padding:8px 11px;
   border-radius:20px;
-  font-weight:bold;
-}
-
-footer{
-  text-align:center;
-  color:#687388;
+  color:#c9ced9;
   font-size:12px;
-  padding:25px;
-  border-top:1px solid #202838;
 }
 
-/* MODALS */
+.bottomNav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:65px;
+  background:rgba(10,11,16,.98);
+  border-top:1px solid #252832;
+  z-index:100;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.navItem{
+  background:none;
+  border:0;
+  color:#8f94a2;
+  font-size:10px;
+  text-align:center;
+}
+.navItem div{font-size:21px;margin-bottom:2px}
+.navItem.active{color:#fff}
+
+.plusNav{
+  width:42px;
+  height:32px;
+  border-radius:10px;
+  background:#ff304f;
+  color:#fff;
+  border:0;
+  font-size:23px;
+  line-height:20px;
+}
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  z-index:100;
-  background:rgba(0,0,0,.78);
-  padding:20px;
-  align-items:center;
+  z-index:200;
+  background:rgba(0,0,0,.75);
+  align-items:flex-end;
   justify-content:center;
 }
 
-.modal-box{
-  width:min(430px,100%);
-  background:#111725;
-  border:1px solid #303b52;
-  border-radius:24px;
-  padding:25px;
-  position:relative;
+.modalBox{
+  width:100%;
+  max-width:650px;
+  background:#11141b;
+  border:1px solid #292d38;
+  border-radius:20px 20px 0 0;
+  padding:20px;
   max-height:90vh;
   overflow:auto;
 }
 
+.modalBox h2{
+  margin-bottom:15px;
+}
+
 .close{
-  position:absolute;
-  right:17px;
-  top:14px;
-  background:#242d3e;
+  float:right;
+  background:#222631;
   color:#fff;
-  width:32px;
-  height:32px;
+  border:0;
+  width:34px;
+  height:34px;
   border-radius:50%;
-  font-size:18px;
 }
 
-.modal-title{
-  font-size:25px;
-  font-weight:900;
-  margin-bottom:5px;
-}
-
-.modal-sub{
-  color:#8995aa;
-  font-size:13px;
-  margin-bottom:20px;
-}
-
-.input{
+.field{
   width:100%;
-  background:#080d16;
-  border:1px solid #303b52;
+  background:#191c25;
+  border:1px solid #2b2f3a;
   color:#fff;
   padding:13px;
-  border-radius:13px;
-  margin-bottom:11px;
+  border-radius:10px;
+  margin-bottom:10px;
   outline:none;
 }
 
-.input:focus{
-  border-color:#6d9cff;
+textarea.field{
+  min-height:120px;
+  resize:vertical;
 }
 
-.auth-main{
+.primary{
   width:100%;
   padding:13px;
-  border-radius:14px;
-  background:#fff;
-  color:#090d15;
-  font-weight:900;
-  margin-top:4px;
-}
-
-.auth-secondary{
-  width:100%;
-  padding:11px;
-  border-radius:14px;
-  background:#242d3e;
-  color:#fff;
-  font-weight:bold;
-  margin-top:10px;
-}
-
-.forgot{
-  text-align:right;
-  margin:5px 0 12px;
-}
-
-.forgot button{
-  background:none;
-  color:#78aaff;
-  font-size:12px;
-}
-
-.switch{
-  text-align:center;
-  color:#8995aa;
-  font-size:12px;
-  margin-top:15px;
-}
-
-.switch button{
-  background:none;
-  color:#78aaff;
-  font-weight:bold;
-}
-
-.message{
-  margin-top:12px;
-  padding:10px;
+  border:0;
   border-radius:10px;
-  font-size:12px;
-  display:none;
-}
-
-.error{
-  background:#421a25;
-  color:#ff9dae;
-}
-
-.success{
-  background:#173b2c;
-  color:#8df0b8;
-}
-
-.chat-messages{
-  background:#080d16;
-  border-radius:16px;
-  padding:12px;
-  height:300px;
-  overflow-y:auto;
-  margin-bottom:12px;
-}
-
-.chat-message{
-  margin-bottom:10px;
-  background:#182133;
-  padding:10px;
-  border-radius:12px;
-  font-size:13px;
-}
-
-.chat-message small{
-  display:block;
-  color:#718099;
-  margin-bottom:3px;
-}
-
-.limit-box{
-  display:none;
-  background:#453714;
-  color:#ffd96b;
-  border:1px solid #66521d;
-  padding:12px;
-  border-radius:12px;
-  font-size:12px;
-  margin-bottom:10px;
-}
-
-.chat-input-row{
-  display:flex;
-  gap:7px;
-}
-
-.chat-input-row input{
-  flex:1;
-  margin:0;
-}
-
-.chat-send{
-  background:#ff3150;
+  background:#ff304f;
   color:#fff;
-  border-radius:13px;
-  padding:0 16px;
-  font-weight:bold;
+  font-weight:800;
 }
 
-.loading{
-  color:#8995aa;
+.secondary{
+  width:100%;
+  padding:12px;
+  border:1px solid #303440;
+  border-radius:10px;
+  background:#191c25;
+  color:#fff;
+  margin-top:8px;
+}
+
+.loginStatus{
   text-align:center;
-  padding:15px;
+  padding:8px;
+  color:#9da3b2;
+  font-size:12px;
 }
 
-@media(max-width:600px){
-  main{
-    padding:18px 14px 50px;
-  }
+.empty{
+  padding:45px 20px;
+  text-align:center;
+  color:#8f94a2;
+}
 
-  .header-inner{
-    padding:13px 14px;
+@media(min-width:800px){
+  .topbar{
+    padding-left:25px;
+    padding-right:25px;
   }
-
-  nav{
-    padding-left:14px;
-    padding-right:14px;
+  .modal{
+    align-items:center;
   }
-
-  .hero{
-    padding:30px 20px;
-    border-radius:21px;
+  .modalBox{
+    border-radius:18px;
   }
-
-  .user-email{
-    display:none;
+  .bottomNav{
+    max-width:650px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:18px 18px 0 0;
   }
 }
 </style>
@@ -508,269 +419,334 @@ footer{
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <div>
-      <div class="logo">two4nine</div>
-      <div class="tagline">News • Memes • People</div>
-    </div>
+<header class="topbar">
+  <button class="topbtn" onclick="openCommunity()">👥 Community</button>
 
-    <div>
-      <button class="login-btn" id="loginButton" onclick="openLogin()">Login</button>
+  <div class="brand">two<span>4</span>nine</div>
 
-      <div class="user-box" id="userBox">
-        <span class="user-email" id="userEmail"></span>
-        <button class="logout-btn" onclick="logoutUser()">Logout</button>
-      </div>
-    </div>
-  </div>
-
-  <nav>
-    <button onclick="scrollToSection('memes')">😂 Memes</button>
-    <button onclick="scrollToSection('trending')">🔥 Trending</button>
-    <button onclick="scrollToSection('news')">📰 News</button>
-    <button onclick="scrollToSection('community')">💬 Community</button>
-  </nav>
+  <button class="topbtn createBtn" onclick="openPost()">＋ Create</button>
 </header>
 
-<div class="ticker">
-  <span id="tickerText">🔴 Breaking • Loading fresh headlines...</span>
-</div>
+<main class="feed">
 
-<main>
-
-<section class="hero">
-  <h1>Internet, News & People — All in One Place.</h1>
-  <p>
-    News samjho, memes dekho, logon se connect karo aur apni community ka
-    part bano. Welcome to <b>two4nine</b>.
-  </p>
-
-  <div class="hero-actions">
-    <button class="primary" onclick="scrollToSection('memes')">
-      😂 Explore Memes
-    </button>
-
-    <button class="secondary" onclick="openChat()">
-      💬 Anonymous Chat
-    </button>
-  </div>
-</section>
-
-<section class="section" id="memes">
-  <div class="section-head">
-    <h2>😂 Memes</h2>
-    <span>Fresh community vibes</span>
+  <div class="searchBox">
+    <input id="searchInput" type="text"
+      placeholder="🔍 Search people, memes, news..."
+      oninput="searchFeed()">
   </div>
 
-  <div class="meme-grid">
-
-    <div class="meme-card">
-      <div class="meme-emoji">😂</div>
-      <h3>When salary arrives...</h3>
-      <p>2 din baad: balance checking...</p>
-      <div class="reactions">❤️ 248 &nbsp; 😂 91</div>
+  <div class="storyRow">
+    <div class="story" onclick="openPost()">
+      <div class="storyCircle">＋</div>
+      Create
     </div>
-
-    <div class="meme-card">
-      <div class="meme-emoji">☕</div>
-      <h3>Bas ek chai aur...</h3>
-      <p>Indian productivity starter pack.</p>
-      <div class="reactions">❤️ 182 &nbsp; 😂 74</div>
+    <div class="story">
+      <div class="storyCircle">😂</div>
+      Memes
     </div>
-
-    <div class="meme-card">
-      <div class="meme-emoji">📱</div>
-      <h3>Phone 1% battery</h3>
-      <p>Suddenly life becomes important.</p>
-      <div class="reactions">❤️ 321 &nbsp; 😂 120</div>
+    <div class="story">
+      <div class="storyCircle">🔥</div>
+      Trending
     </div>
-
-    <div class="meme-card">
-      <div class="meme-emoji">🧠</div>
-      <h3>Overthinking at 2 AM</h3>
-      <p>Brain: let's remember everything.</p>
-      <div class="reactions">❤️ 290 &nbsp; 😂 143</div>
+    <div class="story">
+      <div class="storyCircle">📰</div>
+      News
     </div>
-
-  </div>
-</section>
-
-<section class="section" id="trending">
-  <div class="section-head">
-    <h2>🔥 Trending</h2>
-    <span>What's getting attention</span>
-  </div>
-
-  <div class="news-card">
-    <div class="news-category">Trending</div>
-    <h3>Internet trends, viral stories and conversations</h3>
-    <p>
-      Yahan future me real-time trending topics, viral posts aur community
-      discussions dikhenge.
-    </p>
-  </div>
-</section>
-
-<section class="section" id="news">
-  <div class="section-head">
-    <h2>📰 Fresh News</h2>
-    <span>Last 24 hours</span>
+    <div class="story">
+      <div class="storyCircle">🎬</div>
+      Reels
+    </div>
+    <div class="story">
+      <div class="storyCircle">💬</div>
+      People
+    </div>
   </div>
 
-  <div id="newsList" class="news-list">
-    <div class="loading">Loading fresh headlines...</div>
+  <div class="trending">
+    <h3>🔥 Trending now</h3>
+    <div class="tags">
+      <span>#two4nine</span>
+      <span>#India</span>
+      <span>#Technology</span>
+      <span>#Sports</span>
+      <span>#Memes</span>
+    </div>
   </div>
-</section>
 
-<section class="section" id="community">
-  <div class="section-head">
-    <h2>💬 Community</h2>
-    <span>People • Opinions • Conversations</span>
+  <section id="feed">
+
+    <!-- REEL -->
+    <article class="card searchable" data-search="reel entertainment viral trending">
+      <div class="cardHead">
+        <div class="avatar">T</div>
+        <div class="userInfo">
+          <b>two4nine</b>
+          <small>🎬 Reels • 10 min ago</small>
+        </div>
+        <div class="more">•••</div>
+      </div>
+
+      <div class="media reelMedia">
+        <div class="reelPlay">▶</div>
+        <div class="reelTitle">Your next viral moment starts here 🚀</div>
+        <div class="reelTag">#two4nine #reels #viral</div>
+      </div>
+
+      <div class="cardActions">
+        <button class="action" onclick="likePost(this)">♡ <span>1.2K</span></button>
+        <button class="action" onclick="commentPost()">💬 <span>84</span></button>
+        <button class="action">↗️ <span>Share</span></button>
+      </div>
+      <div class="likes">1,245 likes</div>
+      <div class="caption">
+        <b>two4nine</b> Welcome to the new generation of social media. ❤️
+      </div>
+    </article>
+
+
+    <!-- NEWS MIXED INTO FEED -->
+    <article class="card searchable" data-search="news world technology ai artificial intelligence">
+      <div class="cardHead">
+        <div class="avatar">📰</div>
+        <div class="userInfo">
+          <b>two4nine News</b>
+          <small>📰 News • Latest</small>
+        </div>
+        <div class="more">•••</div>
+      </div>
+
+      <div class="media newsMedia">
+        <div>
+          <div class="newsLabel">BREAKING / NEWS</div>
+          AI & Technology are changing how people work, learn and create.
+        </div>
+      </div>
+
+      <div class="cardActions">
+        <button class="action" onclick="likePost(this)">♡ <span>642</span></button>
+        <button class="action" onclick="commentPost()">💬 <span>41</span></button>
+        <button class="action">↗️ <span>Share</span></button>
+      </div>
+
+      <div class="likes">642 likes</div>
+      <div class="caption">
+        <b>two4nine News</b>
+        News appears naturally inside your home feed — no separate News tab needed.
+      </div>
+    </article>
+
+
+    <!-- MEME -->
+    <article class="card searchable" data-search="meme funny india student exam college">
+      <div class="cardHead">
+        <div class="avatar">😂</div>
+        <div class="userInfo">
+          <b>meme_lord249</b>
+          <small>😂 Meme • 25 min ago</small>
+        </div>
+        <div class="more">•••</div>
+      </div>
+
+      <div class="media memeMedia">
+        When you open the exam paper<br><br>
+        “Ye toh syllabus mein tha hi nahi 😭”
+      </div>
+
+      <div class="cardActions">
+        <button class="action" onclick="likePost(this)">♡ <span>2.4K</span></button>
+        <button class="action" onclick="commentPost()">💬 <span>173</span></button>
+        <button class="action">↗️ <span>Share</span></button>
+      </div>
+
+      <div class="likes">2,421 likes</div>
+      <div class="caption">
+        <b>meme_lord249</b> Tag your friend 😂
+      </div>
+    </article>
+
+
+    <!-- NORMAL POST -->
+    <article class="card searchable" data-search="post community people thoughts life">
+      <div class="cardHead">
+        <div class="avatar">A</div>
+        <div class="userInfo">
+          <b>Anonymous User</b>
+          <small>👤 Post • 1 hour ago</small>
+        </div>
+        <div class="more">•••</div>
+      </div>
+
+      <div class="cardText">
+        Kabhi kabhi ek simple idea bhi bahut logon ko connect kar deta hai.
+        That's what social media should feel like. ❤️
+      </div>
+
+      <div class="media">🌍</div>
+
+      <div class="cardActions">
+        <button class="action" onclick="likePost(this)">♡ <span>128</span></button>
+        <button class="action" onclick="commentPost()">💬 <span>19</span></button>
+        <button class="action">↗️ <span>Share</span></button>
+      </div>
+
+      <div class="likes">128 likes</div>
+    </article>
+
+
+    <!-- COMMUNITY POST -->
+    <article class="card searchable" data-search="community discussion lucknow india people">
+      <div class="cardHead">
+        <div class="avatar">💬</div>
+        <div class="userInfo">
+          <b>Lucknow Community</b>
+          <small>👥 Community • 2 hours ago</small>
+        </div>
+        <div class="more">•••</div>
+      </div>
+
+      <div class="cardText">
+        Aaj Lucknow mein sabse interesting cheez kya hui? 👀
+        <br><br>
+        Share your story below.
+      </div>
+
+      <div class="cardActions">
+        <button class="action" onclick="likePost(this)">♡ <span>95</span></button>
+        <button class="action" onclick="commentPost()">💬 <span>32</span></button>
+        <button class="action">↗️ <span>Share</span></button>
+      </div>
+
+      <div class="likes">95 likes</div>
+    </article>
+
+  </section>
+
+  <div id="noResults" class="empty" style="display:none">
+    🔍 No posts found
   </div>
-
-  <div class="community">
-    <h3>Talk freely. Stay respectful.</h3>
-    <p>
-      Join discussions, share opinions, react to posts and meet people.
-      Safety features like block, report and mute will be added as the
-      community grows.
-    </p>
-
-    <button class="chat-btn" onclick="openChat()">
-      💬 Open Anonymous Chat
-    </button>
-  </div>
-</section>
 
 </main>
 
-<footer>
-  © 2026 two4nine • Different Generations. One Place. ❤️
-</footer>
+
+<!-- BOTTOM NAV -->
+<nav class="bottomNav">
+
+  <button class="navItem active" onclick="goHome()">
+    <div>🏠</div>
+    Home
+  </button>
+
+  <button class="navItem" onclick="focusSearch()">
+    <div>🔍</div>
+    Search
+  </button>
+
+  <button class="navItem" onclick="openPost()">
+    <div class="plusNav">＋</div>
+    Post
+  </button>
+
+  <button class="navItem" onclick="openMemes()">
+    <div>😂</div>
+    Meme
+  </button>
+
+  <button class="navItem" onclick="openNotifications()">
+    <div>🔔</div>
+    Alerts
+  </button>
+
+</nav>
+
+
+<!-- CREATE POST MODAL -->
+<div class="modal" id="postModal">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('postModal')">×</button>
+    <h2>➕ Create Post</h2>
+
+    <textarea id="postText" class="field"
+      placeholder="What's happening? Share something..."></textarea>
+
+    <input id="postMedia" class="field"
+      placeholder="Optional: image/video URL">
+
+    <select id="postType" class="field">
+      <option value="post">👤 Normal Post</option>
+      <option value="meme">😂 Meme</option>
+      <option value="reel">🎬 Reel</option>
+      <option value="community">💬 Community Post</option>
+    </select>
+
+    <button class="primary" onclick="createPost()">Publish</button>
+  </div>
+</div>
+
+
+<!-- NOTIFICATION MODAL -->
+<div class="modal" id="notificationModal">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('notificationModal')">×</button>
+    <h2>🔔 Notifications</h2>
+
+    <div class="cardText">❤️ Someone liked your post.</div>
+    <div class="cardText">💬 Someone commented on your meme.</div>
+    <div class="cardText">🔥 Your reel is trending.</div>
+    <div class="cardText">👥 New community discussion available.</div>
+  </div>
+</div>
+
+
+<!-- COMMUNITY MODAL -->
+<div class="modal" id="communityModal">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('communityModal')">×</button>
+    <h2>👥 Communities</h2>
+
+    <button class="secondary">🇮🇳 India</button>
+    <button class="secondary">😂 Meme Community</button>
+    <button class="secondary">🎮 Gaming</button>
+    <button class="secondary">⚽ Sports</button>
+    <button class="secondary">🤖 AI & Technology</button>
+    <button class="secondary">🎬 Movies & Entertainment</button>
+  </div>
+</div>
 
 
 <!-- LOGIN MODAL -->
-
 <div class="modal" id="loginModal">
-  <div class="modal-box">
-
+  <div class="modalBox">
     <button class="close" onclick="closeModal('loginModal')">×</button>
 
-    <div style="font-size:40px;">🔐</div>
+    <h2>🔐 Login</h2>
 
-    <div class="modal-title" id="authTitle">Welcome to two4nine</div>
+    <input id="email" class="field" type="email"
+      placeholder="Email">
 
-    <div class="modal-sub" id="authSubtitle">
-      Login to continue.
-    </div>
+    <input id="password" class="field" type="password"
+      placeholder="Password">
 
-    <input
-      class="input"
-      id="authEmail"
-      type="email"
-      placeholder="Email"
-      autocomplete="email"
-    >
+    <button class="primary" onclick="login()">Login</button>
 
-    <input
-      class="input"
-      id="authPassword"
-      type="password"
-      placeholder="Password"
-      autocomplete="current-password"
-    >
+    <button class="secondary" onclick="signup()">Create Account</button>
 
-    <div class="forgot">
-      <button onclick="forgotPassword()">Forgot password?</button>
-    </div>
-
-    <button class="auth-main" onclick="loginUser()" id="authMainBtn">
-      Continue
+    <button class="secondary" onclick="forgotPassword()">
+      Forgot Password
     </button>
 
-    <button class="auth-secondary" onclick="createAccount()" id="createBtn">
-      Create Account
-    </button>
-
-    <div class="switch">
-      <span id="switchText">New here?</span>
-      <button onclick="toggleAuthMode()" id="switchBtn">
-        Create account
-      </button>
-    </div>
-
-    <div class="message error" id="authError"></div>
-    <div class="message success" id="authSuccess"></div>
-
+    <div id="authMessage" class="loginStatus"></div>
   </div>
 </div>
 
-
-<!-- CHAT MODAL -->
-
-<div class="modal" id="chatModal">
-  <div class="modal-box">
-
-    <button class="close" onclick="closeModal('chatModal')">×</button>
-
-    <div class="modal-title">💬 Anonymous Chat</div>
-
-    <div class="modal-sub">
-      Talk anonymously. Login when you want to continue.
-    </div>
-
-    <div class="chat-messages" id="chatMessages">
-
-      <div class="chat-message">
-        <small>Anonymous</small>
-        Anyone here tonight? 👀
-      </div>
-
-      <div class="chat-message">
-        <small>Anonymous</small>
-        Yeah bro 😂
-      </div>
-
-    </div>
-
-    <div class="limit-box" id="chatLimit">
-      You've used your 5 anonymous messages.
-      <br><br>
-      <b>Login to continue chatting.</b>
-      <br><br>
-      <button class="primary" onclick="closeModal('chatModal');openLogin();">
-        Login
-      </button>
-    </div>
-
-    <div class="chat-input-row" id="chatInputRow">
-      <input
-        class="input"
-        id="chatInput"
-        placeholder="Write a message..."
-        maxlength="200"
-      >
-
-      <button class="chat-send" onclick="sendChatMessage()">
-        Send
-      </button>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 
 <script>
 
-/* =========================================
-   FIREBASE CONFIG
-   ========================================= */
+/* =========================
+   FIREBASE
+========================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
@@ -783,359 +759,213 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 const auth = firebase.auth();
 
 
-/* =========================================
-   BASIC FUNCTIONS
-   ========================================= */
+/* =========================
+   AUTH
+========================= */
 
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({
-    behavior:"smooth"
+auth.onAuthStateChanged(function(user){
+
+  if(user){
+    console.log("Logged in:", user.email);
+  }else{
+    console.log("Not logged in");
+  }
+
+});
+
+
+function login(){
+
+  const email=document.getElementById("email").value;
+  const password=document.getElementById("password").value;
+
+  if(!email || !password){
+    document.getElementById("authMessage").innerText=
+      "Email aur password enter karo.";
+    return;
+  }
+
+  auth.signInWithEmailAndPassword(email,password)
+  .then(()=>{
+    document.getElementById("authMessage").innerText=
+      "✅ Login successful!";
+    setTimeout(()=>{
+      closeModal("loginModal");
+    },700);
+  })
+  .catch(error=>{
+    document.getElementById("authMessage").innerText=
+      "❌ "+error.message;
   });
+
 }
 
-function openLogin(){
-  document.getElementById("loginModal").style.display="flex";
-  clearAuthMessages();
+
+function signup(){
+
+  const email=document.getElementById("email").value;
+  const password=document.getElementById("password").value;
+
+  if(!email || !password){
+    document.getElementById("authMessage").innerText=
+      "Email aur password enter karo.";
+    return;
+  }
+
+  if(password.length < 6){
+    document.getElementById("authMessage").innerText=
+      "Password kam se kam 6 characters ka hona chahiye.";
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email,password)
+  .then(()=>{
+    document.getElementById("authMessage").innerText=
+      "🎉 Account created!";
+  })
+  .catch(error=>{
+    document.getElementById("authMessage").innerText=
+      "❌ "+error.message;
+  });
+
 }
 
-function openChat(){
-  document.getElementById("chatModal").style.display="flex";
+
+function forgotPassword(){
+
+  const email=document.getElementById("email").value;
+
+  if(!email){
+    document.getElementById("authMessage").innerText=
+      "Pehle email enter karo.";
+    return;
+  }
+
+  auth.sendPasswordResetEmail(email)
+  .then(()=>{
+    document.getElementById("authMessage").innerText=
+      "📧 Password reset email bhej diya gaya.";
+  })
+  .catch(error=>{
+    document.getElementById("authMessage").innerText=
+      "❌ "+error.message;
+  });
+
+}
+
+
+/* =========================
+   MODALS
+========================= */
+
+function openPost(){
+  document.getElementById("postModal").style.display="flex";
+}
+
+function openNotifications(){
+  document.getElementById("notificationModal").style.display="flex";
+}
+
+function openCommunity(){
+  document.getElementById("communityModal").style.display="flex";
 }
 
 function closeModal(id){
   document.getElementById(id).style.display="none";
 }
 
-window.onclick=function(e){
-  if(e.target.classList.contains("modal")){
-    e.target.style.display="none";
-  }
-};
 
+/* =========================
+   LIKE
+========================= */
 
-/* =========================================
-   AUTH MODE
-   ========================================= */
+function likePost(button){
 
-let signupMode=false;
+  button.classList.toggle("liked");
 
-function toggleAuthMode(){
-
-  signupMode=!signupMode;
-
-  clearAuthMessages();
-
-  if(signupMode){
-
-    document.getElementById("authTitle").textContent=
-      "Create your account";
-
-    document.getElementById("authSubtitle").textContent=
-      "Join two4nine for free.";
-
-    document.getElementById("authMainBtn").textContent=
-      "Create Account";
-
-    document.getElementById("createBtn").style.display="none";
-
-    document.getElementById("switchText").textContent=
-      "Already have an account?";
-
-    document.getElementById("switchBtn").textContent=
-      "Login";
-
+  if(button.classList.contains("liked")){
+    button.innerHTML="♥ <span>Liked</span>";
   }else{
-
-    document.getElementById("authTitle").textContent=
-      "Welcome to two4nine";
-
-    document.getElementById("authSubtitle").textContent=
-      "Login to continue.";
-
-    document.getElementById("authMainBtn").textContent=
-      "Continue";
-
-    document.getElementById("createBtn").style.display="block";
-
-    document.getElementById("switchText").textContent=
-      "New here?";
-
-    document.getElementById("switchBtn").textContent=
-      "Create account";
+    button.innerHTML="♡ <span>Like</span>";
   }
+
 }
 
 
-/* =========================================
-   CREATE ACCOUNT
-   ========================================= */
+/* =========================
+   COMMENT
+========================= */
 
-function createAccount(){
+function commentPost(){
 
-  const email=
-    document.getElementById("authEmail").value.trim();
+  const text=prompt("Comment likho:");
 
-  const password=
-    document.getElementById("authPassword").value;
+  if(text && text.trim()){
+    alert("💬 Comment added!");
+  }
 
-  clearAuthMessages();
+}
 
-  if(!email || !password){
 
-    showAuthError("Email aur password dono enter karo.");
+/* =========================
+   CREATE POST
+========================= */
 
+function createPost(){
+
+  const text=document.getElementById("postText").value.trim();
+  const type=document.getElementById("postType").value;
+
+  if(!text){
+    alert("Kuch likho pehle 🙂");
     return;
   }
 
-  if(password.length < 6){
+  const article=document.createElement("article");
+  article.className="card searchable";
+  article.dataset.search=text.toLowerCase();
 
-    showAuthError("Password kam se kam 6 characters ka hona chahiye.");
+  let emoji="👤";
+  let label="Post";
 
-    return;
+  if(type==="meme"){
+    emoji="😂";
+    label="Meme";
   }
 
-  auth.createUserWithEmailAndPassword(email,password)
-
-  .then((userCredential)=>{
-
-    showAuthSuccess("Account successfully create ho gaya! 🎉");
-
-    setTimeout(()=>{
-
-      closeModal("loginModal");
-
-    },1000);
-
-  })
-
-  .catch((error)=>{
-
-    showAuthError(firebaseError(error.code));
-
-  });
-}
-
-
-/* =========================================
-   LOGIN
-   ========================================= */
-
-function loginUser(){
-
-  if(signupMode){
-
-    createAccount();
-
-    return;
+  if(type==="reel"){
+    emoji="🎬";
+    label="Reel";
   }
 
-  const email=
-    document.getElementById("authEmail").value.trim();
-
-  const password=
-    document.getElementById("authPassword").value;
-
-  clearAuthMessages();
-
-  if(!email || !password){
-
-    showAuthError("Email aur password enter karo.");
-
-    return;
+  if(type==="community"){
+    emoji="💬";
+    label="Community";
   }
 
-  auth.signInWithEmailAndPassword(email,password)
-
-  .then(()=>{
-
-    showAuthSuccess("Login successful! Welcome back ❤️");
-
-    setTimeout(()=>{
-
-      closeModal("loginModal");
-
-    },900);
-
-  })
-
-  .catch((error)=>{
-
-    showAuthError(firebaseError(error.code));
-
-  });
-}
-
-
-/* =========================================
-   FORGOT PASSWORD
-   ========================================= */
-
-function forgotPassword(){
-
-  const email=
-    document.getElementById("authEmail").value.trim();
-
-  clearAuthMessages();
-
-  if(!email){
-
-    showAuthError(
-      "Pehle Email box me apna email enter karo."
-    );
-
-    return;
-  }
-
-  auth.sendPasswordResetEmail(email)
-
-  .then(()=>{
-
-    showAuthSuccess(
-      "Password reset email bhej diya gaya. 📩"
-    );
-
-  })
-
-  .catch((error)=>{
-
-    showAuthError(firebaseError(error.code));
-
-  });
-}
-
-
-/* =========================================
-   LOGOUT
-   ========================================= */
-
-function logoutUser(){
-
-  auth.signOut()
-  .then(()=>{
-
-    alert("Logout successful.");
-
-  })
-  .catch((error)=>{
-
-    alert(error.message);
-
-  });
-}
-
-
-/* =========================================
-   AUTH STATE
-   ========================================= */
-
-auth.onAuthStateChanged((user)=>{
-
-  const loginButton=
-    document.getElementById("loginButton");
-
-  const userBox=
-    document.getElementById("userBox");
-
-  const userEmail=
-    document.getElementById("userEmail");
-
-  if(user){
-
-    loginButton.style.display="none";
-
-    userBox.style.display="flex";
-
-    userEmail.textContent=user.email;
-
-  }else{
-
-    loginButton.style.display="block";
-
-    userBox.style.display="none";
-
-  }
-
-});
-
-
-/* =========================================
-   FIREBASE ERROR TRANSLATION
-   ========================================= */
-
-function firebaseError(code){
-
-  switch(code){
-
-    case "auth/email-already-in-use":
-      return "Ye email already registered hai.";
-
-    case "auth/invalid-email":
-      return "Email address sahi nahi hai.";
-
-    case "auth/weak-password":
-      return "Password bahut weak hai.";
-
-    case "auth/user-not-found":
-      return "Is email se account nahi mila.";
-
-    case "auth/wrong-password":
-      return "Password galat hai.";
-
-    case "auth/invalid-credential":
-      return "Email ya password galat hai.";
-
-    case "auth/too-many-requests":
-      return "Bahut attempts ho gaye. Thodi der baad try karo.";
-
-    case "auth/network-request-failed":
-      return "Internet connection check karo.";
-
-    default:
-      return "Something went wrong. Please try again.";
-  }
-}
-
-
-/* =========================================
-   AUTH MESSAGES
-   ========================================= */
-
-function clearAuthMessages(){
-
-  document.getElementById("authError").style.display="none";
-
-  document.getElementById("authSuccess").style.display="none";
-}
-
-function showAuthError(text){
-
-  const box=
-    document.getElementById("authError");
-
-  box.textContent=text;
-
-  box.style.display="block";
-}
-
-function showAuthSuccess(text){
-
-  const box=
-    document.getElementById("authSuccess");
-
-  box.textContent=text;
-
-  box.style.display="block";
-}
-
-
-/* =========================================
-   ANONYMOUS CHAT DEMO
-   ========================================= */
-
-let anonymousMessages=0;
-
-fu
+  article.innerHTML=`
+
+    <div class="cardHead">
+      <div class="avatar">${emoji}</div>
+
+      <div class="userInfo">
+        <b>Anonymous User</b>
+        <small>${emoji} ${label} • Just now</small>
+      </div>
+
+      <div class="more">•••</div>
+    </div>
+
+    <div class="cardText">
+      ${escapeHTML(text)}
+    </div>
+
+    ${
+      type==="reel"
+      ?
+      `<div class="media reelMedia">
+        <div class="reelPlay">▶</div>
+        <div class="re
