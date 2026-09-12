@@ -3,38 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>two4nine.com — The World. Right Now.</title>
-
-<meta name="description" content="two4nine.com — World news, war and conflict, sports, AI, technology, business and trending stories.">
+<meta name="description" content="two4nine.com — latest world news, war and conflict, sports, AI, technology, business and trending stories.">
 
 <style>
 *{box-sizing:border-box}
-
 body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#f5f6f8;
-color:#111;
+ margin:0;
+ font-family:Arial,Helvetica,sans-serif;
+ background:#f4f5f7;
+ color:#111;
 }
-
 header{
-background:#090a0d;
-color:white;
+ background:#08090c;
+ color:white;
+ border-bottom:1px solid #222;
 }
-
 .top{
-max-width:1150px;
-margin:auto;
-padding:22px 18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+ max-width:1150px;
+ margin:auto;
+ padding:22px 20px 16px;
 }
-
 .logo{
-font-size:32px;
-font-weight:900;
+ font-size:34px;
+ font-weight:900;
+ letter-spacing:-1px;
+}
+.tag{
+ color:#aaa;
+ margin-top:5px;
+}
+nav{
+ max-width:1150px;
+ margin:auto;
+ padding:0 20px 15px;
+ display:flex;
+ gap:25px;
+ overflow-x:auto;
+}
+nav a{
+ color:#ddd;
+ text-decoration:none;
+ white-space:nowrap;
+ font-size:15px;
+}
+nav a:hover{color:white}
+
+.breaking{
+ background:#d40000;
+ color:white;
+ padding:14px 20px;
+ font-weight:bold;
+ white-space:nowrap;
+ overflow:hidden;
+}
+.breaking span{margin-right:20px}
+
+.container{
+ max-width:1150px;
+ margin:auto;
+ padding:25px 20px 50px;
+}
+.status{
+ background:#fff4c7;
+ border:1px solid #ead783;
+ padding:14px 16px;
+ border-radius:12px;
+ margin-bottom:35px;
+}
+h1{
+ font-size:42px;
+ margin:0 0 25px;
+}
+h2{
+ font-size:28px;
+ border-left:8px solid #d40000;
+ padding-left:15px;
+ margin:45px 0 18px;
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+.card{
+ background:white;
+ border:1px solid #ddd;
+ border-radius:16px;
+ padding:20px;font-weight:900;
 }
 
 .tag{
