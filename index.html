@@ -3,498 +3,470 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>two4nine — News, Memes & People</title>
+<title>two4nine — News • Memes • People</title>
 
 <style>
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f3f4f6;
-color:#111;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#080b12;
+  color:#fff;
+  line-height:1.5;
 }
 
 header{
-background:#08090b;
-color:white;
-padding:24px 26px 0;
+  background:#0d1220;
+  padding:18px 20px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:1px solid #20283a;
 }
 
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
 }
 
 .logo{
-font-size:38px;
-font-weight:800;
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:-1px;
 }
 
 .tagline{
-color:#aaa;
-font-size:18px;
-margin-top:5px;
+  color:#8f9bb3;
+  font-size:12px;
+  margin-top:2px;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+  font-weight:700;
 }
 
 .login-btn{
-background:white;
-color:#111;
-border:0;
-padding:14px 25px;
-border-radius:14px;
-font-size:17px;
-font-weight:800;
-cursor:pointer;
+  background:#ff3158;
+  color:white;
+  padding:11px 17px;
+  border-radius:12px;
+}
+
+.user-box{
+  display:none;
+  align-items:center;
+  gap:8px;
+}
+
+.user-name{
+  color:#8ff0b0;
+  font-size:12px;
+  max-width:150px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.logout-btn{
+  background:#252d3e;
+  color:white;
+  padding:9px 12px;
+  border-radius:10px;
 }
 
 nav{
-display:flex;
-gap:30px;
-overflow-x:auto;
-padding:25px 0 18px;
-white-space:nowrap;
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:12px 20px;
+  background:#0d1220;
+  border-bottom:1px solid #20283a;
 }
 
 nav a{
-color:#ddd;
-text-decoration:none;
-font-size:18px;
-font-weight:700;
+  color:#cbd3e3;
+  text-decoration:none;
+  background:#171e2e;
+  padding:9px 14px;
+  border-radius:20px;
+  white-space:nowrap;
+  font-size:14px;
 }
 
-.breaking{
-background:#d90000;
-color:white;
-font-weight:800;
-padding:16px 26px;
-white-space:nowrap;
-overflow:hidden;
-font-size:18px;
+nav a:hover{
+  background:#242d42;
 }
 
-.wrap{
-max-width:1000px;
-margin:auto;
-padding:35px 20px 60px;
+.ticker{
+  background:#e51f43;
+  padding:9px 15px;
+  font-size:13px;
+  font-weight:700;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 16px 70px;
 }
 
 .hero{
-background:#08090b;
-color:white;
-border-radius:30px;
-padding:45px 34px;
-margin-bottom:50px;
+  background:linear-gradient(135deg,#171d31,#101827);
+  border:1px solid #263149;
+  border-radius:24px;
+  padding:35px 25px;
+  margin-bottom:28px;
 }
 
 .hero h1{
-font-size:46px;
-line-height:1.05;
-margin:0 0 22px;
+  font-size:clamp(30px,7vw,54px);
+  line-height:1.05;
+  margin-bottom:14px;
 }
 
 .hero p{
-font-size:22px;
-line-height:1.5;
-color:#aaa;
-margin-bottom:30px;
+  color:#9da8bc;
+  max-width:650px;
+  margin-bottom:20px;
 }
 
-.buttons{
-display:flex;
-gap:16px;
-flex-wrap:wrap;
-}
-
-.primary,
-.secondary{
-padding:16px 24px;
-border-radius:14px;
-font-size:17px;
-font-weight:800;
-cursor:pointer;
+.hero-buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .primary{
-background:white;
-color:#111;
-border:0;
+  background:#ff3158;
+  color:white;
+  padding:12px 17px;
+  border-radius:12px;
 }
 
 .secondary{
-background:#222;
-color:white;
-border:1px solid #555;
+  background:#252e42;
+  color:white;
+  padding:12px 17px;
+  border-radius:12px;
 }
 
-h2{
-font-size:34px;
-margin:45px 0 22px;
+section{
+  margin-top:30px;
 }
 
-.section-head{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:15px;
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
 }
 
-.create-btn{
-background:#111;
-color:white;
-border:0;
-padding:15px 20px;
-border-radius:14px;
-font-size:16px;
-font-weight:800;
+.section-title h2{
+  font-size:24px;
 }
 
-.meme-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-overflow:hidden;
+.small-btn{
+  background:#20293b;
+  color:white;
+  padding:9px 12px;
+  border-radius:10px;
 }
 
-.meme{
-background:#111;
-color:white;
-border-radius:24px;
-padding:28px;
-min-height:240px;
+.cards{
+  display:grid;
+  gap:14px;
 }
 
-.meme-icon{
-font-size:55px;
+.meme-card,.news-card,.community-card{
+  background:#111725;
+  border:1px solid #202a3d;
+  border-radius:17px;
+  padding:17px;
 }
 
-.meme h3{
-font-size:24px;
-line-height:1.25;
+.meme-card{
+  min-height:145px;
 }
 
-.user{
-color:#999;
-margin:18px 0;
+.meme-emoji{
+  font-size:42px;
+  margin-bottom:8px;
 }
 
-.reactions{
-display:flex;
-gap:10px;
-}
-
-.reaction{
-background:#222;
-border:1px solid #444;
-color:white;
-padding:10px 14px;
-border-radius:10px;
-}
-
-.status{
-background:#fff4c7;
-border:1px solid #eadb91;
-border-radius:14px;
-padding:16px;
-margin-bottom:35px;
-font-size:17px;
-}
-
-.grid{
-display:grid;
-gap:22px;
-}
-
-.card{
-background:white;
-border:1px solid #ddd;
-border-radius:18px;
-padding:28px;
-box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-
-.label{
-color:#b00000;
-font-weight:800;
-font-size:15px;
-margin-bottom:14px;
-}
-
-.title{
-font-size:24px;
-line-height:1.3;
-font-weight:800;
-margin-bottom:16px;
+.meme-text{
+  font-size:16px;
+  font-weight:700;
 }
 
 .meta{
-color:#777;
-font-weight:700;
-margin-bottom:22px;
+  color:#758198;
+  font-size:12px;
+  margin-top:8px;
+}
+
+.reactions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+.reactions button{
+  background:#1c2537;
+  color:#c9d2e3;
+  padding:7px 10px;
+  border-radius:9px;
+}
+
+.news-card{
+  cursor:pointer;
+}
+
+.news-card h3{
+  font-size:17px;
+  line-height:1.35;
+}
+
+.news-category{
+  display:inline-block;
+  color:#ff6b86;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.news-description{
+  color:#8d98ac;
+  font-size:13px;
+  margin-top:8px;
 }
 
 .read{
-display:inline-block;
-background:#111;
-color:white;
-padding:14px 20px;
-border-radius:9px;
-text-decoration:none;
-font-weight:700;
+  color:#ff4969;
+  font-weight:700;
+  font-size:13px;
+  margin-top:12px;
 }
 
-.loading,.empty,.error{
-background:white;
-border-radius:14px;
-padding:22px;
-color:#666;
-}
-
-.community{
-background:white;
-border-radius:24px;
-padding:28px;
-border:1px solid #ddd;
-}
-
-.post{
-background:#f5f5f5;
-border-radius:16px;
-padding:20px;
-margin-top:15px;
-}
-
-.post-name{
-font-weight:800;
-margin-bottom:8px;
+.community-card p{
+  color:#9ba6b9;
+  margin-top:5px;
 }
 
 footer{
-background:#08090b;
-color:#999;
-text-align:center;
-padding:30px 20px;
+  text-align:center;
+  color:#657087;
+  padding:30px 15px;
+  border-top:1px solid #1c2535;
+  font-size:12px;
 }
 
-/* LOGIN MODAL */
+/* MODAL */
 
 .modal{
-display:none;
-position:fixed;
-z-index:1000;
-inset:0;
-background:rgba(0,0,0,.75);
-align-items:center;
-justify-content:center;
-padding:20px;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
 }
 
 .modal-box{
-background:white;
-width:100%;
-max-width:420px;
-border-radius:24px;
-padding:30px;
-position:relative;
+  width:100%;
+  max-width:430px;
+  background:#111725;
+  border:1px solid #29344a;
+  border-radius:22px;
+  padding:24px;
+  max-height:90vh;
+  overflow-y:auto;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.modal-head h2{
+  font-size:23px;
 }
 
 .close{
-position:absolute;
-right:18px;
-top:15px;
-border:0;
-background:#eee;
-border-radius:50%;
-width:38px;
-height:38px;
-font-size:20px;
-cursor:pointer;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#252d3e;
+  color:white;
+  font-size:20px;
 }
 
-.modal-box h2{
-margin:0 0 8px;
-font-size:30px;
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:17px;
 }
 
-.modal-sub{
-color:#777;
-margin-bottom:25px;
+.tab{
+  flex:1;
+  padding:10px;
+  background:#1b2435;
+  color:#aab5c8;
+  border-radius:10px;
+}
+
+.tab.active{
+  background:#ff3158;
+  color:white;
 }
 
 .input{
-width:100%;
-padding:15px;
-border:1px solid #ccc;
-border-radius:12px;
-font-size:16px;
-margin-bottom:14px;
+  width:100%;
+  background:#0a0f19;
+  border:1px solid #303b50;
+  color:white;
+  padding:13px;
+  border-radius:11px;
+  margin-bottom:11px;
+  outline:none;
 }
 
-.auth-btn{
-width:100%;
-padding:15px;
-background:#111;
-color:white;
-border:0;
-border-radius:12px;
-font-size:17px;
-font-weight:800;
-cursor:pointer;
+.input:focus{
+  border-color:#ff3158;
+}
+
+.auth-action{
+  width:100%;
+  background:#ff3158;
+  color:white;
+  padding:13px;
+  border-radius:11px;
+  margin-top:4px;
 }
 
 .switch{
-text-align:center;
-margin-top:18px;
-color:#666;
+  text-align:center;
+  color:#8995a9;
+  font-size:13px;
+  margin-top:14px;
 }
 
 .switch span{
-color:#111;
-font-weight:800;
-cursor:pointer;
+  color:#ff5574;
+  cursor:pointer;
+  font-weight:700;
 }
 
-.message{
-margin-top:15px;
-padding:12px;
-background:#fff4c7;
-border-radius:10px;
-display:none;
+.note{
+  color:#768298;
+  font-size:11px;
+  margin-top:12px;
+  text-align:center;
+}
+
+#recaptcha-container{
+  margin:12px 0;
+}
+
+.otp-box{
+  display:none;
+}
+
+.status{
+  margin-top:10px;
+  font-size:13px;
+  text-align:center;
+  min-height:20px;
+}
+
+.status.success{
+  color:#76e69b;
+}
+
+.status.error{
+  color:#ff6c85;
 }
 
 /* CHAT */
 
-.chat-box{
-display:none;
-position:fixed;
-z-index:900;
-right:20px;
-bottom:20px;
-width:360px;
-max-width:calc(100% - 40px);
-background:white;
-border-radius:22px;
-box-shadow:0 10px 40px rgba(0,0,0,.3);
-overflow:hidden;
-}
-
-.chat-head{
-background:#08090b;
-color:white;
-padding:20px;
-display:flex;
-justify-content:space-between;
-font-weight:800;
-}
-
-.chat-close{
-background:#333;
-border:0;
-color:white;
-border-radius:50%;
-width:34px;
-height:34px;
-}
-
-.chat-body{
-height:300px;
-padding:15px;
-overflow-y:auto;
-background:#f3f4f6;
+.chat-messages{
+  background:#0a0f19;
+  border:1px solid #202a3d;
+  border-radius:15px;
+  padding:12px;
+  height:280px;
+  overflow-y:auto;
+  margin-bottom:12px;
 }
 
 .chat-msg{
-background:#111;
-color:white;
-padding:12px 15px;
-border-radius:14px;
-margin-bottom:10px;
-max-width:85%;
+  background:#192235;
+  padding:9px 11px;
+  border-radius:11px;
+  margin-bottom:8px;
+  font-size:13px;
+}
+
+.chat-msg b{
+  color:#ff6681;
+}
+
+.chat-input-row{
+  display:flex;
+  gap:8px;
 }
 
 .chat-input{
-display:flex;
-padding:12px;
-gap:8px;
+  flex:1;
+  margin:0;
 }
 
-.chat-input input{
-flex:1;
-padding:12px;
-border:1px solid #ccc;
-border-radius:10px;
+.chat-send{
+  background:#ff3158;
+  color:white;
+  border-radius:10px;
+  padding:0 15px;
 }
 
-.chat-input button{
-background:#111;
-color:white;
-border:0;
-border-radius:10px;
-padding:0 16px;
-font-weight:800;
+.limit-box{
+  background:#332b16;
+  border:1px solid #80681e;
+  color:#ffd95a;
+  padding:12px;
+  border-radius:12px;
+  margin-top:10px;
+  font-size:13px;
 }
 
-@media(max-width:600px){
-
-header{
-padding:20px 18px 0;
+.hidden{
+  display:none!important;
 }
 
-.logo{
-font-size:34px;
+.loading{
+  color:#7e8aa0;
+  padding:20px 0;
+  text-align:center;
 }
 
-.top{
-align-items:flex-start;
+@media(min-width:700px){
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
-.login-btn{
-padding:12px 18px;
-}
-
-nav{
-gap:24px;
-}
-
-.wrap{
-padding:28px 16px 50px;
-}
-
-.hero{
-padding:35px 26px;
-border-radius:26px;
-}
-
-.hero h1{
-font-size:38px;
-}
-
-.hero p{
-font-size:19px;
-}
-
-.meme-grid{
-grid-template-columns:1fr;
-}
-
-.card{
-padding:24px 20px;
-}
-
-.title{
-font-size:22px;
-}
-
-.chat-box{
-right:10px;
-bottom:10px;
-max-width:calc(100% - 20px);
-}
+@media(min-width:950px){
+  .cards{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
 </style>
 </head>
@@ -502,773 +474,707 @@ max-width:calc(100% - 20px);
 <body>
 
 <header>
+  <div class="header-row">
 
-<div class="top">
+    <div>
+      <div class="logo">two4nine</div>
+      <div class="tagline">News • Memes • People</div>
+    </div>
 
-<div>
-<div class="logo">two4nine</div>
-<div class="tagline">News • Memes • People</div>
-</div>
+    <div id="loggedOut">
+      <button class="login-btn" onclick="openLogin()">Login</button>
+    </div>
 
-<button class="login-btn" onclick="openLogin()">Login</button>
+    <div id="loggedIn" class="user-box">
+      <span id="userName" class="user-name"></span>
+      <button class="logout-btn" onclick="logoutUser()">Logout</button>
+    </div>
 
-</div>
-
-<nav>
-<a href="#memes">😂 Memes</a>
-<a href="#trending">🔥 Trending</a>
-<a href="#news">📰 News</a>
-<a href="#community">💬 Community</a>
-</nav>
-
+  </div>
 </header>
 
-<div class="breaking">
-BREAKING • <span id="breakingText">Loading fresh headlines...</span>
+<nav>
+  <a href="#memes">😂 Memes</a>
+  <a href="#trending">🔥 Trending</a>
+  <a href="#news">📰 News</a>
+  <a href="#community">💬 Community</a>
+</nav>
+
+<div class="ticker">
+  🔴 BREAKING • <span id="tickerText">Loading fresh headlines...</span>
 </div>
 
-<main class="wrap">
-
-<div class="hero">
-
-<h1>
-Internet, News & People<br>
-— All in One Place.
-</h1>
-
-<p>
-Laugh at what's happening. Understand what's happening.
-Then talk about it with people.
-</p>
-
-<div class="buttons">
-
-<button class="primary" onclick="document.getElementById('memes').scrollIntoView()">
-😂 Explore Memes
-</button>
-
-<button class="secondary" onclick="openChat()">
-💬 Anonymous Chat
-</button>
-
-</div>
-
-</div>
-
-
-<section id="memes">
-
-<div class="section-head">
-
-<h2>😂 Memes</h2>
-
-<button class="create-btn" onclick="openLogin()">
-+ Create Meme
-</button>
-
-</div>
-
-<div class="meme-grid">
-
-<div class="meme">
-
-<div class="meme-icon">😂</div>
-
-<h3>
-When you open the news just for 2 minutes...
-</h3>
-
-<div class="user">
-👤 AnonymousUser
-</div>
-
-<div class="reactions">
-<div class="reaction">❤️ 24</div>
-<div class="reaction">😂 8</div>
-<div class="reaction">💬 5</div>
-</div>
-
-</div>
-
-
-<div class="meme">
-
-<div class="meme-icon">🌍</div>
-
-<h3>
-World news be like:
-"You thought today would be peaceful?"
-</h3>
-
-<div class="user">
-👤 NightOwl
-</div>
-
-<div class="reactions">
-<div class="reaction">❤️ 41</div>
-<div class="reaction">😂 16</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section id="trending">
-
-<h2>🔥 Trending</h2>
-
-<div class="community">
-
-<div class="post">
-<div class="post-name">🔥 Trending right now</div>
-AI, world events, sports and internet discussions will appear here.
-</div>
-
-<div class="post">
-<div class="post-name">💬 Most discussed</div>
-Community activity will decide what becomes trending.
-</div>
-
-</div>
-
-</section>
-
-
-<section id="news">
-
-<h2>📰 Latest News</h2>
-
-<div class="status" id="status">
-🟡 Connecting to live news...
-</div>
-
-<div class="grid" id="latestGrid">
-<div class="loading">Loading fresh news...</div>
-</div>
-
-
-<h2>🌍 World</h2>
-<div class="grid" id="worldGrid">
-<div class="loading">Loading...</div>
-</div>
-
-
-<h2>⚔️ War & Conflict</h2>
-<div class="grid" id="warGrid">
-<div class="loading">Loading...</div>
-</div>
-
-
-<h2>🏆 Sports</h2>
-<div class="grid" id="sportsGrid">
-<div class="loading">Loading...</div>
-</div>
-
-
-<h2>🤖 AI & Technology</h2>
-<div class="grid" id="techGrid">
-<div class="loading">Loading...</div>
-</div>
-
-
-<h2>💼 Business</h2>
-<div class="grid" id="businessGrid">
-<div class="loading">Loading...</div>
-</div>
-
-</section>
-
-
-<section id="community">
-
-<h2>💬 Community</h2>
-
-<div class="community">
-
-<h3>Talk about what's happening.</h3>
-
-<p>
-Join discussions, share opinions, react to memes
-and meet people with similar interests.
-</p>
-
-<button class="create-btn" onclick="openLogin()">
-💬 Join Community
-</button>
-
-<div class="post">
-<div class="post-name">👤 AnonymousUser</div>
-What do you think about today's biggest news?
-</div>
-
-<div class="post">
-<div class="post-name">👤 NightOwl</div>
-Sports, memes or world news — what's your favourite?
-</div>
-
-</div>
-
-</section>
+<main>
+
+  <div class="hero">
+    <h1>Internet, News & People — All in One Place.</h1>
+
+    <p>
+      News samjho, memes enjoy karo aur logon se connect karo.
+      Simple. Fast. For every generation.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="primary" onclick="document.getElementById('memes').scrollIntoView()">
+        😂 Explore Memes
+      </button>
+
+      <button class="secondary" onclick="openChat()">
+        💬 Anonymous Chat
+      </button>
+    </div>
+  </div>
+
+
+  <!-- MEMES -->
+
+  <section id="memes">
+    <div class="section-title">
+      <h2>😂 Memes</h2>
+      <button class="small-btn" onclick="showLoginIfNeeded()">
+        + Create Meme
+      </button>
+    </div>
+
+    <div class="cards">
+
+      <div class="meme-card">
+        <div class="meme-emoji">😎</div>
+        <div class="meme-text">
+          Me after saying “bas 5 minute phone chalaunga”
+        </div>
+        <div class="meta">@anonymous</div>
+        <div class="reactions">
+          <button>😂 24</button>
+          <button>❤️ 9</button>
+          <button>🔥 17</button>
+        </div>
+      </div>
+
+      <div class="meme-card">
+        <div class="meme-emoji">📱</div>
+        <div class="meme-text">
+          Battery 1% — suddenly life becomes very serious.
+        </div>
+        <div class="meta">@nightowl</div>
+        <div class="reactions">
+          <button>😂 31</button>
+          <button>❤️ 12</button>
+          <button>🔥 20</button>
+        </div>
+      </div>
+
+      <div class="meme-card">
+        <div class="meme-emoji">🧠</div>
+        <div class="meme-text">
+          Brain at 3 AM: let's remember that embarrassing moment from 2018.
+        </div>
+        <div class="meta">@randomguy</div>
+        <div class="reactions">
+          <button>😂 45</button>
+          <button>❤️ 15</button>
+          <button>🔥 26</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- NEWS -->
+
+  <section id="news">
+    <div class="section-title">
+      <h2>📰 Fresh News</h2>
+      <button class="small-btn" onclick="loadNews()">↻ Refresh</button>
+    </div>
+
+    <div id="newsList" class="cards">
+      <div class="loading">Loading fresh news...</div>
+    </div>
+  </section>
+
+
+  <!-- COMMUNITY -->
+
+  <section id="community">
+    <div class="section-title">
+      <h2>💬 Community</h2>
+      <button class="small-btn" onclick="openChat()">Join Chat</button>
+    </div>
+
+    <div class="community-card">
+      <h3>🌎 Everyone has a place here.</h3>
+      <p>
+        Share your thoughts, react to posts and meet people.
+        Respect everyone. Block/report features will be added with the community backend.
+      </p>
+    </div>
+
+    <br>
+
+    <div class="community-card">
+      <h3>❤️ Different Generations. One Place.</h3>
+      <p>
+        Same news, different explanations — simple for Grandpa,
+        practical for Dad, and 60-second style for the next generation.
+      </p>
+    </div>
+  </section>
 
 </main>
 
-
 <footer>
-two4nine © 2026 • News • Memes • People
+  © 2026 two4nine • News • Memes • People
 </footer>
 
 
 <!-- LOGIN MODAL -->
 
-<div class="modal" id="loginModal">
+<div id="loginModal" class="modal">
 
-<div class="modal-box">
+  <div class="modal-box">
 
-<button class="close" onclick="closeLogin()">×</button>
+    <div class="modal-head">
+      <h2>🔐 Login to two4nine</h2>
+      <button class="close" onclick="closeLogin()">×</button>
+    </div>
 
-<h2 id="authTitle">Login</h2>
+    <div class="tabs">
+      <button id="emailTab" class="tab active" onclick="showEmailAuth()">
+        📧 Email
+      </button>
 
-<div class="modal-sub" id="authSub">
-Welcome back to two4nine.
+      <button id="phoneTab" class="tab" onclick="showPhoneAuth()">
+        📱 Phone
+      </button>
+    </div>
+
+
+    <!-- EMAIL AUTH -->
+
+    <div id="emailAuth">
+
+      <input
+        id="email"
+        class="input"
+        type="email"
+        placeholder="Email address"
+        autocomplete="email"
+      >
+
+      <input
+        id="password"
+        class="input"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      >
+
+      <button class="auth-action" onclick="emailLogin()">
+        Continue
+      </button>
+
+      <div class="switch">
+        Don't have an account?
+        <span onclick="emailSignup()">Create Account</span>
+      </div>
+
+      <div class="note">
+        By continuing you agree to use two4nine respectfully.
+      </div>
+
+    </div>
+
+
+    <!-- PHONE AUTH -->
+
+    <div id="phoneAuth" class="hidden">
+
+      <input
+        id="phoneNumber"
+        class="input"
+        type="tel"
+        placeholder="+91 9876543210"
+      >
+
+      <div id="recaptcha-container"></div>
+
+      <button class="auth-action" onclick="sendOTP()">
+        Send OTP
+      </button>
+
+      <div id="otpBox" class="otp-box">
+
+        <br>
+
+        <input
+          id="otp"
+          class="input"
+          type="text"
+          inputmode="numeric"
+          maxlength="6"
+          placeholder="Enter 6-digit OTP"
+        >
+
+        <button class="auth-action" onclick="verifyOTP()">
+          Verify OTP
+        </button>
+
+      </div>
+
+      <div class="note">
+        Phone verification uses SMS. Firebase Spark projects have daily SMS limits.
+      </div>
+
+    </div>
+
+
+    <div id="authStatus" class="status"></div>
+
+  </div>
+
 </div>
 
-<input
-class="input"
-id="username"
-placeholder="Username"
-style="display:none;"
->
 
-<input
-class="input"
-id="email"
-type="email"
-placeholder="Email"
->
+<!-- CHAT MODAL -->
 
-<input
-class="input"
-id="password"
-type="password"
-placeholder="Password"
->
+<div id="chatModal" class="modal">
 
-<button class="auth-btn" onclick="handleAuth()">
-Continue
-</button>
+  <div class="modal-box">
 
-<div class="message" id="authMessage"></div>
+    <div class="modal-head">
+      <h2>💬 Anonymous Chat</h2>
+      <button class="close" onclick="closeChat()">×</button>
+    </div>
 
-<div class="switch">
+    <div id="chatMessages" class="chat-messages">
 
-<span id="switchText">
-Don't have an account? Sign up
-</span>
+      <div class="chat-msg">
+        <b>@anonymous:</b> Hello 👋
+      </div>
 
-</div>
+      <div class="chat-msg">
+        <b>@nightowl:</b> What's trending today?
+      </div>
 
-</div>
+      <div class="chat-msg">
+        <b>@random:</b> two4nine looks interesting 🔥
+      </div>
 
-</div>
+    </div>
 
+    <div id="chatLimit" class="limit-box hidden">
+      You've used your 5 anonymous messages.
+      Login to continue chatting.
+    </div>
 
-<!-- CHAT -->
+    <div class="chat-input-row">
 
-<div class="chat-box" id="chatBox">
+      <input
+        id="chatInput"
+        class="input chat-input"
+        placeholder="Write anonymously..."
+        maxlength="250"
+      >
 
-<div class="chat-head">
+      <button class="chat-send" onclick="sendAnonymousMessage()">
+        Send
+      </button>
 
-<span>💬 Anonymous Chat</span>
+    </div>
 
-<button class="chat-close" onclick="closeChat()">×</button>
+    <br>
 
-</div>
+    <button class="secondary" style="width:100%" onclick="openLogin()">
+      🔐 Login to unlock full chat
+    </button>
 
-<div class="chat-body" id="chatBody">
-
-<div class="chat-msg">
-👋 Welcome to two4nine!
-</div>
-
-<div class="chat-msg">
-Be respectful. No harassment or abuse.
-</div>
+  </div>
 
 </div>
 
-<div class="chat-input">
 
-<input
-id="chatInput"
-placeholder="Write a message..."
->
+<!-- FIREBASE -->
 
-<button onclick="sendMessage()">Send</button>
-
-</div>
-
-</div>
-
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
 <script>
 
-const MAX_AGE_HOURS = 24;
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
-const feeds = {
-
-world:
-"https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en",
-
-war:
-"https://news.google.com/rss/search?q=war+conflict&hl=en-US&gl=US&ceid=US:en",
-
-sports:
-"https://news.google.com/rss/search?q=sports+latest&hl=en-US&gl=US&ceid=US:en",
-
-tech:
-"https://news.google.com/rss/search?q=AI+technology&hl=en-US&gl=US&ceid=US:en",
-
-business:
-"https://news.google.com/rss/search?q=business+economy&hl=en-US&gl=US&ceid=US:en"
-
+const firebaseConfig = {
+  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+  authDomain: "two4nine-7a29d.firebaseapp.com",
+  projectId: "two4nine-7a29d",
+  storageBucket: "two4nine-7a29d.firebasestorage.app",
+  messagingSenderId: "573418811789",
+  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
+  measurementId: "G-V2X4YK8NFG"
 };
 
+firebase.initializeApp(firebaseConfig);
 
-function escapeHTML(text){
-
-return String(text || "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
+const auth = firebase.auth();
 
 
-function cleanText(text){
+/* =========================
+   LOGIN STATE
+========================= */
 
-const div=document.createElement("div");
+auth.onAuthStateChanged(function(user){
 
-div.innerHTML=text || "";
+  if(user){
 
-return div.textContent
-.replace(/\s+/g," ")
-.trim();
+    document.getElementById("loggedOut").style.display = "none";
+    document.getElementById("loggedIn").style.display = "flex";
 
-}
+    let name = user.email || user.phoneNumber || "User";
 
+    document.getElementById("userName").textContent = "👤 " + name;
 
-function isFresh(date){
+  }else{
 
-const age=(Date.now()-date.getTime())/(1000*60*60);
+    document.getElementById("loggedOut").style.display = "block";
+    document.getElementById("loggedIn").style.display = "none";
 
-return age>=0 && age<=MAX_AGE_HOURS;
-
-}
-
-
-function formatDate(date){
-
-return new Intl.DateTimeFormat("en-IN",{
-day:"2-digit",
-month:"short",
-hour:"2-digit",
-minute:"2-digit"
-}).format(date);
-
-}
-
-
-function removeDuplicates(items){
-
-const seen=new Set();
-
-return items.filter(item=>{
-
-const key=item.title
-.toLowerCase()
-.replace(/[^a-z0-9]/g,"")
-.slice(0,120);
-
-if(seen.has(key)) return false;
-
-seen.add(key);
-
-return true;
+  }
 
 });
 
-}
 
-
-async function getFeed(url){
-
-const api=
-"https://api.rss2json.com/v1/api.json?rss_url="
-+encodeURIComponent(url)
-+"&t="+Date.now();
-
-const response=await fetch(api,{
-cache:"no-store"
-});
-
-if(!response.ok){
-throw new Error("Feed failed");
-}
-
-const data=await response.json();
-
-if(data.status!=="ok"){
-throw new Error("RSS error");
-}
-
-return data.items
-.map(item=>({
-
-title:cleanText(item.title),
-
-link:item.link,
-
-source:
-cleanText(
-item.author ||
-item.source ||
-"News source"
-),
-
-date:new Date(item.pubDate)
-
-}))
-.filter(item=>
-item.title &&
-item.link &&
-!isNaN(item.date.getTime()) &&
-isFresh(item.date)
-);
-
-}
-
-
-function card(item,label){
-
-return `
-
-<article class="card">
-
-<div class="label">
-${escapeHTML(label)}
-</div>
-
-<div class="title">
-${escapeHTML(item.title)}
-</div>
-
-<div class="meta">
-${escapeHTML(item.source)}
-•
-${formatDate(item.date)}
-</div>
-
-<a
-class="read"
-href="${escapeHTML(item.link)}"
-target="_blank"
-rel="noopener noreferrer">
-
-Read Full Story →
-
-</a>
-
-</article>
-
-`;
-
-}
-
-
-function showEmpty(el){
-
-el.innerHTML=
-'<div class="empty">No fresh news available right now.</div>';
-
-}
-
-
-function showError(el){
-
-el.innerHTML=
-'<div class="error">Live feed temporarily unavailable. Trying again soon...</div>';
-
-}
-
-
-async function loadCategory(key,label){
-
-const el=document.getElementById(key+"Grid");
-
-el.innerHTML=
-'<div class="loading">Loading fresh news...</div>';
-
-try{
-
-let items=await getFeed(feeds[key]);
-
-items=removeDuplicates(items)
-.sort((a,b)=>b.date-a.date);
-
-if(!items.length){
-
-showEmpty(el);
-
-return [];
-
-}
-
-el.innerHTML=
-items.slice(0,5)
-.map(item=>card(item,label))
-.join("");
-
-return items;
-
-}
-catch(error){
-
-console.log(error);
-
-showError(el);
-
-return [];
-
-}
-
-}
-
-
-async function loadNews(){
-
-const status=document.getElementById("status");
-
-status.textContent="🟡 Updating fresh news...";
-
-const results=await Promise.all([
-
-loadCategory("world","WORLD"),
-
-loadCategory("war","WAR & CONFLICT"),
-
-loadCategory("sports","SPORTS"),
-
-loadCategory("tech","AI & TECHNOLOGY"),
-
-loadCategory("business","BUSINESS")
-
-]);
-
-let all=results.flat();
-
-all=removeDuplicates(all)
-.sort((a,b)=>b.date-a.date);
-
-const latest=document.getElementById("latestGrid");
-
-if(!all.length){
-
-showEmpty(latest);
-
-document.getElementById("breakingText")
-.textContent="No fresh headlines available.";
-
-}
-else{
-
-latest.innerHTML=
-all.slice(0,8)
-.map(item=>card(item,"LATEST NEWS"))
-.join("");
-
-document.getElementById("breakingText")
-.textContent=
-all.slice(0,4)
-.map(item=>item.title)
-.join(" • ");
-
-}
-
-status.textContent=
-"🟢 Live news connected • Updated "
-+
-new Date().toLocaleTimeString("en-IN")
-+
-" • Last 24 hours only";
-
-}
-
-
-loadNews();
-
-setInterval(loadNews,5*60*1000);
-
-
-/* LOGIN */
-
-let signupMode=false;
+/* =========================
+   LOGIN MODAL
+========================= */
 
 function openLogin(){
 
-document.getElementById("loginModal").style.display="flex";
+  document.getElementById("loginModal").style.display = "flex";
+
+  document.getElementById("chatModal").style.display = "none";
+
+  clearStatus();
 
 }
 
 function closeLogin(){
 
-document.getElementById("loginModal").style.display="none";
+  document.getElementById("loginModal").style.display = "none";
+
+}
+
+function clearStatus(){
+
+  const el = document.getElementById("authStatus");
+
+  el.textContent = "";
+  el.className = "status";
 
 }
 
 
-document.getElementById("switchText").onclick=function(){
+/* =========================
+   EMAIL TAB
+========================= */
 
-signupMode=!signupMode;
+function showEmailAuth(){
 
-document.getElementById("authTitle").textContent=
-signupMode ? "Create Account" : "Login";
+  document.getElementById("emailAuth").classList.remove("hidden");
+  document.getElementById("phoneAuth").classList.add("hidden");
 
-document.getElementById("authSub").textContent=
-signupMode
-? "Create your two4nine account."
-: "Welcome back to two4nine.";
+  document.getElementById("emailTab").classList.add("active");
+  document.getElementById("phoneTab").classList.remove("active");
 
-document.getElementById("username").style.display=
-signupMode ? "block" : "none";
-
-document.getElementById("switchText").textContent=
-signupMode
-? "Already have an account? Login"
-: "Don't have an account? Sign up";
-
-};
-
-
-function handleAuth(){
-
-const username=document.getElementById("username").value.trim();
-
-const email=document.getElementById("email").value.trim();
-
-const password=document.getElementById("password").value;
-
-const message=document.getElementById("authMessage");
-
-
-if(signupMode && !username){
-
-showAuthMessage("Please enter a username.");
-
-return;
-
-}
-
-if(!email || !password){
-
-showAuthMessage("Please enter email and password.");
-
-return;
+  clearStatus();
 
 }
 
 
-/*
-DEMO ONLY
+/* =========================
+   PHONE TAB
+========================= */
 
-This is NOT secure authentication.
-Real login will be connected later
-with Firebase Authentication.
-*/
+let recaptchaVerifier = null;
+let confirmationResult = null;
 
-if(signupMode){
+function showPhoneAuth(){
 
-localStorage.setItem(
-"two4nine_demo_user",
-username
-);
+  document.getElementById("emailAuth").classList.add("hidden");
+  document.getElementById("phoneAuth").classList.remove("hidden");
 
-showAuthMessage(
-"Account demo created! Real secure login will be connected next."
-);
+  document.getElementById("emailTab").classList.remove("active");
+  document.getElementById("phoneTab").classList.add("active");
 
-}
-else{
+  clearStatus();
 
-localStorage.setItem(
-"two4nine_demo_user",
-email.split("@")[0]
-);
-
-showAuthMessage(
-"Demo login successful!"
-);
-
-}
+  setupRecaptcha();
 
 }
 
 
-function showAuthMessage(text){
+function setupRecaptcha(){
 
-const message=document.getElementById("authMessage");
+  if(recaptchaVerifier) return;
 
-message.textContent=text;
+  try{
 
-message.style.display="block";
+    recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size:"normal"
+      },
+      auth
+    );
+
+    recaptchaVerifier.render();
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+
+/* =========================
+   EMAIL LOGIN
+========================= */
+
+function emailLogin(){
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if(!email || !password){
+
+    showStatus("Email aur password dono bharna hai.",true);
+    return;
+
+  }
+
+  showStatus("Logging in...");
+
+  auth.signInWithEmailAndPassword(email,password)
+
+  .then(function(){
+
+    showStatus("Login successful ✅");
+
+    setTimeout(closeLogin,700);
+
+  })
+
+  .catch(function(error){
+
+    showStatus(getFirebaseError(error),true);
+
+  });
 
 }
 
 
-/* CHAT */
+/* =========================
+   EMAIL SIGNUP
+========================= */
 
-function openChat(){
+function emailSignup(){
 
-document.getElementById("chatBox").style.display="block";
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if(!email || !password){
+
+    showStatus("Account banane ke liye email aur password bharo.",true);
+    return;
+
+  }
+
+  if(password.length < 6){
+
+    showStatus("Password kam se kam 6 characters ka hona chahiye.",true);
+    return;
+
+  }
+
+  showStatus("Account create ho raha hai...");
+
+  auth.createUserWithEmailAndPassword(email,password)
+
+  .then(function(){
+
+    showStatus("Account created successfully ✅");
+
+    setTimeout(closeLogin,800);
+
+  })
+
+  .catch(function(error){
+
+    showStatus(getFirebaseError(error),true);
+
+  });
 
 }
 
-function closeChat(){
 
-document.getElementById("chatBox").style.display="none";
+/* =========================
+   PHONE OTP
+========================= */
+
+function sendOTP(){
+
+  const phone = document.getElementById("phoneNumber").value.trim();
+
+  if(!phone){
+
+    showStatus("Phone number enter karo.",true);
+    return;
+
+  }
+
+  if(!phone.startsWith("+")){
+
+    showStatus("Country code ke saath number likho. Example: +919876543210",true);
+    return;
+
+  }
+
+  setupRecaptcha();
+
+  showStatus("OTP bheja ja raha hai...");
+
+  auth.signInWithPhoneNumber(phone,recaptchaVerifier)
+
+  .then(function(result){
+
+    confirmationResult = result;
+
+    document.getElementById("otpBox").style.display = "block";
+
+    showStatus("OTP bhej diya gaya 📱✅");
+
+  })
+
+  .catch(function(error){
+
+    showStatus(getFirebaseError(error),true);
+
+    if(recaptchaVerifier){
+
+      try{
+        recaptchaVerifier.clear();
+      }catch(e){}
+
+      recaptchaVerifier = null;
+
+    }
+
+  });
 
 }
 
 
-function sendMessage(){
+/* =========================
+   VERIFY OTP
+========================= */
 
-const input=document.getElementById("chatInput");
+function verifyOTP(){
 
-const text=input.value.trim();
+  const code = document.getElementById("otp").value.trim();
 
-if(!text) return;
+  if(!confirmationResult){
 
-const msg=document.createElement("div");
+    showStatus("Pehle OTP send karo.",true);
+    return;
 
-msg.className="chat-msg";
+  }
 
-msg.textContent="You: "+text;
+  if(code.length !== 6){
 
-document.getElementById("chatBody").appendChild(msg);
+    showStatus("6 digit OTP enter karo.",true);
+    return;
 
-input.value="";
+  }
 
-const body=document.getElementById("chatBody");
+  showStatus("OTP verify ho raha hai...");
 
-body.scrollTop=body.scrollHeight;
+  confirmationResult.confirm(code)
+
+  .then(function(){
+
+    showStatus("Phone login successful ✅");
+
+    setTimeout(closeLogin,700);
+
+  })
+
+  .catch(function(error){
+
+    showStatus(getFirebaseError(error),true);
+
+  });
 
 }
 
-</script>
 
-</body>
-   </html>
+/* =========================
+   LOGOUT
+========================= */
+
+function logoutUser(){
+
+  auth.signOut()
+
+  .then(function(){
+
+    alert("Logout successful 👋");
+
+  })
+
+  .catch(function(error){
+
+    alert(error.message);
+
+  });
+
+}
+
+
+/* =========================
+   FIREBASE ERRORS
+========================= */
+
+function getFirebaseError(error){
+
+  const code = error.code || "";
+
+  if(code.includes("invalid-email"))
+    return "Email address galat hai.";
+
+  if(code.includes("user-not-found"))
+    return "Is email se account nahi mila.";
+
+  if(code.includes("wrong-password"))
+    return "Password galat hai.";
+
+  if(code.includes("email-already-in-use"))
+    return "Is email se account already bana hua hai.";
+
+  if(code.includes("weak-password"))
+    return "Password kam se kam 6 characters ka rakho.";
+
+  if(code.includes("too-many-requests"))
+    return "Bahut attempts ho gaye. Thodi der baad try karo.";
+
+  if(code.includes("invalid-phone-number"))
+    return "Phone number galat format me hai.";
+
+  if(code.includes("quota-exceeded"))
+    return "Firebase SMS daily limit complete ho gayi hai.";
+
+  if(code.includes("captcha-check-failed"))
+    return "reCAPTCHA 
