@@ -7,28 +7,21 @@
 <title>two4nine — News, Memes & Community</title>
 
 <style>
+*{box-sizing:border-box}
 
-*{
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#f3f4f6;
 color:#111;
 }
 
-/* HEADER */
-
 header{
 background:#08090b;
 color:white;
-padding:22px 18px 0;
+padding:18px 16px 0;
 position:sticky;
 top:0;
 z-index:100;
@@ -38,51 +31,45 @@ z-index:100;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:15px;
 }
 
 .logo{
-font-size:32px;
+font-size:30px;
 font-weight:900;
-letter-spacing:-1px;
-}
-
-.login-btn{
-background:white;
-color:#111;
-border:0;
-padding:10px 16px;
-border-radius:10px;
-font-weight:800;
-cursor:pointer;
 }
 
 .tagline{
 color:#999;
+font-size:13px;
+margin-top:4px;
+}
+
+.login-btn{
+border:0;
+background:white;
+color:#111;
+padding:10px 16px;
+border-radius:10px;
+font-weight:800;
 font-size:14px;
-margin-top:5px;
 }
 
 nav{
 display:flex;
 gap:22px;
 overflow-x:auto;
-padding:20px 0 14px;
+padding:18px 0 13px;
 white-space:nowrap;
 }
 
-nav::-webkit-scrollbar{
-display:none;
-}
+nav::-webkit-scrollbar{display:none}
 
 nav a{
 color:#ddd;
 text-decoration:none;
 font-size:15px;
-font-weight:700;
+font-weight:800;
 }
-
-/* BREAKING */
 
 .breaking{
 background:#d40000;
@@ -94,34 +81,32 @@ overflow:hidden;
 font-size:14px;
 }
 
-/* MAIN */
-
 .wrap{
 max-width:1050px;
 margin:auto;
-padding:22px 16px 60px;
+padding:20px 16px 60px;
 }
 
 /* HERO */
 
 .hero{
-background:#08090b;
+background:#090a0c;
 color:white;
-border-radius:20px;
-padding:25px 20px;
-margin-bottom:22px;
+border-radius:22px;
+padding:26px 20px;
+margin-bottom:28px;
 }
 
 .hero h1{
 font-size:34px;
-line-height:1.05;
-margin:0 0 10px;
+line-height:1.08;
+margin:0 0 12px;
 }
 
 .hero p{
 color:#aaa;
-margin:0 0 20px;
 line-height:1.5;
+margin:0 0 20px;
 }
 
 .hero-buttons{
@@ -131,35 +116,36 @@ flex-wrap:wrap;
 }
 
 .hero-btn{
-display:inline-block;
-text-decoration:none;
+border:0;
 padding:12px 16px;
 border-radius:10px;
-font-weight:800;
+font-weight:900;
+text-decoration:none;
+display:inline-block;
 }
 
-.hero-btn.primary{
+.hero-btn.white{
 background:white;
 color:#111;
 }
 
-.hero-btn.secondary{
+.hero-btn.dark{
 background:#222;
 color:white;
 border:1px solid #444;
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section{
-margin-top:30px;
+margin-top:32px;
 }
 
 .section-head{
 display:flex;
 align-items:center;
 justify-content:space-between;
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
 .section-title{
@@ -171,7 +157,7 @@ margin:0;
 .section-link{
 font-size:13px;
 font-weight:800;
-color:#666;
+color:#777;
 }
 
 /* MEMES */
@@ -183,25 +169,22 @@ overflow-x:auto;
 padding-bottom:8px;
 }
 
-.meme-scroll::-webkit-scrollbar{
-display:none;
-}
+.meme-scroll::-webkit-scrollbar{display:none}
 
 .meme{
 min-width:235px;
 background:#111;
 color:white;
 border-radius:18px;
-padding:20px;
-min-height:205px;
+padding:19px;
+min-height:235px;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
-box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .meme-icon{
-font-size:48px;
+font-size:46px;
 }
 
 .meme-text{
@@ -210,10 +193,59 @@ font-weight:900;
 line-height:1.25;
 }
 
-.meme-meta{
+.meme-user{
 font-size:12px;
 color:#aaa;
 margin-top:12px;
+}
+
+.meme-actions{
+display:flex;
+gap:7px;
+margin-top:14px;
+}
+
+.meme-actions button{
+background:#222;
+color:white;
+border:1px solid #444;
+border-radius:8px;
+padding:8px 10px;
+font-weight:800;
+}
+
+/* CREATE MEME */
+
+.create-box{
+background:white;
+border:1px solid #ddd;
+border-radius:18px;
+padding:18px;
+margin-top:15px;
+}
+
+.create-box input,
+.create-box textarea{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+margin-bottom:10px;
+font-family:inherit;
+}
+
+.create-box textarea{
+min-height:80px;
+resize:vertical;
+}
+
+.create-btn{
+background:#111;
+color:white;
+border:0;
+padding:11px 16px;
+border-radius:9px;
+font-weight:900;
 }
 
 /* TRENDING */
@@ -228,119 +260,32 @@ gap:12px;
 background:white;
 border:1px solid #ddd;
 border-radius:15px;
-padding:17px;
+padding:16px;
 }
 
 .trend-number{
+color:#d40000;
 font-size:13px;
 font-weight:900;
-color:#d40000;
 }
 
 .trend-title{
 font-size:17px;
-font-weight:800;
-margin-top:7px;
-line-height:1.3;
-}
-
-/* COMMUNITY */
-
-.community-box{
-background:white;
-border:1px solid #ddd;
-border-radius:18px;
-padding:18px;
-}
-
-.post-input{
-background:#f3f4f6;
-border-radius:12px;
-padding:15px;
-color:#777;
-margin-bottom:14px;
-}
-
-.community-actions{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-}
-
-.action-btn{
-background:#111;
-color:white;
-border:0;
-border-radius:9px;
-padding:10px 14px;
-font-weight:800;
-}
-
-.action-btn.light{
-background:#eee;
-color:#222;
-}
-
-/* PEOPLE */
-
-.people{
-display:flex;
-gap:12px;
-overflow-x:auto;
-}
-
-.person{
-min-width:160px;
-background:white;
-border:1px solid #ddd;
-border-radius:16px;
-padding:16px;
-}
-
-.avatar{
-width:50px;
-height:50px;
-border-radius:50%;
-background:#ddd;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:24px;
-margin-bottom:10px;
-}
-
-.person-name{
 font-weight:900;
+line-height:1.3;
+margin-top:7px;
 }
 
-.person-info{
-font-size:12px;
-color:#777;
-margin:5px 0 12px;
-}
-
-.friend-btn{
-width:100%;
-border:0;
-background:#111;
-color:white;
-padding:9px;
-border-radius:8px;
-font-weight:800;
-}
-
-/* STATUS */
+/* NEWS */
 
 .status{
 background:#fff4c7;
 border:1px solid #eadb91;
 border-radius:14px;
 padding:13px;
-margin-top:25px;
+margin-top:28px;
 font-size:14px;
 }
-
-/* NEWS */
 
 .news-grid{
 display:grid;
@@ -350,7 +295,7 @@ gap:14px;
 .card{
 background:white;
 border:1px solid #ddd;
-border-radius:16px;
+border-radius:17px;
 padding:20px;
 box-shadow:0 2px 8px rgba(0,0,0,.04);
 }
@@ -387,15 +332,241 @@ font-size:13px;
 font-weight:800;
 }
 
-/* LOADING */
-
-.loading,
-.empty,
-.error{
+.loading,.empty,.error{
 background:white;
 border-radius:14px;
 padding:20px;
 color:#666;
+}
+
+/* COMMUNITY */
+
+.community-box{
+background:white;
+border:1px solid #ddd;
+border-radius:18px;
+padding:18px;
+}
+
+.post-input{
+background:#f3f4f6;
+border-radius:12px;
+padding:15px;
+color:#777;
+margin-bottom:13px;
+}
+
+.community-actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.action-btn{
+border:0;
+background:#111;
+color:white;
+padding:11px 14px;
+border-radius:9px;
+font-weight:900;
+}
+
+.action-btn.light{
+background:#eee;
+color:#222;
+}
+
+/* PEOPLE */
+
+.people{
+display:flex;
+gap:12px;
+overflow-x:auto;
+}
+
+.person{
+min-width:165px;
+background:white;
+border:1px solid #ddd;
+border-radius:16px;
+padding:15px;
+}
+
+.avatar{
+width:50px;
+height:50px;
+border-radius:50%;
+background:#eee;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+margin-bottom:9px;
+}
+
+.person-name{
+font-weight:900;
+}
+
+.person-info{
+font-size:12px;
+color:#777;
+margin:5px 0 12px;
+}
+
+.friend-btn{
+width:100%;
+border:0;
+background:#111;
+color:white;
+padding:9px;
+border-radius:8px;
+font-weight:900;
+}
+
+/* CHAT MODAL */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+z-index:500;
+align-items:center;
+justify-content:center;
+padding:16px;
+}
+
+.modal-card{
+background:white;
+width:100%;
+max-width:430px;
+border-radius:20px;
+padding:20px;
+}
+
+.modal-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+.modal-head h2{
+margin:0;
+font-size:23px;
+}
+
+.close{
+border:0;
+background:#eee;
+border-radius:50%;
+width:35px;
+height:35px;
+font-size:18px;
+}
+
+.chat-info{
+background:#f3f4f6;
+padding:12px;
+border-radius:10px;
+font-size:13px;
+color:#555;
+margin-bottom:12px;
+}
+
+.messages{
+height:210px;
+overflow-y:auto;
+background:#f5f5f5;
+border-radius:12px;
+padding:12px;
+margin-bottom:10px;
+}
+
+.message{
+background:white;
+padding:9px 11px;
+border-radius:10px;
+margin-bottom:8px;
+font-size:14px;
+}
+
+.chat-input{
+display:flex;
+gap:7px;
+}
+
+.chat-input input{
+flex:1;
+border:1px solid #ddd;
+border-radius:9px;
+padding:11px;
+}
+
+.chat-input button{
+border:0;
+background:#111;
+color:white;
+border-radius:9px;
+padding:0 14px;
+font-weight:900;
+}
+
+/* BIRTHDAY */
+
+.birthday-overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(5,7,12,.97);
+z-index:9999;
+align-items:center;
+justify-content:center;
+padding:18px;
+}
+
+.birthday-card{
+width:100%;
+max-width:520px;
+background:#10131b;
+color:white;
+border:1px solid #303542;
+border-radius:25px;
+padding:28px 21px;
+text-align:center;
+}
+
+.cake{
+font-size:52px;
+}
+
+.birthday-card h2{
+font-size:34px;
+margin:8px 0;
+}
+
+.birthday-date{
+color:#aaa;
+letter-spacing:5px;
+margin-bottom:20px;
+}
+
+.birthday-message{
+text-align:left;
+color:#d7d9df;
+line-height:1.65;
+font-size:15px;
+}
+
+.close-birthday{
+margin-top:20px;
+border:0;
+background:white;
+color:#111;
+border-radius:10px;
+padding:11px 18px;
+font-weight:900;
 }
 
 /* FOOTER */
@@ -408,80 +579,9 @@ padding:30px 20px;
 font-size:13px;
 }
 
-/* BIRTHDAY */
-
-.birthday-overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(5,7,12,.96);
-z-index:9999;
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-
-.birthday-card{
-width:100%;
-max-width:520px;
-background:#10131b;
-color:white;
-border:1px solid #303542;
-border-radius:25px;
-padding:30px 22px;
-text-align:center;
-box-shadow:0 20px 70px rgba(0,0,0,.5);
-}
-
-.birthday-card .cake{
-font-size:55px;
-margin-bottom:8px;
-}
-
-.birthday-card h2{
-font-size:36px;
-margin:5px 0 8px;
-}
-
-.birthday-date{
-font-size:18px;
-letter-spacing:5px;
-color:#aaa;
-margin-bottom:22px;
-}
-
-.birthday-message{
-color:#d7d9df;
-line-height:1.65;
-font-size:15px;
-text-align:left;
-}
-
-.close-birthday{
-margin-top:22px;
-background:white;
-color:#111;
-border:0;
-border-radius:10px;
-padding:12px 20px;
-font-weight:900;
-}
-
 /* MOBILE */
 
 @media(max-width:700px){
-
-header{
-padding:18px 15px 0;
-}
-
-.logo{
-font-size:28px;
-}
-
-.login-btn{
-padding:9px 13px;
-}
 
 .hero h1{
 font-size:31px;
@@ -496,17 +596,14 @@ font-size:23px;
 }
 
 .meme{
-min-width:220px;
+min-width:225px;
 }
 
 }
-
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
@@ -517,20 +614,18 @@ min-width:220px;
 <div class="tagline">News • Memes • People</div>
 </div>
 
-<button class="login-btn">
+<button class="login-btn" onclick="showLogin()">
 Login
 </button>
 
 </div>
 
 <nav>
-
 <a href="#memes">😂 Memes</a>
 <a href="#trending">🔥 Trending</a>
 <a href="#latest">📰 News</a>
 <a href="#community">💬 Community</a>
 <a href="#people">👥 Friends</a>
-
 </nav>
 
 </header>
@@ -540,8 +635,6 @@ BREAKING • <span id="breakingText">Loading fresh headlines...</span>
 </div>
 
 <main class="wrap">
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -554,13 +647,13 @@ Then talk about it with people.
 
 <div class="hero-buttons">
 
-<a class="hero-btn primary" href="#memes">
+<a class="hero-btn white" href="#memes">
 😂 Explore Memes
 </a>
 
-<a class="hero-btn secondary" href="#community">
-💬 Join Community
-</a>
+<button class="hero-btn dark" onclick="openChat()">
+💬 Anonymous Chat
+</button>
 
 </div>
 
@@ -572,8 +665,15 @@ Then talk about it with people.
 <section class="section" id="memes">
 
 <div class="section-head">
-<h2 class="section-title">😂 Memes</h2>
-<span class="section-link">Trending now</span>
+
+<h2 class="section-title">
+😂 Memes
+</h2>
+
+<button class="action-btn" onclick="showLogin()">
+＋ Create Meme
+</button>
+
 </div>
 
 <div class="meme-scroll">
@@ -586,8 +686,24 @@ Then talk about it with people.
 When you open the news just for 2 minutes...
 </div>
 
-<div class="meme-meta">
-Internet mood • Today
+<div class="meme-user">
+👤 AnonymousUser
+</div>
+
+<div class="meme-actions">
+
+<button onclick="likeMeme(this)">
+❤️ 24
+</button>
+
+<button>
+😂 8
+</button>
+
+<button>
+💬 5
+</button>
+
 </div>
 
 </div>
@@ -601,8 +717,24 @@ Internet mood • Today
 World news be like: “You thought today would be peaceful?”
 </div>
 
-<div class="meme-meta">
-News meme • Trending
+<div class="meme-user">
+👤 NightOwl
+</div>
+
+<div class="meme-actions">
+
+<button onclick="likeMeme(this)">
+❤️ 41
+</button>
+
+<button>
+😂 16
+</button>
+
+<button>
+💬 9
+</button>
+
 </div>
 
 </div>
@@ -616,8 +748,24 @@ News meme • Trending
 One match. 90 minutes. Millions of opinions.
 </div>
 
-<div class="meme-meta">
-Sports • Reactions
+<div class="meme-user">
+👤 SportsFan
+</div>
+
+<div class="meme-actions">
+
+<button onclick="likeMeme(this)">
+❤️ 67
+</button>
+
+<button>
+😂 29
+</button>
+
+<button>
+💬 13
+</button>
+
 </div>
 
 </div>
@@ -631,8 +779,24 @@ Sports • Reactions
 AI after replacing another task humans hated doing.
 </div>
 
-<div class="meme-meta">
-AI • Technology
+<div class="meme-user">
+👤 TechGuy
+</div>
+
+<div class="meme-actions">
+
+<button onclick="likeMeme(this)">
+❤️ 35
+</button>
+
+<button>
+😂 21
+</button>
+
+<button>
+💬 7
+</button>
+
 </div>
 
 </div>
@@ -647,8 +811,15 @@ AI • Technology
 <section class="section" id="trending">
 
 <div class="section-head">
-<h2 class="section-title">🔥 What's Trending</h2>
-<span class="section-link">Today</span>
+
+<h2 class="section-title">
+🔥 What's Trending
+</h2>
+
+<span class="section-link">
+Today
+</span>
+
 </div>
 
 <div class="trending">
@@ -656,7 +827,7 @@ AI • Technology
 <div class="trend">
 <div class="trend-number">#1</div>
 <div class="trend-title">
-Latest world events everyone is talking about
+World events everyone is talking about
 </div>
 </div>
 
@@ -670,7 +841,7 @@ Sports moments going viral
 <div class="trend">
 <div class="trend-number">#3</div>
 <div class="trend-title">
-The latest AI & technology buzz
+Latest AI & technology buzz
 </div>
 </div>
 
@@ -679,20 +850,25 @@ The latest AI & technology buzz
 </section>
 
 
-<!-- NEWS STATUS -->
+<!-- NEWS -->
 
 <div class="status" id="status">
 🟡 Connecting to live news...
 </div>
 
 
-<!-- LATEST NEWS -->
-
 <section class="section" id="latest">
 
 <div class="section-head">
-<h2 class="section-title">📰 Latest News</h2>
-<span class="section-link">Last 24 hours</span>
+
+<h2 class="section-title">
+📰 Latest News
+</h2>
+
+<span class="section-link">
+Last 24 hours
+</span>
+
 </div>
 
 <div class="news-grid" id="latestGrid">
@@ -706,11 +882,11 @@ Loading fresh news...
 </section>
 
 
-<!-- WORLD -->
-
 <section class="section" id="world">
 
-<h2 class="section-title">🌍 World</h2>
+<h2 class="section-title">
+🌍 World
+</h2>
 
 <div class="news-grid" id="worldGrid">
 <div class="loading">Loading...</div>
@@ -719,11 +895,11 @@ Loading fresh news...
 </section>
 
 
-<!-- WAR -->
-
 <section class="section" id="war">
 
-<h2 class="section-title">⚠️ War & Conflict</h2>
+<h2 class="section-title">
+⚠️ War & Conflict
+</h2>
 
 <div class="news-grid" id="warGrid">
 <div class="loading">Loading...</div>
@@ -732,11 +908,11 @@ Loading fresh news...
 </section>
 
 
-<!-- SPORTS -->
-
 <section class="section" id="sports">
 
-<h2 class="section-title">⚽ Sports</h2>
+<h2 class="section-title">
+⚽ Sports
+</h2>
 
 <div class="news-grid" id="sportsGrid">
 <div class="loading">Loading...</div>
@@ -745,11 +921,11 @@ Loading fresh news...
 </section>
 
 
-<!-- TECH -->
-
 <section class="section" id="tech">
 
-<h2 class="section-title">🤖 AI & Technology</h2>
+<h2 class="section-title">
+🤖 AI & Technology
+</h2>
 
 <div class="news-grid" id="techGrid">
 <div class="loading">Loading...</div>
@@ -758,11 +934,11 @@ Loading fresh news...
 </section>
 
 
-<!-- BUSINESS -->
-
 <section class="section" id="business">
 
-<h2 class="section-title">💼 Business</h2>
+<h2 class="section-title">
+💼 Business
+</h2>
 
 <div class="news-grid" id="businessGrid">
 <div class="loading">Loading...</div>
@@ -776,8 +952,15 @@ Loading fresh news...
 <section class="section" id="community">
 
 <div class="section-head">
-<h2 class="section-title">💬 Community</h2>
-<span class="section-link">Talk with people</span>
+
+<h2 class="section-title">
+💬 Community
+</h2>
+
+<span class="section-link">
+Talk • Share • Connect
+</span>
+
 </div>
 
 <div class="community-box">
@@ -788,15 +971,15 @@ What's on your mind?
 
 <div class="community-actions">
 
-<button class="action-btn">
+<button class="action-btn" onclick="showLogin()">
 📝 Create Post
 </button>
 
-<button class="action-btn light">
+<button class="action-btn light" onclick="openChat()">
 💬 Anonymous Chat
 </button>
 
-<button class="action-btn light">
+<button class="action-btn light" onclick="showLogin()">
 🔥 Discussions
 </button>
 
@@ -807,13 +990,20 @@ What's on your mind?
 </section>
 
 
-<!-- PEOPLE -->
+<!-- FRIENDS -->
 
 <section class="section" id="people">
 
 <div class="section-head">
-<h2 class="section-title">👥 Find People</h2>
-<span class="section-link">Make friends</span>
+
+<h2 class="section-title">
+👥 Find People
+</h2>
+
+<span class="section-link">
+Make friends
+</span>
+
 </div>
 
 <div class="people">
@@ -827,10 +1017,10 @@ AnonymousUser
 </div>
 
 <div class="person-info">
-Likes sports & memes
+Memes • Sports
 </div>
 
-<button class="friend-btn">
+<button class="friend-btn" onclick="showLogin()">
 Add Friend
 </button>
 
@@ -846,10 +1036,10 @@ NightOwl
 </div>
 
 <div class="person-info">
-Technology enthusiast
+Technology • AI
 </div>
 
-<button class="friend-btn">
+<button class="friend-btn" onclick="showLogin()">
 Add Friend
 </button>
 
@@ -865,10 +1055,10 @@ JustMe
 </div>
 
 <div class="person-info">
-Books • Movies • News
+Movies • News
 </div>
 
-<button class="friend-btn">
+<button class="friend-btn" onclick="showLogin()">
 Add Friend
 </button>
 
@@ -883,24 +1073,119 @@ Add Friend
 
 <footer>
 
-<strong>two4nine</strong><br><br>
+<strong>two4nine</strong>
 
-News you need. Internet you understand.<br><br>
+<br><br>
+
+News you need. Internet you understand.
+
+<br><br>
 
 © 2026 two4nine
 
 </footer>
 
 
-<!-- BIRTHDAY SURPRISE -->
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-card">
+
+<div class="modal-head">
+
+<h2>🔐 Join two4nine</h2>
+
+<button class="close" onclick="closeLogin()">
+×
+</button>
+
+</div>
+
+<p>
+Create an account to post, make friends and continue chatting.
+</p>
+
+<input
+id="username"
+placeholder="Choose a username"
+style="width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-bottom:10px"
+>
+
+<button
+class="create-btn"
+style="width:100%"
+onclick="demoLogin()">
+
+Continue
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CHAT MODAL -->
+
+<div class="modal" id="chatModal">
+
+<div class="modal-card">
+
+<div class="modal-head">
+
+<h2>💬 Anonymous Chat</h2>
+
+<button class="close" onclick="closeChat()">
+×
+</button>
+
+</div>
+
+<div class="chat-info">
+Anonymous • Text only • 5 guest messages
+</div>
+
+<div class="messages" id="messages">
+
+<div class="message">
+👤 Anonymous: Hi! Welcome to two4nine 👋
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input
+id="chatInput"
+placeholder="Type a message..."
+maxlength="300"
+>
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BIRTHDAY -->
 
 <div class="birthday-overlay" id="birthdayOverlay">
 
 <div class="birthday-card">
 
-<div class="cake">🎂</div>
+<div class="cake">
+🎂
+</div>
 
-<h2>Happy Birthday Betu ❤️</h2>
+<h2>
+Happy Birthday Betu ❤️
+</h2>
 
 <div class="birthday-date">
 24 • 09
@@ -1052,17 +1337,13 @@ cache:"no-store"
 });
 
 if(!response.ok){
-
 throw new Error("Feed failed");
-
 }
 
 const data=await response.json();
 
 if(data.status!=="ok"){
-
 throw new Error("RSS error");
-
 }
 
 return data.items
@@ -1233,11 +1514,9 @@ if(!all.length){
 showEmpty(latest);
 
 document.getElementById("breakingText")
-.textContent=
-"No fresh headlines available.";
+.textContent="No fresh headlines available.";
 
-}
-else{
+}else{
 
 latest.innerHTML=
 all
@@ -1266,49 +1545,50 @@ new Date().toLocaleTimeString("en-IN")
 
 loadNews();
 
-setInterval(
-loadNews,
-5*60*1000
-);
+setInterval(loadNews,5*60*1000);
 
 
 /* =========================
-   BIRTHDAY
+   MEME LIKE
 ========================= */
 
-function checkBirthday(){
+function likeMeme(button){
 
-const now=new Date();
+let text=button.innerText;
 
-const month=
-now.getMonth()+1;
+let number=
+parseInt(text.match(/\d+/)?.[0] || "0");
 
-const day=
-now.getDate();
+if(!button.dataset.liked){
 
-if(month===9 && day===24){
+number++;
 
-document.getElementById(
-"birthdayOverlay"
-).style.display="flex";
+button.dataset.liked="true";
+
+}else{
+
+number--;
+
+delete button.dataset.liked;
 
 }
 
-}
-
-
-function closeBirthday(){
-
-document.getElementById(
-"birthdayOverlay"
-).style.display="none";
+button.innerText="❤️ "+number;
 
 }
 
 
-checkBirthday();
+/* =========================
+   LOGIN
+========================= */
 
-</script>
+function showLogin(){
 
-</body>
-  </html>
+document.getElementById("loginModal")
+.style.display="flex";
+
+}
+
+function closeLogin(){
+
+document.getElem
