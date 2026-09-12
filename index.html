@@ -3,321 +3,361 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>two4nine — Social • News • Reels</title>
+<title>two4nine</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#08090d;
-  color:#fff;
-  padding-bottom:75px;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
-button,input,textarea{font:inherit}
-button{cursor:pointer}
+
+body{
+  background:#07090d;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  padding-bottom:80px;
+}
+
+button,input,textarea,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* ================= HEADER ================= */
 
 .topbar{
-  height:62px;
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(8,9,13,.96);
-  border-bottom:1px solid #22242d;
+  height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 12px;
-  gap:8px;
+  padding:0 20px;
+  border-bottom:1px solid #252832;
+  background:#090b10;
+  position:sticky;
+  top:0;
+  z-index:50;
 }
 
-.brand{
-  font-size:22px;
+.logo{
+  font-size:30px;
   font-weight:900;
-  letter-spacing:-1px;
+  letter-spacing:-2px;
 }
-.brand span{color:#ff304f}
 
-.topbtn{
-  background:#151821;
+.logo span{
+  color:#ff3155;
+}
+
+.topBtn{
+  border:1px solid #303541;
+  background:#151922;
   color:#fff;
-  border:1px solid #292d38;
-  border-radius:10px;
-  padding:9px 11px;
-  font-weight:700;
-  font-size:13px;
+  padding:12px 17px;
+  border-radius:15px;
+  font-weight:800;
+  font-size:15px;
 }
 
-.createBtn{
-  background:#ff304f;
+.newsBtn{
+  background:linear-gradient(135deg,#ff3155,#7b2cff);
   border:0;
-  color:#fff;
 }
+
+/* ================= MAIN ================= */
 
 .feed{
-  width:100%;
   max-width:650px;
   margin:auto;
 }
 
-.searchBox{
-  padding:12px;
-  background:#08090d;
+/* SEARCH */
+
+.searchArea{
+  padding:20px;
 }
 
-.searchBox input{
+.search{
   width:100%;
-  background:#151821;
-  color:#fff;
-  border:1px solid #292d38;
-  padding:13px 16px;
-  border-radius:25px;
+  height:58px;
+  border-radius:30px;
+  border:1px solid #303541;
+  background:#151922;
+  color:white;
   outline:none;
+  padding:0 20px;
+  font-size:17px;
 }
 
-.storyRow{
+.search::placeholder{
+  color:#8c929e;
+}
+
+/* ================= TRENDING ================= */
+
+.trending{
+  padding:0 20px 20px;
+  border-bottom:1px solid #252832;
+}
+
+.trending h2{
+  font-size:21px;
+  margin-bottom:14px;
+}
+
+.tags{
   display:flex;
-  gap:14px;
+  gap:9px;
   overflow-x:auto;
-  padding:8px 12px 15px;
 }
-.storyRow::-webkit-scrollbar{display:none}
 
-.story{
-  min-width:65px;
-  text-align:center;
-  font-size:11px;
+.tags::-webkit-scrollbar{
+  display:none;
 }
-.storyCircle{
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:auto auto 5px;
-  background:linear-gradient(135deg,#ff304f,#7b2cff,#00c6ff);
-  font-size:25px;
-  border:3px solid #11131a;
+
+.tag{
+  white-space:nowrap;
+  padding:10px 15px;
+  background:#151922;
+  border-radius:22px;
+  color:#c8ccd5;
+  font-size:14px;
 }
+
+/* ================= POST CARD ================= */
 
 .card{
-  background:#101219;
-  border-top:1px solid #22242d;
-  border-bottom:1px solid #22242d;
-  margin-bottom:12px;
+  border-bottom:1px solid #252832;
+  padding:15px 0;
 }
 
 .cardHead{
   display:flex;
   align-items:center;
-  gap:10px;
-  padding:12px;
+  padding:0 20px 12px;
+  gap:12px;
 }
 
 .avatar{
-  width:40px;
-  height:40px;
+  width:48px;
+  height:48px;
   border-radius:50%;
-  background:linear-gradient(135deg,#ff304f,#7b2cff);
+  background:linear-gradient(135deg,#ff0080,#713cff);
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:22px;
   font-weight:900;
+  flex-shrink:0;
 }
 
-.userInfo{
+.user{
   flex:1;
 }
-.userInfo b{font-size:14px}
-.userInfo small{
+
+.user strong{
+  font-size:16px;
+}
+
+.user small{
   display:block;
-  color:#8e93a1;
-  margin-top:3px;
+  color:#9298a5;
+  margin-top:5px;
+  font-size:13px;
 }
 
 .more{
-  color:#aaa;
-  font-size:20px;
+  color:#aeb3be;
+  font-size:21px;
 }
 
-.cardText{
-  padding:0 12px 12px;
-  line-height:1.45;
-}
+/* ================= REEL ================= */
 
-.media{
-  width:100%;
-  min-height:230px;
-  background:#171a23;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:75px;
-  position:relative;
+.reel{
+  width:calc(100% - 30px);
+  margin:auto;
+  min-height:430px;
+  border-radius:10px;
   overflow:hidden;
-}
-
-.media.newsMedia{
-  min-height:200px;
-  padding:25px;
-  text-align:center;
-  font-size:20px;
-  line-height:1.3;
-  font-weight:800;
-  background:linear-gradient(135deg,#151923,#242936);
-}
-
-.media.memeMedia{
-  min-height:240px;
-  padding:30px;
-  text-align:center;
-  font-size:30px;
-  font-weight:900;
-  background:linear-gradient(135deg,#25202b,#121722);
-}
-
-.reelMedia{
-  min-height:420px;
-  background:linear-gradient(145deg,#151923,#2c1830,#111827);
+  background:
+    radial-gradient(circle at 70% 30%,#34204a,#181226 40%,#0c111b);
+  display:flex;
   flex-direction:column;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:30px;
+  padding:30px 20px;
 }
 
-.reelPlay{
-  width:70px;
-  height:70px;
+.play{
+  width:78px;
+  height:78px;
   border-radius:50%;
-  background:rgba(255,255,255,.15);
+  background:rgba(255,255,255,.16);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:32px;
-  margin-bottom:18px;
+  font-size:35px;
+  margin-bottom:30px;
 }
 
 .reelTitle{
-  font-size:25px;
+  font-size:29px;
   font-weight:900;
-  max-width:400px;
+  line-height:1.15;
 }
 
-.reelTag{
-  margin-top:12px;
-  color:#bfc4d1;
+.reelHash{
+  margin-top:25px;
+  font-size:72px;
+  color:#d7dbea;
+  letter-spacing:-5px;
 }
 
-.cardActions{
+/* ================= NEWS ================= */
+
+.newsMedia{
+  width:calc(100% - 30px);
+  margin:auto;
+  min-height:220px;
+  border-radius:10px;
+  padding:25px;
   display:flex;
-  gap:6px;
-  padding:9px 10px 5px;
+  flex-direction:column;
+  justify-content:center;
+  background:
+    linear-gradient(120deg,#071426,#102b4b,#07111f);
+  border:1px solid #24344b;
+}
+
+.breaking{
+  display:inline-block;
+  width:max-content;
+  background:#ff2448;
+  padding:7px 12px;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:16px;
+  border-radius:5px;
+}
+
+.newsTitle{
+  font-size:24px;
+  line-height:1.25;
+  font-weight:900;
+}
+
+/* ================= MEME ================= */
+
+.memeMedia{
+  width:calc(100% - 30px);
+  margin:auto;
+  min-height:300px;
+  border-radius:10px;
+  background:
+    linear-gradient(120deg,#302015,#17120f);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+}
+
+.memeText{
+  font-size:28px;
+  font-weight:900;
+  line-height:1.3;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions{
+  display:flex;
+  gap:20px;
+  padding:12px 20px 5px;
 }
 
 .action{
-  background:none;
   border:0;
-  color:#d8dbe3;
-  padding:8px;
-  font-size:18px;
+  background:none;
+  color:#e0e3ea;
+  font-size:25px;
 }
 
 .action span{
-  font-size:12px;
-  margin-left:3px;
+  font-size:14px;
+  margin-left:4px;
 }
 
-.action.liked{color:#ff304f}
+.action.liked{
+  color:#ff3155;
+}
 
 .likes{
-  padding:0 12px 8px;
-  font-size:13px;
-  font-weight:700;
+  padding:4px 20px;
+  font-size:14px;
+  font-weight:800;
 }
 
 .caption{
-  padding:0 12px 14px;
+  padding:8px 20px;
   font-size:14px;
-}
-.caption b{margin-right:5px}
-
-.newsLabel{
-  display:inline-block;
-  background:#e31e3c;
-  color:white;
-  padding:4px 7px;
-  border-radius:5px;
-  font-size:10px;
-  font-weight:900;
-  margin-bottom:8px;
+  line-height:1.45;
+  color:#d4d7df;
 }
 
-.trending{
-  padding:14px 12px;
-  background:#0d0f15;
-  border-top:1px solid #22242d;
-  border-bottom:1px solid #22242d;
-}
+/* ================= BOTTOM NAV ================= */
 
-.trending h3{
-  margin-bottom:10px;
-  font-size:15px;
-}
-
-.tags{
-  display:flex;
-  gap:7px;
-  overflow-x:auto;
-}
-.tags span{
-  white-space:nowrap;
-  background:#171a23;
-  padding:8px 11px;
-  border-radius:20px;
-  color:#c9ced9;
-  font-size:12px;
-}
-
-.bottomNav{
+.bottom{
   position:fixed;
   bottom:0;
   left:0;
   right:0;
-  height:65px;
-  background:rgba(10,11,16,.98);
-  border-top:1px solid #252832;
+  height:72px;
+  background:#080a0f;
+  border-top:1px solid #292d36;
   z-index:100;
   display:flex;
-  justify-content:space-around;
   align-items:center;
+  justify-content:space-around;
 }
 
-.navItem{
+.nav{
   background:none;
   border:0;
-  color:#8f94a2;
-  font-size:10px;
+  color:#d9dce4;
   text-align:center;
+  font-size:12px;
 }
-.navItem div{font-size:21px;margin-bottom:2px}
-.navItem.active{color:#fff}
 
-.plusNav{
-  width:42px;
-  height:32px;
-  border-radius:10px;
-  background:#ff304f;
-  color:#fff;
-  border:0;
-  font-size:23px;
-  line-height:20px;
+.navIcon{
+  font-size:25px;
+  display:block;
+  margin-bottom:4px;
 }
+
+.postButton{
+  width:60px;
+  height:46px;
+  border-radius:14px;
+  border:0;
+  background:#ff3155;
+  color:#fff;
+  font-size:31px;
+  line-height:40px;
+}
+
+/* ================= MODAL ================= */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
+  background:rgba(0,0,0,.78);
   z-index:200;
-  background:rgba(0,0,0,.75);
   align-items:flex-end;
   justify-content:center;
 }
@@ -326,92 +366,98 @@ button{cursor:pointer}
   width:100%;
   max-width:650px;
   background:#11141b;
-  border:1px solid #292d38;
-  border-radius:20px 20px 0 0;
-  padding:20px;
-  max-height:90vh;
-  overflow:auto;
+  border:1px solid #30343e;
+  border-radius:22px 22px 0 0;
+  padding:22px;
 }
 
 .modalBox h2{
-  margin-bottom:15px;
+  margin-bottom:18px;
 }
 
 .close{
   float:right;
-  background:#222631;
-  color:#fff;
+  width:35px;
+  height:35px;
   border:0;
-  width:34px;
-  height:34px;
   border-radius:50%;
+  background:#242833;
+  color:#fff;
+  font-size:22px;
 }
 
 .field{
   width:100%;
-  background:#191c25;
-  border:1px solid #2b2f3a;
+  padding:14px;
+  margin-bottom:12px;
+  border-radius:12px;
+  border:1px solid #303541;
+  background:#191c24;
   color:#fff;
-  padding:13px;
-  border-radius:10px;
-  margin-bottom:10px;
   outline:none;
 }
 
 textarea.field{
-  min-height:120px;
-  resize:vertical;
+  min-height:130px;
+  resize:none;
 }
 
 .primary{
   width:100%;
-  padding:13px;
+  padding:14px;
   border:0;
-  border-radius:10px;
-  background:#ff304f;
-  color:#fff;
-  font-weight:800;
+  border-radius:12px;
+  background:#ff3155;
+  color:white;
+  font-weight:900;
 }
 
 .secondary{
   width:100%;
-  padding:12px;
-  border:1px solid #303440;
-  border-radius:10px;
-  background:#191c25;
-  color:#fff;
-  margin-top:8px;
+  padding:13px;
+  margin-top:9px;
+  border:1px solid #303541;
+  border-radius:12px;
+  background:#191c24;
+  color:white;
 }
 
-.loginStatus{
-  text-align:center;
-  padding:8px;
-  color:#9da3b2;
-  font-size:12px;
-}
+/* ================= RESPONSIVE ================= */
 
-.empty{
-  padding:45px 20px;
-  text-align:center;
-  color:#8f94a2;
-}
+@media(max-width:500px){
 
-@media(min-width:800px){
   .topbar{
-    padding-left:25px;
-    padding-right:25px;
+    padding:0 12px;
+    height:68px;
   }
-  .modal{
-    align-items:center;
+
+  .logo{
+    font-size:25px;
   }
-  .modalBox{
-    border-radius:18px;
+
+  .topBtn{
+    padding:11px 12px;
+    font-size:13px;
   }
-  .bottomNav{
-    max-width:650px;
-    left:50%;
-    transform:translateX(-50%);
-    border-radius:18px 18px 0 0;
+
+  .reel{
+    min-height:470px;
+  }
+
+  .reelTitle{
+    font-size:25px;
+  }
+
+  .reelHash{
+    font-size:58px;
+  }
+
+  .newsTitle{
+    font-size:21px;
+  }
+
+  .memeText{
+    font-size:24px;
   }
 }
 </style>
@@ -419,334 +465,570 @@ textarea.field{
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header class="topbar">
-  <button class="topbtn" onclick="openCommunity()">👥 Community</button>
 
-  <div class="brand">two<span>4</span>nine</div>
+  <button class="topBtn" onclick="openCommunity()">
+    👥 Community
+  </button>
 
-  <button class="topbtn createBtn" onclick="openPost()">＋ Create</button>
+  <div class="logo">
+    two<span>4</span>nine
+  </div>
+
+  <button class="topBtn newsBtn" onclick="openNews()">
+    📰 News
+  </button>
+
 </header>
+
 
 <main class="feed">
 
-  <div class="searchBox">
-    <input id="searchInput" type="text"
-      placeholder="🔍 Search people, memes, news..."
-      oninput="searchFeed()">
+<!-- ================= SEARCH ================= -->
+
+<div class="searchArea">
+
+  <input
+    id="searchInput"
+    class="search"
+    type="text"
+    placeholder="🔍 Search people, memes, news..."
+    oninput="searchFeed()"
+  >
+
+</div>
+
+
+<!-- ================= TRENDING ================= -->
+
+<section class="trending">
+
+  <h2>🔥 Trending now</h2>
+
+  <div class="tags">
+
+    <div class="tag">#two4nine</div>
+    <div class="tag">#India</div>
+    <div class="tag">#Technology</div>
+    <div class="tag">#Sports</div>
+    <div class="tag">#Memes</div>
+
   </div>
 
-  <div class="storyRow">
-    <div class="story" onclick="openPost()">
-      <div class="storyCircle">＋</div>
-      Create
+</section>
+
+
+<!-- ================= FEED ================= -->
+
+<div id="feed">
+
+
+<!-- REEL -->
+
+<article class="card searchable"
+data-search="reel viral two4nine entertainment">
+
+  <div class="cardHead">
+
+    <div class="avatar">T</div>
+
+    <div class="user">
+
+      <strong>two4nine</strong>
+
+      <small>
+        🎬 Reels • 10 min ago
+      </small>
+
     </div>
-    <div class="story">
-      <div class="storyCircle">😂</div>
-      Memes
-    </div>
-    <div class="story">
-      <div class="storyCircle">🔥</div>
-      Trending
-    </div>
-    <div class="story">
-      <div class="storyCircle">📰</div>
-      News
-    </div>
-    <div class="story">
-      <div class="storyCircle">🎬</div>
-      Reels
-    </div>
-    <div class="story">
-      <div class="storyCircle">💬</div>
-      People
-    </div>
+
+    <div class="more">•••</div>
+
   </div>
 
-  <div class="trending">
-    <h3>🔥 Trending now</h3>
-    <div class="tags">
-      <span>#two4nine</span>
-      <span>#India</span>
-      <span>#Technology</span>
-      <span>#Sports</span>
-      <span>#Memes</span>
+
+  <div class="reel">
+
+    <div class="play">▶</div>
+
+    <div class="reelTitle">
+      Your next viral moment starts here 🚀
     </div>
+
+    <div class="reelHash">
+      #two4nine
+    </div>
+
   </div>
 
-  <section id="feed">
 
-    <!-- REEL -->
-    <article class="card searchable" data-search="reel entertainment viral trending">
-      <div class="cardHead">
-        <div class="avatar">T</div>
-        <div class="userInfo">
-          <b>two4nine</b>
-          <small>🎬 Reels • 10 min ago</small>
-        </div>
-        <div class="more">•••</div>
-      </div>
+  <div class="actions">
 
-      <div class="media reelMedia">
-        <div class="reelPlay">▶</div>
-        <div class="reelTitle">Your next viral moment starts here 🚀</div>
-        <div class="reelTag">#two4nine #reels #viral</div>
-      </div>
+    <button class="action" onclick="like(this)">
+      ♡ <span>1.2K</span>
+    </button>
 
-      <div class="cardActions">
-        <button class="action" onclick="likePost(this)">♡ <span>1.2K</span></button>
-        <button class="action" onclick="commentPost()">💬 <span>84</span></button>
-        <button class="action">↗️ <span>Share</span></button>
-      </div>
-      <div class="likes">1,245 likes</div>
-      <div class="caption">
-        <b>two4nine</b> Welcome to the new generation of social media. ❤️
-      </div>
-    </article>
+    <button class="action" onclick="comment()">
+      ♡
+      <span>84</span>
+    </button>
 
+    <button class="action">
+      ↗ <span>Share</span>
+    </button>
 
-    <!-- NEWS MIXED INTO FEED -->
-    <article class="card searchable" data-search="news world technology ai artificial intelligence">
-      <div class="cardHead">
-        <div class="avatar">📰</div>
-        <div class="userInfo">
-          <b>two4nine News</b>
-          <small>📰 News • Latest</small>
-        </div>
-        <div class="more">•••</div>
-      </div>
-
-      <div class="media newsMedia">
-        <div>
-          <div class="newsLabel">BREAKING / NEWS</div>
-          AI & Technology are changing how people work, learn and create.
-        </div>
-      </div>
-
-      <div class="cardActions">
-        <button class="action" onclick="likePost(this)">♡ <span>642</span></button>
-        <button class="action" onclick="commentPost()">💬 <span>41</span></button>
-        <button class="action">↗️ <span>Share</span></button>
-      </div>
-
-      <div class="likes">642 likes</div>
-      <div class="caption">
-        <b>two4nine News</b>
-        News appears naturally inside your home feed — no separate News tab needed.
-      </div>
-    </article>
-
-
-    <!-- MEME -->
-    <article class="card searchable" data-search="meme funny india student exam college">
-      <div class="cardHead">
-        <div class="avatar">😂</div>
-        <div class="userInfo">
-          <b>meme_lord249</b>
-          <small>😂 Meme • 25 min ago</small>
-        </div>
-        <div class="more">•••</div>
-      </div>
-
-      <div class="media memeMedia">
-        When you open the exam paper<br><br>
-        “Ye toh syllabus mein tha hi nahi 😭”
-      </div>
-
-      <div class="cardActions">
-        <button class="action" onclick="likePost(this)">♡ <span>2.4K</span></button>
-        <button class="action" onclick="commentPost()">💬 <span>173</span></button>
-        <button class="action">↗️ <span>Share</span></button>
-      </div>
-
-      <div class="likes">2,421 likes</div>
-      <div class="caption">
-        <b>meme_lord249</b> Tag your friend 😂
-      </div>
-    </article>
-
-
-    <!-- NORMAL POST -->
-    <article class="card searchable" data-search="post community people thoughts life">
-      <div class="cardHead">
-        <div class="avatar">A</div>
-        <div class="userInfo">
-          <b>Anonymous User</b>
-          <small>👤 Post • 1 hour ago</small>
-        </div>
-        <div class="more">•••</div>
-      </div>
-
-      <div class="cardText">
-        Kabhi kabhi ek simple idea bhi bahut logon ko connect kar deta hai.
-        That's what social media should feel like. ❤️
-      </div>
-
-      <div class="media">🌍</div>
-
-      <div class="cardActions">
-        <button class="action" onclick="likePost(this)">♡ <span>128</span></button>
-        <button class="action" onclick="commentPost()">💬 <span>19</span></button>
-        <button class="action">↗️ <span>Share</span></button>
-      </div>
-
-      <div class="likes">128 likes</div>
-    </article>
-
-
-    <!-- COMMUNITY POST -->
-    <article class="card searchable" data-search="community discussion lucknow india people">
-      <div class="cardHead">
-        <div class="avatar">💬</div>
-        <div class="userInfo">
-          <b>Lucknow Community</b>
-          <small>👥 Community • 2 hours ago</small>
-        </div>
-        <div class="more">•••</div>
-      </div>
-
-      <div class="cardText">
-        Aaj Lucknow mein sabse interesting cheez kya hui? 👀
-        <br><br>
-        Share your story below.
-      </div>
-
-      <div class="cardActions">
-        <button class="action" onclick="likePost(this)">♡ <span>95</span></button>
-        <button class="action" onclick="commentPost()">💬 <span>32</span></button>
-        <button class="action">↗️ <span>Share</span></button>
-      </div>
-
-      <div class="likes">95 likes</div>
-    </article>
-
-  </section>
-
-  <div id="noResults" class="empty" style="display:none">
-    🔍 No posts found
   </div>
+
+  <div class="likes">
+    1,245 likes
+  </div>
+
+  <div class="caption">
+    <b>two4nine</b>
+    Welcome to the new generation of social media. ❤️
+  </div>
+
+</article>
+
+
+<!-- NEWS MIXED INTO HOME -->
+
+<article class="card searchable"
+data-search="news ai technology artificial intelligence world">
+
+  <div class="cardHead">
+
+    <div class="avatar">📰</div>
+
+    <div class="user">
+
+      <strong>two4nine News</strong>
+
+      <small>
+        📰 News • 10 min ago
+      </small>
+
+    </div>
+
+    <div class="more">•••</div>
+
+  </div>
+
+
+  <div class="newsMedia">
+
+    <div class="breaking">
+      BREAKING / NEWS
+    </div>
+
+    <div class="newsTitle">
+      AI & Technology are changing how people work, learn and create.
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="action" onclick="like(this)">
+      ♡ <span>642</span>
+    </button>
+
+    <button class="action" onclick="comment()">
+      ♡ <span>41</span>
+    </button>
+
+    <button class="action">
+      ↗ <span>Share</span>
+    </button>
+
+  </div>
+
+  <div class="likes">
+    642 likes
+  </div>
+
+  <div class="caption">
+    <b>two4nine News</b>
+    News naturally appears inside the Home feed.
+  </div>
+
+</article>
+
+
+<!-- MEME -->
+
+<article class="card searchable"
+data-search="meme funny exam student india">
+
+  <div class="cardHead">
+
+    <div class="avatar">😂</div>
+
+    <div class="user">
+
+      <strong>meme_lord249</strong>
+
+      <small>
+        😂 Meme • 25 min ago
+      </small>
+
+    </div>
+
+    <div class="more">•••</div>
+
+  </div>
+
+
+  <div class="memeMedia">
+
+    <div class="memeText">
+
+      When you open the exam paper 😭
+
+      <br><br>
+
+      "Ye toh syllabus mein tha hi nahi 😂"
+
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="action" onclick="like(this)">
+      ♡ <span>2.4K</span>
+    </button>
+
+    <button class="action" onclick="comment()">
+      ♡ <span>173</span>
+    </button>
+
+    <button class="action">
+      ↗ <span>Share</span>
+    </button>
+
+  </div>
+
+  <div class="likes">
+    2,421 likes
+  </div>
+
+  <div class="caption">
+    <b>meme_lord249</b>
+    Tag your friend 😂
+  </div>
+
+</article>
+
+
+<!-- NORMAL POST -->
+
+<article class="card searchable"
+data-search="post people life community thoughts">
+
+  <div class="cardHead">
+
+    <div class="avatar">A</div>
+
+    <div class="user">
+
+      <strong>Anonymous User</strong>
+
+      <small>
+        👤 Post • 1 hour ago
+      </small>
+
+    </div>
+
+    <div class="more">•••</div>
+
+  </div>
+
+
+  <div class="caption">
+
+    <b>Anonymous User</b>
+
+    Kabhi kabhi ek simple idea bhi bahut logon
+    ko connect kar deta hai. ❤️
+
+  </div>
+
+
+  <div class="memeMedia">
+
+    <div class="memeText">
+      🌍<br>
+      Different Generations.<br>
+      One Place.
+    </div>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="action" onclick="like(this)">
+      ♡ <span>128</span>
+    </button>
+
+    <button class="action" onclick="comment()">
+      ♡ <span>19</span>
+    </button>
+
+    <button class="action">
+      ↗ <span>Share</span>
+    </button>
+
+  </div>
+
+  <div class="likes">
+    128 likes
+  </div>
+
+</article>
+
+
+<!-- COMMUNITY POST -->
+
+<article class="card searchable"
+data-search="community lucknow india people discussion">
+
+  <div class="cardHead">
+
+    <div class="avatar">💬</div>
+
+    <div class="user">
+
+      <strong>Lucknow Community</strong>
+
+      <small>
+        👥 Community • 2 hours ago
+      </small>
+
+    </div>
+
+    <div class="more">•••</div>
+
+  </div>
+
+
+  <div class="caption">
+
+    <b>Lucknow Community</b>
+
+    <br><br>
+
+    Aaj Lucknow mein sabse interesting
+    cheez kya hui? 👀
+
+    <br><br>
+
+    Share your story below.
+
+  </div>
+
+
+  <div class="actions">
+
+    <button class="action" onclick="like(this)">
+      ♡ <span>95</span>
+    </button>
+
+    <button class="action" onclick="comment()">
+      ♡ <span>32</span>
+    </button>
+
+    <button class="action">
+      ↗ <span>Share</span>
+    </button>
+
+  </div>
+
+  <div class="likes">
+    95 likes
+  </div>
+
+</article>
+
+
+</div>
+
+<div
+  id="noResults"
+  style="display:none;text-align:center;padding:50px;color:#888;"
+>
+  🔍 No posts found
+</div>
 
 </main>
 
 
-<!-- BOTTOM NAV -->
-<nav class="bottomNav">
+<!-- ================= BOTTOM NAV ================= -->
 
-  <button class="navItem active" onclick="goHome()">
-    <div>🏠</div>
+<nav class="bottom">
+
+  <button class="nav" onclick="home()">
+    <span class="navIcon">🏠</span>
     Home
   </button>
 
-  <button class="navItem" onclick="focusSearch()">
-    <div>🔍</div>
-    Search
+  <button class="nav" onclick="openReels()">
+    <span class="navIcon">🎬</span>
+    Reels
   </button>
 
-  <button class="navItem" onclick="openPost()">
-    <div class="plusNav">＋</div>
+  <button class="nav" onclick="openPost()">
+    <div class="postButton">＋</div>
     Post
   </button>
 
-  <button class="navItem" onclick="openMemes()">
-    <div>😂</div>
+  <button class="nav" onclick="openMemes()">
+    <span class="navIcon">😂</span>
     Meme
   </button>
 
-  <button class="navItem" onclick="openNotifications()">
-    <div>🔔</div>
+  <button class="nav" onclick="openNotifications()">
+    <span class="navIcon">🔔</span>
     Alerts
   </button>
 
 </nav>
 
 
-<!-- CREATE POST MODAL -->
+<!-- ================= POST MODAL ================= -->
+
 <div class="modal" id="postModal">
+
   <div class="modalBox">
-    <button class="close" onclick="closeModal('postModal')">×</button>
+
+    <button class="close" onclick="closeModal('postModal')">
+      ×
+    </button>
+
     <h2>➕ Create Post</h2>
 
-    <textarea id="postText" class="field"
-      placeholder="What's happening? Share something..."></textarea>
-
-    <input id="postMedia" class="field"
-      placeholder="Optional: image/video URL">
+    <textarea
+      id="postText"
+      class="field"
+      placeholder="What's happening?"
+    ></textarea>
 
     <select id="postType" class="field">
-      <option value="post">👤 Normal Post</option>
-      <option value="meme">😂 Meme</option>
-      <option value="reel">🎬 Reel</option>
-      <option value="community">💬 Community Post</option>
+
+      <option value="post">
+        👤 Normal Post
+      </option>
+
+      <option value="reel">
+        🎬 Reel
+      </option>
+
+      <option value="meme">
+        😂 Meme
+      </option>
+
+      <option value="community">
+        💬 Community Post
+      </option>
+
     </select>
 
-    <button class="primary" onclick="createPost()">Publish</button>
+    <button class="primary" onclick="createPost()">
+      Publish
+    </button>
+
   </div>
+
 </div>
 
 
-<!-- NOTIFICATION MODAL -->
-<div class="modal" id="notificationModal">
-  <div class="modalBox">
-    <button class="close" onclick="closeModal('notificationModal')">×</button>
-    <h2>🔔 Notifications</h2>
+<!-- ================= COMMUNITY ================= -->
 
-    <div class="cardText">❤️ Someone liked your post.</div>
-    <div class="cardText">💬 Someone commented on your meme.</div>
-    <div class="cardText">🔥 Your reel is trending.</div>
-    <div class="cardText">👥 New community discussion available.</div>
-  </div>
-</div>
-
-
-<!-- COMMUNITY MODAL -->
 <div class="modal" id="communityModal">
+
   <div class="modalBox">
-    <button class="close" onclick="closeModal('communityModal')">×</button>
-    <h2>👥 Communities</h2>
+
+    <button class="close" onclick="closeModal('communityModal')">
+      ×
+    </button>
+
+    <h2>👥 Community</h2>
 
     <button class="secondary">🇮🇳 India</button>
     <button class="secondary">😂 Meme Community</button>
-    <button class="secondary">🎮 Gaming</button>
     <button class="secondary">⚽ Sports</button>
+    <button class="secondary">🎮 Gaming</button>
     <button class="secondary">🤖 AI & Technology</button>
-    <button class="secondary">🎬 Movies & Entertainment</button>
+    <button class="secondary">🎬 Entertainment</button>
+
   </div>
+
 </div>
 
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
+<!-- ================= NEWS ================= -->
+
+<div class="modal" id="newsModal">
+
   <div class="modalBox">
-    <button class="close" onclick="closeModal('loginModal')">×</button>
 
-    <h2>🔐 Login</h2>
-
-    <input id="email" class="field" type="email"
-      placeholder="Email">
-
-    <input id="password" class="field" type="password"
-      placeholder="Password">
-
-    <button class="primary" onclick="login()">Login</button>
-
-    <button class="secondary" onclick="signup()">Create Account</button>
-
-    <button class="secondary" onclick="forgotPassword()">
-      Forgot Password
+    <button class="close" onclick="closeModal('newsModal')">
+      ×
     </button>
 
-    <div id="authMessage" class="loginStatus"></div>
+    <h2>📰 News</h2>
+
+    <p style="color:#aaa;line-height:1.5">
+      News ka separate feed nahi hai.
+      Home feed mein latest news naturally mixed rahegi.
+    </p>
+
+    <button
+      class="primary"
+      style="margin-top:20px"
+      onclick="closeModal('newsModal')"
+    >
+      Back to Home
+    </button>
+
   </div>
+
 </div>
 
 
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<!-- ================= NOTIFICATIONS ================= -->
+
+<div class="modal" id="notificationModal">
+
+  <div class="modalBox">
+
+    <button class="close" onclick="closeModal('notificationModal')">
+      ×
+    </button>
+
+    <h2>🔔 Notifications</h2>
+
+    <div class="caption">❤️ Someone liked your post.</div>
+
+    <div class="caption">💬 Someone commented on your meme.</div>
+
+    <div class="caption">🔥 Your reel is trending.</div>
+
+    <div class="caption">👥 New community activity.</div>
+
+  </div>
+
+</div>
+
 
 <script>
 
-/* =========================
-   FIREBASE
-========================= */
+/* ================= FIREBASE ================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
@@ -758,119 +1040,23 @@ const firebaseConfig = {
   measurementId: "G-V2X4YK8NFG"
 };
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
 
-
-/* =========================
-   AUTH
-========================= */
-
-auth.onAuthStateChanged(function(user){
-
-  if(user){
-    console.log("Logged in:", user.email);
-  }else{
-    console.log("Not logged in");
-  }
-
-});
-
-
-function login(){
-
-  const email=document.getElementById("email").value;
-  const password=document.getElementById("password").value;
-
-  if(!email || !password){
-    document.getElementById("authMessage").innerText=
-      "Email aur password enter karo.";
-    return;
-  }
-
-  auth.signInWithEmailAndPassword(email,password)
-  .then(()=>{
-    document.getElementById("authMessage").innerText=
-      "✅ Login successful!";
-    setTimeout(()=>{
-      closeModal("loginModal");
-    },700);
-  })
-  .catch(error=>{
-    document.getElementById("authMessage").innerText=
-      "❌ "+error.message;
-  });
-
-}
-
-
-function signup(){
-
-  const email=document.getElementById("email").value;
-  const password=document.getElementById("password").value;
-
-  if(!email || !password){
-    document.getElementById("authMessage").innerText=
-      "Email aur password enter karo.";
-    return;
-  }
-
-  if(password.length < 6){
-    document.getElementById("authMessage").innerText=
-      "Password kam se kam 6 characters ka hona chahiye.";
-    return;
-  }
-
-  auth.createUserWithEmailAndPassword(email,password)
-  .then(()=>{
-    document.getElementById("authMessage").innerText=
-      "🎉 Account created!";
-  })
-  .catch(error=>{
-    document.getElementById("authMessage").innerText=
-      "❌ "+error.message;
-  });
-
-}
-
-
-function forgotPassword(){
-
-  const email=document.getElementById("email").value;
-
-  if(!email){
-    document.getElementById("authMessage").innerText=
-      "Pehle email enter karo.";
-    return;
-  }
-
-  auth.sendPasswordResetEmail(email)
-  .then(()=>{
-    document.getElementById("authMessage").innerText=
-      "📧 Password reset email bhej diya gaya.";
-  })
-  .catch(error=>{
-    document.getElementById("authMessage").innerText=
-      "❌ "+error.message;
-  });
-
-}
-
-
-/* =========================
-   MODALS
-========================= */
+/* ================= MODALS ================= */
 
 function openPost(){
   document.getElementById("postModal").style.display="flex";
 }
 
-function openNotifications(){
-  document.getElementById("notificationModal").style.display="flex";
-}
-
 function openCommunity(){
   document.getElementById("communityModal").style.display="flex";
+}
+
+function openNews(){
+  document.getElementById("newsModal").style.display="flex";
+}
+
+function openNotifications(){
+  document.getElementById("notificationModal").style.display="flex";
 }
 
 function closeModal(id){
@@ -878,28 +1064,24 @@ function closeModal(id){
 }
 
 
-/* =========================
-   LIKE
-========================= */
+/* ================= LIKE ================= */
 
-function likePost(button){
+function like(btn){
 
-  button.classList.toggle("liked");
+  btn.classList.toggle("liked");
 
-  if(button.classList.contains("liked")){
-    button.innerHTML="♥ <span>Liked</span>";
+  if(btn.classList.contains("liked")){
+    btn.innerHTML="♥ <span>Liked</span>";
   }else{
-    button.innerHTML="♡ <span>Like</span>";
+    btn.innerHTML="♡ <span>Like</span>";
   }
 
 }
 
 
-/* =========================
-   COMMENT
-========================= */
+/* ================= COMMENT ================= */
 
-function commentPost(){
+function comment(){
 
   const text=prompt("Comment likho:");
 
@@ -910,35 +1092,128 @@ function commentPost(){
 }
 
 
-/* =========================
-   CREATE POST
-========================= */
+/* ================= SEARCH ================= */
+
+function searchFeed(){
+
+  const query=document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const posts=document.querySelectorAll(".searchable");
+
+  let found=0;
+
+  posts.forEach(post=>{
+
+    const text=post.innerText.toLowerCase();
+
+    if(text.includes(query)){
+      post.style.display="";
+      found++;
+    }else{
+      post.style.display="none";
+    }
+
+  });
+
+  document.getElementById("noResults").style.display=
+    found===0 ? "block" : "none";
+
+}
+
+
+/* ================= HOME ================= */
+
+function home(){
+
+  document.getElementById("searchInput").value="";
+
+  document.querySelectorAll(".searchable")
+    .forEach(post=>{
+      post.style.display="";
+    });
+
+  document.getElementById("noResults").style.display="none";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ================= REELS ================= */
+
+function openReels(){
+
+  const input=document.getElementById("searchInput");
+
+  input.value="reel";
+
+  searchFeed();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ================= MEMES ================= */
+
+function openMemes(){
+
+  const input=document.getElementById("searchInput");
+
+  input.value="meme";
+
+  searchFeed();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ================= CREATE POST ================= */
 
 function createPost(){
 
-  const text=document.getElementById("postText").value.trim();
-  const type=document.getElementById("postType").value;
+  const text=document
+    .getElementById("postText")
+    .value
+    .trim();
+
+  const type=document
+    .getElementById("postType")
+    .value;
 
   if(!text){
-    alert("Kuch likho pehle 🙂");
+
+    alert("Pehle kuch likho 🙂");
+
     return;
   }
 
-  const article=document.createElement("article");
-  article.className="card searchable";
-  article.dataset.search=text.toLowerCase();
 
   let emoji="👤";
   let label="Post";
 
+  if(type==="reel"){
+    emoji="🎬";
+    label="Reels";
+  }
+
   if(type==="meme"){
     emoji="😂";
     label="Meme";
-  }
-
-  if(type==="reel"){
-    emoji="🎬";
-    label="Reel";
   }
 
   if(type==="community"){
@@ -946,26 +1221,96 @@ function createPost(){
     label="Community";
   }
 
+
+  const article=document.createElement("article");
+
+  article.className="card searchable";
+
+  article.dataset.search=
+    (text+" "+label).toLowerCase();
+
+
   article.innerHTML=`
 
     <div class="cardHead">
-      <div class="avatar">${emoji}</div>
 
-      <div class="userInfo">
-        <b>Anonymous User</b>
-        <small>${emoji} ${label} • Just now</small>
+      <div class="avatar">
+        ${emoji}
       </div>
 
-      <div class="more">•••</div>
+      <div class="user">
+
+        <strong>Anonymous User</strong>
+
+        <small>
+          ${emoji} ${label} • Just now
+        </small>
+
+      </div>
+
+      <div class="more">
+        •••
+      </div>
+
     </div>
 
-    <div class="cardText">
+
+    <div class="caption">
+
+      <b>Anonymous User</b>
+
       ${escapeHTML(text)}
+
     </div>
 
-    ${
-      type==="reel"
-      ?
-      `<div class="media reelMedia">
-        <div class="reelPlay">▶</div>
-        <div class="re
+
+    <div class="actions">
+
+      <button
+        class="action"
+        onclick="like(this)"
+      >
+        ♡ <span>Like</span>
+      </button>
+
+      <button
+        class="action"
+        onclick="comment()"
+      >
+        ♡ <span>Comment</span>
+      </button>
+
+      <button class="action">
+        ↗ <span>Share</span>
+      </button>
+
+    </div>
+
+
+    <div class="likes">
+      0 likes
+    </div>
+
+  `;
+
+
+  document
+    .getElementById("feed")
+    .prepend(article);
+
+
+  document.getElementById("postText").value="";
+
+  closeModal("postModal");
+
+}
+
+
+/* ================= ESCAPE HTML ================= */
+
+function escapeHTML(text){
+
+  return text
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(
