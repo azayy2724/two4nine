@@ -4,197 +4,155 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>two4nine.com — The World. Right Now.</title>
-
-<meta name="description"
-content="Fresh latest world news, war, sports, AI, technology and business news.">
+<title>two4nine.com</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f3f4f6;
-  color:#111;
+margin:0;
+font-family:Arial,sans-serif;
+background:#f3f4f6;
+color:#111;
 }
 
 header{
-  background:#08090b;
-  color:white;
-  padding:28px 20px 0;
+background:#08090b;
+color:white;
+padding:28px 20px 0;
 }
 
 .logo{
-  font-size:38px;
-  font-weight:800;
+font-size:38px;
+font-weight:800;
 }
 
 .tagline{
-  color:#aaa;
-  font-size:18px;
-  margin-top:8px;
+color:#aaa;
+font-size:18px;
+margin-top:8px;
 }
 
 nav{
-  display:flex;
-  gap:28px;
-  overflow-x:auto;
-  padding:25px 0 18px;
-  white-space:nowrap;
+display:flex;
+gap:28px;
+overflow-x:auto;
+padding:25px 0 18px;
+white-space:nowrap;
 }
 
 nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-size:18px;
-}
-
-nav a:hover{
-  color:white;
+color:#ddd;
+text-decoration:none;
+font-size:18px;
 }
 
 .breaking{
-  background:#d40000;
-  color:white;
-  font-weight:800;
-  padding:16px 20px;
-  white-space:nowrap;
-  overflow:hidden;
-  font-size:18px;
+background:#d40000;
+color:white;
+font-weight:800;
+padding:16px 20px;
+white-space:nowrap;
+overflow:hidden;
+font-size:18px;
 }
 
 .wrap{
-  max-width:1000px;
-  margin:auto;
-  padding:35px 20px 60px;
+max-width:1000px;
+margin:auto;
+padding:35px 20px 60px;
 }
 
 .status{
-  background:#fff4c7;
-  border:1px solid #eadb91;
-  border-radius:14px;
-  padding:16px;
-  margin-bottom:35px;
-  font-size:17px;
+background:#fff4c7;
+border:1px solid #eadb91;
+border-radius:14px;
+padding:16px;
+margin-bottom:35px;
+font-size:17px;
 }
 
 h1{
-  font-size:42px;
-  margin:0 0 25px;
+font-size:42px;
+margin:0 0 25px;
 }
 
 h2{
-  font-size:32px;
-  margin:55px 0 20px;
+font-size:32px;
+margin:55px 0 20px;
 }
 
 .grid{
-  display:grid;
-  gap:22px;
+display:grid;
+gap:22px;
 }
 
 .card{
-  background:white;
-  border:1px solid #ddd;
-  border-radius:16px;
-  padding:28px;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
+background:white;
+border:1px solid #ddd;
+border-radius:16px;
+padding:28px;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 
 .label{
-  color:#b00000;
-  font-weight:800;
-  font-size:15px;
-  margin-bottom:14px;
+color:#b00000;
+font-weight:800;
+font-size:15px;
+margin-bottom:14px;
 }
 
 .title{
-  font-size:24px;
-  line-height:1.3;
-  font-weight:800;
-  margin-bottom:16px;
+font-size:24px;
+line-height:1.3;
+font-weight:800;
+margin-bottom:16px;
 }
 
 .meta{
-  color:#777;
-  font-weight:700;
-  margin-bottom:22px;
+color:#777;
+font-weight:700;
+margin-bottom:22px;
 }
 
 .read{
-  display:inline-block;
-  background:#111;
-  color:white;
-  padding:14px 20px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:700;
+display:inline-block;
+background:#111;
+color:white;
+padding:14px 20px;
+border-radius:8px;
+text-decoration:none;
+font-weight:700;
 }
 
-.loading,
-.empty,
-.error{
-  background:white;
-  border-radius:14px;
-  padding:22px;
-  color:#666;
+.loading,.empty,.error{
+background:white;
+border-radius:14px;
+padding:22px;
+color:#666;
 }
 
 footer{
-  background:#08090b;
-  color:#999;
-  text-align:center;
-  padding:30px 20px;
+background:#08090b;
+color:#999;
+text-align:center;
+padding:30px 20px;
 }
 
 @media(max-width:600px){
 
-  header{
-    padding:24px 16px 0;
-  }
+.logo{font-size:34px}
+.wrap{padding:28px 16px 50px}
+h1{font-size:34px}
+h2{font-size:28px}
 
-  .logo{
-    font-size:34px;
-  }
+.card{
+padding:25px 20px;
+}
 
-  .tagline{
-    font-size:17px;
-  }
-
-  nav{
-    gap:24px;
-  }
-
-  nav a{
-    font-size:17px;
-  }
-
-  .wrap{
-    padding:28px 16px 50px;
-  }
-
-  h1{
-    font-size:34px;
-  }
-
-  h2{
-    font-size:28px;
-  }
-
-  .card{
-    padding:25px 20px;
-  }
-
-  .title{
-    font-size:22px;
-  }
+.title{
+font-size:22px;
+}
 }
 </style>
 </head>
@@ -203,76 +161,79 @@ footer{
 
 <header>
 
-  <div class="logo">two4nine.com</div>
-  <div class="tagline">The World. Right Now.</div>
+<div class="logo">two4nine.com</div>
 
-  <nav>
-    <a href="#latest">Latest</a>
-    <a href="#world">World</a>
-    <a href="#war">War & Conflict</a>
-    <a href="#sports">Sports</a>
-    <a href="#tech">AI & Technology</a>
-    <a href="#business">Business</a>
-  </nav>
+<div class="tagline">
+The World. Right Now.
+</div>
+
+<nav>
+<a href="#latest">Latest</a>
+<a href="#world">World</a>
+<a href="#war">War & Conflict</a>
+<a href="#sports">Sports</a>
+<a href="#tech">AI & Technology</a>
+<a href="#business">Business</a>
+</nav>
 
 </header>
 
 <div class="breaking">
-  BREAKING • <span id="breakingText">Loading fresh headlines…</span>
+BREAKING • <span id="breakingText">Loading fresh headlines...</span>
 </div>
 
 <main class="wrap">
 
-  <div class="status" id="status">
-    🟡 Connecting to live news feeds…
-  </div>
+<div class="status" id="status">
+🟡 Connecting to live news...
+</div>
 
-  <section id="latest">
-    <h1>Latest News</h1>
-    <div class="grid" id="latestGrid">
-      <div class="loading">Loading fresh news…</div>
-    </div>
-  </section>
+<section id="latest">
+<h1>Latest News</h1>
+<div class="grid" id="latestGrid">
+<div class="loading">Loading fresh news...</div>
+</div>
+</section>
 
-  <section id="world">
-    <h2>World</h2>
-    <div class="grid" id="worldGrid">
-      <div class="loading">Loading…</div>
-    </div>
-  </section>
+<section id="world">
+<h2>World</h2>
+<div class="grid" id="worldGrid">
+<div class="loading">Loading...</div>
+</div>
+</section>
 
-  <section id="war">
-    <h2>War & Conflict</h2>
-    <div class="grid" id="warGrid">
-      <div class="loading">Loading…</div>
-    </div>
-  </section>
+<section id="war">
+<h2>War & Conflict</h2>
+<div class="grid" id="warGrid">
+<div class="loading">Loading...</div>
+</div>
+</section>
 
-  <section id="sports">
-    <h2>Sports</h2>
-    <div class="grid" id="sportsGrid">
-      <div class="loading">Loading…</div>
-    </div>
-  </section>
+<section id="sports">
+<h2>Sports</h2>
+<div class="grid" id="sportsGrid">
+<div class="loading">Loading...</div>
+</div>
+</section>
 
-  <section id="tech">
-    <h2>AI & Technology</h2>
-    <div class="grid" id="techGrid">
-      <div class="loading">Loading…</div>
-    </div>
-  </section>
+<section id="tech">
+<h2>AI & Technology</h2>
+<div class="grid" id="techGrid">
+<div class="loading">Loading...</div>
+</div>
+</section>
 
-  <section id="business">
-    <h2>Business</h2>
-    <div class="grid" id="businessGrid">
-      <div class="loading">Loading…</div>
-    </div>
-  </section>
+<section id="business">
+<h2>Business</h2>
+<div class="grid" id="businessGrid">
+<div class="loading">Loading...</div>
+</div>
+</section>
 
 </main>
 
 <footer>
-  two4nine.com © 2026 • Fresh news from live feeds
+two4nine.com © 2026 • Fresh News
 </footer>
 
 <script>
@@ -281,377 +242,281 @@ const MAX_AGE_HOURS = 24;
 
 const feeds = {
 
-  world:
-  "https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en",
+world:
+"https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en",
 
-  war:
-  "https://news.google.com/rss/search?q=war+conflict+international&hl=en-US&gl=US&ceid=US:en",
+war:
+"https://news.google.com/rss/search?q=war+conflict&hl=en-US&gl=US&ceid=US:en",
 
-  sports:
-  "https://news.google.com/rss/search?q=sports+latest&hl=en-US&gl=US&ceid=US:en",
+sports:
+"https://news.google.com/rss/search?q=sports+latest&hl=en-US&gl=US&ceid=US:en",
 
-  tech:
-  "https://news.google.com/rss/search?q=AI+technology+latest&hl=en-US&gl=US&ceid=US:en",
+tech:
+"https://news.google.com/rss/search?q=AI+technology&hl=en-US&gl=US&ceid=US:en",
 
-  business:
-  "https://news.google.com/rss/search?q=business+economy+latest&hl=en-US&gl=US&ceid=US:en"
+business:
+"https://news.google.com/rss/search?q=business+economy&hl=en-US&gl=US&ceid=US:en"
 
 };
 
-
 function escapeHTML(text){
 
-  return String(text || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+return String(text || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
-
-
-function getProxy(url){
-
-  return "https://api.allorigins.win/get?url="
-    + encodeURIComponent(url)
-    + "&t="
-    + Date.now();
-
-}
-
 
 function cleanText(text){
 
-  const div = document.createElement("div");
+const div=document.createElement("div");
+div.innerHTML=text || "";
 
-  div.innerHTML = text || "";
-
-  return div.textContent
-    .replace(/\s+/g," ")
-    .trim();
-
-}
-
-
-function formatDate(date){
-
-  return new Intl.DateTimeFormat("en-IN",{
-    day:"2-digit",
-    month:"short",
-    hour:"2-digit",
-    minute:"2-digit"
-  }).format(date);
+return div.textContent
+.replace(/\s+/g," ")
+.trim();
 
 }
-
 
 function isFresh(date){
 
-  const now = Date.now();
+const age=(Date.now()-date.getTime())/(1000*60*60);
 
-  const age =
-    (now - date.getTime()) /
-    (1000 * 60 * 60);
-
-  return age >= 0 && age <= MAX_AGE_HOURS;
+return age>=0 && age<=MAX_AGE_HOURS;
 
 }
 
+function formatDate(date){
+
+return new Intl.DateTimeFormat("en-IN",{
+day:"2-digit",
+month:"short",
+hour:"2-digit",
+minute:"2-digit"
+}).format(date);
+
+}
 
 function removeDuplicates(items){
 
-  const seen = new Set();
+const seen=new Set();
 
-  return items.filter(item => {
+return items.filter(item=>{
 
-    const key = item.title
-      .toLowerCase()
-      .replace(/[^a-z0-9]/g,"")
-      .slice(0,120);
+const key=item.title
+.toLowerCase()
+.replace(/[^a-z0-9]/g,"")
+.slice(0,120);
 
-    if(seen.has(key)){
-      return false;
-    }
+if(seen.has(key)) return false;
 
-    seen.add(key);
+seen.add(key);
 
-    return true;
+return true;
 
-  });
+});
 
 }
 
+async function getFeed(url){
 
-async function getFeed(feedURL){
+const api=
+"https://api.rss2json.com/v1/api.json?rss_url="
++encodeURIComponent(url)
++"&t="+Date.now();
 
-  const response =
-    await fetch(getProxy(feedURL),{
-      cache:"no-store"
-    });
+const response=await fetch(api,{
+cache:"no-store"
+});
 
-  if(!response.ok){
-    throw new Error("Feed request failed");
-  }
+if(!response.ok){
+throw new Error("Feed failed");
+}
 
-  const data =
-    await response.json();
+const data=await response.json();
 
-  if(!data.contents){
-    throw new Error("No feed data");
-  }
+if(data.status!=="ok"){
+throw new Error("RSS error");
+}
 
-  const xml =
-    new DOMParser()
-      .parseFromString(data.contents,"text/xml");
+return data.items
+.map(item=>({
 
-  const items =
-    [...xml.querySelectorAll("item")];
+title:cleanText(item.title),
 
-  return items.map(item => {
+link:item.link,
 
-    const title =
-      cleanText(
-        item.querySelector("title")?.textContent
-      );
+source:
+cleanText(
+item.author ||
+item.source ||
+"News source"
+),
 
-    const link =
-      item.querySelector("link")?.textContent?.trim();
+date:new Date(item.pubDate)
 
-    const source =
-      cleanText(
-        item.querySelector("source")?.textContent
-      ) || "News source";
-
-    const pubDateText =
-      item.querySelector("pubDate")?.textContent;
-
-    const date =
-      new Date(pubDateText);
-
-    return {
-      title,
-      link,
-      source,
-      date
-    };
-
-  }).filter(item => {
-
-    return item.title &&
-           item.link &&
-           !isNaN(item.date.getTime()) &&
-           isFresh(item.date);
-
-  });
+}))
+.filter(item=>
+item.title &&
+item.link &&
+!isNaN(item.date.getTime()) &&
+isFresh(item.date)
+);
 
 }
 
+function card(item,label){
 
-function makeCard(item,label){
+return `
+<article class="card">
 
-  return `
-    <article class="card">
+<div class="label">
+${escapeHTML(label)}
+</div>
 
-      <div class="label">
-        ${escapeHTML(label)}
-      </div>
+<div class="title">
+${escapeHTML(item.title)}
+</div>
 
-      <div class="title">
-        ${escapeHTML(item.title)}
-      </div>
+<div class="meta">
+${escapeHTML(item.source)}
+•
+${formatDate(item.date)}
+</div>
 
-      <div class="meta">
-        ${escapeHTML(item.source)}
-        •
-        ${formatDate(item.date)}
-      </div>
+<a
+class="read"
+href="${escapeHTML(item.link)}"
+target="_blank"
+rel="noopener noreferrer">
+Read Full Story →
+</a>
 
-      <a
-        class="read"
-        href="${escapeHTML(item.link)}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Read Full Story →
-      </a>
-
-    </article>
-  `;
+</article>
+`;
 
 }
 
+function showEmpty(el){
 
-function showEmpty(element){
-
-  element.innerHTML =
-    `<div class="empty">
-      No fresh news available right now.
-    </div>`;
+el.innerHTML=
+'<div class="empty">No fresh news available right now.</div>';
 
 }
 
+function showError(el){
 
-function showError(element){
-
-  element.innerHTML =
-    `<div class="error">
-      Live feed temporarily unavailable. Trying again soon…
-    </div>`;
+el.innerHTML=
+'<div class="error">Live feed temporarily unavailable. Trying again soon...</div>';
 
 }
-
 
 async function loadCategory(key,label){
 
-  const element =
-    document.getElementById(key + "Grid");
+const el=document.getElementById(key+"Grid");
 
-  element.innerHTML =
-    `<div class="loading">Loading fresh news…</div>`;
+el.innerHTML=
+'<div class="loading">Loading fresh news...</div>';
 
-  try{
+try{
 
-    const items =
-      await getFeed(feeds[key]);
+let items=await getFeed(feeds[key]);
 
-    const unique =
-      removeDuplicates(items)
-      .sort((a,b) =>
-        b.date - a.date
-      );
+items=removeDuplicates(items)
+.sort((a,b)=>b.date-a.date);
 
-    if(!unique.length){
+if(!items.length){
 
-      showEmpty(element);
-
-      return [];
-
-    }
-
-    element.innerHTML =
-      unique
-        .slice(0,5)
-        .map(item =>
-          makeCard(item,label)
-        )
-        .join("");
-
-    return unique;
-
-  }
-  catch(error){
-
-    console.log(key,error);
-
-    showError(element);
-
-    return [];
-
-  }
+showEmpty(el);
+return [];
 
 }
 
+el.innerHTML=
+items.slice(0,5)
+.map(item=>card(item,label))
+.join("");
+
+return items;
+
+}
+catch(error){
+
+console.log(error);
+
+showError(el);
+
+return [];
+
+}
+
+}
 
 async function loadNews(){
 
-  const status =
-    document.getElementById("status");
+const status=document.getElementById("status");
 
-  status.textContent =
-    "🟡 Updating fresh news…";
+status.textContent="🟡 Updating fresh news...";
 
-  const results =
-    await Promise.all([
+const results=await Promise.all([
 
-      loadCategory("world","WORLD"),
+loadCategory("world","WORLD"),
 
-      loadCategory("war","WAR & CONFLICT"),
+loadCategory("war","WAR & CONFLICT"),
 
-      loadCategory("sports","SPORTS"),
+loadCategory("sports","SPORTS"),
 
-      loadCategory("tech","AI & TECHNOLOGY"),
+loadCategory("tech","AI & TECHNOLOGY"),
 
-      loadCategory("business","BUSINESS")
+loadCategory("business","BUSINESS")
 
-    ]);
+]);
 
+let all=results.flat();
 
-  let allNews =
-    results
-      .flat()
-      .sort((a,b) =>
-        b.date - a.date
-      );
+all=removeDuplicates(all)
+.sort((a,b)=>b.date-a.date);
 
+const latest=document.getElementById("latestGrid");
 
-  allNews =
-    removeDuplicates(allNews);
+if(!all.length){
 
+showEmpty(latest);
 
-  const latestGrid =
-    document.getElementById("latestGrid");
+document.getElementById("breakingText")
+.textContent="No fresh headlines available.";
 
+}
+else{
 
-  if(!allNews.length){
+latest.innerHTML=
+all.slice(0,8)
+.map(item=>card(item,"LATEST NEWS"))
+.join("");
 
-    showEmpty(latestGrid);
-
-    document.getElementById("breakingText")
-      .textContent =
-      "No fresh headlines available right now.";
-
-  }
-  else{
-
-    latestGrid.innerHTML =
-      allNews
-        .slice(0,8)
-        .map(item =>
-          makeCard(item,"LATEST NEWS")
-        )
-        .join("");
-
-
-    document.getElementById("breakingText")
-      .textContent =
-      allNews
-        .slice(0,4)
-        .map(item => item.title)
-        .join(" • ");
-
-  }
-
-
-  const now =
-    new Date();
-
-
-  status.textContent =
-    "🟢 Live news connected • Updated "
-    +
-    now.toLocaleTimeString("en-IN",{
-      hour:"2-digit",
-      minute:"2-digit",
-      second:"2-digit"
-    })
-    +
-    " • Showing news from the last 24 hours";
+document.getElementById("breakingText")
+.textContent=
+all.slice(0,4)
+.map(item=>item.title)
+.join(" • ");
 
 }
 
+status.textContent=
+"🟢 Live news connected • Updated "
++
+new Date().toLocaleTimeString("en-IN")
++
+" • Last 24 hours only";
+
+}
 
 loadNews();
 
-
-/*
-  Automatically refresh every 5 minutes.
-*/
-
-setInterval(
-  loadNews,
-  5 * 60 * 1000
-);
+setInterval(loadNews,5*60*1000);
 
 </script>
 
