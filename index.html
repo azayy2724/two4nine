@@ -4,176 +4,533 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>two4nine.com</title>
+<title>two4nine — News, Memes & Community</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 margin:0;
-font-family:Arial,sans-serif;
+font-family:Arial, sans-serif;
 background:#f3f4f6;
 color:#111;
 }
 
+/* HEADER */
+
 header{
 background:#08090b;
 color:white;
-padding:28px 20px 0;
+padding:22px 18px 0;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.topbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
 }
 
 .logo{
-font-size:38px;
+font-size:32px;
+font-weight:900;
+letter-spacing:-1px;
+}
+
+.login-btn{
+background:white;
+color:#111;
+border:0;
+padding:10px 16px;
+border-radius:10px;
 font-weight:800;
+cursor:pointer;
 }
 
 .tagline{
-color:#aaa;
-font-size:18px;
-margin-top:8px;
+color:#999;
+font-size:14px;
+margin-top:5px;
 }
 
 nav{
 display:flex;
-gap:28px;
+gap:22px;
 overflow-x:auto;
-padding:25px 0 18px;
+padding:20px 0 14px;
 white-space:nowrap;
+}
+
+nav::-webkit-scrollbar{
+display:none;
 }
 
 nav a{
 color:#ddd;
 text-decoration:none;
-font-size:18px;
+font-size:15px;
+font-weight:700;
 }
+
+/* BREAKING */
 
 .breaking{
 background:#d40000;
 color:white;
 font-weight:800;
-padding:16px 20px;
+padding:13px 16px;
 white-space:nowrap;
 overflow:hidden;
-font-size:18px;
+font-size:14px;
 }
 
+/* MAIN */
+
 .wrap{
-max-width:1000px;
+max-width:1050px;
 margin:auto;
-padding:35px 20px 60px;
+padding:22px 16px 60px;
 }
+
+/* HERO */
+
+.hero{
+background:#08090b;
+color:white;
+border-radius:20px;
+padding:25px 20px;
+margin-bottom:22px;
+}
+
+.hero h1{
+font-size:34px;
+line-height:1.05;
+margin:0 0 10px;
+}
+
+.hero p{
+color:#aaa;
+margin:0 0 20px;
+line-height:1.5;
+}
+
+.hero-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.hero-btn{
+display:inline-block;
+text-decoration:none;
+padding:12px 16px;
+border-radius:10px;
+font-weight:800;
+}
+
+.hero-btn.primary{
+background:white;
+color:#111;
+}
+
+.hero-btn.secondary{
+background:#222;
+color:white;
+border:1px solid #444;
+}
+
+/* SECTION */
+
+.section{
+margin-top:30px;
+}
+
+.section-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:14px;
+}
+
+.section-title{
+font-size:25px;
+font-weight:900;
+margin:0;
+}
+
+.section-link{
+font-size:13px;
+font-weight:800;
+color:#666;
+}
+
+/* MEMES */
+
+.meme-scroll{
+display:flex;
+gap:14px;
+overflow-x:auto;
+padding-bottom:8px;
+}
+
+.meme-scroll::-webkit-scrollbar{
+display:none;
+}
+
+.meme{
+min-width:235px;
+background:#111;
+color:white;
+border-radius:18px;
+padding:20px;
+min-height:205px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.meme-icon{
+font-size:48px;
+}
+
+.meme-text{
+font-size:19px;
+font-weight:900;
+line-height:1.25;
+}
+
+.meme-meta{
+font-size:12px;
+color:#aaa;
+margin-top:12px;
+}
+
+/* TRENDING */
+
+.trending{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.trend{
+background:white;
+border:1px solid #ddd;
+border-radius:15px;
+padding:17px;
+}
+
+.trend-number{
+font-size:13px;
+font-weight:900;
+color:#d40000;
+}
+
+.trend-title{
+font-size:17px;
+font-weight:800;
+margin-top:7px;
+line-height:1.3;
+}
+
+/* COMMUNITY */
+
+.community-box{
+background:white;
+border:1px solid #ddd;
+border-radius:18px;
+padding:18px;
+}
+
+.post-input{
+background:#f3f4f6;
+border-radius:12px;
+padding:15px;
+color:#777;
+margin-bottom:14px;
+}
+
+.community-actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.action-btn{
+background:#111;
+color:white;
+border:0;
+border-radius:9px;
+padding:10px 14px;
+font-weight:800;
+}
+
+.action-btn.light{
+background:#eee;
+color:#222;
+}
+
+/* PEOPLE */
+
+.people{
+display:flex;
+gap:12px;
+overflow-x:auto;
+}
+
+.person{
+min-width:160px;
+background:white;
+border:1px solid #ddd;
+border-radius:16px;
+padding:16px;
+}
+
+.avatar{
+width:50px;
+height:50px;
+border-radius:50%;
+background:#ddd;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+margin-bottom:10px;
+}
+
+.person-name{
+font-weight:900;
+}
+
+.person-info{
+font-size:12px;
+color:#777;
+margin:5px 0 12px;
+}
+
+.friend-btn{
+width:100%;
+border:0;
+background:#111;
+color:white;
+padding:9px;
+border-radius:8px;
+font-weight:800;
+}
+
+/* STATUS */
 
 .status{
 background:#fff4c7;
 border:1px solid #eadb91;
 border-radius:14px;
-padding:16px;
-margin-bottom:35px;
-font-size:17px;
+padding:13px;
+margin-top:25px;
+font-size:14px;
 }
 
-h1{
-font-size:42px;
-margin:0 0 25px;
-}
+/* NEWS */
 
-h2{
-font-size:32px;
-margin:55px 0 20px;
-}
-
-.grid{
+.news-grid{
 display:grid;
-gap:22px;
+gap:14px;
 }
 
 .card{
 background:white;
 border:1px solid #ddd;
 border-radius:16px;
-padding:28px;
-box-shadow:0 2px 8px rgba(0,0,0,.05);
+padding:20px;
+box-shadow:0 2px 8px rgba(0,0,0,.04);
 }
 
 .label{
 color:#b00000;
-font-weight:800;
-font-size:15px;
-margin-bottom:14px;
+font-weight:900;
+font-size:12px;
+margin-bottom:10px;
 }
 
 .title{
-font-size:24px;
+font-size:19px;
 line-height:1.3;
-font-weight:800;
-margin-bottom:16px;
+font-weight:900;
+margin-bottom:12px;
 }
 
 .meta{
 color:#777;
+font-size:13px;
 font-weight:700;
-margin-bottom:22px;
+margin-bottom:17px;
 }
 
 .read{
 display:inline-block;
 background:#111;
 color:white;
-padding:14px 20px;
+padding:10px 14px;
 border-radius:8px;
 text-decoration:none;
-font-weight:700;
+font-size:13px;
+font-weight:800;
 }
 
-.loading,.empty,.error{
+/* LOADING */
+
+.loading,
+.empty,
+.error{
 background:white;
 border-radius:14px;
-padding:22px;
+padding:20px;
 color:#666;
 }
 
+/* FOOTER */
+
 footer{
 background:#08090b;
-color:#999;
+color:#888;
 text-align:center;
 padding:30px 20px;
+font-size:13px;
 }
 
-@media(max-width:600px){
+/* BIRTHDAY */
 
-.logo{font-size:34px}
-.wrap{padding:28px 16px 50px}
-h1{font-size:34px}
-h2{font-size:28px}
-
-.card{
-padding:25px 20px;
+.birthday-overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(5,7,12,.96);
+z-index:9999;
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
-.title{
-font-size:22px;
+.birthday-card{
+width:100%;
+max-width:520px;
+background:#10131b;
+color:white;
+border:1px solid #303542;
+border-radius:25px;
+padding:30px 22px;
+text-align:center;
+box-shadow:0 20px 70px rgba(0,0,0,.5);
 }
+
+.birthday-card .cake{
+font-size:55px;
+margin-bottom:8px;
 }
+
+.birthday-card h2{
+font-size:36px;
+margin:5px 0 8px;
+}
+
+.birthday-date{
+font-size:18px;
+letter-spacing:5px;
+color:#aaa;
+margin-bottom:22px;
+}
+
+.birthday-message{
+color:#d7d9df;
+line-height:1.65;
+font-size:15px;
+text-align:left;
+}
+
+.close-birthday{
+margin-top:22px;
+background:white;
+color:#111;
+border:0;
+border-radius:10px;
+padding:12px 20px;
+font-weight:900;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+header{
+padding:18px 15px 0;
+}
+
+.logo{
+font-size:28px;
+}
+
+.login-btn{
+padding:9px 13px;
+}
+
+.hero h1{
+font-size:31px;
+}
+
+.trending{
+grid-template-columns:1fr;
+}
+
+.section-title{
+font-size:23px;
+}
+
+.meme{
+min-width:220px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
-<div class="logo">two4nine.com</div>
+<div class="topbar">
 
-<div class="tagline">
-The World. Right Now.
+<div>
+<div class="logo">two4nine</div>
+<div class="tagline">News • Memes • People</div>
+</div>
+
+<button class="login-btn">
+Login
+</button>
+
 </div>
 
 <nav>
-<a href="#latest">Latest</a>
-<a href="#world">World</a>
-<a href="#war">War & Conflict</a>
-<a href="#sports">Sports</a>
-<a href="#tech">AI & Technology</a>
-<a href="#business">Business</a>
+
+<a href="#memes">😂 Memes</a>
+<a href="#trending">🔥 Trending</a>
+<a href="#latest">📰 News</a>
+<a href="#community">💬 Community</a>
+<a href="#people">👥 Friends</a>
+
 </nav>
 
 </header>
@@ -184,59 +541,406 @@ BREAKING • <span id="breakingText">Loading fresh headlines...</span>
 
 <main class="wrap">
 
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Internet, News & People — All in One Place.</h1>
+
+<p>
+Laugh at what's happening. Understand what's happening.
+Then talk about it with people.
+</p>
+
+<div class="hero-buttons">
+
+<a class="hero-btn primary" href="#memes">
+😂 Explore Memes
+</a>
+
+<a class="hero-btn secondary" href="#community">
+💬 Join Community
+</a>
+
+</div>
+
+</section>
+
+
+<!-- MEMES -->
+
+<section class="section" id="memes">
+
+<div class="section-head">
+<h2 class="section-title">😂 Memes</h2>
+<span class="section-link">Trending now</span>
+</div>
+
+<div class="meme-scroll">
+
+<div class="meme">
+
+<div class="meme-icon">😂</div>
+
+<div class="meme-text">
+When you open the news just for 2 minutes...
+</div>
+
+<div class="meme-meta">
+Internet mood • Today
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-icon">🌍</div>
+
+<div class="meme-text">
+World news be like: “You thought today would be peaceful?”
+</div>
+
+<div class="meme-meta">
+News meme • Trending
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-icon">⚽</div>
+
+<div class="meme-text">
+One match. 90 minutes. Millions of opinions.
+</div>
+
+<div class="meme-meta">
+Sports • Reactions
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-icon">🤖</div>
+
+<div class="meme-text">
+AI after replacing another task humans hated doing.
+</div>
+
+<div class="meme-meta">
+AI • Technology
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TRENDING -->
+
+<section class="section" id="trending">
+
+<div class="section-head">
+<h2 class="section-title">🔥 What's Trending</h2>
+<span class="section-link">Today</span>
+</div>
+
+<div class="trending">
+
+<div class="trend">
+<div class="trend-number">#1</div>
+<div class="trend-title">
+Latest world events everyone is talking about
+</div>
+</div>
+
+<div class="trend">
+<div class="trend-number">#2</div>
+<div class="trend-title">
+Sports moments going viral
+</div>
+</div>
+
+<div class="trend">
+<div class="trend-number">#3</div>
+<div class="trend-title">
+The latest AI & technology buzz
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NEWS STATUS -->
+
 <div class="status" id="status">
 🟡 Connecting to live news...
 </div>
 
-<section id="latest">
-<h1>Latest News</h1>
-<div class="grid" id="latestGrid">
-<div class="loading">Loading fresh news...</div>
+
+<!-- LATEST NEWS -->
+
+<section class="section" id="latest">
+
+<div class="section-head">
+<h2 class="section-title">📰 Latest News</h2>
+<span class="section-link">Last 24 hours</span>
 </div>
+
+<div class="news-grid" id="latestGrid">
+
+<div class="loading">
+Loading fresh news...
+</div>
+
+</div>
+
 </section>
 
-<section id="world">
-<h2>World</h2>
-<div class="grid" id="worldGrid">
+
+<!-- WORLD -->
+
+<section class="section" id="world">
+
+<h2 class="section-title">🌍 World</h2>
+
+<div class="news-grid" id="worldGrid">
 <div class="loading">Loading...</div>
 </div>
+
 </section>
 
-<section id="war">
-<h2>War & Conflict</h2>
-<div class="grid" id="warGrid">
+
+<!-- WAR -->
+
+<section class="section" id="war">
+
+<h2 class="section-title">⚠️ War & Conflict</h2>
+
+<div class="news-grid" id="warGrid">
 <div class="loading">Loading...</div>
 </div>
+
 </section>
 
-<section id="sports">
-<h2>Sports</h2>
-<div class="grid" id="sportsGrid">
+
+<!-- SPORTS -->
+
+<section class="section" id="sports">
+
+<h2 class="section-title">⚽ Sports</h2>
+
+<div class="news-grid" id="sportsGrid">
 <div class="loading">Loading...</div>
 </div>
+
 </section>
 
-<section id="tech">
-<h2>AI & Technology</h2>
-<div class="grid" id="techGrid">
+
+<!-- TECH -->
+
+<section class="section" id="tech">
+
+<h2 class="section-title">🤖 AI & Technology</h2>
+
+<div class="news-grid" id="techGrid">
 <div class="loading">Loading...</div>
 </div>
+
 </section>
 
-<section id="business">
-<h2>Business</h2>
-<div class="grid" id="businessGrid">
+
+<!-- BUSINESS -->
+
+<section class="section" id="business">
+
+<h2 class="section-title">💼 Business</h2>
+
+<div class="news-grid" id="businessGrid">
 <div class="loading">Loading...</div>
 </div>
+
+</section>
+
+
+<!-- COMMUNITY -->
+
+<section class="section" id="community">
+
+<div class="section-head">
+<h2 class="section-title">💬 Community</h2>
+<span class="section-link">Talk with people</span>
+</div>
+
+<div class="community-box">
+
+<div class="post-input">
+What's on your mind?
+</div>
+
+<div class="community-actions">
+
+<button class="action-btn">
+📝 Create Post
+</button>
+
+<button class="action-btn light">
+💬 Anonymous Chat
+</button>
+
+<button class="action-btn light">
+🔥 Discussions
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PEOPLE -->
+
+<section class="section" id="people">
+
+<div class="section-head">
+<h2 class="section-title">👥 Find People</h2>
+<span class="section-link">Make friends</span>
+</div>
+
+<div class="people">
+
+<div class="person">
+
+<div class="avatar">🙂</div>
+
+<div class="person-name">
+AnonymousUser
+</div>
+
+<div class="person-info">
+Likes sports & memes
+</div>
+
+<button class="friend-btn">
+Add Friend
+</button>
+
+</div>
+
+
+<div class="person">
+
+<div class="avatar">😎</div>
+
+<div class="person-name">
+NightOwl
+</div>
+
+<div class="person-info">
+Technology enthusiast
+</div>
+
+<button class="friend-btn">
+Add Friend
+</button>
+
+</div>
+
+
+<div class="person">
+
+<div class="avatar">🌸</div>
+
+<div class="person-name">
+JustMe
+</div>
+
+<div class="person-info">
+Books • Movies • News
+</div>
+
+<button class="friend-btn">
+Add Friend
+</button>
+
+</div>
+
+</div>
+
 </section>
 
 </main>
 
+
 <footer>
-two4nine.com © 2026 • Fresh News
+
+<strong>two4nine</strong><br><br>
+
+News you need. Internet you understand.<br><br>
+
+© 2026 two4nine
+
 </footer>
 
+
+<!-- BIRTHDAY SURPRISE -->
+
+<div class="birthday-overlay" id="birthdayOverlay">
+
+<div class="birthday-card">
+
+<div class="cake">🎂</div>
+
+<h2>Happy Birthday Betu ❤️</h2>
+
+<div class="birthday-date">
+24 • 09
+</div>
+
+<div class="birthday-message">
+
+You are, and you will always be, my favourite person. ❤️<br><br>
+
+Some people come into our lives and quietly become a part of us.
+No matter how much time passes, some feelings just never really fade.<br><br>
+
+I may not be able to say these things to you today, but somewhere in my heart,
+I will always wish the best for you.<br><br>
+
+You deserve all the happiness, peace and love in the world.<br><br>
+
+And if this little message ever reaches you, just know that someone still remembers this day.<br><br>
+
+24 September — a date that will always be special. ❤️<br><br>
+
+Happy Birthday, Betu.<br>
+Always keep smiling. 🌸
+
+</div>
+
+<button class="close-birthday" onclick="closeBirthday()">
+Close ❤️
+</button>
+
+</div>
+
+</div>
+
+
 <script>
+
+/* =========================
+   LIVE NEWS
+========================= */
 
 const MAX_AGE_HOURS = 24;
 
@@ -259,6 +963,7 @@ business:
 
 };
 
+
 function escapeHTML(text){
 
 return String(text || "")
@@ -270,9 +975,11 @@ return String(text || "")
 
 }
 
+
 function cleanText(text){
 
 const div=document.createElement("div");
+
 div.innerHTML=text || "";
 
 return div.textContent
@@ -281,24 +988,31 @@ return div.textContent
 
 }
 
+
 function isFresh(date){
 
-const age=(Date.now()-date.getTime())/(1000*60*60);
+const age=
+(Date.now()-date.getTime())/
+(1000*60*60);
 
 return age>=0 && age<=MAX_AGE_HOURS;
 
 }
 
+
 function formatDate(date){
 
 return new Intl.DateTimeFormat("en-IN",{
+
 day:"2-digit",
 month:"short",
 hour:"2-digit",
 minute:"2-digit"
+
 }).format(date);
 
 }
+
 
 function removeDuplicates(items){
 
@@ -321,28 +1035,38 @@ return true;
 
 }
 
+
 async function getFeed(url){
 
 const api=
 "https://api.rss2json.com/v1/api.json?rss_url="
-+encodeURIComponent(url)
-+"&t="+Date.now();
++
+encodeURIComponent(url)
++
+"&t="
++
+Date.now();
 
 const response=await fetch(api,{
 cache:"no-store"
 });
 
 if(!response.ok){
+
 throw new Error("Feed failed");
+
 }
 
 const data=await response.json();
 
 if(data.status!=="ok"){
+
 throw new Error("RSS error");
+
 }
 
 return data.items
+
 .map(item=>({
 
 title:cleanText(item.title),
@@ -359,18 +1083,23 @@ item.source ||
 date:new Date(item.pubDate)
 
 }))
+
 .filter(item=>
+
 item.title &&
 item.link &&
 !isNaN(item.date.getTime()) &&
 isFresh(item.date)
+
 );
 
 }
 
+
 function card(item,label){
 
 return `
+
 <article class="card">
 
 <div class="label">
@@ -392,13 +1121,17 @@ class="read"
 href="${escapeHTML(item.link)}"
 target="_blank"
 rel="noopener noreferrer">
+
 Read Full Story →
+
 </a>
 
 </article>
+
 `;
 
 }
+
 
 function showEmpty(el){
 
@@ -407,6 +1140,7 @@ el.innerHTML=
 
 }
 
+
 function showError(el){
 
 el.innerHTML=
@@ -414,29 +1148,35 @@ el.innerHTML=
 
 }
 
+
 async function loadCategory(key,label){
 
-const el=document.getElementById(key+"Grid");
+const el=
+document.getElementById(key+"Grid");
 
 el.innerHTML=
 '<div class="loading">Loading fresh news...</div>';
 
 try{
 
-let items=await getFeed(feeds[key]);
+let items=
+await getFeed(feeds[key]);
 
-items=removeDuplicates(items)
+items=
+removeDuplicates(items)
 .sort((a,b)=>b.date-a.date);
 
 if(!items.length){
 
 showEmpty(el);
+
 return [];
 
 }
 
 el.innerHTML=
-items.slice(0,5)
+items
+.slice(0,5)
 .map(item=>card(item,label))
 .join("");
 
@@ -455,13 +1195,17 @@ return [];
 
 }
 
+
 async function loadNews(){
 
-const status=document.getElementById("status");
+const status=
+document.getElementById("status");
 
-status.textContent="🟡 Updating fresh news...";
+status.textContent=
+"🟡 Updating fresh news...";
 
-const results=await Promise.all([
+const results=
+await Promise.all([
 
 loadCategory("world","WORLD"),
 
@@ -477,29 +1221,34 @@ loadCategory("business","BUSINESS")
 
 let all=results.flat();
 
-all=removeDuplicates(all)
+all=
+removeDuplicates(all)
 .sort((a,b)=>b.date-a.date);
 
-const latest=document.getElementById("latestGrid");
+const latest=
+document.getElementById("latestGrid");
 
 if(!all.length){
 
 showEmpty(latest);
 
 document.getElementById("breakingText")
-.textContent="No fresh headlines available.";
+.textContent=
+"No fresh headlines available.";
 
 }
 else{
 
 latest.innerHTML=
-all.slice(0,8)
+all
+.slice(0,8)
 .map(item=>card(item,"LATEST NEWS"))
 .join("");
 
 document.getElementById("breakingText")
 .textContent=
-all.slice(0,4)
+all
+.slice(0,4)
 .map(item=>item.title)
 .join(" • ");
 
@@ -514,11 +1263,52 @@ new Date().toLocaleTimeString("en-IN")
 
 }
 
+
 loadNews();
 
-setInterval(loadNews,5*60*1000);
+setInterval(
+loadNews,
+5*60*1000
+);
+
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+function checkBirthday(){
+
+const now=new Date();
+
+const month=
+now.getMonth()+1;
+
+const day=
+now.getDate();
+
+if(month===9 && day===24){
+
+document.getElementById(
+"birthdayOverlay"
+).style.display="flex";
+
+}
+
+}
+
+
+function closeBirthday(){
+
+document.getElementById(
+"birthdayOverlay"
+).style.display="none";
+
+}
+
+
+checkBirthday();
 
 </script>
 
 </body>
-</html>
+  </html>
