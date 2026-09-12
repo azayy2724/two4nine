@@ -3,239 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>two4nine.com — The World. Right Now.</title>
-<meta name="description" content="two4nine.com — latest world news, war and conflict, sports, AI, technology, business and trending stories.">
+
+<meta name="description"
+content="Fresh latest world news, war, sports, AI, technology and business news.">
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
- margin:0;
- font-family:Arial,Helvetica,sans-serif;
- background:#f4f5f7;
- color:#111;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f4f6;
+  color:#111;
 }
+
 header{
- background:#08090c;
- color:white;
- border-bottom:1px solid #222;
+  background:#08090b;
+  color:white;
+  padding:28px 20px 0;
 }
-.top{
- max-width:1150px;
- margin:auto;
- padding:22px 20px 16px;
-}
+
 .logo{
- font-size:34px;
- font-weight:900;
- letter-spacing:-1px;
-}
-.tag{
- color:#aaa;
- margin-top:5px;
-}
-nav{
- max-width:1150px;
- margin:auto;
- padding:0 20px 15px;
- display:flex;
- gap:25px;
- overflow-x:auto;
-}
-nav a{
- color:#ddd;
- text-decoration:none;
- white-space:nowrap;
- font-size:15px;
-}
-nav a:hover{color:white}
-
-.breaking{
- background:#d40000;
- color:white;
- padding:14px 20px;
- font-weight:bold;
- white-space:nowrap;
- overflow:hidden;
-}
-.breaking span{margin-right:20px}
-
-.container{
- max-width:1150px;
- margin:auto;
- padding:25px 20px 50px;
-}
-.status{
- background:#fff4c7;
- border:1px solid #ead783;
- padding:14px 16px;
- border-radius:12px;
- margin-bottom:35px;
-}
-h1{
- font-size:42px;
- margin:0 0 25px;
-}
-h2{
- font-size:28px;
- border-left:8px solid #d40000;
- padding-left:15px;
- margin:45px 0 18px;
-}
-.grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:18px;
-}
-.card{
- background:white;
- border:1px solid #ddd;
- border-radius:16px;
- padding:20px;font-weight:900;
+  font-size:38px;
+  font-weight:800;
 }
 
-.tag{
-color:#aaa;
-font-size:13px;
+.tagline{
+  color:#aaa;
+  font-size:18px;
+  margin-top:8px;
 }
 
 nav{
-max-width:1150px;
-margin:auto;
-padding:0 18px 16px;
-display:flex;
-gap:20px;
-overflow:auto;
+  display:flex;
+  gap:28px;
+  overflow-x:auto;
+  padding:25px 0 18px;
+  white-space:nowrap;
 }
 
 nav a{
-color:#ddd;
-text-decoration:none;
-font-size:14px;
-white-space:nowrap;
+  color:#ddd;
+  text-decoration:none;
+  font-size:18px;
+}
+
+nav a:hover{
+  color:white;
 }
 
 .breaking{
-background:#c40000;
-color:white;
-padding:11px 18px;
-font-weight:bold;
-white-space:nowrap;
-overflow:hidden;
+  background:#d40000;
+  color:white;
+  font-weight:800;
+  padding:16px 20px;
+  white-space:nowrap;
+  overflow:hidden;
+  font-size:18px;
 }
 
 .wrap{
-max-width:1150px;
-margin:25px auto;
-padding:0 18px;
+  max-width:1000px;
+  margin:auto;
+  padding:35px 20px 60px;
 }
 
 .status{
-background:#fff3cd;
-border:1px solid #f0d98a;
-padding:12px;
-border-radius:8px;
-font-size:13px;
-margin-bottom:22px;
+  background:#fff4c7;
+  border:1px solid #eadb91;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:35px;
+  font-size:17px;
 }
 
 h1{
-font-size:28px;
-margin:0 0 18px;
+  font-size:42px;
+  margin:0 0 25px;
 }
 
 h2{
-font-size:22px;
-margin:35px 0 15px;
-border-left:5px solid #c40000;
-padding-left:10px;
+  font-size:32px;
+  margin:55px 0 20px;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:16px;
+  display:grid;
+  gap:22px;
 }
 
 .card{
-background:white;
-border:1px solid #e2e4e8;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 2px 8px rgba(0,0,0,.04);
+  background:white;
+  border:1px solid #ddd;
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 
-.cardbody{
-padding:16px;
+.label{
+  color:#b00000;
+  font-weight:800;
+  font-size:15px;
+  margin-bottom:14px;
 }
 
-.category{
-font-size:11px;
-font-weight:bold;
-color:#c40000;
-text-transform:uppercase;
-}
-
-.card h3{
-font-size:18px;
-line-height:1.3;
-margin:8px 0;
+.title{
+  font-size:24px;
+  line-height:1.3;
+  font-weight:800;
+  margin-bottom:16px;
 }
 
 .meta{
-font-size:12px;
-color:#777;
-margin:8px 0 14px;
+  color:#777;
+  font-weight:700;
+  margin-bottom:22px;
 }
 
 .read{
-display:inline-block;
-background:#111;
-color:white;
-text-decoration:none;
-padding:9px 12px;
-border-radius:5px;
-font-size:12px;
+  display:inline-block;
+  background:#111;
+  color:white;
+  padding:14px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
 }
 
-.empty{
-background:white;
-padding:25px;
-border-radius:10px;
-color:#777;
-text-align:center;
+.loading,
+.empty,
+.error{
+  background:white;
+  border-radius:14px;
+  padding:22px;
+  color:#666;
 }
 
 footer{
-margin-top:50px;
-background:#090a0d;
-color:#aaa;
-padding:30px 18px;
-text-align:center;
-font-size:13px;
+  background:#08090b;
+  color:#999;
+  text-align:center;
+  padding:30px 20px;
 }
 
-@media(max-width:800px){
-.grid{
-grid-template-columns:1fr 1fr;
-}
-}
+@media(max-width:600px){
 
-@media(max-width:550px){
-.top{
-display:block;
-}
+  header{
+    padding:24px 16px 0;
+  }
 
-.logo{
-font-size:28px;
-}
+  .logo{
+    font-size:34px;
+  }
 
-.tag{
-margin-top:5px;
-}
+  .tagline{
+    font-size:17px;
+  }
 
-.grid{
-grid-template-columns:1fr;
-}
+  nav{
+    gap:24px;
+  }
+
+  nav a{
+    font-size:17px;
+  }
+
+  .wrap{
+    padding:28px 16px 50px;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+  h2{
+    font-size:28px;
+  }
+
+  .card{
+    padding:25px 20px;
+  }
+
+  .title{
+    font-size:22px;
+  }
 }
 </style>
 </head>
@@ -244,655 +203,457 @@ grid-template-columns:1fr;
 
 <header>
 
-<div class="top">
-<div class="logo">two4nine.com</div>
-<div class="tag">The World. Right Now.</div>
-</div>
+  <div class="logo">two4nine.com</div>
+  <div class="tagline">The World. Right Now.</div>
 
-<nav>
-<a href="#latest">Latest</a>
-<a href="#world">World</a>
-<a href="#war">War & Conflict</a>
-<a href="#sports">Sports</a>
-<a href="#tech">AI & Technology</a>
-<a href="#business">Business</a>
-<a href="#trending">Trending</a>
-</nav>
+  <nav>
+    <a href="#latest">Latest</a>
+    <a href="#world">World</a>
+    <a href="#war">War & Conflict</a>
+    <a href="#sports">Sports</a>
+    <a href="#tech">AI & Technology</a>
+    <a href="#business">Business</a>
+  </nav>
 
 </header>
 
 <div class="breaking">
-BREAKING • <span id="ticker">Loading latest headlines...</span>
+  BREAKING • <span id="breakingText">Loading fresh headlines…</span>
 </div>
 
 <main class="wrap">
 
-<div class="status" id="status">
-🔄 Connecting to live news...
-</div>
+  <div class="status" id="status">
+    🟡 Connecting to live news feeds…
+  </div>
 
-<section id="latest">
-<h1>Latest News</h1>
-<div id="latestGrid" class="grid">
-<div class="empty">Loading live news...</div>
-</div>
-</section>
+  <section id="latest">
+    <h1>Latest News</h1>
+    <div class="grid" id="latestGrid">
+      <div class="loading">Loading fresh news…</div>
+    </div>
+  </section>
 
-<section id="world">
-<h2>🌍 World</h2>
-<div id="worldGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
+  <section id="world">
+    <h2>World</h2>
+    <div class="grid" id="worldGrid">
+      <div class="loading">Loading…</div>
+    </div>
+  </section>
 
-<section id="war">
-<h2>⚔️ War & Conflict</h2>
-<div id="warGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
+  <section id="war">
+    <h2>War & Conflict</h2>
+    <div class="grid" id="warGrid">
+      <div class="loading">Loading…</div>
+    </div>
+  </section>
 
-<section id="sports">
-<h2>🏆 Sports</h2>
-<div id="sportsGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
+  <section id="sports">
+    <h2>Sports</h2>
+    <div class="grid" id="sportsGrid">
+      <div class="loading">Loading…</div>
+    </div>
+  </section>
 
-<section id="tech">
-<h2>🤖 AI & Technology</h2>
-<div id="techGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
+  <section id="tech">
+    <h2>AI & Technology</h2>
+    <div class="grid" id="techGrid">
+      <div class="loading">Loading…</div>
+    </div>
+  </section>
 
-<section id="business">
-<h2>💼 Business</h2>
-<div id="businessGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
-
-<section id="trending">
-<h2>🔥 Trending</h2>
-<div id="trendingGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
+  <section id="business">
+    <h2>Business</h2>
+    <div class="grid" id="businessGrid">
+      <div class="loading">Loading…</div>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-<strong>two4nine.com</strong><br>
-The World. Right Now.<br><br>
-News links lead to the original publishers.
+  two4nine.com © 2026 • Fresh news from live feeds
 </footer>
 
 <script>
 
-const feeds={
+const MAX_AGE_HOURS = 24;
 
-world:
-"https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en",
+const feeds = {
 
-war:
-"https://news.google.com/rss/search?q=war+conflict+news&hl=en-US&gl=US&ceid=US:en",
+  world:
+  "https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en",
 
-sports:
-"https://news.google.com/rss/search?q=sports+news&hl=en-US&gl=US&ceid=US:en",
+  war:
+  "https://news.google.com/rss/search?q=war+conflict+international&hl=en-US&gl=US&ceid=US:en",
 
-tech:
-"https://news.google.com/rss/search?q=AI+technology+news&hl=en-US&gl=US&ceid=US:en",
+  sports:
+  "https://news.google.com/rss/search?q=sports+latest&hl=en-US&gl=US&ceid=US:en",
 
-business:
-"https://news.google.com/rss/search?q=business+economy+news&hl=en-US&gl=US&ceid=US:en",
+  tech:
+  "https://news.google.com/rss/search?q=AI+technology+latest&hl=en-US&gl=US&ceid=US:en",
 
-trending:
-"https://news.google.com/rss/search?q=trending+world+news&hl=en-US&gl=US&ceid=US:en"
+  business:
+  "https://news.google.com/rss/search?q=business+economy+latest&hl=en-US&gl=US&ceid=US:en"
 
 };
 
 
-async function getFeed(feedUrl){
+function escapeHTML(text){
 
-const api=
-"https://api.rss2json.com/v1/api.json?rss_url="
-+encodeURIComponent(feedUrl);
-
-const response=await fetch(api);
-
-if(!response.ok){
-throw new Error("Network error");
-}
-
-const data=await response.json();
-
-if(data.status!=="ok"){
-throw new Error("Feed unavailable");
-}
-
-return data.items || [];
+  return String(text || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-function escapeHtml(text){
+function getProxy(url){
 
-return String(text||"").replace(/[&<>"']/g,function(m){
-
-return {
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[m];
-
-});
+  return "https://api.allorigins.win/get?url="
+    + encodeURIComponent(url)
+    + "&t="
+    + Date.now();
 
 }
 
 
-function safeUrl(url){
+function cleanText(text){
 
-try{
+  const div = document.createElement("div");
 
-const u=new URL(url);
+  div.innerHTML = text || "";
 
-if(u.protocol==="http:" || u.protocol==="https:"){
-return u.href;
-}
-
-return "#";
-
-}catch(e){
-
-return "#";
-
-}
+  return div.textContent
+    .replace(/\s+/g," ")
+    .trim();
 
 }
 
 
-function card(item,label){
+function formatDate(date){
 
-let time="";
-
-if(item.pubDate){
-
-const d=new Date(item.pubDate);
-
-if(!isNaN(d)){
-
-time=d.toLocaleString([],{
-day:"2-digit",
-month:"short",
-hour:"2-digit",
-minute:"2-digit"
-});
-
-}
-
-}
-
-const source=
-item.author ||
-item.source ||
-"News source";
-
-return `
-
-<article class="card">
-
-<div class="cardbody">
-
-<div class="category">
-${escapeHtml(label)}
-</div>
-
-<h3>
-${escapeHtml(item.title)}
-</h3>
-
-<div class="meta">
-${escapeHtml(source)}
-${time ? " • "+time : ""}
-</div>
-
-<a
-class="read"
-href="${safeUrl(item.link)}"
-target="_blank"
-rel="noopener noreferrer"
->
-Read Full Story →
-</a>
-
-</div>
-
-</article>
-
-`;
+  return new Intl.DateTimeFormat("en-IN",{
+    day:"2-digit",
+    month:"short",
+    hour:"2-digit",
+    minute:"2-digit"
+  }).format(date);
 
 }
 
 
-async function loadCategory(name,id,label){
+function isFresh(date){
 
-try{
+  const now = Date.now();
 
-const items=await getFeed(feeds[name]);
+  const age =
+    (now - date.getTime()) /
+    (1000 * 60 * 60);
 
-if(!items.length){
-
-document.getElementById(id).innerHTML=
-'<div class="empty">No stories available right now.</div>';
-
-return [];
+  return age >= 0 && age <= MAX_AGE_HOURS;
 
 }
 
-const limited=items.slice(0,6);
 
-document.getElementById(id).innerHTML=
-limited.map(function(item){
+function removeDuplicates(items){
 
-return card(item,label);
+  const seen = new Set();
 
-}).join("");
+  return items.filter(item => {
 
-return limited;
+    const key = item.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g,"")
+      .slice(0,120);
 
-}catch(error){
+    if(seen.has(key)){
+      return false;
+    }
 
-document.getElementById(id).innerHTML=
-'<div class="empty">Live feed temporarily unavailable. Please refresh.</div>';
+    seen.add(key);
 
-return [];
+    return true;
+
+  });
 
 }
+
+
+async function getFeed(feedURL){
+
+  const response =
+    await fetch(getProxy(feedURL),{
+      cache:"no-store"
+    });
+
+  if(!response.ok){
+    throw new Error("Feed request failed");
+  }
+
+  const data =
+    await response.json();
+
+  if(!data.contents){
+    throw new Error("No feed data");
+  }
+
+  const xml =
+    new DOMParser()
+      .parseFromString(data.contents,"text/xml");
+
+  const items =
+    [...xml.querySelectorAll("item")];
+
+  return items.map(item => {
+
+    const title =
+      cleanText(
+        item.querySelector("title")?.textContent
+      );
+
+    const link =
+      item.querySelector("link")?.textContent?.trim();
+
+    const source =
+      cleanText(
+        item.querySelector("source")?.textContent
+      ) || "News source";
+
+    const pubDateText =
+      item.querySelector("pubDate")?.textContent;
+
+    const date =
+      new Date(pubDateText);
+
+    return {
+      title,
+      link,
+      source,
+      date
+    };
+
+  }).filter(item => {
+
+    return item.title &&
+           item.link &&
+           !isNaN(item.date.getTime()) &&
+           isFresh(item.date);
+
+  });
+
+}
+
+
+function makeCard(item,label){
+
+  return `
+    <article class="card">
+
+      <div class="label">
+        ${escapeHTML(label)}
+      </div>
+
+      <div class="title">
+        ${escapeHTML(item.title)}
+      </div>
+
+      <div class="meta">
+        ${escapeHTML(item.source)}
+        •
+        ${formatDate(item.date)}
+      </div>
+
+      <a
+        class="read"
+        href="${escapeHTML(item.link)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Read Full Story →
+      </a>
+
+    </article>
+  `;
+
+}
+
+
+function showEmpty(element){
+
+  element.innerHTML =
+    `<div class="empty">
+      No fresh news available right now.
+    </div>`;
+
+}
+
+
+function showError(element){
+
+  element.innerHTML =
+    `<div class="error">
+      Live feed temporarily unavailable. Trying again soon…
+    </div>`;
+
+}
+
+
+async function loadCategory(key,label){
+
+  const element =
+    document.getElementById(key + "Grid");
+
+  element.innerHTML =
+    `<div class="loading">Loading fresh news…</div>`;
+
+  try{
+
+    const items =
+      await getFeed(feeds[key]);
+
+    const unique =
+      removeDuplicates(items)
+      .sort((a,b) =>
+        b.date - a.date
+      );
+
+    if(!unique.length){
+
+      showEmpty(element);
+
+      return [];
+
+    }
+
+    element.innerHTML =
+      unique
+        .slice(0,5)
+        .map(item =>
+          makeCard(item,label)
+        )
+        .join("");
+
+    return unique;
+
+  }
+  catch(error){
+
+    console.log(key,error);
+
+    showError(element);
+
+    return [];
+
+  }
 
 }
 
 
 async function loadNews(){
 
-document.getElementById("status").textContent=
-"🔄 Updating live news...";
+  const status =
+    document.getElementById("status");
 
-const results=await Promise.all([
+  status.textContent =
+    "🟡 Updating fresh news…";
 
-loadCategory("world","worldGrid","World"),
+  const results =
+    await Promise.all([
 
-loadCategory("war","warGrid","War & Conflict"),
+      loadCategory("world","WORLD"),
 
-loadCategory("sports","sportsGrid","Sports"),
+      loadCategory("war","WAR & CONFLICT"),
 
-loadCategory("tech","techGrid","AI & Technology"),
+      loadCategory("sports","SPORTS"),
 
-loadCategory("business","businessGrid","Business"),
+      loadCategory("tech","AI & TECHNOLOGY"),
 
-loadCategory("trending","trendingGrid","Trending")
+      loadCategory("business","BUSINESS")
 
-]);
+    ]);
 
-const all=results.flat();
 
-if(all.length){
+  let allNews =
+    results
+      .flat()
+      .sort((a,b) =>
+        b.date - a.date
+      );
 
-document.getElementById("status").textContent=
-"🟢 Live news connected • Updated "+
-new Date().toLocaleTimeString();
 
-document.getElementById("latestGrid").innerHTML=
-all.slice(0,9).map(function(item){
+  allNews =
+    removeDuplicates(allNews);
 
-return card(item,"Latest News");
 
-}).join("");
+  const latestGrid =
+    document.getElementById("latestGrid");
 
-document.getElementById("ticker").textContent=
-all.slice(0,4).map(function(item){
 
-return item.title;
+  if(!allNews.length){
 
-}).join(" • ");
+    showEmpty(latestGrid);
 
-}else{
+    document.getElementById("breakingText")
+      .textContent =
+      "No fresh headlines available right now.";
 
-document.getElementById("status").textContent=
-"⚠️ Live news is temporarily unavailable. Please refresh.";
+  }
+  else{
 
-}
+    latestGrid.innerHTML =
+      allNews
+        .slice(0,8)
+        .map(item =>
+          makeCard(item,"LATEST NEWS")
+        )
+        .join("");
+
+
+    document.getElementById("breakingText")
+      .textContent =
+      allNews
+        .slice(0,4)
+        .map(item => item.title)
+        .join(" • ");
+
+  }
+
+
+  const now =
+    new Date();
+
+
+  status.textContent =
+    "🟢 Live news connected • Updated "
+    +
+    now.toLocaleTimeString("en-IN",{
+      hour:"2-digit",
+      minute:"2-digit",
+      second:"2-digit"
+    })
+    +
+    " • Showing news from the last 24 hours";
 
 }
 
 
 loadNews();
 
-setInterval(function(){
 
-loadNews();
+/*
+  Automatically refresh every 5 minutes.
+*/
 
-},600000);
+setInterval(
+  loadNews,
+  5 * 60 * 1000
+);
 
 </script>
-
-</body>
-</html>.hero .read{background:white;color:#111}
-.empty{background:white;padding:25px;border-radius:10px;color:#777;text-align:center}
-footer{margin-top:50px;background:#090a0d;color:#aaa;padding:30px 18px;text-align:center;font-size:13px}
-@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.hero h3{font-size:25px}}
-@media(max-width:550px){.top{display:block}.logo{font-size:28px}.tag{margin-top:5px}.grid{grid-template-columns:1fr}.hero{padding:22px}.hero h3{font-size:23px}}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="top">
-<div class="logo">two4nine.com</div>
-<div class="tag">The World. Right Now.</div>
-</div>
-
-<nav>
-<a href="#latest">Latest</a>
-<a href="#world">World</a>
-<a href="#war">War & Conflict</a>
-<a href="#sports">Sports</a>
-<a href="#tech">AI & Technology</a>
-<a href="#business">Business</a>
-<a href="#trending">Trending</a>
-</nav>
-</header>
-
-<div class="breaking">
-BREAKING &nbsp; • &nbsp;
-<span id="ticker">Loading latest headlines...</span>
-</div>
-
-<main class="wrap">
-
-<div class="status" id="status">
-🔄 Connecting to live news feeds...
-</div>
-
-<section id="latest">
-<h1>Latest News</h1>
-<div id="latestGrid" class="grid">
-<div class="empty">Loading live news...</div>
-</div>
-</section>
-
-<section id="world">
-<h2>🌍 World</h2>
-<div id="worldGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
-
-<section id="war">
-<h2>⚔️ War & Conflict</h2>
-<div id="warGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
-
-<section id="sports">
-<h2>🏆 Sports</h2>
-<div id="sportsGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
-
-<section id="tech">
-<h2>🤖 AI & Technology</h2>
-<div id="techGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
-
-<section id="business">
-<h2>💼 Business</h2>
-<div id="businessGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
-
-<section id="trending">
-<h2>🔥 Trending</h2>
-<div id="trendingGrid" class="grid">
-<div class="empty">Loading...</div>
-</div>
-</section>
-
-</main>
-
-<footer>
-<strong>two4nine.com</strong><br>
-The World. Right Now.<br><br>
-News links lead to the original publishers. © 2026 two4nine.com
-</footer>
-
-<script>
-const feeds={
-world:"https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en",
-war:"https://news.google.com/rss/search?q=war+conflict+news&hl=en-US&gl=US&ceid=US:en",
-sports:"https://news.google.com/rss/search?q=sports+news&hl=en-US&gl=US&ceid=US:en",
-tech:"https://news.google.com/rss/search?q=AI+technology+news&hl=en-US&gl=US&ceid=US:en",
-business:"https://news.google.com/rss/search?q=business+economy+news&hl=en-US&gl=US&ceid=US:en",
-trending:"https://news.google.com/rss/search?q=trending+world+news&hl=en-US&gl=US&ceid=US:en"
-};
-
-async function getFeed(url){
-const proxy="https://api.allorigins.win/get?url="+encodeURIComponent(url);
-const response=await fetch(proxy);
-if(!response.ok)throw new Error("Feed error");
-const data=await response.json();
-return new DOMParser().parseFromString(data.contents,"text/xml");
-}
-
-function getItems(xml){
-return [...xml.querySelectorAll("item")].slice(0,6).map(item=>{
-const title=item.querySelector("title")?.textContent?.trim()||"Untitled story";
-const link=item.querySelector("link")?.textContent?.trim()||"#";
-const date=item.querySelector("pubDate")?.textContent||"";
-const source=item.querySelector("source")?.textContent?.trim()||"News source";
-return {title,link,date,source};
-});
-}
-
-function card(item,label){
-let time="";
-if(item.date){
-const d=new Date(item.date);
-if(!isNaN(d))time=d.toLocaleString([],{
-day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"
-});
-}
-
-return `
-<article class="card">
-<div class="cardbody">
-<div class="category">${label}</div>
-<h3>${escapeHtml(item.title)}</h3>
-<div class="meta">${escapeHtml(item.source)} ${time?" • "+time:""}</div>
-<a class="read" href="${safeUrl(item.link)}" target="_blank" rel="noopener noreferrer">
-Read Full Story →
-</a>
-</div>
-</article>`;
-}
-
-function escapeHtml(text){
-return text.replace(/[&<>"']/g,m=>({
-"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-}[m]));
-}
-
-function safeUrl(url){
-try{
-const u=new URL(url);
-return /^https?:$/.test(u.protocol)?u.href:"#";
-}catch(e){return "#"}
-}
-
-async function loadCategory(name,id,label){
-try{
-const xml=await getFeed(feeds[name]);
-const items=getItems(xml);
-
-if(!items.length){
-document.getElementById(id).innerHTML='<div class="empty">No stories available right now.</div>';
-return [];
-}
-
-document.getElementById(id).innerHTML=items.map(x=>card(x,label)).join("");
-return items;
-
-}catch(error){
-document.getElementById(id).innerHTML='<div class="empty">Live feed temporarily unavailable. Please refresh.</div>';
-return [];
-}
-}
-
-async function loadNews(){
-document.getElementById("status").textContent="🔄 Updating live news...";
-
-const results=await Promise.all([
-loadCategory("world","worldGrid","World"),
-loadCategory("war","warGrid","War & Conflict"),
-loadCategory("sports","sportsGrid","Sports"),
-loadCategory("tech","techGrid","AI & Technology"),
-loadCategory("business","businessGrid","Business"),
-loadCategory("trending","trendingGrid","Trending")
-]);
-
-const all=results.flat();
-
-if(all.length){
-document.getElementById("status").textContent=
-"🟢 Live news connected • Updated "+new Date().toLocaleTimeString();
-
-document.getElementById("latestGrid").innerHTML=
-all.slice(0,9).map(x=>card(x,"Latest News")).join("");
-
-document.getElementById("ticker").textContent=
-all.slice(0,4).map(x=>x.title).join("  •  ");
-}else{
-document.getElementById("status").textContent=
-"⚠️ Live feeds are temporarily unavailable. Please refresh.";
-}
-}
-
-loadNews();
-
-setInterval(loadNews,10*60*1000);
-</script>
-
-</body>
-</html>h1{font-size:36px}
-.grid{grid-template-columns:1fr}
-.logo{font-size:27px}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="top">
-<div>
-<div class="logo">two4nine.com</div>
-<div class="tag">The World. Right Now.</div>
-</div>
-<div class="tag">GLOBAL NEWS</div>
-</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">World</a>
-<a href="#">War & Conflict</a>
-<a href="#">Sports</a>
-<a href="#">Technology & AI</a>
-<a href="#">Business</a>
-<a href="#">Politics</a>
-<a href="#">Science</a>
-<a href="#">Trending</a>
-</nav>
-</header>
-
-<div class="breaking">
-● BREAKING &nbsp; | &nbsp; International news feed coming soon
-</div>
-
-<main class="container">
-
-<div class="demo">
-<b>DEMO DATA</b> — These are sample stories for the website design. They are NOT real news.
-</div>
-
-<section class="hero">
-
-<img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200&q=80" alt="International meeting">
-
-<div>
-<div class="category">WORLD • DEMO</div>
-
-<h1>The world, explained clearly and quickly.</h1>
-
-<p class="summary">
-two4nine.com is an international news platform covering world events, sports, technology, business and more.
-</p>
-
-<p class="meta">Demo article • 3 min read</p>
-</div>
-
-</section>
-
-<section class="grid">
-
-<article class="card">
-<img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=800&q=80">
-<div class="category">WORLD • DEMO</div>
-<h2>Global stories from around the world</h2>
-<p class="meta">Demo content</p>
-</article>
-
-<article class="card">
-<img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80">
-<div class="category">SPORTS • DEMO</div>
-<h2>Global sports coverage and scores</h2>
-<p class="meta">Demo content</p>
-</article>
-
-<article class="card">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80">
-<div class="category">TECHNOLOGY • DEMO</div>
-<h2>Technology and AI around the world</h2>
-<p class="meta">Demo content</p>
-</article>
-
-</section>
-
-<section class="section">
-<h2>Latest News</h2>
-<p class="summary">
-Real news articles will appear here after verified news feeds are connected.
-</p>
-</section>
-
-</main>
-
-<footer>
-<div class="footer-inner">
-<strong>two4nine.com</strong>
-<br><br>
-The World. Right Now.
-<br><br>
-About • Contact • Editorial Standards • Privacy • Terms
-</div>
-</footer>
 
 </body>
 </html>
