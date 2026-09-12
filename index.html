@@ -6,7 +6,11 @@
 <title>two4nine — News • Memes • People</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -15,45 +19,47 @@ body{
   line-height:1.5;
 }
 
-header{
-  background:#0d1220;
-  padding:18px 20px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid #20283a;
+button{
+  cursor:pointer;
+  border:0;
 }
 
-.header-row{
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(8,11,18,.96);
+  border-bottom:1px solid #202838;
+  backdrop-filter:blur(12px);
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:16px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:15px;
 }
 
 .logo{
-  font-size:30px;
-  font-weight:800;
+  font-size:27px;
+  font-weight:900;
   letter-spacing:-1px;
 }
 
 .tagline{
-  color:#8f9bb3;
+  color:#9ca6b8;
   font-size:12px;
   margin-top:2px;
 }
 
-button{
-  border:0;
-  cursor:pointer;
-  font-weight:700;
-}
-
 .login-btn{
-  background:#ff3158;
-  color:white;
-  padding:11px 17px;
-  border-radius:12px;
+  background:#fff;
+  color:#080b12;
+  padding:10px 17px;
+  border-radius:22px;
+  font-weight:800;
 }
 
 .user-box{
@@ -62,410 +68,439 @@ button{
   gap:8px;
 }
 
-.user-name{
-  color:#8ff0b0;
+.user-email{
+  color:#aeb8ca;
   font-size:12px;
-  max-width:150px;
+  max-width:130px;
   overflow:hidden;
-  text-overflow:ellipsis;
   white-space:nowrap;
+  text-overflow:ellipsis;
 }
 
 .logout-btn{
-  background:#252d3e;
-  color:white;
-  padding:9px 12px;
-  border-radius:10px;
+  background:#252d3d;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:18px;
+  font-size:12px;
 }
 
 nav{
+  max-width:1100px;
+  margin:auto;
   display:flex;
-  gap:10px;
+  gap:8px;
+  padding:0 20px 12px;
   overflow-x:auto;
-  padding:12px 20px;
-  background:#0d1220;
-  border-bottom:1px solid #20283a;
 }
 
-nav a{
-  color:#cbd3e3;
-  text-decoration:none;
-  background:#171e2e;
+nav button{
+  background:#121827;
+  color:#dbe2ef;
   padding:9px 14px;
-  border-radius:20px;
+  border-radius:18px;
   white-space:nowrap;
-  font-size:14px;
 }
 
-nav a:hover{
-  background:#242d42;
+nav button:hover{
+  background:#25304a;
 }
 
 .ticker{
-  background:#e51f43;
-  padding:9px 15px;
+  background:#d91f3c;
+  padding:9px 20px;
   font-size:13px;
   font-weight:700;
   overflow:hidden;
   white-space:nowrap;
 }
 
+.ticker span{
+  display:inline-block;
+  animation:scroll 22s linear infinite;
+}
+
+@keyframes scroll{
+  from{transform:translateX(100%);}
+  to{transform:translateX(-100%);}
+}
+
 main{
   max-width:1100px;
   margin:auto;
-  padding:25px 16px 70px;
+  padding:25px 20px 70px;
 }
 
 .hero{
-  background:linear-gradient(135deg,#171d31,#101827);
-  border:1px solid #263149;
-  border-radius:24px;
-  padding:35px 25px;
-  margin-bottom:28px;
+  background:
+    radial-gradient(circle at 90% 10%,#26375f 0,transparent 30%),
+    linear-gradient(135deg,#111827,#090d16);
+  border:1px solid #263148;
+  border-radius:26px;
+  padding:40px 28px;
+  margin-bottom:25px;
 }
 
 .hero h1{
-  font-size:clamp(30px,7vw,54px);
-  line-height:1.05;
-  margin-bottom:14px;
+  font-size:clamp(32px,7vw,62px);
+  line-height:1.02;
+  max-width:720px;
 }
 
 .hero p{
-  color:#9da8bc;
+  color:#aab4c7;
+  margin:15px 0 22px;
   max-width:650px;
-  margin-bottom:20px;
 }
 
-.hero-buttons{
+.hero-actions{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
 }
 
 .primary{
-  background:#ff3158;
-  color:white;
-  padding:12px 17px;
-  border-radius:12px;
+  background:#ff3150;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:22px;
+  font-weight:800;
 }
 
 .secondary{
-  background:#252e42;
-  color:white;
-  padding:12px 17px;
-  border-radius:12px;
+  background:#20293b;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:22px;
+  font-weight:800;
 }
 
-section{
-  margin-top:30px;
+.section{
+  margin-top:28px;
 }
 
-.section-title{
+.section-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
   margin-bottom:14px;
 }
 
-.section-title h2{
+.section-head h2{
   font-size:24px;
 }
 
-.small-btn{
-  background:#20293b;
-  color:white;
-  padding:9px 12px;
-  border-radius:10px;
+.section-head span{
+  color:#7f8aa0;
+  font-size:12px;
 }
 
-.cards{
-  display:grid;
+.meme-grid{
+  display:flex;
   gap:14px;
-}
-
-.meme-card,.news-card,.community-card{
-  background:#111725;
-  border:1px solid #202a3d;
-  border-radius:17px;
-  padding:17px;
+  overflow-x:auto;
+  padding-bottom:8px;
 }
 
 .meme-card{
-  min-height:145px;
+  min-width:230px;
+  background:#111725;
+  border:1px solid #202a3e;
+  border-radius:20px;
+  padding:18px;
 }
 
 .meme-emoji{
-  font-size:42px;
-  margin-bottom:8px;
+  font-size:40px;
+  margin-bottom:10px;
 }
 
-.meme-text{
-  font-size:16px;
-  font-weight:700;
+.meme-card h3{
+  font-size:15px;
 }
 
-.meta{
-  color:#758198;
+.meme-card p{
+  color:#9da8ba;
   font-size:12px;
-  margin-top:8px;
+  margin-top:7px;
 }
 
 .reactions{
-  display:flex;
-  gap:8px;
-  margin-top:12px;
+  margin-top:15px;
+  color:#9faabd;
+  font-size:13px;
 }
 
-.reactions button{
-  background:#1c2537;
-  color:#c9d2e3;
-  padding:7px 10px;
-  border-radius:9px;
+.news-list{
+  display:grid;
+  gap:12px;
 }
 
 .news-card{
-  cursor:pointer;
-}
-
-.news-card h3{
-  font-size:17px;
-  line-height:1.35;
+  background:#111725;
+  border:1px solid #202a3e;
+  border-radius:18px;
+  padding:17px;
 }
 
 .news-category{
-  display:inline-block;
-  color:#ff6b86;
+  color:#ff4864;
   font-size:11px;
-  font-weight:700;
-  margin-bottom:6px;
+  font-weight:800;
+  text-transform:uppercase;
 }
 
-.news-description{
-  color:#8d98ac;
-  font-size:13px;
-  margin-top:8px;
-}
-
-.read{
-  color:#ff4969;
-  font-weight:700;
-  font-size:13px;
-  margin-top:12px;
-}
-
-.community-card p{
-  color:#9ba6b9;
+.news-card h3{
   margin-top:5px;
+  font-size:17px;
+}
+
+.news-card p{
+  color:#9ca7b9;
+  font-size:12px;
+  margin-top:6px;
+}
+
+.news-link{
+  display:inline-block;
+  margin-top:10px;
+  color:#76a9ff;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.community{
+  background:#111725;
+  border:1px solid #202a3e;
+  border-radius:22px;
+  padding:22px;
+}
+
+.community p{
+  color:#9da8ba;
+}
+
+.chat-btn{
+  margin-top:15px;
+  background:#ff3150;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:20px;
+  font-weight:bold;
 }
 
 footer{
   text-align:center;
-  color:#657087;
-  padding:30px 15px;
-  border-top:1px solid #1c2535;
+  color:#687388;
   font-size:12px;
+  padding:25px;
+  border-top:1px solid #202838;
 }
 
-/* MODAL */
+/* MODALS */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
+  z-index:100;
   background:rgba(0,0,0,.78);
-  z-index:1000;
+  padding:20px;
   align-items:center;
   justify-content:center;
-  padding:15px;
 }
 
 .modal-box{
-  width:100%;
-  max-width:430px;
+  width:min(430px,100%);
   background:#111725;
-  border:1px solid #29344a;
-  border-radius:22px;
-  padding:24px;
+  border:1px solid #303b52;
+  border-radius:24px;
+  padding:25px;
+  position:relative;
   max-height:90vh;
-  overflow-y:auto;
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
-}
-
-.modal-head h2{
-  font-size:23px;
+  overflow:auto;
 }
 
 .close{
-  width:36px;
-  height:36px;
+  position:absolute;
+  right:17px;
+  top:14px;
+  background:#242d3e;
+  color:#fff;
+  width:32px;
+  height:32px;
   border-radius:50%;
-  background:#252d3e;
-  color:white;
-  font-size:20px;
+  font-size:18px;
 }
 
-.tabs{
-  display:flex;
-  gap:8px;
-  margin-bottom:17px;
+.modal-title{
+  font-size:25px;
+  font-weight:900;
+  margin-bottom:5px;
 }
 
-.tab{
-  flex:1;
-  padding:10px;
-  background:#1b2435;
-  color:#aab5c8;
-  border-radius:10px;
-}
-
-.tab.active{
-  background:#ff3158;
-  color:white;
+.modal-sub{
+  color:#8995aa;
+  font-size:13px;
+  margin-bottom:20px;
 }
 
 .input{
   width:100%;
-  background:#0a0f19;
-  border:1px solid #303b50;
-  color:white;
+  background:#080d16;
+  border:1px solid #303b52;
+  color:#fff;
   padding:13px;
-  border-radius:11px;
+  border-radius:13px;
   margin-bottom:11px;
   outline:none;
 }
 
 .input:focus{
-  border-color:#ff3158;
+  border-color:#6d9cff;
 }
 
-.auth-action{
+.auth-main{
   width:100%;
-  background:#ff3158;
-  color:white;
   padding:13px;
-  border-radius:11px;
+  border-radius:14px;
+  background:#fff;
+  color:#090d15;
+  font-weight:900;
   margin-top:4px;
+}
+
+.auth-secondary{
+  width:100%;
+  padding:11px;
+  border-radius:14px;
+  background:#242d3e;
+  color:#fff;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.forgot{
+  text-align:right;
+  margin:5px 0 12px;
+}
+
+.forgot button{
+  background:none;
+  color:#78aaff;
+  font-size:12px;
 }
 
 .switch{
   text-align:center;
-  color:#8995a9;
-  font-size:13px;
-  margin-top:14px;
+  color:#8995aa;
+  font-size:12px;
+  margin-top:15px;
 }
 
-.switch span{
-  color:#ff5574;
-  cursor:pointer;
-  font-weight:700;
+.switch button{
+  background:none;
+  color:#78aaff;
+  font-weight:bold;
 }
 
-.note{
-  color:#768298;
-  font-size:11px;
+.message{
   margin-top:12px;
-  text-align:center;
-}
-
-#recaptcha-container{
-  margin:12px 0;
-}
-
-.otp-box{
+  padding:10px;
+  border-radius:10px;
+  font-size:12px;
   display:none;
 }
 
-.status{
-  margin-top:10px;
-  font-size:13px;
-  text-align:center;
-  min-height:20px;
+.error{
+  background:#421a25;
+  color:#ff9dae;
 }
 
-.status.success{
-  color:#76e69b;
+.success{
+  background:#173b2c;
+  color:#8df0b8;
 }
-
-.status.error{
-  color:#ff6c85;
-}
-
-/* CHAT */
 
 .chat-messages{
-  background:#0a0f19;
-  border:1px solid #202a3d;
-  border-radius:15px;
+  background:#080d16;
+  border-radius:16px;
   padding:12px;
-  height:280px;
+  height:300px;
   overflow-y:auto;
   margin-bottom:12px;
 }
 
-.chat-msg{
-  background:#192235;
-  padding:9px 11px;
-  border-radius:11px;
-  margin-bottom:8px;
+.chat-message{
+  margin-bottom:10px;
+  background:#182133;
+  padding:10px;
+  border-radius:12px;
   font-size:13px;
 }
 
-.chat-msg b{
-  color:#ff6681;
+.chat-message small{
+  display:block;
+  color:#718099;
+  margin-bottom:3px;
+}
+
+.limit-box{
+  display:none;
+  background:#453714;
+  color:#ffd96b;
+  border:1px solid #66521d;
+  padding:12px;
+  border-radius:12px;
+  font-size:12px;
+  margin-bottom:10px;
 }
 
 .chat-input-row{
   display:flex;
-  gap:8px;
+  gap:7px;
 }
 
-.chat-input{
+.chat-input-row input{
   flex:1;
   margin:0;
 }
 
 .chat-send{
-  background:#ff3158;
-  color:white;
-  border-radius:10px;
-  padding:0 15px;
-}
-
-.limit-box{
-  background:#332b16;
-  border:1px solid #80681e;
-  color:#ffd95a;
-  padding:12px;
-  border-radius:12px;
-  margin-top:10px;
-  font-size:13px;
-}
-
-.hidden{
-  display:none!important;
+  background:#ff3150;
+  color:#fff;
+  border-radius:13px;
+  padding:0 16px;
+  font-weight:bold;
 }
 
 .loading{
-  color:#7e8aa0;
-  padding:20px 0;
+  color:#8995aa;
   text-align:center;
+  padding:15px;
 }
 
-@media(min-width:700px){
-  .cards{
-    grid-template-columns:repeat(2,1fr);
+@media(max-width:600px){
+  main{
+    padding:18px 14px 50px;
   }
-}
 
-@media(min-width:950px){
-  .cards{
-    grid-template-columns:repeat(3,1fr);
+  .header-inner{
+    padding:13px 14px;
+  }
+
+  nav{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .hero{
+    padding:30px 20px;
+    border-radius:21px;
+  }
+
+  .user-email{
+    display:none;
   }
 }
 </style>
@@ -474,337 +509,268 @@ footer{
 <body>
 
 <header>
-  <div class="header-row">
-
+  <div class="header-inner">
     <div>
       <div class="logo">two4nine</div>
       <div class="tagline">News • Memes • People</div>
     </div>
 
-    <div id="loggedOut">
-      <button class="login-btn" onclick="openLogin()">Login</button>
-    </div>
+    <div>
+      <button class="login-btn" id="loginButton" onclick="openLogin()">Login</button>
 
-    <div id="loggedIn" class="user-box">
-      <span id="userName" class="user-name"></span>
-      <button class="logout-btn" onclick="logoutUser()">Logout</button>
+      <div class="user-box" id="userBox">
+        <span class="user-email" id="userEmail"></span>
+        <button class="logout-btn" onclick="logoutUser()">Logout</button>
+      </div>
     </div>
-
   </div>
+
+  <nav>
+    <button onclick="scrollToSection('memes')">😂 Memes</button>
+    <button onclick="scrollToSection('trending')">🔥 Trending</button>
+    <button onclick="scrollToSection('news')">📰 News</button>
+    <button onclick="scrollToSection('community')">💬 Community</button>
+  </nav>
 </header>
 
-<nav>
-  <a href="#memes">😂 Memes</a>
-  <a href="#trending">🔥 Trending</a>
-  <a href="#news">📰 News</a>
-  <a href="#community">💬 Community</a>
-</nav>
-
 <div class="ticker">
-  🔴 BREAKING • <span id="tickerText">Loading fresh headlines...</span>
+  <span id="tickerText">🔴 Breaking • Loading fresh headlines...</span>
 </div>
 
 <main>
 
-  <div class="hero">
-    <h1>Internet, News & People — All in One Place.</h1>
+<section class="hero">
+  <h1>Internet, News & People — All in One Place.</h1>
+  <p>
+    News samjho, memes dekho, logon se connect karo aur apni community ka
+    part bano. Welcome to <b>two4nine</b>.
+  </p>
 
-    <p>
-      News samjho, memes enjoy karo aur logon se connect karo.
-      Simple. Fast. For every generation.
-    </p>
+  <div class="hero-actions">
+    <button class="primary" onclick="scrollToSection('memes')">
+      😂 Explore Memes
+    </button>
 
-    <div class="hero-buttons">
-      <button class="primary" onclick="document.getElementById('memes').scrollIntoView()">
-        😂 Explore Memes
-      </button>
+    <button class="secondary" onclick="openChat()">
+      💬 Anonymous Chat
+    </button>
+  </div>
+</section>
 
-      <button class="secondary" onclick="openChat()">
-        💬 Anonymous Chat
-      </button>
-    </div>
+<section class="section" id="memes">
+  <div class="section-head">
+    <h2>😂 Memes</h2>
+    <span>Fresh community vibes</span>
   </div>
 
+  <div class="meme-grid">
 
-  <!-- MEMES -->
-
-  <section id="memes">
-    <div class="section-title">
-      <h2>😂 Memes</h2>
-      <button class="small-btn" onclick="showLoginIfNeeded()">
-        + Create Meme
-      </button>
+    <div class="meme-card">
+      <div class="meme-emoji">😂</div>
+      <h3>When salary arrives...</h3>
+      <p>2 din baad: balance checking...</p>
+      <div class="reactions">❤️ 248 &nbsp; 😂 91</div>
     </div>
 
-    <div class="cards">
-
-      <div class="meme-card">
-        <div class="meme-emoji">😎</div>
-        <div class="meme-text">
-          Me after saying “bas 5 minute phone chalaunga”
-        </div>
-        <div class="meta">@anonymous</div>
-        <div class="reactions">
-          <button>😂 24</button>
-          <button>❤️ 9</button>
-          <button>🔥 17</button>
-        </div>
-      </div>
-
-      <div class="meme-card">
-        <div class="meme-emoji">📱</div>
-        <div class="meme-text">
-          Battery 1% — suddenly life becomes very serious.
-        </div>
-        <div class="meta">@nightowl</div>
-        <div class="reactions">
-          <button>😂 31</button>
-          <button>❤️ 12</button>
-          <button>🔥 20</button>
-        </div>
-      </div>
-
-      <div class="meme-card">
-        <div class="meme-emoji">🧠</div>
-        <div class="meme-text">
-          Brain at 3 AM: let's remember that embarrassing moment from 2018.
-        </div>
-        <div class="meta">@randomguy</div>
-        <div class="reactions">
-          <button>😂 45</button>
-          <button>❤️ 15</button>
-          <button>🔥 26</button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- NEWS -->
-
-  <section id="news">
-    <div class="section-title">
-      <h2>📰 Fresh News</h2>
-      <button class="small-btn" onclick="loadNews()">↻ Refresh</button>
+    <div class="meme-card">
+      <div class="meme-emoji">☕</div>
+      <h3>Bas ek chai aur...</h3>
+      <p>Indian productivity starter pack.</p>
+      <div class="reactions">❤️ 182 &nbsp; 😂 74</div>
     </div>
 
-    <div id="newsList" class="cards">
-      <div class="loading">Loading fresh news...</div>
-    </div>
-  </section>
-
-
-  <!-- COMMUNITY -->
-
-  <section id="community">
-    <div class="section-title">
-      <h2>💬 Community</h2>
-      <button class="small-btn" onclick="openChat()">Join Chat</button>
+    <div class="meme-card">
+      <div class="meme-emoji">📱</div>
+      <h3>Phone 1% battery</h3>
+      <p>Suddenly life becomes important.</p>
+      <div class="reactions">❤️ 321 &nbsp; 😂 120</div>
     </div>
 
-    <div class="community-card">
-      <h3>🌎 Everyone has a place here.</h3>
-      <p>
-        Share your thoughts, react to posts and meet people.
-        Respect everyone. Block/report features will be added with the community backend.
-      </p>
+    <div class="meme-card">
+      <div class="meme-emoji">🧠</div>
+      <h3>Overthinking at 2 AM</h3>
+      <p>Brain: let's remember everything.</p>
+      <div class="reactions">❤️ 290 &nbsp; 😂 143</div>
     </div>
 
-    <br>
+  </div>
+</section>
 
-    <div class="community-card">
-      <h3>❤️ Different Generations. One Place.</h3>
-      <p>
-        Same news, different explanations — simple for Grandpa,
-        practical for Dad, and 60-second style for the next generation.
-      </p>
-    </div>
-  </section>
+<section class="section" id="trending">
+  <div class="section-head">
+    <h2>🔥 Trending</h2>
+    <span>What's getting attention</span>
+  </div>
+
+  <div class="news-card">
+    <div class="news-category">Trending</div>
+    <h3>Internet trends, viral stories and conversations</h3>
+    <p>
+      Yahan future me real-time trending topics, viral posts aur community
+      discussions dikhenge.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="news">
+  <div class="section-head">
+    <h2>📰 Fresh News</h2>
+    <span>Last 24 hours</span>
+  </div>
+
+  <div id="newsList" class="news-list">
+    <div class="loading">Loading fresh headlines...</div>
+  </div>
+</section>
+
+<section class="section" id="community">
+  <div class="section-head">
+    <h2>💬 Community</h2>
+    <span>People • Opinions • Conversations</span>
+  </div>
+
+  <div class="community">
+    <h3>Talk freely. Stay respectful.</h3>
+    <p>
+      Join discussions, share opinions, react to posts and meet people.
+      Safety features like block, report and mute will be added as the
+      community grows.
+    </p>
+
+    <button class="chat-btn" onclick="openChat()">
+      💬 Open Anonymous Chat
+    </button>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  © 2026 two4nine • News • Memes • People
+  © 2026 two4nine • Different Generations. One Place. ❤️
 </footer>
 
 
 <!-- LOGIN MODAL -->
 
-<div id="loginModal" class="modal">
-
+<div class="modal" id="loginModal">
   <div class="modal-box">
 
-    <div class="modal-head">
-      <h2>🔐 Login to two4nine</h2>
-      <button class="close" onclick="closeLogin()">×</button>
+    <button class="close" onclick="closeModal('loginModal')">×</button>
+
+    <div style="font-size:40px;">🔐</div>
+
+    <div class="modal-title" id="authTitle">Welcome to two4nine</div>
+
+    <div class="modal-sub" id="authSubtitle">
+      Login to continue.
     </div>
 
-    <div class="tabs">
-      <button id="emailTab" class="tab active" onclick="showEmailAuth()">
-        📧 Email
-      </button>
+    <input
+      class="input"
+      id="authEmail"
+      type="email"
+      placeholder="Email"
+      autocomplete="email"
+    >
 
-      <button id="phoneTab" class="tab" onclick="showPhoneAuth()">
-        📱 Phone
+    <input
+      class="input"
+      id="authPassword"
+      type="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    >
+
+    <div class="forgot">
+      <button onclick="forgotPassword()">Forgot password?</button>
+    </div>
+
+    <button class="auth-main" onclick="loginUser()" id="authMainBtn">
+      Continue
+    </button>
+
+    <button class="auth-secondary" onclick="createAccount()" id="createBtn">
+      Create Account
+    </button>
+
+    <div class="switch">
+      <span id="switchText">New here?</span>
+      <button onclick="toggleAuthMode()" id="switchBtn">
+        Create account
       </button>
     </div>
 
-
-    <!-- EMAIL AUTH -->
-
-    <div id="emailAuth">
-
-      <input
-        id="email"
-        class="input"
-        type="email"
-        placeholder="Email address"
-        autocomplete="email"
-      >
-
-      <input
-        id="password"
-        class="input"
-        type="password"
-        placeholder="Password"
-        autocomplete="current-password"
-      >
-
-      <button class="auth-action" onclick="emailLogin()">
-        Continue
-      </button>
-
-      <div class="switch">
-        Don't have an account?
-        <span onclick="emailSignup()">Create Account</span>
-      </div>
-
-      <div class="note">
-        By continuing you agree to use two4nine respectfully.
-      </div>
-
-    </div>
-
-
-    <!-- PHONE AUTH -->
-
-    <div id="phoneAuth" class="hidden">
-
-      <input
-        id="phoneNumber"
-        class="input"
-        type="tel"
-        placeholder="+91 9876543210"
-      >
-
-      <div id="recaptcha-container"></div>
-
-      <button class="auth-action" onclick="sendOTP()">
-        Send OTP
-      </button>
-
-      <div id="otpBox" class="otp-box">
-
-        <br>
-
-        <input
-          id="otp"
-          class="input"
-          type="text"
-          inputmode="numeric"
-          maxlength="6"
-          placeholder="Enter 6-digit OTP"
-        >
-
-        <button class="auth-action" onclick="verifyOTP()">
-          Verify OTP
-        </button>
-
-      </div>
-
-      <div class="note">
-        Phone verification uses SMS. Firebase Spark projects have daily SMS limits.
-      </div>
-
-    </div>
-
-
-    <div id="authStatus" class="status"></div>
+    <div class="message error" id="authError"></div>
+    <div class="message success" id="authSuccess"></div>
 
   </div>
-
 </div>
 
 
 <!-- CHAT MODAL -->
 
-<div id="chatModal" class="modal">
-
+<div class="modal" id="chatModal">
   <div class="modal-box">
 
-    <div class="modal-head">
-      <h2>💬 Anonymous Chat</h2>
-      <button class="close" onclick="closeChat()">×</button>
+    <button class="close" onclick="closeModal('chatModal')">×</button>
+
+    <div class="modal-title">💬 Anonymous Chat</div>
+
+    <div class="modal-sub">
+      Talk anonymously. Login when you want to continue.
     </div>
 
-    <div id="chatMessages" class="chat-messages">
+    <div class="chat-messages" id="chatMessages">
 
-      <div class="chat-msg">
-        <b>@anonymous:</b> Hello 👋
+      <div class="chat-message">
+        <small>Anonymous</small>
+        Anyone here tonight? 👀
       </div>
 
-      <div class="chat-msg">
-        <b>@nightowl:</b> What's trending today?
-      </div>
-
-      <div class="chat-msg">
-        <b>@random:</b> two4nine looks interesting 🔥
+      <div class="chat-message">
+        <small>Anonymous</small>
+        Yeah bro 😂
       </div>
 
     </div>
 
-    <div id="chatLimit" class="limit-box hidden">
+    <div class="limit-box" id="chatLimit">
       You've used your 5 anonymous messages.
-      Login to continue chatting.
+      <br><br>
+      <b>Login to continue chatting.</b>
+      <br><br>
+      <button class="primary" onclick="closeModal('chatModal');openLogin();">
+        Login
+      </button>
     </div>
 
-    <div class="chat-input-row">
-
+    <div class="chat-input-row" id="chatInputRow">
       <input
+        class="input"
         id="chatInput"
-        class="input chat-input"
-        placeholder="Write anonymously..."
-        maxlength="250"
+        placeholder="Write a message..."
+        maxlength="200"
       >
 
-      <button class="chat-send" onclick="sendAnonymousMessage()">
+      <button class="chat-send" onclick="sendChatMessage()">
         Send
       </button>
-
     </div>
 
-    <br>
-
-    <button class="secondary" style="width:100%" onclick="openLogin()">
-      🔐 Login to unlock full chat
-    </button>
-
   </div>
-
 </div>
 
 
 <!-- FIREBASE -->
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 
 <script>
 
-/* =========================
+/* =========================================
    FIREBASE CONFIG
-========================= */
+   ========================================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
@@ -821,360 +787,355 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
 
-/* =========================
-   LOGIN STATE
-========================= */
+/* =========================================
+   BASIC FUNCTIONS
+   ========================================= */
 
-auth.onAuthStateChanged(function(user){
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({
+    behavior:"smooth"
+  });
+}
 
-  if(user){
+function openLogin(){
+  document.getElementById("loginModal").style.display="flex";
+  clearAuthMessages();
+}
 
-    document.getElementById("loggedOut").style.display = "none";
-    document.getElementById("loggedIn").style.display = "flex";
+function openChat(){
+  document.getElementById("chatModal").style.display="flex";
+}
 
-    let name = user.email || user.phoneNumber || "User";
+function closeModal(id){
+  document.getElementById(id).style.display="none";
+}
 
-    document.getElementById("userName").textContent = "👤 " + name;
+window.onclick=function(e){
+  if(e.target.classList.contains("modal")){
+    e.target.style.display="none";
+  }
+};
+
+
+/* =========================================
+   AUTH MODE
+   ========================================= */
+
+let signupMode=false;
+
+function toggleAuthMode(){
+
+  signupMode=!signupMode;
+
+  clearAuthMessages();
+
+  if(signupMode){
+
+    document.getElementById("authTitle").textContent=
+      "Create your account";
+
+    document.getElementById("authSubtitle").textContent=
+      "Join two4nine for free.";
+
+    document.getElementById("authMainBtn").textContent=
+      "Create Account";
+
+    document.getElementById("createBtn").style.display="none";
+
+    document.getElementById("switchText").textContent=
+      "Already have an account?";
+
+    document.getElementById("switchBtn").textContent=
+      "Login";
 
   }else{
 
-    document.getElementById("loggedOut").style.display = "block";
-    document.getElementById("loggedIn").style.display = "none";
+    document.getElementById("authTitle").textContent=
+      "Welcome to two4nine";
+
+    document.getElementById("authSubtitle").textContent=
+      "Login to continue.";
+
+    document.getElementById("authMainBtn").textContent=
+      "Continue";
+
+    document.getElementById("createBtn").style.display="block";
+
+    document.getElementById("switchText").textContent=
+      "New here?";
+
+    document.getElementById("switchBtn").textContent=
+      "Create account";
+  }
+}
+
+
+/* =========================================
+   CREATE ACCOUNT
+   ========================================= */
+
+function createAccount(){
+
+  const email=
+    document.getElementById("authEmail").value.trim();
+
+  const password=
+    document.getElementById("authPassword").value;
+
+  clearAuthMessages();
+
+  if(!email || !password){
+
+    showAuthError("Email aur password dono enter karo.");
+
+    return;
+  }
+
+  if(password.length < 6){
+
+    showAuthError("Password kam se kam 6 characters ka hona chahiye.");
+
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email,password)
+
+  .then((userCredential)=>{
+
+    showAuthSuccess("Account successfully create ho gaya! 🎉");
+
+    setTimeout(()=>{
+
+      closeModal("loginModal");
+
+    },1000);
+
+  })
+
+  .catch((error)=>{
+
+    showAuthError(firebaseError(error.code));
+
+  });
+}
+
+
+/* =========================================
+   LOGIN
+   ========================================= */
+
+function loginUser(){
+
+  if(signupMode){
+
+    createAccount();
+
+    return;
+  }
+
+  const email=
+    document.getElementById("authEmail").value.trim();
+
+  const password=
+    document.getElementById("authPassword").value;
+
+  clearAuthMessages();
+
+  if(!email || !password){
+
+    showAuthError("Email aur password enter karo.");
+
+    return;
+  }
+
+  auth.signInWithEmailAndPassword(email,password)
+
+  .then(()=>{
+
+    showAuthSuccess("Login successful! Welcome back ❤️");
+
+    setTimeout(()=>{
+
+      closeModal("loginModal");
+
+    },900);
+
+  })
+
+  .catch((error)=>{
+
+    showAuthError(firebaseError(error.code));
+
+  });
+}
+
+
+/* =========================================
+   FORGOT PASSWORD
+   ========================================= */
+
+function forgotPassword(){
+
+  const email=
+    document.getElementById("authEmail").value.trim();
+
+  clearAuthMessages();
+
+  if(!email){
+
+    showAuthError(
+      "Pehle Email box me apna email enter karo."
+    );
+
+    return;
+  }
+
+  auth.sendPasswordResetEmail(email)
+
+  .then(()=>{
+
+    showAuthSuccess(
+      "Password reset email bhej diya gaya. 📩"
+    );
+
+  })
+
+  .catch((error)=>{
+
+    showAuthError(firebaseError(error.code));
+
+  });
+}
+
+
+/* =========================================
+   LOGOUT
+   ========================================= */
+
+function logoutUser(){
+
+  auth.signOut()
+  .then(()=>{
+
+    alert("Logout successful.");
+
+  })
+  .catch((error)=>{
+
+    alert(error.message);
+
+  });
+}
+
+
+/* =========================================
+   AUTH STATE
+   ========================================= */
+
+auth.onAuthStateChanged((user)=>{
+
+  const loginButton=
+    document.getElementById("loginButton");
+
+  const userBox=
+    document.getElementById("userBox");
+
+  const userEmail=
+    document.getElementById("userEmail");
+
+  if(user){
+
+    loginButton.style.display="none";
+
+    userBox.style.display="flex";
+
+    userEmail.textContent=user.email;
+
+  }else{
+
+    loginButton.style.display="block";
+
+    userBox.style.display="none";
 
   }
 
 });
 
 
-/* =========================
-   LOGIN MODAL
-========================= */
+/* =========================================
+   FIREBASE ERROR TRANSLATION
+   ========================================= */
 
-function openLogin(){
+function firebaseError(code){
 
-  document.getElementById("loginModal").style.display = "flex";
+  switch(code){
 
-  document.getElementById("chatModal").style.display = "none";
+    case "auth/email-already-in-use":
+      return "Ye email already registered hai.";
 
-  clearStatus();
+    case "auth/invalid-email":
+      return "Email address sahi nahi hai.";
 
-}
+    case "auth/weak-password":
+      return "Password bahut weak hai.";
 
-function closeLogin(){
+    case "auth/user-not-found":
+      return "Is email se account nahi mila.";
 
-  document.getElementById("loginModal").style.display = "none";
+    case "auth/wrong-password":
+      return "Password galat hai.";
 
-}
+    case "auth/invalid-credential":
+      return "Email ya password galat hai.";
 
-function clearStatus(){
+    case "auth/too-many-requests":
+      return "Bahut attempts ho gaye. Thodi der baad try karo.";
 
-  const el = document.getElementById("authStatus");
+    case "auth/network-request-failed":
+      return "Internet connection check karo.";
 
-  el.textContent = "";
-  el.className = "status";
-
-}
-
-
-/* =========================
-   EMAIL TAB
-========================= */
-
-function showEmailAuth(){
-
-  document.getElementById("emailAuth").classList.remove("hidden");
-  document.getElementById("phoneAuth").classList.add("hidden");
-
-  document.getElementById("emailTab").classList.add("active");
-  document.getElementById("phoneTab").classList.remove("active");
-
-  clearStatus();
-
-}
-
-
-/* =========================
-   PHONE TAB
-========================= */
-
-let recaptchaVerifier = null;
-let confirmationResult = null;
-
-function showPhoneAuth(){
-
-  document.getElementById("emailAuth").classList.add("hidden");
-  document.getElementById("phoneAuth").classList.remove("hidden");
-
-  document.getElementById("emailTab").classList.remove("active");
-  document.getElementById("phoneTab").classList.add("active");
-
-  clearStatus();
-
-  setupRecaptcha();
-
-}
-
-
-function setupRecaptcha(){
-
-  if(recaptchaVerifier) return;
-
-  try{
-
-    recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size:"normal"
-      },
-      auth
-    );
-
-    recaptchaVerifier.render();
-
-  }catch(error){
-
-    console.log(error);
-
+    default:
+      return "Something went wrong. Please try again.";
   }
-
 }
 
 
-/* =========================
-   EMAIL LOGIN
-========================= */
+/* =========================================
+   AUTH MESSAGES
+   ========================================= */
 
-function emailLogin(){
+function clearAuthMessages(){
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+  document.getElementById("authError").style.display="none";
 
-  if(!email || !password){
+  document.getElementById("authSuccess").style.display="none";
+}
 
-    showStatus("Email aur password dono bharna hai.",true);
-    return;
+function showAuthError(text){
 
-  }
+  const box=
+    document.getElementById("authError");
 
-  showStatus("Logging in...");
+  box.textContent=text;
 
-  auth.signInWithEmailAndPassword(email,password)
+  box.style.display="block";
+}
 
-  .then(function(){
+function showAuthSuccess(text){
 
-    showStatus("Login successful ✅");
+  const box=
+    document.getElementById("authSuccess");
 
-    setTimeout(closeLogin,700);
+  box.textContent=text;
 
-  })
-
-  .catch(function(error){
-
-    showStatus(getFirebaseError(error),true);
-
-  });
-
+  box.style.display="block";
 }
 
 
-/* =========================
-   EMAIL SIGNUP
-========================= */
+/* =========================================
+   ANONYMOUS CHAT DEMO
+   ========================================= */
 
-function emailSignup(){
+let anonymousMessages=0;
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-
-  if(!email || !password){
-
-    showStatus("Account banane ke liye email aur password bharo.",true);
-    return;
-
-  }
-
-  if(password.length < 6){
-
-    showStatus("Password kam se kam 6 characters ka hona chahiye.",true);
-    return;
-
-  }
-
-  showStatus("Account create ho raha hai...");
-
-  auth.createUserWithEmailAndPassword(email,password)
-
-  .then(function(){
-
-    showStatus("Account created successfully ✅");
-
-    setTimeout(closeLogin,800);
-
-  })
-
-  .catch(function(error){
-
-    showStatus(getFirebaseError(error),true);
-
-  });
-
-}
-
-
-/* =========================
-   PHONE OTP
-========================= */
-
-function sendOTP(){
-
-  const phone = document.getElementById("phoneNumber").value.trim();
-
-  if(!phone){
-
-    showStatus("Phone number enter karo.",true);
-    return;
-
-  }
-
-  if(!phone.startsWith("+")){
-
-    showStatus("Country code ke saath number likho. Example: +919876543210",true);
-    return;
-
-  }
-
-  setupRecaptcha();
-
-  showStatus("OTP bheja ja raha hai...");
-
-  auth.signInWithPhoneNumber(phone,recaptchaVerifier)
-
-  .then(function(result){
-
-    confirmationResult = result;
-
-    document.getElementById("otpBox").style.display = "block";
-
-    showStatus("OTP bhej diya gaya 📱✅");
-
-  })
-
-  .catch(function(error){
-
-    showStatus(getFirebaseError(error),true);
-
-    if(recaptchaVerifier){
-
-      try{
-        recaptchaVerifier.clear();
-      }catch(e){}
-
-      recaptchaVerifier = null;
-
-    }
-
-  });
-
-}
-
-
-/* =========================
-   VERIFY OTP
-========================= */
-
-function verifyOTP(){
-
-  const code = document.getElementById("otp").value.trim();
-
-  if(!confirmationResult){
-
-    showStatus("Pehle OTP send karo.",true);
-    return;
-
-  }
-
-  if(code.length !== 6){
-
-    showStatus("6 digit OTP enter karo.",true);
-    return;
-
-  }
-
-  showStatus("OTP verify ho raha hai...");
-
-  confirmationResult.confirm(code)
-
-  .then(function(){
-
-    showStatus("Phone login successful ✅");
-
-    setTimeout(closeLogin,700);
-
-  })
-
-  .catch(function(error){
-
-    showStatus(getFirebaseError(error),true);
-
-  });
-
-}
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-function logoutUser(){
-
-  auth.signOut()
-
-  .then(function(){
-
-    alert("Logout successful 👋");
-
-  })
-
-  .catch(function(error){
-
-    alert(error.message);
-
-  });
-
-}
-
-
-/* =========================
-   FIREBASE ERRORS
-========================= */
-
-function getFirebaseError(error){
-
-  const code = error.code || "";
-
-  if(code.includes("invalid-email"))
-    return "Email address galat hai.";
-
-  if(code.includes("user-not-found"))
-    return "Is email se account nahi mila.";
-
-  if(code.includes("wrong-password"))
-    return "Password galat hai.";
-
-  if(code.includes("email-already-in-use"))
-    return "Is email se account already bana hua hai.";
-
-  if(code.includes("weak-password"))
-    return "Password kam se kam 6 characters ka rakho.";
-
-  if(code.includes("too-many-requests"))
-    return "Bahut attempts ho gaye. Thodi der baad try karo.";
-
-  if(code.includes("invalid-phone-number"))
-    return "Phone number galat format me hai.";
-
-  if(code.includes("quota-exceeded"))
-    return "Firebase SMS daily limit complete ho gayi hai.";
-
-  if(code.includes("captcha-check-failed"))
-    return "reCAPTCHA 
+fu
