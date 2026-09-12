@@ -7,14 +7,9 @@
 <title>two4nine — News, Memes & People</title>
 
 <style>
+*{box-sizing:border-box}
 
-*{
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
 margin:0;
@@ -22,8 +17,6 @@ font-family:Arial,sans-serif;
 background:#f3f4f6;
 color:#111;
 }
-
-/* HEADER */
 
 header{
 background:#08090b;
@@ -33,20 +26,19 @@ padding:24px 26px 0;
 
 .top{
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 gap:20px;
 }
 
 .logo{
 font-size:38px;
-font-weight:900;
-letter-spacing:-1px;
+font-weight:800;
 }
 
 .tagline{
 color:#aaa;
-font-size:17px;
+font-size:18px;
 margin-top:5px;
 }
 
@@ -54,8 +46,8 @@ margin-top:5px;
 background:white;
 color:#111;
 border:0;
-padding:14px 24px;
-border-radius:15px;
+padding:14px 25px;
+border-radius:14px;
 font-size:17px;
 font-weight:800;
 cursor:pointer;
@@ -63,7 +55,7 @@ cursor:pointer;
 
 nav{
 display:flex;
-gap:28px;
+gap:30px;
 overflow-x:auto;
 padding:25px 0 18px;
 white-space:nowrap;
@@ -76,107 +68,95 @@ font-size:18px;
 font-weight:700;
 }
 
-/* BREAKING */
-
 .breaking{
-background:#d40000;
+background:#d90000;
 color:white;
 font-weight:800;
-padding:15px 26px;
+padding:16px 26px;
 white-space:nowrap;
 overflow:hidden;
 font-size:18px;
 }
 
-/* MAIN */
-
 .wrap{
-max-width:1100px;
+max-width:1000px;
 margin:auto;
-padding:35px 20px 70px;
+padding:35px 20px 60px;
 }
-
-/* HERO */
 
 .hero{
 background:#08090b;
 color:white;
 border-radius:30px;
 padding:45px 34px;
-margin-bottom:45px;
+margin-bottom:50px;
 }
 
 .hero h1{
-font-size:48px;
+font-size:46px;
 line-height:1.05;
-margin:0 0 25px;
-max-width:800px;
+margin:0 0 22px;
 }
 
 .hero p{
 font-size:22px;
 line-height:1.5;
 color:#aaa;
-max-width:800px;
+margin-bottom:30px;
 }
 
-.hero-buttons{
+.buttons{
 display:flex;
-gap:15px;
+gap:16px;
 flex-wrap:wrap;
-margin-top:30px;
 }
 
-.hero-btn{
-border:0;
-padding:16px 25px;
-border-radius:15px;
-font-size:18px;
+.primary,
+.secondary{
+padding:16px 24px;
+border-radius:14px;
+font-size:17px;
 font-weight:800;
 cursor:pointer;
 }
 
-.white-btn{
+.primary{
 background:white;
 color:#111;
+border:0;
 }
 
-.dark-btn{
+.secondary{
 background:#222;
 color:white;
 border:1px solid #555;
 }
 
-/* SECTION */
+h2{
+font-size:34px;
+margin:45px 0 22px;
+}
 
 .section-head{
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 gap:15px;
-margin:45px 0 20px;
 }
 
-.section-head h2{
-font-size:34px;
-margin:0;
-}
-
-.section-action{
+.create-btn{
 background:#111;
 color:white;
-padding:13px 18px;
-border-radius:12px;
-font-weight:800;
-cursor:pointer;
 border:0;
+padding:15px 20px;
+border-radius:14px;
+font-size:16px;
+font-weight:800;
 }
-
-/* MEMES */
 
 .meme-grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr 1fr;
 gap:20px;
 overflow:hidden;
 }
@@ -184,132 +164,124 @@ overflow:hidden;
 .meme{
 background:#111;
 color:white;
-border-radius:25px;
-padding:25px;
-min-height:280px;
+border-radius:24px;
+padding:28px;
+min-height:240px;
 }
 
-.meme-emoji{
+.meme-icon{
 font-size:55px;
 }
 
-.meme-title{
-font-size:25px;
-font-weight:900;
+.meme h3{
+font-size:24px;
 line-height:1.25;
-margin:15px 0;
 }
 
-.meme-user{
-color:#aaa;
-margin-bottom:20px;
+.user{
+color:#999;
+margin:18px 0;
 }
 
 .reactions{
 display:flex;
 gap:10px;
-flex-wrap:wrap;
 }
 
 .reaction{
 background:#222;
 border:1px solid #444;
-padding:9px 14px;
-border-radius:10px;
 color:white;
+padding:10px 14px;
+border-radius:10px;
 }
-
-/* NEWS */
 
 .status{
 background:#fff4c7;
 border:1px solid #eadb91;
 border-radius:14px;
 padding:16px;
-margin-bottom:25px;
-font-size:16px;
+margin-bottom:35px;
+font-size:17px;
 }
 
-.news-grid{
+.grid{
 display:grid;
-gap:18px;
+gap:22px;
 }
 
-.news-card{
+.card{
 background:white;
 border:1px solid #ddd;
 border-radius:18px;
-padding:25px;
+padding:28px;
 box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 
 .label{
 color:#b00000;
-font-weight:900;
-font-size:14px;
-margin-bottom:12px;
+font-weight:800;
+font-size:15px;
+margin-bottom:14px;
 }
 
-.news-title{
-font-size:23px;
-line-height:1.35;
+.title{
+font-size:24px;
+line-height:1.3;
 font-weight:800;
-margin-bottom:15px;
+margin-bottom:16px;
 }
 
 .meta{
 color:#777;
 font-weight:700;
-margin-bottom:20px;
+margin-bottom:22px;
 }
 
 .read{
 display:inline-block;
 background:#111;
 color:white;
-padding:13px 18px;
+padding:14px 20px;
 border-radius:9px;
 text-decoration:none;
-font-weight:800;
+font-weight:700;
 }
 
-.loading,
-.empty,
-.error{
+.loading,.empty,.error{
 background:white;
-border-radius:15px;
-padding:20px;
+border-radius:14px;
+padding:22px;
 color:#666;
 }
 
-/* COMMUNITY */
-
-.community-box{
+.community{
 background:white;
-border-radius:25px;
-padding:30px;
+border-radius:24px;
+padding:28px;
 border:1px solid #ddd;
 }
 
-.community-box h3{
-font-size:28px;
-margin-top:0;
-}
-
-.community-features{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-}
-
-.feature{
-background:#f3f4f6;
-padding:20px;
+.post{
+background:#f5f5f5;
 border-radius:16px;
-font-weight:800;
+padding:20px;
+margin-top:15px;
 }
 
-/* MODAL */
+.post-name{
+font-weight:800;
+margin-bottom:8px;
+}
+
+footer{
+background:#08090b;
+color:#999;
+text-align:center;
+padding:30px 20px;
+}
+
+/* LOGIN MODAL */
 
 .modal{
 display:none;
@@ -322,19 +294,13 @@ justify-content:center;
 padding:20px;
 }
 
-.modal.active{
-display:flex;
-}
-
 .modal-box{
 background:white;
 width:100%;
-max-width:430px;
-border-radius:25px;
-padding:28px;
+max-width:420px;
+border-radius:24px;
+padding:30px;
 position:relative;
-max-height:90vh;
-overflow:auto;
 }
 
 .close{
@@ -343,16 +309,21 @@ right:18px;
 top:15px;
 border:0;
 background:#eee;
+border-radius:50%;
 width:38px;
 height:38px;
-border-radius:50%;
 font-size:20px;
 cursor:pointer;
 }
 
 .modal-box h2{
-margin-top:5px;
+margin:0 0 8px;
 font-size:30px;
+}
+
+.modal-sub{
+color:#777;
+margin-bottom:25px;
 }
 
 .input{
@@ -360,33 +331,40 @@ width:100%;
 padding:15px;
 border:1px solid #ccc;
 border-radius:12px;
-margin:8px 0;
 font-size:16px;
+margin-bottom:14px;
 }
 
-.modal-main-btn{
+.auth-btn{
 width:100%;
 padding:15px;
-border:0;
-border-radius:12px;
 background:#111;
 color:white;
+border:0;
+border-radius:12px;
 font-size:17px;
 font-weight:800;
 cursor:pointer;
-margin-top:10px;
 }
 
 .switch{
 text-align:center;
 margin-top:18px;
-color:#555;
+color:#666;
 }
 
 .switch span{
+color:#111;
 font-weight:800;
 cursor:pointer;
-color:#111;
+}
+
+.message{
+margin-top:15px;
+padding:12px;
+background:#fff4c7;
+border-radius:10px;
+display:none;
 }
 
 /* CHAT */
@@ -394,151 +372,106 @@ color:#111;
 .chat-box{
 display:none;
 position:fixed;
-z-index:1100;
-right:15px;
-bottom:15px;
-width:calc(100% - 30px);
-max-width:420px;
-height:600px;
+z-index:900;
+right:20px;
+bottom:20px;
+width:360px;
+max-width:calc(100% - 40px);
 background:white;
-border-radius:25px;
-box-shadow:0 10px 50px rgba(0,0,0,.35);
+border-radius:22px;
+box-shadow:0 10px 40px rgba(0,0,0,.3);
 overflow:hidden;
 }
 
-.chat-box.active{
-display:flex;
-flex-direction:column;
-}
-
-.chat-header{
+.chat-head{
 background:#08090b;
 color:white;
 padding:20px;
 display:flex;
-align-items:center;
 justify-content:space-between;
-}
-
-.chat-header strong{
-font-size:20px;
+font-weight:800;
 }
 
 .chat-close{
 background:#333;
-color:white;
 border:0;
-width:35px;
-height:35px;
+color:white;
 border-radius:50%;
-cursor:pointer;
+width:34px;
+height:34px;
 }
 
-.chat-info{
-background:#fff4c7;
-padding:12px 16px;
-font-size:14px;
-font-weight:700;
-}
-
-.messages{
-flex:1;
+.chat-body{
+height:300px;
 padding:15px;
 overflow-y:auto;
 background:#f3f4f6;
 }
 
-.message{
-max-width:80%;
-background:white;
-border-radius:15px;
-padding:11px 14px;
-margin-bottom:10px;
-box-shadow:0 1px 4px rgba(0,0,0,.08);
-}
-
-.message.me{
-margin-left:auto;
+.chat-msg{
 background:#111;
 color:white;
-}
-
-.message small{
-display:block;
-font-size:11px;
-opacity:.6;
-margin-bottom:4px;
+padding:12px 15px;
+border-radius:14px;
+margin-bottom:10px;
+max-width:85%;
 }
 
 .chat-input{
 display:flex;
-gap:8px;
 padding:12px;
-border-top:1px solid #ddd;
+gap:8px;
 }
 
 .chat-input input{
 flex:1;
-padding:13px;
+padding:12px;
 border:1px solid #ccc;
-border-radius:12px;
-font-size:15px;
-}
-
-.send-btn{
-background:#111;
-color:white;
-border:0;
-border-radius:12px;
-padding:0 17px;
-font-weight:800;
-}
-
-.login-required{
-text-align:center;
-padding:20px;
-background:#fff4c7;
-border-radius:15px;
-margin:10px;
-}
-
-.login-required button{
-background:#111;
-color:white;
-border:0;
-padding:12px 20px;
 border-radius:10px;
+}
+
+.chat-input button{
+background:#111;
+color:white;
+border:0;
+border-radius:10px;
+padding:0 16px;
 font-weight:800;
 }
 
-/* FOOTER */
-
-footer{
-background:#08090b;
-color:#888;
-text-align:center;
-padding:30px 20px;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
+@media(max-width:600px){
 
 header{
-padding:22px 20px 0;
+padding:20px 18px 0;
 }
 
 .logo{
 font-size:34px;
 }
 
+.top{
+align-items:flex-start;
+}
+
+.login-btn{
+padding:12px 18px;
+}
+
+nav{
+gap:24px;
+}
+
+.wrap{
+padding:28px 16px 50px;
+}
+
 .hero{
-padding:35px 25px;
-border-radius:25px;
+padding:35px 26px;
+border-radius:26px;
 }
 
 .hero h1{
-font-size:39px;
+font-size:38px;
 }
 
 .hero p{
@@ -549,24 +482,20 @@ font-size:19px;
 grid-template-columns:1fr;
 }
 
-.community-features{
-grid-template-columns:1fr;
+.card{
+padding:24px 20px;
 }
 
-.section-head h2{
-font-size:28px;
-}
-
-.login-btn{
-padding:12px 18px;
+.title{
+font-size:22px;
 }
 
 .chat-box{
-height:70vh;
+right:10px;
+bottom:10px;
+max-width:calc(100% - 20px);
 }
-
 }
-
 </style>
 </head>
 
@@ -578,15 +507,10 @@ height:70vh;
 
 <div>
 <div class="logo">two4nine</div>
-
-<div class="tagline">
-News • Memes • People
-</div>
+<div class="tagline">News • Memes • People</div>
 </div>
 
-<button class="login-btn" onclick="openLogin()">
-Login
-</button>
+<button class="login-btn" onclick="openLogin()">Login</button>
 
 </div>
 
@@ -599,21 +523,16 @@ Login
 
 </header>
 
-
 <div class="breaking">
 BREAKING • <span id="breakingText">Loading fresh headlines...</span>
 </div>
 
-
 <main class="wrap">
 
-
-<!-- HERO -->
-
-<section class="hero">
+<div class="hero">
 
 <h1>
-Internet, News & People
+Internet, News & People<br>
 — All in One Place.
 </h1>
 
@@ -622,24 +541,20 @@ Laugh at what's happening. Understand what's happening.
 Then talk about it with people.
 </p>
 
-<div class="hero-buttons">
+<div class="buttons">
 
-<button class="hero-btn white-btn"
-onclick="document.getElementById('memes').scrollIntoView()">
+<button class="primary" onclick="document.getElementById('memes').scrollIntoView()">
 😂 Explore Memes
 </button>
 
-<button class="hero-btn dark-btn"
-onclick="openChat()">
+<button class="secondary" onclick="openChat()">
 💬 Anonymous Chat
 </button>
 
 </div>
 
-</section>
+</div>
 
-
-<!-- MEMES -->
 
 <section id="memes">
 
@@ -647,32 +562,30 @@ onclick="openChat()">
 
 <h2>😂 Memes</h2>
 
-<button class="section-action"
-onclick="alert('Meme creator will be connected after the community backend is added.')">
+<button class="create-btn" onclick="openLogin()">
 + Create Meme
 </button>
 
 </div>
 
-
 <div class="meme-grid">
 
 <div class="meme">
 
-<div class="meme-emoji">😂</div>
+<div class="meme-icon">😂</div>
 
-<div class="meme-title">
+<h3>
 When you open the news just for 2 minutes...
-</div>
+</h3>
 
-<div class="meme-user">
+<div class="user">
 👤 AnonymousUser
 </div>
 
 <div class="reactions">
-<span class="reaction">❤️ 24</span>
-<span class="reaction">😂 8</span>
-<span class="reaction">💬 5</span>
+<div class="reaction">❤️ 24</div>
+<div class="reaction">😂 8</div>
+<div class="reaction">💬 5</div>
 </div>
 
 </div>
@@ -680,19 +593,20 @@ When you open the news just for 2 minutes...
 
 <div class="meme">
 
-<div class="meme-emoji">🌍</div>
+<div class="meme-icon">🌍</div>
 
-<div class="meme-title">
-World news be like: “You thought today would be peaceful?”
-</div>
+<h3>
+World news be like:
+"You thought today would be peaceful?"
+</h3>
 
-<div class="meme-user">
+<div class="user">
 👤 NightOwl
 </div>
 
 <div class="reactions">
-<span class="reaction">❤️ 41</span>
-<span class="reaction">😂 16</span>
+<div class="reaction">❤️ 41</div>
+<div class="reaction">😂 16</div>
 </div>
 
 </div>
@@ -701,35 +615,21 @@ World news be like: “You thought today would be peaceful?”
 
 </section>
 
-
-<!-- TRENDING -->
 
 <section id="trending">
 
-<div class="section-head">
 <h2>🔥 Trending</h2>
+
+<div class="community">
+
+<div class="post">
+<div class="post-name">🔥 Trending right now</div>
+AI, world events, sports and internet discussions will appear here.
 </div>
 
-<div class="community-box">
-
-<h3>
-What people are talking about
-</h3>
-
-<div class="community-features">
-
-<div class="feature">
-🔥 Viral topics
-</div>
-
-<div class="feature">
-😂 Popular memes
-</div>
-
-<div class="feature">
-📰 Top news
-</div>
-
+<div class="post">
+<div class="post-name">💬 Most discussed</div>
+Community activity will decide what becomes trending.
 </div>
 
 </div>
@@ -737,119 +637,81 @@ What people are talking about
 </section>
 
 
-<!-- NEWS -->
-
 <section id="news">
 
-<div class="section-head">
 <h2>📰 Latest News</h2>
-</div>
 
 <div class="status" id="status">
 🟡 Connecting to live news...
 </div>
 
-<div class="news-grid" id="latestGrid">
-
-<div class="loading">
-Loading fresh news...
-</div>
-
+<div class="grid" id="latestGrid">
+<div class="loading">Loading fresh news...</div>
 </div>
 
 
-<div class="section-head">
 <h2>🌍 World</h2>
-</div>
-
-<div class="news-grid" id="worldGrid">
+<div class="grid" id="worldGrid">
 <div class="loading">Loading...</div>
 </div>
 
 
-<div class="section-head">
 <h2>⚔️ War & Conflict</h2>
-</div>
-
-<div class="news-grid" id="warGrid">
+<div class="grid" id="warGrid">
 <div class="loading">Loading...</div>
 </div>
 
 
-<div class="section-head">
 <h2>🏆 Sports</h2>
-</div>
-
-<div class="news-grid" id="sportsGrid">
+<div class="grid" id="sportsGrid">
 <div class="loading">Loading...</div>
 </div>
 
 
-<div class="section-head">
 <h2>🤖 AI & Technology</h2>
-</div>
-
-<div class="news-grid" id="techGrid">
+<div class="grid" id="techGrid">
 <div class="loading">Loading...</div>
 </div>
 
 
-<div class="section-head">
 <h2>💼 Business</h2>
-</div>
-
-<div class="news-grid" id="businessGrid">
+<div class="grid" id="businessGrid">
 <div class="loading">Loading...</div>
 </div>
 
 </section>
 
-
-<!-- COMMUNITY -->
 
 <section id="community">
 
-<div class="section-head">
 <h2>💬 Community</h2>
-</div>
 
-<div class="community-box">
+<div class="community">
 
-<h3>
-Talk. Connect. Share.
-</h3>
+<h3>Talk about what's happening.</h3>
 
 <p>
-Join conversations, make friends and discuss news, memes and trending topics.
+Join discussions, share opinions, react to memes
+and meet people with similar interests.
 </p>
 
-<div class="community-features">
-
-<div class="feature">
-👤 Make Friends
-</div>
-
-<div class="feature">
-💬 Text Chat
-</div>
-
-<div class="feature">
-🛡️ Block & Report
-</div>
-
-</div>
-
-<br>
-
-<button class="section-action"
-onclick="openChat()">
-💬 Try Anonymous Chat
+<button class="create-btn" onclick="openLogin()">
+💬 Join Community
 </button>
+
+<div class="post">
+<div class="post-name">👤 AnonymousUser</div>
+What do you think about today's biggest news?
+</div>
+
+<div class="post">
+<div class="post-name">👤 NightOwl</div>
+Sports, memes or world news — what's your favourite?
+</div>
 
 </div>
 
 </section>
-
 
 </main>
 
@@ -867,13 +729,18 @@ two4nine © 2026 • News • Memes • People
 
 <button class="close" onclick="closeLogin()">×</button>
 
-<h2 id="loginTitle">
-🔐 Login
-</h2>
+<h2 id="authTitle">Login</h2>
 
-<p id="loginText">
-Login to unlock community features.
-</p>
+<div class="modal-sub" id="authSub">
+Welcome back to two4nine.
+</div>
+
+<input
+class="input"
+id="username"
+placeholder="Username"
+style="display:none;"
+>
 
 <input
 class="input"
@@ -889,19 +756,16 @@ type="password"
 placeholder="Password"
 >
 
-<button
-class="modal-main-btn"
-onclick="demoLogin()">
+<button class="auth-btn" onclick="handleAuth()">
 Continue
 </button>
 
-<div class="switch">
-<span id="switchText">
-Don't have an account?
-</span>
+<div class="message" id="authMessage"></div>
 
-<span onclick="toggleSignup()">
-Create Account
+<div class="switch">
+
+<span id="switchText">
+Don't have an account? Sign up
 </span>
 
 </div>
@@ -915,58 +779,34 @@ Create Account
 
 <div class="chat-box" id="chatBox">
 
-<div class="chat-header">
+<div class="chat-head">
 
-<strong>
-💬 Anonymous Chat
-</strong>
+<span>💬 Anonymous Chat</span>
 
-<button class="chat-close"
-onclick="closeChat()">
-×
-</button>
+<button class="chat-close" onclick="closeChat()">×</button>
 
 </div>
 
+<div class="chat-body" id="chatBody">
 
-<div class="chat-info" id="chatInfo">
-👤 You are anonymous • 5 messages available
+<div class="chat-msg">
+👋 Welcome to two4nine!
 </div>
 
-
-<div class="messages" id="messages">
-
-<div class="message">
-
-<small>System</small>
-
-Welcome to two4nine anonymous chat 👋
-<br><br>
-Text only. No image or video sharing.
-
+<div class="chat-msg">
+Be respectful. No harassment or abuse.
 </div>
 
 </div>
-
-
-<div id="chatArea">
 
 <div class="chat-input">
 
 <input
 id="chatInput"
-type="text"
-maxlength="300"
 placeholder="Write a message..."
-onkeydown="if(event.key==='Enter') sendMessage()"
 >
 
-<button class="send-btn"
-onclick="sendMessage()">
-Send
-</button>
-
-</div>
+<button onclick="sendMessage()">Send</button>
 
 </div>
 
@@ -975,265 +815,9 @@ Send
 
 <script>
 
-/* =========================
-   LOGIN DEMO
-========================= */
+const MAX_AGE_HOURS = 24;
 
-let signupMode=false;
-
-function openLogin(){
-
-document.getElementById("loginModal")
-.classList.add("active");
-
-}
-
-function closeLogin(){
-
-document.getElementById("loginModal")
-.classList.remove("active");
-
-}
-
-function toggleSignup(){
-
-signupMode=!signupMode;
-
-if(signupMode){
-
-document.getElementById("loginTitle")
-.textContent="📝 Create Account";
-
-document.getElementById("loginText")
-.textContent="Create your two4nine account.";
-
-document.querySelector(".modal-main-btn")
-.textContent="Create Account";
-
-document.querySelector(".switch")
-.innerHTML=
-`Already have an account?
-<span onclick="toggleSignup()">Login</span>`;
-
-}
-else{
-
-document.getElementById("loginTitle")
-.textContent="🔐 Login";
-
-document.getElementById("loginText")
-.textContent="Login to unlock community features.";
-
-document.querySelector(".modal-main-btn")
-.textContent="Continue";
-
-document.querySelector(".switch")
-.innerHTML=
-`Don't have an account?
-<span onclick="toggleSignup()">Create Account</span>`;
-
-}
-
-}
-
-
-function demoLogin(){
-
-const email=
-document.getElementById("email").value.trim();
-
-const password=
-document.getElementById("password").value.trim();
-
-if(!email || !password){
-
-alert("Please enter email and password.");
-
-return;
-
-}
-
-/*
-This is only a FRONTEND DEMO.
-Real authentication will be connected later.
-*/
-
-localStorage.setItem("two4nineDemoLogin","true");
-
-closeLogin();
-
-document.querySelector(".login-btn")
-.textContent="Account";
-
-alert(
-signupMode
-?
-"Account created in demo mode! Real account system will be connected later."
-:
-"Login successful in demo mode! Real authentication will be connected later."
-);
-
-}
-
-
-/* =========================
-   ANONYMOUS CHAT
-========================= */
-
-let anonymousMessages=
-parseInt(
-localStorage.getItem("two4nineMessages") || "0"
-);
-
-const MESSAGE_LIMIT=5;
-
-
-function openChat(){
-
-document.getElementById("chatBox")
-.classList.add("active");
-
-updateChat();
-
-}
-
-
-function closeChat(){
-
-document.getElementById("chatBox")
-.classList.remove("active");
-
-}
-
-
-function updateChat(){
-
-const remaining=
-MESSAGE_LIMIT-anonymousMessages;
-
-const info=
-document.getElementById("chatInfo");
-
-if(remaining>0){
-
-info.textContent=
-"👤 Anonymous • "
-+
-remaining
-+
-" messages remaining";
-
-document.getElementById("chatArea")
-.style.display="block";
-
-}
-else{
-
-info.textContent=
-"🔒 Anonymous message limit reached.";
-
-document.getElementById("chatArea")
-.innerHTML=`
-
-<div class="login-required">
-
-<strong>
-You've used your 5 anonymous messages.
-</strong>
-
-<br><br>
-
-Login to continue chatting.
-
-<br><br>
-
-<button onclick="closeChat();openLogin();">
-🔐 Login
-</button>
-
-</div>
-
-`;
-
-}
-
-}
-
-
-function sendMessage(){
-
-if(anonymousMessages>=MESSAGE_LIMIT){
-
-updateChat();
-
-return;
-
-}
-
-const input=
-document.getElementById("chatInput");
-
-const text=input.value.trim();
-
-if(!text){
-
-return;
-
-}
-
-
-const message=
-document.createElement("div");
-
-message.className="message me";
-
-message.innerHTML=
-`
-<small>You • Anonymous</small>
-${escapeHTML(text)}
-`;
-
-document.getElementById("messages")
-.appendChild(message);
-
-input.value="";
-
-anonymousMessages++;
-
-localStorage.setItem(
-"two4nineMessages",
-anonymousMessages
-);
-
-document.getElementById("messages")
-.scrollTop=
-document.getElementById("messages").scrollHeight;
-
-updateChat();
-
-}
-
-
-function escapeHTML(text){
-
-return String(text)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================
-   NEWS
-========================= */
-
-const MAX_AGE_HOURS=24;
-
-
-const feeds={
+const feeds = {
 
 world:
 "https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en",
@@ -1253,6 +837,18 @@ business:
 };
 
 
+function escapeHTML(text){
+
+return String(text || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
 function cleanText(text){
 
 const div=document.createElement("div");
@@ -1268,9 +864,7 @@ return div.textContent
 
 function isFresh(date){
 
-const age=
-(Date.now()-date.getTime())
-/(1000*60*60);
+const age=(Date.now()-date.getTime())/(1000*60*60);
 
 return age>=0 && age<=MAX_AGE_HOURS;
 
@@ -1280,12 +874,10 @@ return age>=0 && age<=MAX_AGE_HOURS;
 function formatDate(date){
 
 return new Intl.DateTimeFormat("en-IN",{
-
 day:"2-digit",
 month:"short",
 hour:"2-digit",
 minute:"2-digit"
-
 }).format(date);
 
 }
@@ -1297,17 +889,12 @@ const seen=new Set();
 
 return items.filter(item=>{
 
-const key=
-item.title
+const key=item.title
 .toLowerCase()
 .replace(/[^a-z0-9]/g,"")
 .slice(0,120);
 
-if(seen.has(key)){
-
-return false;
-
-}
+if(seen.has(key)) return false;
 
 seen.add(key);
 
@@ -1322,35 +909,24 @@ async function getFeed(url){
 
 const api=
 "https://api.rss2json.com/v1/api.json?rss_url="
-+
-encodeURIComponent(url)
-+
-"&t="
-+
-Date.now();
++encodeURIComponent(url)
++"&t="+Date.now();
 
-const response=
-await fetch(api,{
+const response=await fetch(api,{
 cache:"no-store"
 });
 
 if(!response.ok){
-
 throw new Error("Feed failed");
-
 }
 
-const data=
-await response.json();
+const data=await response.json();
 
 if(data.status!=="ok"){
-
 throw new Error("RSS error");
-
 }
 
 return data.items
-
 .map(item=>({
 
 title:cleanText(item.title),
@@ -1367,7 +943,6 @@ item.source ||
 date:new Date(item.pubDate)
 
 }))
-
 .filter(item=>
 item.title &&
 item.link &&
@@ -1378,17 +953,17 @@ isFresh(item.date)
 }
 
 
-function newsCard(item,label){
+function card(item,label){
 
 return `
 
-<article class="news-card">
+<article class="card">
 
 <div class="label">
 ${escapeHTML(label)}
 </div>
 
-<div class="news-title">
+<div class="title">
 ${escapeHTML(item.title)}
 </div>
 
@@ -1433,19 +1008,16 @@ el.innerHTML=
 
 async function loadCategory(key,label){
 
-const el=
-document.getElementById(key+"Grid");
+const el=document.getElementById(key+"Grid");
 
 el.innerHTML=
 '<div class="loading">Loading fresh news...</div>';
 
 try{
 
-let items=
-await getFeed(feeds[key]);
+let items=await getFeed(feeds[key]);
 
-items=
-removeDuplicates(items)
+items=removeDuplicates(items)
 .sort((a,b)=>b.date-a.date);
 
 if(!items.length){
@@ -1457,9 +1029,8 @@ return [];
 }
 
 el.innerHTML=
-items
-.slice(0,5)
-.map(item=>newsCard(item,label))
+items.slice(0,5)
+.map(item=>card(item,label))
 .join("");
 
 return items;
@@ -1480,15 +1051,11 @@ return [];
 
 async function loadNews(){
 
-const status=
-document.getElementById("status");
+const status=document.getElementById("status");
 
-status.textContent=
-"🟡 Updating fresh news...";
+status.textContent="🟡 Updating fresh news...";
 
-
-const results=
-await Promise.all([
+const results=await Promise.all([
 
 loadCategory("world","WORLD"),
 
@@ -1502,44 +1069,35 @@ loadCategory("business","BUSINESS")
 
 ]);
 
-
 let all=results.flat();
 
-all=
-removeDuplicates(all)
+all=removeDuplicates(all)
 .sort((a,b)=>b.date-a.date);
 
-
-const latest=
-document.getElementById("latestGrid");
-
+const latest=document.getElementById("latestGrid");
 
 if(!all.length){
 
 showEmpty(latest);
 
 document.getElementById("breakingText")
-.textContent=
-"No fresh headlines available.";
+.textContent="No fresh headlines available.";
 
 }
 else{
 
 latest.innerHTML=
-all
-.slice(0,8)
-.map(item=>newsCard(item,"LATEST NEWS"))
+all.slice(0,8)
+.map(item=>card(item,"LATEST NEWS"))
 .join("");
 
 document.getElementById("breakingText")
 .textContent=
-all
-.slice(0,4)
+all.slice(0,4)
 .map(item=>item.title)
 .join(" • ");
 
 }
-
 
 status.textContent=
 "🟢 Live news connected • Updated "
@@ -1553,12 +1111,164 @@ new Date().toLocaleTimeString("en-IN")
 
 loadNews();
 
-setInterval(
-loadNews,
-5*60*1000
+setInterval(loadNews,5*60*1000);
+
+
+/* LOGIN */
+
+let signupMode=false;
+
+function openLogin(){
+
+document.getElementById("loginModal").style.display="flex";
+
+}
+
+function closeLogin(){
+
+document.getElementById("loginModal").style.display="none";
+
+}
+
+
+document.getElementById("switchText").onclick=function(){
+
+signupMode=!signupMode;
+
+document.getElementById("authTitle").textContent=
+signupMode ? "Create Account" : "Login";
+
+document.getElementById("authSub").textContent=
+signupMode
+? "Create your two4nine account."
+: "Welcome back to two4nine.";
+
+document.getElementById("username").style.display=
+signupMode ? "block" : "none";
+
+document.getElementById("switchText").textContent=
+signupMode
+? "Already have an account? Login"
+: "Don't have an account? Sign up";
+
+};
+
+
+function handleAuth(){
+
+const username=document.getElementById("username").value.trim();
+
+const email=document.getElementById("email").value.trim();
+
+const password=document.getElementById("password").value;
+
+const message=document.getElementById("authMessage");
+
+
+if(signupMode && !username){
+
+showAuthMessage("Please enter a username.");
+
+return;
+
+}
+
+if(!email || !password){
+
+showAuthMessage("Please enter email and password.");
+
+return;
+
+}
+
+
+/*
+DEMO ONLY
+
+This is NOT secure authentication.
+Real login will be connected later
+with Firebase Authentication.
+*/
+
+if(signupMode){
+
+localStorage.setItem(
+"two4nine_demo_user",
+username
 );
+
+showAuthMessage(
+"Account demo created! Real secure login will be connected next."
+);
+
+}
+else{
+
+localStorage.setItem(
+"two4nine_demo_user",
+email.split("@")[0]
+);
+
+showAuthMessage(
+"Demo login successful!"
+);
+
+}
+
+}
+
+
+function showAuthMessage(text){
+
+const message=document.getElementById("authMessage");
+
+message.textContent=text;
+
+message.style.display="block";
+
+}
+
+
+/* CHAT */
+
+function openChat(){
+
+document.getElementById("chatBox").style.display="block";
+
+}
+
+function closeChat(){
+
+document.getElementById("chatBox").style.display="none";
+
+}
+
+
+function sendMessage(){
+
+const input=document.getElementById("chatInput");
+
+const text=input.value.trim();
+
+if(!text) return;
+
+const msg=document.createElement("div");
+
+msg.className="chat-msg";
+
+msg.textContent="You: "+text;
+
+document.getElementById("chatBody").appendChild(msg);
+
+input.value="";
+
+const body=document.getElementById("chatBody");
+
+body.scrollTop=body.scrollHeight;
+
+}
 
 </script>
 
 </body>
-</html>
+   </html>
