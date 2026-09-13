@@ -8,128 +8,217 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#07111f;color:#fff;font-family:Arial,sans-serif}
+body{
+margin:0;
+background:#07111f;
+color:#fff;
+font-family:Arial,Helvetica,sans-serif
+}
 button,input,textarea{font:inherit}
 button{cursor:pointer;border:0}
 .hidden{display:none!important}
 
 .top{
-position:sticky;top:0;z-index:20;height:64px;
-background:#091827f5;border-bottom:1px solid #ffffff15;
-display:flex;align-items:center;justify-content:space-between;
+position:sticky;
+top:0;
+z-index:20;
+height:64px;
+background:#091827f7;
+border-bottom:1px solid #ffffff15;
+display:flex;
+align-items:center;
+justify-content:space-between;
 padding:0 12px
 }
 
 .brand{
-font-size:23px;font-weight:900;display:flex;
-align-items:center;gap:2px
+font-size:23px;
+font-weight:900;
+display:flex;
+align-items:center;
+gap:2px
 }
 
 .puri{
-width:25px;height:25px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
+width:25px;
+height:25px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
 background:radial-gradient(circle at 35% 30%,#ffe69a,#eaa72b 55%,#a9650d);
-border:3px solid #f7c95a;color:#168447
+border:3px solid #f7c95a;
+color:#168447
 }
 
-.topBtns{display:flex;gap:7px}
-.topBtn{
-padding:9px 12px;border-radius:20px;
-background:#17283d;color:#fff;font-weight:700
+.topBtns{
+display:flex;
+gap:7px
 }
-.createTop{background:#18b879}
+
+.topBtn{
+padding:9px 12px;
+border-radius:20px;
+background:#17283d;
+color:#fff;
+font-weight:700
+}
+
+.createTop{
+background:#18b879
+}
 
 .iconBtn{
-width:40px;height:40px;border-radius:50%;
-background:#17283d;color:#fff;font-size:18px
+width:40px;
+height:40px;
+border-radius:50%;
+background:#17283d;
+color:#fff;
+font-size:18px
 }
 
-.wrap{max-width:720px;margin:auto;padding-bottom:85px}
+.wrap{
+max-width:720px;
+margin:auto;
+padding-bottom:85px
+}
 
 .search{
-margin:12px;background:#102238;border:1px solid #ffffff12;
-border-radius:15px;padding:12px 14px
+margin:12px;
+background:#102238;
+border:1px solid #ffffff12;
+border-radius:15px;
+padding:12px 14px
 }
+
 .search input{
-width:100%;background:none;border:0;outline:0;
-color:#fff;font-size:16px
+width:100%;
+background:none;
+border:0;
+outline:0;
+color:#fff;
+font-size:16px
 }
 
 .stories{
-display:flex;gap:13px;overflow-x:auto;
-padding:7px 14px 16px;scrollbar-width:none
+display:flex;
+gap:13px;
+overflow-x:auto;
+padding:7px 14px 16px;
+scrollbar-width:none
 }
-.stories::-webkit-scrollbar{display:none}
+
+.stories::-webkit-scrollbar{
+display:none
+}
 
 .story{
-min-width:62px;text-align:center;
-font-size:11px;color:#b9c8d8
+min-width:62px;
+text-align:center;
+font-size:11px;
+color:#b9c8d8
 }
 
 .avatar{
-width:54px;height:54px;border-radius:50%;
+width:54px;
+height:54px;
+border-radius:50%;
 margin:auto auto 5px;
-display:flex;align-items:center;justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 font-weight:900;
 border:2px solid #27d994;
 background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8)
 }
 
 .your .avatar{
-background:#102238;border:2px dashed #27d994;
+background:#102238;
+border:2px dashed #27d994;
 font-size:22px
 }
 
 .card{
-margin:9px 12px;background:#0d1d30;
-border:1px solid #ffffff10;border-radius:18px;
+margin:9px 12px;
+background:#0d1d30;
+border:1px solid #ffffff10;
+border-radius:18px;
 overflow:hidden
 }
 
 .head{
-display:flex;align-items:center;gap:10px;padding:13px
+display:flex;
+align-items:center;
+gap:10px;
+padding:13px
 }
 
 .head .avatar{
-width:42px;height:42px;margin:0;font-size:13px
+width:42px;
+height:42px;
+margin:0;
+font-size:13px
 }
 
-.meta{flex:1}
-.name{font-weight:800}
-.time{font-size:11px;color:#7890a8}
-
-.body{
-padding:0 14px 15px;
-line-height:1.5;white-space:pre-wrap
+.meta{
+flex:1
 }
 
-.actions{
-display:flex;border-top:1px solid #ffffff0d
-}
-
-.actions button{
-flex:1;background:none;color:#a9bbcd;padding:12px 4px
-}
-
-.composer{padding:14px}
-
-.composer textarea{
-width:100%;min-height:85px;resize:none;
-background:#081522;border:1px solid #ffffff14;
-border-radius:14px;padding:12px;color:#fff;outline:0
-}
-
-.row{display:flex;gap:8px;align-items:center}
-
-.primary{
-background:#18b879;color:#00140d;
-padding:10px 16px;border-radius:12px;
+.name{
 font-weight:800
 }
 
-.secondary{
-background:#17283d;color:#fff;
-padding:10px 14px;border-radius:12px
+.time{
+font-size:11px;
+color:#7890a8
+}
+
+.body{
+padding:0 14px 15px;
+line-height:1.5;
+white-space:pre-wrap
+}
+
+.actions{
+display:flex;
+border-top:1px solid #ffffff0d
+}
+
+.actions button{
+flex:1;
+background:none;
+color:#a9bbcd;
+padding:12px 4px
+}
+
+.composer{
+padding:14px
+}
+
+.composer textarea{
+width:100%;
+min-height:85px;
+resize:none;
+background:#081522;
+border:1px solid #ffffff14;
+border-radius:14px;
+padding:12px;
+color:#fff;
+outline:0
+}
+
+.row{
+display:flex;
+gap:8px;
+align-items:center
+}
+
+.primary{
+background:#18b879;
+color:#00140d;
+padding:10px 16px;
+border-radius:12px;
+font-weight:800
 }
 
 .news{
@@ -138,44 +227,77 @@ padding:15px
 }
 
 .tag{
-display:inline-block;padding:4px 8px;border-radius:10px;
-background:#18b87922;color:#39e3a0;
-font-size:11px;font-weight:800
+display:inline-block;
+padding:4px 8px;
+border-radius:10px;
+background:#18b87922;
+color:#39e3a0;
+font-size:11px;
+font-weight:800
 }
 
-.news h3{margin:9px 0 6px;font-size:18px}
-.news p{margin:0;color:#b4c3d3;font-size:13px}
+.news h3{
+margin:9px 0 6px;
+font-size:18px
+}
+
+.news p{
+margin:0;
+color:#b4c3d3;
+font-size:13px
+}
 
 .reel{
-min-height:150px;padding:20px;
-display:flex;align-items:center;
-justify-content:center;text-align:center;
+min-height:150px;
+padding:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 background:linear-gradient(135deg,#151d3c,#25163d)
 }
 
-.reel strong{font-size:30px}
+.reel strong{
+font-size:30px
+}
 
 .bottom{
-position:fixed;bottom:0;left:0;right:0;z-index:30;
-height:67px;background:#091827f7;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+z-index:30;
+height:67px;
+background:#091827f7;
 border-top:1px solid #ffffff14;
 display:flex
 }
 
 .bottom button{
-flex:1;background:none;color:#93a9bf;font-size:12px
+flex:1;
+background:none;
+color:#93a9bf;
+font-size:12px
 }
 
 .bottom button b{
-display:block;font-size:21px;margin-bottom:2px
+display:block;
+font-size:21px;
+margin-bottom:2px
 }
 
-.bottom .active{color:#35e4a0}
+.bottom .active{
+color:#35e4a0
+}
 
 .modal{
-position:fixed;inset:0;z-index:50;
-background:#000b;display:flex;
-align-items:center;justify-content:center;
+position:fixed;
+inset:0;
+z-index:50;
+background:#000b;
+display:flex;
+align-items:center;
+justify-content:center;
 padding:18px
 }
 
@@ -183,50 +305,80 @@ padding:18px
 width:min(430px,100%);
 background:#0d1d30;
 border:1px solid #ffffff18;
-border-radius:22px;padding:20px;
+border-radius:22px;
+padding:20px;
 box-shadow:0 20px 70px #0009
 }
 
-.modalBox h2{margin-top:0;font-size:30px}
+.modalBox h2{
+margin-top:0;
+font-size:30px
+}
 
 .close{
-float:right;background:none;color:#9fb1c4;
+float:right;
+background:none;
+color:#9fb1c4;
 font-size:28px
 }
 
 .field{
-width:100%;padding:14px;margin:6px 0;
-background:#071522;border:1px solid #ffffff14;
-border-radius:14px;color:#fff;outline:0
+width:100%;
+padding:14px;
+margin:6px 0;
+background:#071522;
+border:1px solid #ffffff14;
+border-radius:14px;
+color:#fff;
+outline:0
 }
 
 .switch{
-text-align:center;color:#9fb1c4;
-font-size:13px;margin-top:14px
+text-align:center;
+color:#9fb1c4;
+font-size:13px;
+margin-top:14px
 }
 
 .switch button{
-background:none;color:#35e4a0
+background:none;
+color:#35e4a0
 }
 
-.profileBox{text-align:center}
+.profileBox{
+text-align:center
+}
 
 .bigAvatar{
-width:85px;height:85px;border-radius:50%;
+width:85px;
+height:85px;
+border-radius:50%;
 margin:8px auto 12px;
-display:flex;align-items:center;justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8);
-font-size:30px;font-weight:900
+font-size:30px;
+font-weight:900
 }
 
-.empty{text-align:center;padding:28px;color:#8195aa}
+.empty{
+text-align:center;
+padding:28px;
+color:#8195aa
+}
 
 .toast{
-position:fixed;left:50%;bottom:80px;
+position:fixed;
+left:50%;
+bottom:80px;
 transform:translateX(-50%);
-background:#f4fbff;color:#06111e;
-padding:11px 16px;border-radius:13px;
-z-index:100;font-weight:700;
+background:#f4fbff;
+color:#06111e;
+padding:11px 16px;
+border-radius:13px;
+z-index:100;
+font-weight:700;
 box-shadow:0 8px 30px #0008
 }
 </style>
@@ -243,10 +395,15 @@ box-shadow:0 8px 30px #0008
 </div>
 
 <div id="accountArea" class="topBtns">
-<button class="topBtn" onclick="openAuth('login')">Login</button>
+
+<button class="topBtn" onclick="openAuth('login')">
+Login
+</button>
+
 <button class="topBtn createTop" onclick="openAuth('signup')">
 Create Account
 </button>
+
 </div>
 
 </header>
@@ -255,23 +412,32 @@ Create Account
 <main class="wrap">
 
 <div class="search">
-<input id="searchInput"
+
+<input
+id="searchInput"
 placeholder="🔎 Search news, people, posts..."
 oninput="searchSite(this.value)">
+
 </div>
 
 
 <div id="searchResults"></div>
 
 
+<!-- STORIES -->
+
 <section class="stories" id="stories"></section>
 
+
+<!-- POST BOX -->
 
 <section class="card composer">
 
 <div class="row" style="margin-bottom:10px">
 
-<div class="avatar" id="composerAvatar">?</div>
+<div class="avatar" id="composerAvatar">
+?
+</div>
 
 <div class="meta">
 
@@ -288,17 +454,19 @@ Different generations. One place. ❤️
 </div>
 
 
-<textarea id="postText"
-placeholder="What's happening?"></textarea>
+<textarea
+id="postText"
+placeholder="What's happening?">
+</textarea>
 
 
-<div class="row" style="justify-content:flex-end;margin-top:8px">
+<div
+class="row"
+style="justify-content:flex-end;margin-top:8px">
 
-<button class="secondary" onclick="addStory()">
-＋ Story
-</button>
-
-<button class="primary" onclick="addPost()">
+<button
+class="primary"
+onclick="addPost()">
 Post
 </button>
 
@@ -307,30 +475,50 @@ Post
 </section>
 
 
+<!-- FEED -->
+
 <div id="feed"></div>
 
+
+<!-- REELS -->
 
 <section class="card">
 
 <div class="head">
 
-<div class="avatar">🎬</div>
+<div class="avatar">
+🎬
+</div>
 
 <div class="meta">
-<div class="name">Reels</div>
-<div class="time">Short, fun & interesting</div>
+
+<div class="name">
+Reels
+</div>
+
+<div class="time">
+Short, fun & interesting
 </div>
 
 </div>
+
+</div>
+
 
 <div class="reel">
+
 <div>
+
 <strong>▶ Reels</strong>
+
 <br><br>
+
 <span style="color:#9bb0c5">
 Short videos will appear here.
 </span>
+
 </div>
+
 </div>
 
 </section>
@@ -338,40 +526,70 @@ Short videos will appear here.
 </main>
 
 
+<!-- BOTTOM NAV -->
+
 <nav class="bottom">
 
-<button class="active" onclick="home()">
-<b>⌂</b>Home
+<button
+class="active"
+onclick="home()">
+
+<b>⌂</b>
+Home
+
 </button>
+
 
 <button onclick="focusSearch()">
-<b>⌕</b>Search
+
+<b>⌕</b>
+Search
+
 </button>
+
 
 <button onclick="addPost()">
-<b>＋</b>Post
+
+<b>＋</b>
+Post
+
 </button>
+
 
 <button onclick="toast('Reels coming soon 🎬')">
-<b>▶</b>Reels
+
+<b>▶</b>
+Reels
+
 </button>
 
+
 <button onclick="notifications()">
-<b>♡</b>Notifications
+
+<b>♡</b>
+Notifications
+
 </button>
 
 </nav>
 
 
-<!-- AUTH -->
+<!-- LOGIN / SIGNUP -->
 
 <div id="authModal" class="modal hidden">
 
 <div class="modalBox">
 
-<button class="close" onclick="closeModal('authModal')">×</button>
+<button
+class="close"
+onclick="closeModal('authModal')">
+×
+</button>
 
-<h2 id="authTitle">Login</h2>
+<h2 id="authTitle">
+Login
+</h2>
+
 
 <input
 id="authUsername"
@@ -379,11 +597,13 @@ class="field"
 placeholder="Choose username"
 style="display:none">
 
+
 <input
 id="authEmail"
 class="field"
 type="email"
 placeholder="Email">
+
 
 <input
 id="authPassword"
@@ -391,20 +611,32 @@ class="field"
 type="password"
 placeholder="Password">
 
+
 <button
 id="authButton"
 class="primary"
 style="width:100%;margin-top:10px"
 onclick="doAuth()">
+
 Login
+
 </button>
 
-<div id="authSwitch" class="switch">
+
+<div
+id="authSwitch"
+class="switch">
+
 New here?
-<button onclick="switchAuth()">Create Account</button>
+
+<button onclick="switchAuth()">
+Create Account
+</button>
+
 </div>
 
 </div>
+
 </div>
 
 
@@ -414,24 +646,42 @@ New here?
 
 <div class="modalBox profileBox">
 
-<button class="close" onclick="closeModal('profileModal')">
+<button
+class="close"
+onclick="closeModal('profileModal')">
 ×
 </button>
 
-<div class="bigAvatar" id="profileAvatar">?</div>
 
-<h2 id="profileName">Profile</h2>
+<div
+class="bigAvatar"
+id="profileAvatar">
+?
+</div>
 
-<p id="profileEmail" style="color:#8fa5ba"></p>
+
+<h2 id="profileName">
+Profile
+</h2>
+
+
+<p
+id="profileEmail"
+style="color:#8fa5ba">
+</p>
+
 
 <button
-class="secondary"
+class="primary"
 onclick="logout()"
 style="width:100%">
+
 Logout
+
 </button>
 
 </div>
+
 </div>
 
 
@@ -441,16 +691,23 @@ Logout
 
 <div class="modalBox">
 
-<button class="close" onclick="closeModal('messageModal')">
+<button
+class="close"
+onclick="closeModal('messageModal')">
 ×
 </button>
 
-<h2>💬 Messages</h2>
+
+<h2>
+💬 Messages
+</h2>
+
 
 <input
 id="msgTo"
 class="field"
 placeholder="Username">
+
 
 <textarea
 id="msgText"
@@ -459,17 +716,24 @@ placeholder="Private message..."
 style="min-height:100px">
 </textarea>
 
+
 <button
 class="primary"
 style="width:100%"
 onclick="sendMessage()">
+
 Send
+
 </button>
 
-<div id="msgStatus" class="empty">
+
+<div
+id="msgStatus"
+class="empty">
 </div>
 
 </div>
+
 </div>
 
 
@@ -479,17 +743,24 @@ Send
 
 <div class="modalBox">
 
-<button class="close" onclick="closeModal('noticeModal')">
+<button
+class="close"
+onclick="closeModal('noticeModal')">
 ×
 </button>
 
-<h2>♡ Notifications</h2>
+
+<h2>
+♡ Notifications
+</h2>
+
 
 <div class="empty">
 No new notifications yet.
 </div>
 
 </div>
+
 </div>
 
 
@@ -499,17 +770,19 @@ No new notifications yet.
 <!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 
 
 <script>
 
 /* =========================
-   FIREBASE
+   FIREBASE CONFIG
 ========================= */
 
-const firebaseConfig = {
+const firebaseConfig={
 
 apiKey:
 "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
@@ -538,12 +811,17 @@ measurementId:
 firebase.initializeApp(firebaseConfig);
 
 const auth=firebase.auth();
+
 const db=firebase.firestore();
 
 let currentUser=null;
+
 let profile=null;
+
 let authMode="login";
+
 let posts=[];
+
 let news=[];
 
 
@@ -553,14 +831,18 @@ let news=[];
 
 function esc(x){
 
-return String(x||"").replace(/[&<>"']/g,function(m){
+return String(x||"").replace(
+/[&<>"']/g,
+function(m){
 
 return {
+
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#39;"
+
 }[m];
 
 });
@@ -583,15 +865,18 @@ return (name||"?")
 
 function ago(date){
 
-let d=date?.toDate?
-date.toDate():
-new Date(date||Date.now());
+let d=
+date?.toDate
+?date.toDate()
+:new Date(date||Date.now());
 
-let m=Math.floor(
+let m=
+Math.floor(
 (Date.now()-d.getTime())/60000
 );
 
 if(m<1)return"just now";
+
 if(m<60)return m+"m";
 
 let h=Math.floor(m/60);
@@ -605,7 +890,8 @@ return Math.floor(h/24)+"d";
 
 function toast(text){
 
-let t=document.getElementById("toast");
+let t=
+document.getElementById("toast");
 
 t.textContent=text;
 
@@ -613,32 +899,37 @@ t.classList.remove("hidden");
 
 clearTimeout(window.toastTimer);
 
-window.toastTimer=setTimeout(function(){
+window.toastTimer=setTimeout(
+function(){
 
 t.classList.add("hidden");
 
-},2500);
+},
+2500
+);
 
 }
 
 
 function closeModal(id){
 
-document.getElementById(id)
+document
+.getElementById(id)
 .classList.add("hidden");
 
 }
 
 
 /* =========================
-   AUTH
+   AUTH UI
 ========================= */
 
 function openAuth(mode){
 
 authMode=mode;
 
-document.getElementById("authModal")
+document
+.getElementById("authModal")
 .classList.remove("hidden");
 
 updateAuth();
@@ -660,27 +951,35 @@ updateAuth();
 
 function updateAuth(){
 
-let signup=authMode==="signup";
+let signup=
+authMode==="signup";
 
-document.getElementById("authTitle")
+document
+.getElementById("authTitle")
 .textContent=
 signup
 ?"Create Account"
 :"Login";
 
-document.getElementById("authButton")
+
+document
+.getElementById("authButton")
 .textContent=
 signup
 ?"Create Account"
 :"Login";
 
-document.getElementById("authUsername")
+
+document
+.getElementById("authUsername")
 .style.display=
 signup
 ?"block"
 :"none";
 
-document.getElementById("authSwitch")
+
+document
+.getElementById("authSwitch")
 .innerHTML=
 signup
 ?
@@ -691,18 +990,25 @@ signup
 }
 
 
+/* =========================
+   LOGIN / SIGNUP
+========================= */
+
 async function doAuth(){
 
 let email=
-document.getElementById("authEmail")
+document
+.getElementById("authEmail")
 .value.trim();
 
 let password=
-document.getElementById("authPassword")
+document
+.getElementById("authPassword")
 .value;
 
 let username=
-document.getElementById("authUsername")
+document
+.getElementById("authUsername")
 .value.trim()
 .replace(/^@/,"");
 
@@ -718,10 +1024,13 @@ return;
 
 try{
 
+/* LOGIN */
+
 if(authMode==="login"){
 
 await auth.signInWithEmailAndPassword(
-email,password
+email,
+password
 );
 
 closeModal("authModal");
@@ -733,9 +1042,11 @@ return;
 }
 
 
+/* SIGNUP */
+
 if(username.length<3){
 
-toast("Username 3+ characters");
+toast("Username must be 3+ characters");
 
 return;
 
@@ -761,15 +1072,17 @@ return;
 }
 
 
-/* Create account */
+/* Firebase account */
 
 let result=
-await auth.createUserWithEmailAndPassword(
-email,password
+await auth
+.createUserWithEmailAndPassword(
+email,
+password
 );
 
 
-/* Save profile */
+/* User profile */
 
 await db
 .collection("users")
@@ -777,8 +1090,11 @@ await db
 .set({
 
 uid:result.user.uid,
+
 username:username,
+
 email:email,
+
 createdAt:
 firebase.firestore.FieldValue.serverTimestamp()
 
@@ -832,7 +1148,8 @@ toast(e?.message||"Firebase error");
    AUTH STATE
 ========================= */
 
-auth.onAuthStateChanged(async function(user){
+auth.onAuthStateChanged(
+async function(user){
 
 currentUser=user;
 
@@ -875,14 +1192,16 @@ profile=null;
 }
 
 renderAccount();
+
 renderStories();
+
 loadPosts();
 
 });
 
 
 /* =========================
-   ACCOUNT UI
+   ACCOUNT
 ========================= */
 
 function renderAccount(){
@@ -890,17 +1209,22 @@ function renderAccount(){
 let box=
 document.getElementById("accountArea");
 
+
 if(!currentUser){
 
 box.innerHTML=
 
 '<button class="topBtn" onclick="openAuth(\'login\')">Login</button>'+
+
 '<button class="topBtn createTop" onclick="openAuth(\'signup\')">Create Account</button>';
 
-document.getElementById("composerName")
-.textContent="Welcome to two4nine";
+document
+.getElementById("composerName")
+.textContent=
+"Welcome to two4nine";
 
-document.getElementById("composerAvatar")
+document
+.getElementById("composerAvatar")
 .textContent="?";
 
 return;
@@ -908,20 +1232,28 @@ return;
 }
 
 
-let name=profile?.username||"User";
+let name=
+profile?.username||"User";
+
 
 box.innerHTML=
 
 '<button class="iconBtn" onclick="openMessages()">💬</button>'+
+
 '<button class="topBtn" onclick="openProfile()">👤 '+
 esc(name)+
 '</button>';
 
-document.getElementById("composerName")
+
+document
+.getElementById("composerName")
 .textContent="@"+name;
 
-document.getElementById("composerAvatar")
-.textContent=initials(name);
+
+document
+.getElementById("composerAvatar")
+.textContent=
+initials(name);
 
 }
 
@@ -936,17 +1268,27 @@ return;
 
 }
 
-document.getElementById("profileAvatar")
+
+document
+.getElementById("profileAvatar")
 .textContent=
 initials(profile?.username);
 
-document.getElementById("profileName")
-.textContent="@"+(profile?.username||"User");
 
-document.getElementById("profileEmail")
-.textContent=currentUser.email;
+document
+.getElementById("profileName")
+.textContent=
+"@"+(profile?.username||"User");
 
-document.getElementById("profileModal")
+
+document
+.getElementById("profileEmail")
+.textContent=
+currentUser.email;
+
+
+document
+.getElementById("profileModal")
 .classList.remove("hidden");
 
 }
@@ -964,7 +1306,7 @@ toast("Logged out");
 
 
 /* =========================
-   POSTS
+   POST
 ========================= */
 
 async function addPost(){
@@ -977,9 +1319,12 @@ return;
 
 }
 
+
 let text=
-document.getElementById("postText")
+document
+.getElementById("postText")
 .value.trim();
+
 
 if(!text){
 
@@ -992,7 +1337,9 @@ return;
 
 try{
 
-await db.collection("posts").add({
+await db
+.collection("posts")
+.add({
 
 uid:currentUser.uid,
 
@@ -1004,12 +1351,14 @@ text:text,
 type:"post",
 
 createdAt:
-firebase.firestore.FieldValue.serverTimestamp()
+firebase.firestore.FieldValue
+.serverTimestamp()
 
 });
 
 
-document.getElementById("postText")
+document
+.getElementById("postText")
 .value="";
 
 toast("Posted ❤️");
@@ -1026,7 +1375,7 @@ showFirebaseError(e);
 
 
 /* =========================
-   STORIES
+   STORY
 ========================= */
 
 async function addStory(){
@@ -1039,9 +1388,12 @@ return;
 
 }
 
+
 let text=
-document.getElementById("postText")
+document
+.getElementById("postText")
 .value.trim();
+
 
 if(!text){
 
@@ -1054,7 +1406,9 @@ return;
 
 try{
 
-await db.collection("posts").add({
+await db
+.collection("posts")
+.add({
 
 uid:currentUser.uid,
 
@@ -1066,12 +1420,14 @@ text:text,
 type:"story",
 
 createdAt:
-firebase.firestore.FieldValue.serverTimestamp()
+firebase.firestore.FieldValue
+.serverTimestamp()
 
 });
 
 
-document.getElementById("postText")
+document
+.getElementById("postText")
 .value="";
 
 toast("Story added ✨");
@@ -1087,17 +1443,26 @@ showFirebaseError(e);
 }
 
 
+/* =========================
+   STORIES ROW
+========================= */
+
 function renderStories(){
 
 let list=
-posts.filter(x=>x.type==="story")
+posts
+.filter(x=>x.type==="story")
 .slice(0,10);
+
 
 let html=
 
 '<div class="story your" onclick="addStory()">'+
+
 '<div class="avatar">＋</div>'+
+
 '<div>Your Story</div>'+
+
 '</div>';
 
 
@@ -1106,54 +1471,81 @@ if(profile?.username){
 html+=
 
 '<div class="story">'+
+
 '<div class="avatar">'+
 initials(profile.username)+
 '</div>'+
+
 '<div>@'+
 esc(profile.username)+
 '</div>'+
+
 '</div>';
 
 }
 
-
-let defaultUsers=
-["Rahul","Priya","Aman","Neha","Simran","Rohan"];
 
 let used=[];
 
 
 list.forEach(function(s){
 
-if(used.includes(s.username))return;
+if(used.includes(s.username))
+return;
 
 used.push(s.username);
 
+
 html+=
 
-'<div class="story" onclick="toast(\'Story by '+esc(s.username)+'\')">'+
+'<div class="story" onclick="toast(\'Story by '+
+
+esc(s.username)+
+
+'\')">'+
+
 '<div class="avatar">'+
 initials(s.username)+
 '</div>'+
+
 '<div>'+
 esc(s.username)+
 '</div>'+
+
 '</div>';
 
 });
 
 
+let defaultUsers=[
+"Rahul",
+"Priya",
+"Aman",
+"Neha",
+"Simran",
+"Rohan"
+];
+
+
 defaultUsers.forEach(function(n){
 
-if(!used.includes(n)&&n!==profile?.username){
+if(
+!used.includes(n)&&
+n!==profile?.username
+){
 
 html+=
 
 '<div class="story">'+
+
 '<div class="avatar">'+
 n[0]+
 '</div>'+
-'<div>'+n+'</div>'+
+
+'<div>'+
+n+
+'</div>'+
+
 '</div>';
 
 }
@@ -1164,12 +1556,16 @@ n[0]+
 html+=
 
 '<div class="story">'+
+
 '<div class="avatar">•••</div>'+
+
 '<div>More</div>'+
+
 '</div>';
 
 
-document.getElementById("stories")
+document
+.getElementById("stories")
 .innerHTML=html;
 
 }
@@ -1188,11 +1584,12 @@ await db
 .collection("posts")
 .get();
 
+
 posts=
 snap.docs
 .map(function(d){
 
-return {
+return{
 id:d.id,
 ...d.data()
 };
@@ -1207,13 +1604,15 @@ millis(a.createdAt);
 
 
 renderFeed();
+
 renderStories();
 
 }catch(e){
 
 console.error(e);
 
-document.getElementById("feed")
+document
+.getElementById("feed")
 .innerHTML=
 '<div class="empty">Could not load posts.</div>';
 
@@ -1235,13 +1634,19 @@ return 0;
 }
 
 
+/* =========================
+   FEED
+========================= */
+
 function renderFeed(){
 
 let feed=
 document.getElementById("feed");
 
+
 let normal=
 posts.filter(x=>x.type!=="story");
+
 
 let html="";
 
@@ -1256,7 +1661,9 @@ html+=
 
 normal.forEach(function(p){
 
-let n=esc(p.username||"User");
+let n=
+esc(p.username||"User");
+
 
 html+=`
 
@@ -1282,9 +1689,11 @@ ${ago(p.createdAt)}
 
 </div>
 
+
 <div class="body">
 ${esc(p.text)}
 </div>
+
 
 <div class="actions">
 
@@ -1315,25 +1724,38 @@ feed.innerHTML=html;
 
 
 /* =========================
-   LIKE COMMENT SHARE
+   LIKE
 ========================= */
 
 function like(id){
 
-let key="two4nine_like_"+id;
+let key=
+"two4nine_like_"+id;
+
 
 let n=
-Number(localStorage.getItem(key)||0)+1;
+Number(
+localStorage.getItem(key)||0
+)+1;
+
 
 localStorage.setItem(key,n);
 
-let x=
-document.getElementById("likes-"+id);
 
-if(x)x.textContent=n;
+let x=
+document
+.getElementById("likes-"+id);
+
+
+if(x)
+x.textContent=n;
 
 }
 
+
+/* =========================
+   COMMENT
+========================= */
 
 function comment(){
 
@@ -1345,13 +1767,20 @@ return;
 
 }
 
-let text=prompt("Write comment:");
+
+let text=
+prompt("Write comment:");
+
 
 if(text?.trim())
 toast("Comment added 💬");
 
 }
 
+
+/* =========================
+   SHARE
+========================= */
 
 async function share(text){
 
@@ -1363,7 +1792,7 @@ toast("Copied 📋");
 
 }catch(e){
 
-toast("Share: "+text.slice(0,40));
+toast(text.slice(0,40));
 
 }
 
@@ -1386,65 +1815,4 @@ let queries=[
 
 ["AI & Technology","AI technology"],
 
-["Business","business"]
-
-];
-
-let result=[];
-
-
-try{
-
-for(let item of queries){
-
-let category=item[0];
-let query=item[1];
-
-let rss=
-"https://news.google.com/rss/search?q="+
-encodeURIComponent(query)+
-"&hl=en-IN&gl=IN&ceid=IN:en";
-
-let url=
-"https://api.rss2json.com/v1/api.json?rss_url="+
-encodeURIComponent(rss);
-
-let r=await fetch(url);
-let data=await r.json();
-
-(data.items||[]).slice(0,4).forEach(function(x){
-
-result.push({
-
-category:category,
-title:x.title,
-date:new Date(x.pubDate||Date.now())
-
-});
-
-});
-
-}
-
-
-result.sort(function(a,b){
-
-return b.date-a.date;
-
-});
-
-news=result.slice(0,10);
-
-renderNews();
-
-}catch(e){
-
-news=[
-
-{
-category:"World",
-title:"Latest world news and international updates."
-},
-
-{
-category:"AI & Tech
+["Business","business"
