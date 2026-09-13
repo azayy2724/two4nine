@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>two4nine</title>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
@@ -10,13 +11,22 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
 
 body{
-  background:#070b14;
+  background:
+    radial-gradient(circle at 15% 10%,#302060 0,#090b16 35%),
+    radial-gradient(circle at 90% 20%,#063d68 0,#070b14 35%);
+  background-attachment:fixed;
   color:#fff;
   font-family:Arial,sans-serif;
-  padding-bottom:75px
+  padding-bottom:78px;
+  min-height:100vh
 }
 
 button{
@@ -28,28 +38,55 @@ button{
   display:none!important
 }
 
-/* TOP BAR */
+
+/* =========================
+   TOP BAR
+========================= */
+
 .topbar{
-  height:62px;
+  height:70px;
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:50;
+
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
+
   padding:0 12px;
-  background:rgba(7,11,20,.97);
-  border-bottom:1px solid #202a3d
+
+  background:rgba(8,10,22,.94);
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,.10);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.25)
 }
 
 .newsTop{
   font-size:14px;
-  font-weight:700
+  font-weight:800;
+
+  color:#fff;
+
+  text-shadow:
+    0 0 12px #35b8ff
 }
 
 .logo{
-  font-size:22px;
-  font-weight:900
+  font-size:24px;
+  font-weight:1000;
+
+  background:
+    linear-gradient(90deg,#6c63ff,#00d9ff,#ff4fd8);
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+
+  white-space:nowrap;
 }
 
 .topRight{
@@ -60,55 +97,109 @@ button{
 }
 
 .topBtn{
-  padding:8px 9px;
-  border-radius:10px;
-  border:1px solid #33415b;
-  background:#121c2d;
+  padding:9px 11px;
+
+  border-radius:12px;
+
+  border:1px solid rgba(125,150,255,.35);
+
+  background:
+    linear-gradient(135deg,#182544,#11172b);
+
   color:#fff;
+
   font-size:11px;
-  font-weight:700
+  font-weight:800;
+
+  box-shadow:
+    0 0 15px rgba(74,118,255,.10)
+}
+
+.topBtn:active{
+  transform:scale(.96)
 }
 
 .createTop{
-  background:#fff;
-  color:#080b12;
-  border-color:#fff
+  background:
+    linear-gradient(135deg,#ffffff,#dfe7ff);
+
+  color:#101326;
+
+  border:0;
+
+  box-shadow:
+    0 0 18px rgba(255,255,255,.18)
 }
 
 .msgBtn{
-  font-size:12px;
-  padding:8px
+  font-size:13px;
+  padding:9px 11px
 }
 
-/* SEARCH */
+
+/* =========================
+   SEARCH
+========================= */
+
 .searchWrap{
-  padding:12px 13px 5px
+  padding:15px 13px 8px
 }
 
 .search{
   width:100%;
-  padding:12px 14px;
-  border-radius:13px;
-  border:1px solid #26334b;
-  background:#101827;
+
+  padding:14px 16px;
+
+  border-radius:16px;
+
+  border:1px solid rgba(108,135,255,.35);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20,29,54,.96),
+      rgba(15,19,38,.96)
+    );
+
   color:#fff;
-  outline:none
+
+  outline:none;
+
+  font-size:14px;
+
+  box-shadow:
+    0 0 25px rgba(55,100,255,.08)
 }
 
-/* STORIES */
+.search::placeholder{
+  color:#8995ad
+}
+
+.search:focus{
+  border-color:#687cff;
+
+  box-shadow:
+    0 0 20px rgba(83,110,255,.22)
+}
+
+
+/* =========================
+   STORIES
+========================= */
+
 .section{
-  padding:13px
+  padding:15px 13px
 }
 
 .title{
-  font-size:15px;
-  font-weight:800;
-  margin-bottom:10px
+  font-size:16px;
+  font-weight:900;
+  margin-bottom:11px
 }
 
 .stories{
   display:flex;
-  gap:13px;
+  gap:14px;
   overflow-x:auto;
   scrollbar-width:none
 }
@@ -118,37 +209,70 @@ button{
 }
 
 .story{
-  flex:0 0 63px;
+  flex:0 0 64px;
   text-align:center
 }
 
 .storyCircle{
-  width:57px;
-  height:57px;
+  width:59px;
+  height:59px;
+
   margin:auto;
+
   border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#17243b;
-  border:2px solid #6079a9;
-  font-weight:800
+
+  background:
+    linear-gradient(145deg,#18284c,#11172c);
+
+  border:3px solid transparent;
+
+  background-image:
+    linear-gradient(#151d35,#151d35),
+    linear-gradient(
+      135deg,
+      #ff4fd8,
+      #745cff,
+      #00d9ff
+    );
+
+  background-origin:border-box;
+  background-clip:padding-box,border-box;
+
+  font-size:18px;
+  font-weight:900;
+
+  box-shadow:
+    0 0 18px rgba(106,82,255,.18)
 }
 
 .your{
-  border-color:#fff
+  background:
+    linear-gradient(145deg,#342060,#142c51);
+
+  border:3px solid #fff;
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,.18)
 }
 
 .storyName{
   font-size:10px;
-  color:#aeb9cc;
-  margin-top:5px;
+  color:#b9c3d8;
+  margin-top:6px;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap
 }
 
-/* FEED */
+
+/* =========================
+   FEED
+========================= */
+
 .feed{
   max-width:650px;
   margin:auto;
@@ -156,29 +280,53 @@ button{
 }
 
 .card{
-  background:#0e1626;
-  border:1px solid #202d43;
-  border-radius:18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18,27,51,.97),
+      rgba(10,16,31,.97)
+    );
+
+  border:1px solid rgba(104,127,201,.22);
+
+  border-radius:20px;
+
   overflow:hidden;
-  margin-bottom:14px
+
+  margin-bottom:15px;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.18)
 }
 
 .head{
   display:flex;
   align-items:center;
   gap:10px;
-  padding:13px
+  padding:14px
 }
 
 .avatar{
-  width:38px;
-  height:38px;
+  width:40px;
+  height:40px;
+
   border-radius:50%;
-  background:#354668;
+
+  background:
+    linear-gradient(
+      135deg,
+      #705cff,
+      #00cfff
+    );
+
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:800
+
+  font-weight:900;
+
+  box-shadow:
+    0 0 15px rgba(84,100,255,.25)
 }
 
 .info{
@@ -187,45 +335,56 @@ button{
 
 .name{
   font-size:14px;
-  font-weight:800
+  font-weight:900
 }
 
 .time{
   font-size:10px;
-  color:#7e8ba1;
+  color:#8794ad;
   margin-top:3px
 }
 
 .body{
-  padding:0 13px 13px
+  padding:0 14px 14px
 }
 
 .text{
   font-size:14px;
-  line-height:1.55;
-  color:#dce3ef
+  line-height:1.6;
+  color:#e1e7f4
 }
 
 .label{
   display:inline-block;
-  background:#192843;
-  color:#9eb5df;
-  padding:5px 8px;
-  border-radius:7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(112,91,255,.25),
+      rgba(0,207,255,.15)
+    );
+
+  color:#aebaff;
+
+  padding:6px 9px;
+
+  border-radius:8px;
+
   font-size:10px;
-  font-weight:800;
+  font-weight:900;
+
   margin-bottom:8px
 }
 
 .newsTitle{
   font-size:17px;
-  font-weight:800;
-  line-height:1.35;
+  font-weight:900;
+  line-height:1.4;
   margin-bottom:8px
 }
 
 .desc{
-  color:#9da9bc;
+  color:#9da9bf;
   font-size:13px;
   line-height:1.5
 }
@@ -233,20 +392,44 @@ button{
 .actions{
   display:flex;
   gap:7px;
-  padding:10px 13px;
-  border-top:1px solid #1d283b
+
+  padding:11px 14px;
+
+  border-top:1px solid rgba(255,255,255,.07);
+
+  overflow-x:auto
 }
 
 .action{
-  background:#121c2d;
-  color:#cdd6e4;
-  border:1px solid #29364d;
-  padding:8px 10px;
-  border-radius:9px;
-  font-size:11px
+  background:
+    linear-gradient(
+      135deg,
+      #151f39,
+      #10162a
+    );
+
+  color:#d8e0f0;
+
+  border:1px solid rgba(110,133,205,.25);
+
+  padding:9px 11px;
+
+  border-radius:11px;
+
+  font-size:11px;
+
+  white-space:nowrap
 }
 
-/* REELS */
+.action:active{
+  transform:scale(.96)
+}
+
+
+/* =========================
+   REELS
+========================= */
+
 #reelsSection{
   max-width:650px;
   margin:auto;
@@ -254,71 +437,130 @@ button{
 }
 
 .reel{
-  height:300px;
-  border-radius:18px;
-  background:#0e1626;
-  border:1px solid #243149;
+  height:310px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #24145b,
+      #101b43,
+      #063d56
+    );
+
+  border:1px solid rgba(112,126,255,.35);
+
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center
+
+  text-align:center;
+
+  box-shadow:
+    0 15px 50px rgba(44,25,130,.25)
 }
 
 .reelIcon{
-  font-size:45px;
-  margin-bottom:10px
+  font-size:48px;
+  margin-bottom:12px
 }
 
-/* BOTTOM */
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
 .bottom{
   position:fixed;
+
   bottom:0;
   left:0;
   right:0;
-  height:68px;
-  z-index:30;
+
+  height:70px;
+
+  z-index:60;
+
   display:flex;
   align-items:center;
   justify-content:space-around;
-  background:rgba(7,11,20,.99);
-  border-top:1px solid #202b40
+
+  background:
+    rgba(7,10,21,.97);
+
+  backdrop-filter:blur(18px);
+
+  border-top:1px solid rgba(255,255,255,.10);
+
+  box-shadow:
+    0 -10px 30px rgba(0,0,0,.30)
 }
 
 .nav{
   background:none;
-  color:#7f8ca2;
+  color:#7f8ba5;
   border:0;
+
   font-size:10px;
   text-align:center
 }
 
 .navIcon{
   display:block;
-  font-size:20px;
+  font-size:21px;
   margin-bottom:3px
 }
 
 .nav.active{
-  color:#fff
+  color:#fff;
+
+  text-shadow:
+    0 0 12px #6d7dff
 }
 
 .post{
-  width:44px;
-  height:44px;
-  border-radius:13px;
-  background:#fff;
-  color:#080b12;
-  font-size:25px;
-  font-weight:800
+  width:48px;
+  height:48px;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #cbd6ff
+    );
+
+  color:#111426;
+
+  font-size:27px;
+  font-weight:900;
+
+  border:2px solid #fff;
+
+  box-shadow:
+    0 0 22px rgba(121,137,255,.30)
 }
 
-/* MODAL */
+
+/* =========================
+   MODAL
+========================= */
+
 .modal{
   position:fixed;
   inset:0;
-  z-index:100;
-  background:rgba(0,0,0,.78);
+
+  z-index:1000;
+
+  background:
+    rgba(0,0,0,.78);
+
+  backdrop-filter:blur(7px);
+
   display:flex;
+
   align-items:flex-end;
   justify-content:center
 }
@@ -326,47 +568,94 @@ button{
 .box{
   width:100%;
   max-width:600px;
+
   max-height:90vh;
+
   overflow:auto;
-  background:#0d1524;
-  border:1px solid #293751;
-  border-radius:22px 22px 0 0;
-  padding:20px
+
+  background:
+    linear-gradient(
+      145deg,
+      #111b35,
+      #090f20
+    );
+
+  border:1px solid rgba(115,137,255,.35);
+
+  border-radius:25px 25px 0 0;
+
+  padding:22px;
+
+  box-shadow:
+    0 -15px 60px rgba(48,45,180,.22)
 }
 
 .modalHead{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:18px
+
+  margin-bottom:20px
 }
 
 .modalTitle{
-  font-size:20px;
-  font-weight:800
+  font-size:21px;
+  font-weight:900;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #9caaff,
+      #62ddff
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent
 }
 
 .close{
-  width:34px;
-  height:34px;
+  width:36px;
+  height:36px;
+
   border:0;
-  border-radius:10px;
-  background:#1a263b;
+  border-radius:11px;
+
+  background:#1d2944;
   color:#fff;
-  font-size:18px
+
+  font-size:20px
 }
 
 .input,
 .textarea{
   width:100%;
-  padding:13px;
-  margin-bottom:11px;
-  border-radius:12px;
-  border:1px solid #293751;
-  background:#101a2c;
+
+  padding:14px;
+
+  margin-bottom:12px;
+
+  border-radius:13px;
+
+  border:1px solid rgba(110,133,205,.30);
+
+  background:#0c1428;
+
   color:#fff;
+
   outline:none;
+
   font-size:14px
+}
+
+.input:focus,
+.textarea:focus{
+  border-color:#7181ff;
+
+  box-shadow:
+    0 0 15px rgba(93,112,255,.15)
 }
 
 .textarea{
@@ -376,414 +665,482 @@ button{
 
 .full{
   width:100%;
+
   padding:14px;
+
   border:0;
-  border-radius:12px;
-  background:#fff;
-  color:#080b12;
-  font-weight:800
+
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #695cff,
+      #00bde9
+    );
+
+  color:#fff;
+
+  font-weight:900;
+
+  box-shadow:
+    0 8px 22px rgba(76,100,255,.22)
+}
+
+.full:disabled{
+  opacity:.6
 }
 
 .authSwitch{
   text-align:center;
-  margin-top:15px;
-  color:#9eabc0;
+
+  margin-top:16px;
+
+  color:#9da9bd;
+
   font-size:12px
 }
 
 .link{
   color:#fff;
+
   text-decoration:underline;
-  cursor:pointer
+
+  cursor:pointer;
+
+  font-weight:800
 }
 
 .error{
-  color:#ff9c9c;
+  color:#ff9eac;
+
   font-size:12px;
-  margin-top:10px;
+
+  margin-top:11px;
+
   line-height:1.5
 }
 
 .success{
-  color:#9ff0b0;
+  color:#75efac;
+
   font-size:12px;
-  margin-top:10px
+
+  margin-top:11px
 }
 
 .message{
-  padding:14px 0;
-  border-bottom:1px solid #202c40
+  padding:15px 0;
+
+  border-bottom:1px solid rgba(255,255,255,.08)
 }
 
 .smallNote{
-  color:#7f8ca2;
+  color:#77849d;
+
   font-size:11px;
+
   line-height:1.5;
-  margin-top:10px
+
+  margin-top:12px
 }
 
 @media(min-width:700px){
+
   .feed,
   #reelsSection{
     padding-left:0;
     padding-right:0
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
+
 <!-- =========================
-     PUBLIC WEBSITE
+     TOP
 ========================= -->
 
-<div id="app">
+<header class="topbar">
 
-  <!-- TOP BAR -->
-  <header class="topbar">
+  <div class="newsTop">
+    📰 News
+  </div>
 
-    <div class="newsTop">📰 News</div>
+  <div class="logo">
+    two4nine
+  </div>
 
-    <div class="logo">two4nine</div>
+  <div class="topRight">
 
-    <div class="topRight">
+    <button
+      type="button"
+      class="topBtn"
+      id="loginTop">
+      Login
+    </button>
 
-      <button
-        type="button"
-        class="topBtn"
-        id="loginTop"
-        onclick="openAuth('login')">
-        Login
-      </button>
+    <button
+      type="button"
+      class="topBtn createTop"
+      id="createTop">
+      Create Account
+    </button>
 
-      <button
-        type="button"
-        class="topBtn createTop"
-        id="createTop"
-        onclick="openAuth('signup')">
-        Create Account
-      </button>
+    <button
+      type="button"
+      class="topBtn msgBtn hidden"
+      id="messageTop">
+      💬
+    </button>
 
-      <button
-        type="button"
-        class="topBtn msgBtn hidden"
-        id="messageTop"
-        onclick="openMessages()">
-        💬
-      </button>
+    <div
+      class="avatar hidden"
+      id="profileTop">
+      ?
+    </div>
 
-      <div
-        class="avatar hidden"
-        id="profileTop"
-        onclick="logout()">
-        ?
+  </div>
+
+</header>
+
+
+<!-- SEARCH -->
+
+<div class="searchWrap">
+
+  <input
+    id="search"
+    class="search"
+    placeholder="Search people, news, topics...">
+
+</div>
+
+
+<!-- STORIES -->
+
+<section class="section">
+
+  <div class="title">
+    Stories
+  </div>
+
+  <div class="stories">
+
+    <div
+      class="story"
+      id="yourStory">
+
+      <div class="storyCircle your">
+        ＋
+      </div>
+
+      <div class="storyName">
+        Your Story
       </div>
 
     </div>
 
-  </header>
+
+    <div class="story">
+      <div class="storyCircle">R</div>
+      <div class="storyName">Rahul</div>
+    </div>
+
+    <div class="story">
+      <div class="storyCircle">P</div>
+      <div class="storyName">Priya</div>
+    </div>
+
+    <div class="story">
+      <div class="storyCircle">A</div>
+      <div class="storyName">Aman</div>
+    </div>
+
+    <div class="story">
+      <div class="storyCircle">N</div>
+      <div class="storyName">Neha</div>
+    </div>
+
+    <div class="story">
+      <div class="storyCircle">S</div>
+      <div class="storyName">Simran</div>
+    </div>
+
+    <div class="story">
+      <div class="storyCircle">R</div>
+      <div class="storyName">Rohan</div>
+    </div>
+
+  </div>
+
+</section>
 
 
-  <!-- SEARCH -->
-  <div class="searchWrap">
+<!-- FEED -->
 
-    <input
-      id="search"
-      class="search"
-      placeholder="Search people, news, topics..."
-      oninput="searchEverything()">
+<main class="feed" id="feed">
+
+
+  <!-- WELCOME -->
+
+  <div class="card">
+
+    <div class="head">
+
+      <div class="avatar">
+        2
+      </div>
+
+      <div class="info">
+
+        <div class="name">
+          two4nine
+        </div>
+
+        <div class="time">
+          Welcome
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="body">
+
+      <div class="text">
+
+        Different generations.
+        One place. ❤️
+
+        <br><br>
+
+        News, people, discussions,
+        memes and everything
+        happening around you.
+
+      </div>
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="action"
+        id="welcomeLike">
+        ❤️ Like
+      </button>
+
+      <button
+        class="action"
+        id="welcomeComment">
+        💬 Comment
+      </button>
+
+      <button
+        class="action"
+        id="welcomeShare">
+        ↗ Share
+      </button>
+
+    </div>
 
   </div>
 
 
-  <!-- STORIES -->
-  <section class="section">
+  <!-- NEWS -->
 
-    <div class="title">Stories</div>
+  <div id="newsFeed">
 
-    <div class="stories" id="stories">
+    <div
+      style="
+        text-align:center;
+        padding:30px;
+        color:#7f8ca2
+      ">
 
-      <div
-        class="story"
-        onclick="createStory()">
-
-        <div class="storyCircle your">＋</div>
-
-        <div class="storyName">Your Story</div>
-
-      </div>
-
-      <div
-        class="story"
-        onclick="demoStory('Rahul')">
-
-        <div class="storyCircle">R</div>
-
-        <div class="storyName">Rahul</div>
-
-      </div>
-
-      <div
-        class="story"
-        onclick="demoStory('Priya')">
-
-        <div class="storyCircle">P</div>
-
-        <div class="storyName">Priya</div>
-
-      </div>
-
-      <div
-        class="story"
-        onclick="demoStory('Aman')">
-
-        <div class="storyCircle">A</div>
-
-        <div class="storyName">Aman</div>
-
-      </div>
-
-      <div
-        class="story"
-        onclick="demoStory('Neha')">
-
-        <div class="storyCircle">N</div>
-
-        <div class="storyName">Neha</div>
-
-      </div>
-
-      <div
-        class="story"
-        onclick="demoStory('Simran')">
-
-        <div class="storyCircle">S</div>
-
-        <div class="storyName">Simran</div>
-
-      </div>
-
-      <div
-        class="story"
-        onclick="demoStory('Rohan')">
-
-        <div class="storyCircle">R</div>
-
-        <div class="storyName">Rohan</div>
-
-      </div>
+      📰 Loading latest news...
 
     </div>
 
-  </section>
+  </div>
 
 
-  <!-- FEED -->
-  <main class="feed" id="feed">
+  <!-- USER POSTS -->
 
-    <!-- WELCOME -->
-    <div class="card">
+  <div id="userPosts"></div>
 
-      <div class="head">
 
-        <div class="avatar">2</div>
+  <!-- MEME -->
 
-        <div class="info">
+  <div class="card">
 
-          <div class="name">two4nine</div>
+    <div class="head">
 
-          <div class="time">Welcome</div>
-
-        </div>
-
+      <div class="avatar">
+        😂
       </div>
 
-      <div class="body">
+      <div class="info">
 
-        <div class="text">
-          Different generations. One place. ❤️
-          <br><br>
-          News, people, discussions, memes and
-          everything happening around you.
+        <div class="name">
+          Community Meme
         </div>
 
-      </div>
-
-      <div class="actions">
-
-        <button
-          type="button"
-          class="action"
-          onclick="requireLogin('Like this post')">
-          ❤️ Like
-        </button>
-
-        <button
-          type="button"
-          class="action"
-          onclick="requireLogin('Comment')">
-          💬 Comment
-        </button>
-
-        <button
-          type="button"
-          class="action"
-          onclick="requireLogin('Share')">
-          ↗ Share
-        </button>
+        <div class="time">
+          Demo
+        </div>
 
       </div>
 
     </div>
 
 
-    <!-- NEWS -->
-    <div id="newsFeed">
+    <div class="body">
 
-      <div style="text-align:center;padding:25px;color:#7f8ca2">
-        Loading latest news...
-      </div>
+      <div class="text">
 
-    </div>
+        Me: "Bas 5 minute
+        social media dekhunga."
 
+        <br>
 
-    <!-- USER POSTS -->
-    <div id="userPosts"></div>
-
-
-    <!-- MEME -->
-    <div class="card">
-
-      <div class="head">
-
-        <div class="avatar">😂</div>
-
-        <div class="info">
-
-          <div class="name">Community Meme</div>
-
-          <div class="time">Demo</div>
-
-        </div>
-
-      </div>
-
-      <div class="body">
-
-        <div class="text">
-          Me: "Bas 5 minute social media dekhunga."
-          <br>
-          Also me 1 hour later: 😭😂
-        </div>
-
-      </div>
-
-      <div class="actions">
-
-        <button
-          type="button"
-          class="action"
-          onclick="requireLogin('Like')">
-          ❤️ Like
-        </button>
-
-        <button
-          type="button"
-          class="action"
-          onclick="requireLogin('Comment')">
-          💬 Comment
-        </button>
+        Also me 1 hour later:
+        😭😂
 
       </div>
 
     </div>
 
-  </main>
+
+    <div class="actions">
+
+      <button
+        class="action"
+        id="memeLike">
+        ❤️ Like
+      </button>
+
+      <button
+        class="action"
+        id="memeComment">
+        💬 Comment
+      </button>
+
+    </div>
+
+  </div>
+
+</main>
 
 
-  <!-- REELS -->
-  <section id="reelsSection" class="hidden">
+<!-- REELS -->
 
-    <div class="title">Reels</div>
+<section
+  id="reelsSection"
+  class="hidden">
 
-    <div class="reel">
+  <div class="title">
+    Reels
+  </div>
 
-      <div>
+  <div class="reel">
 
-        <div class="reelIcon">▶️</div>
+    <div>
 
-        <div class="newsTitle">
-          Reels are coming
-        </div>
+      <div class="reelIcon">
+        ▶️
+      </div>
 
-        <div class="desc">
-          Short videos from the two4nine
-          community will appear here.
-        </div>
+      <div class="newsTitle">
+        Reels are coming
+      </div>
 
+      <div class="desc">
+        Short videos from the
+        two4nine community will
+        appear here.
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- BOTTOM NAV -->
-  <nav class="bottom">
+<!-- BOTTOM -->
 
-    <button
-      type="button"
-      class="nav active"
-      onclick="home(this)">
+<nav class="bottom">
 
-      <span class="navIcon">⌂</span>
-      Home
+  <button
+    class="nav active"
+    id="homeNav">
 
-    </button>
+    <span class="navIcon">
+      ⌂
+    </span>
 
-    <button
-      type="button"
-      class="nav"
-      onclick="searchFocus(this)">
+    Home
 
-      <span class="navIcon">⌕</span>
-      Search
+  </button>
 
-    </button>
 
-    <button
-      type="button"
-      class="post"
-      onclick="openPost()">
+  <button
+    class="nav"
+    id="searchNav">
 
-      +
+    <span class="navIcon">
+      ⌕
+    </span>
 
-    </button>
+    Search
 
-    <button
-      type="button"
-      class="nav"
-      onclick="reels(this)">
+  </button>
 
-      <span class="navIcon">▶</span>
-      Reels
 
-    </button>
+  <button
+    class="post"
+    id="postNav">
 
-    <button
-      type="button"
-      class="nav"
-      onclick="notifications(this)">
+    +
 
-      <span class="navIcon">♡</span>
-      Notifications
+  </button>
 
-    </button>
 
-  </nav>
+  <button
+    class="nav"
+    id="reelsNav">
 
-</div>
+    <span class="navIcon">
+      ▶
+    </span>
+
+    Reels
+
+  </button>
+
+
+  <button
+    class="nav"
+    id="notificationsNav">
+
+    <span class="navIcon">
+      ♡
+    </span>
+
+    Notifications
+
+  </button>
+
+</nav>
 
 
 <!-- =========================
@@ -801,14 +1158,18 @@ button{
       <div
         id="authTitle"
         class="modalTitle">
+
         Login
+
       </div>
 
       <button
         type="button"
         class="close"
-        onclick="closeModal('authModal')">
+        id="authClose">
+
         ×
+
       </button>
 
     </div>
@@ -826,7 +1187,6 @@ button{
       id="password"
       class="input"
       type="password"
-      autocomplete="new-password"
       placeholder="Password">
 
 
@@ -834,16 +1194,16 @@ button{
       id="confirm"
       class="input hidden"
       type="password"
-      autocomplete="new-password"
       placeholder="Confirm password">
 
 
     <button
-      type="button"
       id="authButton"
-      class="full"
-      onclick="doAuth()">
+      type="button"
+      class="full">
+
       Login
+
     </button>
 
 
@@ -868,17 +1228,22 @@ button{
       &nbsp;
 
       <span
-        class="link"
-        onclick="switchAuth()"
-        id="switchButton">
+        id="switchButton"
+        class="link">
+
         Create Account
+
       </span>
 
     </div>
 
 
     <div class="smallNote">
-      Your account is used for posts, stories, messages and other interactive features.
+
+      Create an account to post,
+      create stories, message and
+      use interactive features.
+
     </div>
 
   </div>
@@ -886,9 +1251,7 @@ button{
 </div>
 
 
-<!-- =========================
-     POST MODAL
-========================= -->
+<!-- POST MODAL -->
 
 <div
   id="postModal"
@@ -903,10 +1266,11 @@ button{
       </div>
 
       <button
-        type="button"
         class="close"
-        onclick="closeModal('postModal')">
+        id="postClose">
+
         ×
+
       </button>
 
     </div>
@@ -917,10 +1281,11 @@ button{
       placeholder="What's on your mind?"></textarea>
 
     <button
-      type="button"
-      class="full"
-      onclick="publishPost()">
+      id="publishPostButton"
+      class="full">
+
       Publish Post
+
     </button>
 
   </div>
@@ -928,9 +1293,7 @@ button{
 </div>
 
 
-<!-- =========================
-     STORY MODAL
-========================= -->
+<!-- STORY MODAL -->
 
 <div
   id="storyModal"
@@ -945,10 +1308,11 @@ button{
       </div>
 
       <button
-        type="button"
         class="close"
-        onclick="closeModal('storyModal')">
+        id="storyClose">
+
         ×
+
       </button>
 
     </div>
@@ -959,10 +1323,11 @@ button{
       placeholder="Write your story..."></textarea>
 
     <button
-      type="button"
-      class="full"
-      onclick="publishStory()">
+      id="publishStoryButton"
+      class="full">
+
       Add Story
+
     </button>
 
   </div>
@@ -970,9 +1335,7 @@ button{
 </div>
 
 
-<!-- =========================
-     MESSAGE MODAL
-========================= -->
+<!-- MESSAGE -->
 
 <div
   id="messageModal"
@@ -987,20 +1350,24 @@ button{
       </div>
 
       <button
-        type="button"
         class="close"
-        onclick="closeModal('messageModal')">
+        id="messageClose">
+
         ×
+
       </button>
 
     </div>
 
     <div class="message">
 
-      <b>Private Messages</b>
+      <b>
+        Private Messages
+      </b>
 
       <div class="desc">
-        Private conversations will appear here.
+        Private conversations will
+        appear here.
       </div>
 
     </div>
@@ -1010,9 +1377,7 @@ button{
 </div>
 
 
-<!-- =========================
-     NOTIFICATIONS
-========================= -->
+<!-- NOTIFICATIONS -->
 
 <div
   id="notificationModal"
@@ -1027,20 +1392,24 @@ button{
       </div>
 
       <button
-        type="button"
         class="close"
-        onclick="closeModal('notificationModal')">
+        id="notificationClose">
+
         ×
+
       </button>
 
     </div>
 
     <div class="message">
 
-      <b>Welcome to two4nine</b>
+      <b>
+        Welcome to two4nine
+      </b>
 
       <div class="desc">
-        Your notifications will appear here.
+        Your notifications will
+        appear here.
       </div>
 
     </div>
@@ -1050,9 +1419,7 @@ button{
 </div>
 
 
-<!-- =========================
-     STORY VIEW
-========================= -->
+<!-- STORY VIEW -->
 
 <div
   id="storyView"
@@ -1065,14 +1432,17 @@ button{
       <div
         id="storyViewTitle"
         class="modalTitle">
+
         Story
+
       </div>
 
       <button
-        type="button"
         class="close"
-        onclick="closeModal('storyView')">
+        id="storyViewClose">
+
         ×
+
       </button>
 
     </div>
@@ -1094,19 +1464,36 @@ button{
 ========================================== */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
-  authDomain: "two4nine-7a29d.firebaseapp.com",
-  projectId: "two4nine-7a29d",
-  storageBucket: "two4nine-7a29d.firebasestorage.app",
-  messagingSenderId: "573418811789",
-  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
-  measurementId: "G-V2X4YK8NFG"
+
+  apiKey:
+    "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+
+  authDomain:
+    "two4nine-7a29d.firebaseapp.com",
+
+  projectId:
+    "two4nine-7a29d",
+
+  storageBucket:
+    "two4nine-7a29d.firebasestorage.app",
+
+  messagingSenderId:
+    "573418811789",
+
+  appId:
+    "1:573418811789:web:cad8463d4cba5e8a990dc4",
+
+  measurementId:
+    "G-V2X4YK8NFG"
+
 };
+
 
 let auth = null;
 let db = null;
 
-try {
+
+try{
 
   firebase.initializeApp(firebaseConfig);
 
@@ -1114,15 +1501,43 @@ try {
 
   db = firebase.firestore();
 
-} catch(error) {
+}catch(e){
 
-  console.error("Firebase initialization error:", error);
+  console.log(
+    "Firebase error:",
+    e
+  );
 
 }
 
 
 /* ==========================================
-   AUTH
+   BASIC HELPERS
+========================================== */
+
+function $(id){
+
+  return document.getElementById(id);
+
+}
+
+
+function show(id){
+
+  $(id).classList.remove("hidden");
+
+}
+
+
+function hide(id){
+
+  $(id).classList.add("hidden");
+
+}
+
+
+/* ==========================================
+   AUTH UI
 ========================================== */
 
 let authMode = "login";
@@ -1132,16 +1547,11 @@ function openAuth(mode){
 
   authMode = mode || "login";
 
-  const modal = document.getElementById("authModal");
+  show("authModal");
 
-  if(!modal){
-    alert("Login interface load nahi hua.");
-    return;
-  }
+  $("authError").textContent = "";
 
-  modal.classList.remove("hidden");
-
-  document.body.style.overflow = "hidden";
+  $("authSuccess").textContent = "";
 
   updateAuthUI();
 
@@ -1150,185 +1560,43 @@ function openAuth(mode){
 
 function updateAuthUI(){
 
-  const title = document.getElementById("authTitle");
-  const button = document.getElementById("authButton");
-  const confirm = document.getElementById("confirm");
-  const switchText = document.getElementById("switchText");
-  const switchButton = document.getElementById("switchButton");
-  const error = document.getElementById("authError");
-  const success = document.getElementById("authSuccess");
-
-  if(error){
-    error.textContent = "";
-  }
-
-  if(success){
-    success.textContent = "";
-  }
-
-
   if(authMode === "signup"){
 
-    title.textContent = "Create Account";
+    $("authTitle").textContent =
+      "Create Account";
 
-    button.textContent = "Create Account";
+    $("authButton").textContent =
+      "Create Account";
 
-    confirm.classList.remove("hidden");
+    $("confirm").classList.remove(
+      "hidden"
+    );
 
-    confirm.autocomplete = "new-password";
-
-    switchText.textContent =
+    $("switchText").textContent =
       "Already have an account?";
 
-    switchButton.textContent =
+    $("switchButton").textContent =
       "Login";
 
   }else{
 
-    title.textContent = "Login";
+    $("authTitle").textContent =
+      "Login";
 
-    button.textContent = "Login";
+    $("authButton").textContent =
+      "Login";
 
-    confirm.classList.add("hidden");
+    $("confirm").classList.add(
+      "hidden"
+    );
 
-    switchText.textContent =
+    $("switchText").textContent =
       "Don't have an account?";
 
-    switchButton.textContent =
+    $("switchButton").textContent =
       "Create Account";
 
   }
 
 }
-
-
-function switchAuth(){
-
-  if(authMode === "login"){
-
-    authMode = "signup";
-
-  }else{
-
-    authMode = "login";
-
-  }
-
-  updateAuthUI();
-
-}
-
-
-function doAuth(){
-
-  if(!auth){
-
-    document.getElementById("authError").textContent =
-      "Firebase load nahi hua. Page refresh karke dobara try karo.";
-
-    return;
-
-  }
-
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-  const confirm =
-    document.getElementById("confirm").value;
-
-  const error =
-    document.getElementById("authError");
-
-  const success =
-    document.getElementById("authSuccess");
-
-  const button =
-    document.getElementById("authButton");
-
-
-  error.textContent = "";
-
-  success.textContent = "";
-
-
-  if(!email){
-
-    error.textContent =
-      "Email address enter karo.";
-
-    return;
-
-  }
-
-
-  if(!password){
-
-    error.textContent =
-      "Password enter karo.";
-
-    return;
-
-  }
-
-
-  if(authMode === "signup"){
-
-    if(password.length < 6){
-
-      error.textContent =
-        "Password minimum 6 characters ka hona chahiye.";
-
-      return;
-
-    }
-
-
-    if(password !== confirm){
-
-      error.textContent =
-        "Passwords match nahi kar rahe.";
-
-      return;
-
-    }
-
-
-    button.disabled = true;
-
-    button.textContent =
-      "Creating Account...";
-
-
-    auth
-      .createUserWithEmailAndPassword(
-        email,
-        password
-      )
-
-      .then(function(result){
-
-        const user = result.user;
-
-        return db
-          .collection("users")
-          .doc(user.uid)
-          .set({
-
-            uid: user.uid,
-
-            email: user.email,
-
-            createdAt:
-              firebase.firestore.FieldValue.serverTimestamp()
-
-          })
-
-          .catch(function(dbError){
-
-            console.log(
-              "User profile save error:",
- 
+  
