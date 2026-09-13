@@ -31,23 +31,26 @@ button{
   cursor:pointer;
 }
 
+/* TOP */
+
 .top{
   height:88px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:0 28px;
+  background:rgba(2,11,20,.97);
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(2,11,20,.96);
-  backdrop-filter:blur(15px);
 }
 
 .topLeft{
   color:#fff;
   font-size:21px;
   font-weight:700;
+  background:none;
+  border:0;
   border-bottom:4px solid #168cff;
   padding:18px 10px 14px;
 }
@@ -65,15 +68,14 @@ button{
 .topRight{
   display:flex;
   align-items:center;
-  gap:24px;
+  gap:20px;
 }
 
 .messageBtn{
   border:0;
   background:none;
   color:#fff;
-  font-size:21px;
-  font-weight:700;
+  font-size:34px;
 }
 
 .profile{
@@ -82,6 +84,8 @@ button{
   border-radius:50%;
   object-fit:cover;
 }
+
+/* SEARCH */
 
 .search{
   margin:18px 32px;
@@ -94,8 +98,8 @@ button{
   padding:0 20px;
 }
 
-.search span{
-  font-size:31px;
+.searchIcon{
+  font-size:32px;
   color:#a9bdd7;
 }
 
@@ -113,11 +117,13 @@ button{
   color:#91a6c0;
 }
 
+/* STORIES */
+
 .stories{
   display:flex;
-  gap:25px;
+  gap:22px;
   overflow-x:auto;
-  padding:12px 28px 20px;
+  padding:10px 28px 22px;
   scrollbar-width:none;
 }
 
@@ -126,29 +132,35 @@ button{
 }
 
 .story{
-  min-width:105px;
+  min-width:95px;
   text-align:center;
 }
 
 .storyCircle{
-  width:96px;
-  height:96px;
+  width:88px;
+  height:88px;
   margin:auto;
   padding:4px;
   border-radius:50%;
-  background:linear-gradient(135deg,#ff7a00,#ff1875,#8b35ff,#008cff);
+  background:linear-gradient(
+    135deg,
+    #ff7a00,
+    #ff1875,
+    #8b35ff,
+    #008cff
+  );
 }
 
 .storyInner{
   width:100%;
   height:100%;
   border-radius:50%;
-  background:#081521;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  background:#07121e;
   border:3px solid #06101a;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .storyInner img{
@@ -164,10 +176,12 @@ button{
 
 .storyName{
   margin-top:9px;
-  font-size:16px;
+  font-size:15px;
   color:#e8edf5;
   white-space:nowrap;
 }
+
+/* FEED */
 
 .feed{
   max-width:1050px;
@@ -176,7 +190,11 @@ button{
 }
 
 .post{
-  background:linear-gradient(145deg,#071521,#06111c);
+  background:linear-gradient(
+    145deg,
+    #071521,
+    #06111c
+  );
   border:1px solid #173047;
   border-radius:20px;
   margin-bottom:18px;
@@ -246,7 +264,6 @@ button{
   display:flex;
   justify-content:space-between;
   padding:14px 20px 17px;
-  color:#b9c9dd;
 }
 
 .action{
@@ -256,13 +273,15 @@ button{
   font-size:17px;
 }
 
+.action:hover{
+  color:#168cff;
+}
+
 .action.liked{
   color:#ff2759;
 }
 
-.action:hover{
-  color:#168cff;
-}
+/* BOTTOM NAV */
 
 .bottom{
   position:fixed;
@@ -289,12 +308,12 @@ button{
   font-size:14px;
 }
 
-.navIcon{
-  font-size:30px;
-}
-
 .navItem.active{
   color:#168cff;
+}
+
+.navIcon{
+  font-size:29px;
 }
 
 .postNav{
@@ -303,7 +322,7 @@ button{
   border-radius:50%;
   border:0;
   background:#168cff;
-  color:white;
+  color:#fff;
   font-size:42px;
   box-shadow:0 0 25px rgba(22,140,255,.35);
 }
@@ -318,17 +337,19 @@ button{
   height:22px;
   border-radius:20px;
   display:flex;
-  justify-content:center;
   align-items:center;
-  margin-left:25px;
+  justify-content:center;
+  margin-left:24px;
   margin-top:-5px;
 }
+
+/* MODALS */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.75);
+  background:rgba(0,0,0,.78);
   z-index:200;
   align-items:center;
   justify-content:center;
@@ -357,7 +378,7 @@ button{
   background:none;
   border:0;
   color:#a9bdd7;
-  font-size:25px;
+  font-size:28px;
 }
 
 .formInput,
@@ -399,11 +420,7 @@ button{
   margin-top:10px;
 }
 
-.loginText{
-  text-align:center;
-  color:#a9bdd7;
-  margin-top:15px;
-}
+/* MESSAGES */
 
 .chatUser{
   display:flex;
@@ -433,13 +450,11 @@ button{
   margin-top:4px;
 }
 
+/* NOTIFICATIONS */
+
 .notification{
   padding:15px 5px;
   border-bottom:1px solid #193044;
-}
-
-.notification strong{
-  color:#fff;
 }
 
 .notification small{
@@ -448,7 +463,9 @@ button{
   margin-top:4px;
 }
 
-.reelsBox{
+/* REELS */
+
+#reelsSection{
   display:none;
 }
 
@@ -458,12 +475,6 @@ button{
   align-items:center;
   margin:10px 0 15px;
   font-size:25px;
-}
-
-.empty{
-  text-align:center;
-  color:#8da3ba;
-  padding:40px 10px;
 }
 
 @media(max-width:600px){
@@ -487,10 +498,6 @@ button{
   }
 
   .messageBtn{
-    font-size:0;
-  }
-
-  .messageBtn:first-letter{
     font-size:30px;
   }
 
@@ -523,7 +530,7 @@ button{
   }
 
   .storyPlus{
-    font-size:34px;
+    font-size:35px;
   }
 
   .storyName{
@@ -592,7 +599,8 @@ button{
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ================= TOP ================= -->
+
 <header class="top">
 
   <button class="topLeft" onclick="showNews()">
@@ -605,7 +613,11 @@ button{
 
   <div class="topRight">
 
-    <button class="messageBtn" onclick="openMessages()">
+    <button
+      class="messageBtn"
+      onclick="openMessages()"
+      aria-label="Messages"
+    >
       💬
     </button>
 
@@ -616,95 +628,203 @@ button{
     >
 
   </div>
+
 </header>
 
 
-<!-- SEARCH -->
+<!-- ================= SEARCH ================= -->
+
 <div class="search">
-  <span>⌕</span>
+
+  <span class="searchIcon">⌕</span>
+
   <input
     id="searchInput"
     type="text"
     placeholder="Search people, memes, news..."
     oninput="searchFeed()"
   >
+
 </div>
 
 
-<!-- STORIES -->
+<!-- ================= STORIES ================= -->
+<!-- IMPORTANT: YAHAN SIRF PEOPLE HAIN -->
+
 <div class="stories">
 
+  <!-- YOUR STORY -->
+
   <div class="story" onclick="createStory()">
+
     <div class="storyCircle">
+
       <div class="storyInner">
         <div class="storyPlus">+</div>
       </div>
+
     </div>
-    <div class="storyName">Your Story</div>
+
+    <div class="storyName">
+      Your Story
+    </div>
+
   </div>
+
+
+  <!-- RAHUL -->
 
   <div class="story" onclick="viewStory('Rahul')">
+
     <div class="storyCircle">
+
       <div class="storyInner">
-        <img src="https://i.pravatar.cc/200?img=12">
+
+        <img
+          src="https://i.pravatar.cc/200?img=12"
+          alt="Rahul"
+        >
+
       </div>
+
     </div>
-    <div class="storyName">Rahul</div>
+
+    <div class="storyName">
+      Rahul
+    </div>
+
   </div>
+
+
+  <!-- PRIYA -->
 
   <div class="story" onclick="viewStory('Priya')">
+
     <div class="storyCircle">
+
       <div class="storyInner">
-        <img src="https://i.pravatar.cc/200?img=47">
+
+        <img
+          src="https://i.pravatar.cc/200?img=47"
+          alt="Priya"
+        >
+
       </div>
+
     </div>
-    <div class="storyName">Priya</div>
+
+    <div class="storyName">
+      Priya
+    </div>
+
   </div>
 
-  <div class="story" onclick="viewStory('Trending')">
+
+  <!-- AMAN -->
+
+  <div class="story" onclick="viewStory('Aman')">
+
     <div class="storyCircle">
+
       <div class="storyInner">
-        <span style="font-size:43px;">🔥</span>
+
+        <img
+          src="https://i.pravatar.cc/200?img=13"
+          alt="Aman"
+        >
+
       </div>
+
     </div>
-    <div class="storyName">Trending</div>
+
+    <div class="storyName">
+      Aman
+    </div>
+
   </div>
 
-  <div class="story" onclick="showNews()">
+
+  <!-- NEHA -->
+
+  <div class="story" onclick="viewStory('Neha')">
+
     <div class="storyCircle">
+
       <div class="storyInner">
-        <span style="font-size:42px;">📰</span>
+
+        <img
+          src="https://i.pravatar.cc/200?img=44"
+          alt="Neha"
+        >
+
       </div>
+
     </div>
-    <div class="storyName">News</div>
+
+    <div class="storyName">
+      Neha
+    </div>
+
   </div>
 
-  <div class="story" onclick="showReels()">
+
+  <!-- SIMRAN -->
+
+  <div class="story" onclick="viewStory('Simran')">
+
     <div class="storyCircle">
+
       <div class="storyInner">
-        <span style="font-size:42px;">🎬</span>
+
+        <img
+          src="https://i.pravatar.cc/200?img=32"
+          alt="Simran"
+        >
+
       </div>
+
     </div>
-    <div class="storyName">Reels</div>
+
+    <div class="storyName">
+      Simran
+    </div>
+
   </div>
 
-  <div class="story" onclick="showMemes()">
+
+  <!-- ROHAN -->
+
+  <div class="story" onclick="viewStory('Rohan')">
+
     <div class="storyCircle">
+
       <div class="storyInner">
-        <span style="font-size:42px;">😂</span>
+
+        <img
+          src="https://i.pravatar.cc/200?img=68"
+          alt="Rohan"
+        >
+
       </div>
+
     </div>
-    <div class="storyName">Memes</div>
+
+    <div class="storyName">
+      Rohan
+    </div>
+
   </div>
 
 </div>
 
 
-<!-- FEED -->
+<!-- ================= FEED ================= -->
+
 <main class="feed" id="feed">
 
 
   <!-- USER POST -->
+
   <article class="post searchable">
 
     <div class="postHeader">
@@ -717,7 +837,8 @@ button{
       <div class="userInfo">
 
         <div class="userName">
-          Rohit Sharma <span class="verified">✔</span>
+          Rohit Sharma
+          <span class="verified">✔</span>
         </div>
 
         <div class="time">
@@ -726,7 +847,9 @@ button{
 
       </div>
 
-      <div class="more">⋮</div>
+      <div class="more">
+        ⋮
+      </div>
 
     </div>
 
@@ -763,7 +886,8 @@ button{
   </article>
 
 
-  <!-- NEWS POST -->
+  <!-- NEWS -->
+
   <article class="post searchable">
 
     <div class="postHeader">
@@ -776,7 +900,8 @@ button{
       <div class="userInfo">
 
         <div class="userName">
-          Breaking News <span class="verified">✔</span>
+          Breaking News
+          <span class="verified">✔</span>
         </div>
 
         <div class="time">
@@ -785,7 +910,9 @@ button{
 
       </div>
 
-      <div class="more">⋮</div>
+      <div class="more">
+        ⋮
+      </div>
 
     </div>
 
@@ -826,7 +953,8 @@ button{
   </article>
 
 
-  <!-- MEME POST -->
+  <!-- MEME -->
+
   <article class="post searchable">
 
     <div class="postHeader">
@@ -839,7 +967,8 @@ button{
       <div class="userInfo">
 
         <div class="userName">
-          Meme Zone <span class="verified">✔</span>
+          Meme Zone
+          <span class="verified">✔</span>
         </div>
 
         <div class="time">
@@ -848,7 +977,9 @@ button{
 
       </div>
 
-      <div class="more">⋮</div>
+      <div class="more">
+        ⋮
+      </div>
 
     </div>
 
@@ -886,11 +1017,15 @@ button{
 
 
   <!-- REELS -->
-  <section id="reelsSection" class="reelsBox">
+
+  <section id="reelsSection">
 
     <div class="sectionTitle">
+
       <span>🎬 Reels</span>
+
       <span>🔥 Trending</span>
+
     </div>
 
     <article class="post">
@@ -917,7 +1052,8 @@ button{
       </div>
 
       <div class="postText">
-        POV: जब दोस्त बोलता है "बस 5 मिनट में आ रहा हूँ" 😂
+        POV: जब दोस्त बोलता है
+        "बस 5 मिनट में आ रहा हूँ" 😂
       </div>
 
       <div style="
@@ -935,10 +1071,21 @@ button{
 
       <div class="actions">
 
-        <button class="action">❤️ 24K</button>
-        <button class="action">💬 1.2K</button>
-        <button class="action">↗ 4K</button>
-        <button class="action">🔖</button>
+        <button class="action">
+          ❤️ 24K
+        </button>
+
+        <button class="action">
+          💬 1.2K
+        </button>
+
+        <button class="action">
+          ↗ 4K
+        </button>
+
+        <button class="action">
+          🔖
+        </button>
 
       </div>
 
@@ -949,45 +1096,97 @@ button{
 </main>
 
 
-<!-- BOTTOM NAV -->
+<!-- ================= BOTTOM ================= -->
+
 <nav class="bottom">
 
-  <button class="navItem active" onclick="goHome()">
-    <div class="navIcon">⌂</div>
-    <div>Home</div>
+  <button
+    class="navItem active"
+    onclick="goHome()"
+  >
+    <div class="navIcon">
+      ⌂
+    </div>
+    <div>
+      Home
+    </div>
   </button>
 
-  <button class="navItem" onclick="focusSearch()">
-    <div class="navIcon">⌕</div>
-    <div>Search</div>
+
+  <button
+    class="navItem"
+    onclick="focusSearch()"
+  >
+    <div class="navIcon">
+      ⌕
+    </div>
+    <div>
+      Search
+    </div>
   </button>
 
-  <button class="postNav" onclick="openPostModal()">
+
+  <button
+    class="postNav"
+    onclick="openPostModal()"
+  >
     +
   </button>
 
-  <button class="navItem" onclick="showReels()">
-    <div class="navIcon">🎬</div>
-    <div>Reels</div>
+
+  <button
+    class="navItem"
+    onclick="showReels()"
+  >
+    <div class="navIcon">
+      🎬
+    </div>
+    <div>
+      Reels
+    </div>
   </button>
 
-  <button class="navItem" onclick="openNotifications()">
-    <div class="navIcon" style="position:relative;">
+
+  <button
+    class="navItem"
+    onclick="openNotifications()"
+  >
+
+    <div
+      class="navIcon"
+      style="position:relative;"
+    >
+
       🔔
-      <span class="notificationBadge">3</span>
+
+      <span class="notificationBadge">
+        3
+      </span>
+
     </div>
-    <div>Notifications</div>
+
+    <div>
+      Notifications
+    </div>
+
   </button>
 
 </nav>
 
 
-<!-- POST MODAL -->
-<div class="modal" id="postModal">
+<!-- ================= POST MODAL ================= -->
+
+<div
+  class="modal"
+  id="postModal"
+>
 
   <div class="modalBox">
 
-    <button class="close" onclick="closeModal('postModal')">
+    <button
+      class="close"
+      onclick="closeModal('postModal')"
+    >
       ×
     </button>
 
@@ -1019,12 +1218,19 @@ button{
 </div>
 
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
+<!-- ================= LOGIN ================= -->
+
+<div
+  class="modal"
+  id="loginModal"
+>
 
   <div class="modalBox">
 
-    <button class="close" onclick="closeModal('loginModal')">
+    <button
+      class="close"
+      onclick="closeModal('loginModal')"
+    >
       ×
     </button>
 
@@ -1060,21 +1266,24 @@ button{
       Create Account
     </button>
 
-    <div class="loginText">
-      Login karke posts create kar sakte ho.
-    </div>
-
   </div>
 
 </div>
 
 
-<!-- MESSAGE MODAL -->
-<div class="modal" id="messageModal">
+<!-- ================= MESSAGES ================= -->
+
+<div
+  class="modal"
+  id="messageModal"
+>
 
   <div class="modalBox">
 
-    <button class="close" onclick="closeModal('messageModal')">
+    <button
+      class="close"
+      onclick="closeModal('messageModal')"
+    >
       ×
     </button>
 
@@ -1082,9 +1291,15 @@ button{
       💬 Messages
     </div>
 
-    <div class="chatUser" onclick="openChat('Priya')">
 
-      <img src="https://i.pravatar.cc/100?img=47">
+    <div
+      class="chatUser"
+      onclick="openChat('Priya')"
+    >
+
+      <img
+        src="https://i.pravatar.cc/100?img=47"
+      >
 
       <div class="chatInfo">
 
@@ -1103,9 +1318,14 @@ button{
     </div>
 
 
-    <div class="chatUser" onclick="openChat('Rahul')">
+    <div
+      class="chatUser"
+      onclick="openChat('Rahul')"
+    >
 
-      <img src="https://i.pravatar.cc/100?img=12">
+      <img
+        src="https://i.pravatar.cc/100?img=12"
+      >
 
       <div class="chatInfo">
 
@@ -1124,30 +1344,14 @@ button{
     </div>
 
 
-    <div class="chatUser" onclick="openChat('Sneha')">
+    <div
+      class="chatUser"
+      onclick="openChat('Aman')"
+    >
 
-      <img src="https://i.pravatar.cc/100?img=45">
-
-      <div class="chatInfo">
-
-        <div class="chatName">
-          Sneha
-        </div>
-
-        <div class="chatPreview">
-          Photo bheji hai
-        </div>
-
-      </div>
-
-      <span>12m</span>
-
-    </div>
-
-
-    <div class="chatUser" onclick="openChat('Aman')">
-
-      <img src="https://i.pravatar.cc/100?img=13">
+      <img
+        src="https://i.pravatar.cc/100?img=13"
+      >
 
       <div class="chatInfo">
 
@@ -1170,12 +1374,19 @@ button{
 </div>
 
 
-<!-- NOTIFICATIONS MODAL -->
-<div class="modal" id="notificationModal">
+<!-- ================= NOTIFICATIONS ================= -->
+
+<div
+  class="modal"
+  id="notificationModal"
+>
 
   <div class="modalBox">
 
-    <button class="close" onclick="closeModal('notificationModal')">
+    <button
+      class="close"
+      onclick="closeModal('notificationModal')"
+    >
       ×
     </button>
 
@@ -1208,55 +1419,8 @@ button{
 </div>
 
 
-<!-- STORY MODAL -->
-<div class="modal" id="storyModal">
+<!-- ================= STORY VIEW ================= -->
 
-  <div class="modalBox">
-
-    <button class="close" onclick="closeModal('storyModal')">
-      ×
-    </button>
-
-    <div class="modalTitle" id="storyTitle">
-      Story
-    </div>
-
-    <div style="
-      height:450px;
-      border-radius:18px;
-      background:linear-gradient(145deg,#071a2b,#37102e);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      font-size:26px;
-      padding:25px;
-    " id="storyContent">
-      Story
-    </div>
-
-  </div>
-
-</div>
-
-
-<script>
-
-/* =========================
-   FIREBASE
-========================= */
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
-  authDomain: "two4nine-7a29d.firebaseapp.com",
-  projectId: "two4nine-7a29d",
-  storageBucket: "two4nine-7a29d.firebasestorage.app",
-  messagingSenderId: "573418811789",
-  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
-  measurementId: "G-V2X4YK8NFG"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-const db
+<div
+  class="modal"
+  id="s
