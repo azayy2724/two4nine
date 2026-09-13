@@ -1,9 +1,8 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>two4nine</title>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
@@ -11,60 +10,46 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 
 <style>
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  background:
-    radial-gradient(circle at top left,#25145c 0,#0a0d1c 35%,#050711 100%);
-  color:#fff;
   font-family:Arial,sans-serif;
-  padding-bottom:82px;
+  background:
+    radial-gradient(circle at 10% 0%,#34206b 0,transparent 28%),
+    radial-gradient(circle at 90% 10%,#075985 0,transparent 25%),
+    linear-gradient(135deg,#090b18,#111936 50%,#160d29);
+  color:#fff;
   min-height:100vh;
+  padding-bottom:80px;
 }
 
-button{
-  font-family:inherit;
-  cursor:pointer;
-}
+button{font-family:inherit;cursor:pointer}
+.hidden{display:none!important}
 
-.hidden{
-  display:none !important;
-}
-
-/* ================= TOP ================= */
-
+/* TOP */
 .topbar{
-  height:70px;
+  height:68px;
   position:sticky;
   top:0;
   z-index:50;
-
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
-
-  padding:0 12px;
-
-  background:rgba(8,9,24,.94);
-  backdrop-filter:blur(15px);
-
+  padding:0 10px;
+  background:rgba(10,12,28,.92);
+  backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .newsTop{
-  font-size:15px;
+  font-size:14px;
   font-weight:800;
 }
 
 .logo{
-  font-size:25px;
+  font-size:23px;
   font-weight:900;
-  background:linear-gradient(90deg,#8b5cf6,#22d3ee,#ec4899);
+  background:linear-gradient(90deg,#60a5fa,#c084fc,#f472b6);
   -webkit-background-clip:text;
   color:transparent;
 }
@@ -73,60 +58,49 @@ button{
   display:flex;
   justify-content:flex-end;
   align-items:center;
-  gap:7px;
+  gap:6px;
 }
 
 .topBtn{
-  border:1px solid #46527a;
-  background:#151c36;
-  color:white;
-
+  border:1px solid #50618b;
+  background:linear-gradient(135deg,#17233e,#24345c);
+  color:#fff;
   padding:9px 11px;
   border-radius:12px;
-
   font-size:11px;
   font-weight:800;
 }
 
-.topBtn:hover{
-  background:#222c50;
-}
-
 .createTop{
-  background:linear-gradient(135deg,#8b5cf6,#ec4899);
   border:0;
-  color:white;
+  background:linear-gradient(135deg,#ff4ecd,#7c5cff,#24c8ff);
+  color:#fff;
+  box-shadow:0 5px 18px rgba(124,92,255,.35);
 }
 
-/* ================= SEARCH ================= */
-
+/* SEARCH */
 .searchWrap{
-  padding:15px 13px 8px;
+  padding:14px 13px 5px;
 }
 
 .search{
   width:100%;
   padding:14px 16px;
-
   border-radius:16px;
-  border:1px solid #39456d;
-
-  background:rgba(19,25,49,.9);
-  color:white;
-
+  border:1px solid #40517d;
+  background:rgba(20,29,55,.9);
+  color:#fff;
   outline:none;
   font-size:14px;
-
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  box-shadow:0 8px 30px rgba(0,0,0,.15);
 }
 
 .search:focus{
-  border-color:#8b5cf6;
-  box-shadow:0 0 0 3px rgba(139,92,246,.15);
+  border-color:#a855f7;
+  box-shadow:0 0 0 3px rgba(168,85,247,.15);
 }
 
-/* ================= STORIES ================= */
-
+/* STORIES */
 .section{
   padding:15px 13px;
 }
@@ -144,9 +118,7 @@ button{
   scrollbar-width:none;
 }
 
-.stories::-webkit-scrollbar{
-  display:none;
-}
+.stories::-webkit-scrollbar{display:none}
 
 .story{
   flex:0 0 65px;
@@ -157,43 +129,32 @@ button{
   width:60px;
   height:60px;
   margin:auto;
-
   border-radius:50%;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
-  background:
-    linear-gradient(#182344,#182344) padding-box,
-    linear-gradient(135deg,#8b5cf6,#ec4899,#22d3ee) border-box;
-
-  border:2px solid transparent;
-
-  font-size:20px;
+  font-size:19px;
   font-weight:900;
+  background:linear-gradient(135deg,#172554,#312e81,#581c87);
+  border:3px solid #a78bfa;
+  box-shadow:0 5px 18px rgba(124,58,237,.25);
 }
 
 .your{
-  background:
-    linear-gradient(#121a34,#121a34) padding-box,
-    linear-gradient(135deg,#fff,#8b5cf6,#ec4899) border-box;
-
-  font-size:30px;
+  border-color:#fff;
+  background:linear-gradient(135deg,#ec4899,#8b5cf6,#3b82f6);
 }
 
 .storyName{
   font-size:10px;
-  color:#b7c0d9;
+  color:#cbd5e1;
   margin-top:6px;
-
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
 
-/* ================= FEED ================= */
-
+/* FEED */
 .feed{
   max-width:650px;
   margin:auto;
@@ -202,17 +163,12 @@ button{
 
 .card{
   background:
-    linear-gradient(145deg,rgba(20,27,54,.97),rgba(10,14,29,.97));
-
-  border:1px solid rgba(110,120,180,.25);
-
-  border-radius:20px;
+    linear-gradient(145deg,rgba(25,35,67,.95),rgba(17,23,48,.96));
+  border:1px solid rgba(148,163,184,.2);
+  border-radius:21px;
   overflow:hidden;
-
   margin-bottom:15px;
-
-  box-shadow:
-    0 12px 35px rgba(0,0,0,.25);
+  box-shadow:0 10px 35px rgba(0,0,0,.2);
 }
 
 .head{
@@ -225,22 +181,16 @@ button{
 .avatar{
   width:40px;
   height:40px;
-
   border-radius:50%;
-
-  background:
-    linear-gradient(135deg,#7c3aed,#ec4899);
-
+  background:linear-gradient(135deg,#f43f5e,#8b5cf6,#3b82f6);
   display:flex;
   align-items:center;
   justify-content:center;
-
   font-weight:900;
+  flex-shrink:0;
 }
 
-.info{
-  flex:1;
-}
+.info{flex:1}
 
 .name{
   font-size:14px;
@@ -249,7 +199,7 @@ button{
 
 .time{
   font-size:10px;
-  color:#8793b5;
+  color:#94a3b8;
   margin-top:3px;
 }
 
@@ -260,27 +210,18 @@ button{
 .text{
   font-size:14px;
   line-height:1.6;
-  color:#e3e8f5;
+  color:#e2e8f0;
 }
 
 .label{
   display:inline-block;
-
-  background:linear-gradient(
-    135deg,
-    rgba(124,58,237,.35),
-    rgba(236,72,153,.25)
-  );
-
-  color:#c9b7ff;
-
-  padding:6px 9px;
+  background:linear-gradient(135deg,#312e81,#7c3aed);
+  color:#ddd6fe;
+  padding:5px 9px;
   border-radius:8px;
-
   font-size:10px;
   font-weight:900;
-
-  margin-bottom:8px;
+  margin-bottom:9px;
 }
 
 .newsTitle{
@@ -291,7 +232,7 @@ button{
 }
 
 .desc{
-  color:#9faac3;
+  color:#aebbd0;
   font-size:13px;
   line-height:1.5;
 }
@@ -299,30 +240,21 @@ button{
 .actions{
   display:flex;
   gap:7px;
-
-  padding:11px 14px;
-
-  border-top:1px solid rgba(255,255,255,.08);
+  padding:10px 14px;
+  border-top:1px solid rgba(148,163,184,.14);
 }
 
 .action{
-  background:#151e38;
-  color:#dce3f5;
-
-  border:1px solid #303d63;
-
+  background:linear-gradient(135deg,#17233e,#202f53);
+  color:#dbeafe;
+  border:1px solid #3b4d72;
   padding:9px 11px;
   border-radius:10px;
-
   font-size:11px;
+  font-weight:700;
 }
 
-.action:hover{
-  background:#26345b;
-}
-
-/* ================= REELS ================= */
-
+/* REELS */
 #reelsSection{
   max-width:650px;
   margin:auto;
@@ -330,20 +262,15 @@ button{
 }
 
 .reel{
-  height:320px;
-
+  height:330px;
   border-radius:22px;
-
-  background:
-    radial-gradient(circle at center,#39206e,#11152d 55%,#080a17);
-
-  border:1px solid #3b4774;
-
+  background:linear-gradient(145deg,#312e81,#701a75,#164e63);
+  border:1px solid rgba(255,255,255,.18);
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
 .reelIcon{
@@ -351,33 +278,26 @@ button{
   margin-bottom:12px;
 }
 
-/* ================= BOTTOM ================= */
-
+/* BOTTOM */
 .bottom{
   position:fixed;
   bottom:0;
   left:0;
   right:0;
-
-  height:72px;
-  z-index:80;
-
+  height:70px;
+  z-index:60;
   display:flex;
   align-items:center;
   justify-content:space-around;
-
-  background:rgba(7,9,21,.97);
+  background:rgba(8,10,25,.96);
   backdrop-filter:blur(18px);
-
-  border-top:1px solid rgba(255,255,255,.12);
+  border-top:1px solid rgba(255,255,255,.13);
 }
 
 .nav{
   background:none;
-  color:#7d89a8;
-
+  color:#94a3b8;
   border:0;
-
   font-size:10px;
   text-align:center;
 }
@@ -388,566 +308,324 @@ button{
   margin-bottom:3px;
 }
 
-.nav.active{
-  color:#fff;
-}
+.nav.active{color:#fff}
 
 .post{
   width:48px;
   height:48px;
-
   border-radius:15px;
-
-  background:linear-gradient(135deg,#8b5cf6,#ec4899);
-
-  color:white;
-
   border:0;
-
-  font-size:27px;
+  background:linear-gradient(135deg,#f43f5e,#a855f7,#3b82f6);
+  color:#fff;
+  font-size:28px;
   font-weight:900;
-
-  box-shadow:0 8px 25px rgba(139,92,246,.4);
+  box-shadow:0 7px 25px rgba(168,85,247,.4);
 }
 
-/* ================= MODAL ================= */
-
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
-
   z-index:200;
-
-  background:rgba(0,0,0,.78);
-
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(7px);
   display:flex;
   align-items:flex-end;
   justify-content:center;
-
-  padding:0;
 }
 
 .box{
   width:100%;
   max-width:600px;
-
-  max-height:92vh;
+  max-height:90vh;
   overflow:auto;
-
   background:
-    radial-gradient(circle at top right,#271957,#0d1226 55%);
-
-  border:1px solid #414d79;
-
+    radial-gradient(circle at 100% 0%,#302064 0,transparent 30%),
+    linear-gradient(145deg,#11182f,#17122b);
+  border:1px solid rgba(255,255,255,.18);
   border-radius:25px 25px 0 0;
-
   padding:22px;
-
-  box-shadow:
-    0 -10px 50px rgba(0,0,0,.55);
+  box-shadow:0 -10px 50px rgba(0,0,0,.4);
 }
 
 .modalHead{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   margin-bottom:20px;
 }
 
 .modalTitle{
   font-size:22px;
   font-weight:900;
-
-  background:linear-gradient(
-    90deg,
-    #a78bfa,
-    #22d3ee,
-    #f472b6
-  );
-
-  -webkit-background-clip:text;
-  color:transparent;
 }
 
 .close{
   width:36px;
   height:36px;
-
   border:0;
   border-radius:11px;
-
-  background:#202a49;
-  color:white;
-
+  background:#293555;
+  color:#fff;
   font-size:20px;
 }
 
-.close:hover{
-  background:#34436e;
-}
-
-/* ================= AUTH ================= */
-
-.authLogo{
-  text-align:center;
-  font-size:31px;
-  font-weight:900;
-
-  margin:8px 0 5px;
-
-  background:linear-gradient(
-    90deg,
-    #8b5cf6,
-    #22d3ee,
-    #ec4899
-  );
-
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.authSub{
-  text-align:center;
-  color:#9ca8c2;
-  font-size:12px;
-  margin-bottom:20px;
-}
-
-.input{
+.input,.textarea{
   width:100%;
-
   padding:14px;
-
   margin-bottom:12px;
-
   border-radius:13px;
-
-  border:1px solid #354266;
-
-  background:#111a31;
-
-  color:white;
-
+  border:1px solid #3c4c72;
+  background:#0f172f;
+  color:#fff;
   outline:none;
-
   font-size:14px;
 }
 
-.input:focus{
-  border-color:#8b5cf6;
+.input:focus,.textarea:focus{
+  border-color:#a855f7;
+}
 
-  box-shadow:
-    0 0 0 3px rgba(139,92,246,.15);
+.textarea{
+  min-height:120px;
+  resize:none;
 }
 
 .full{
   width:100%;
-
-  padding:14px;
-
+  padding:15px;
   border:0;
   border-radius:13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #7c3aed,
-      #ec4899
-    );
-
-  color:white;
-
+  background:linear-gradient(135deg,#ec4899,#8b5cf6,#3b82f6);
+  color:#fff;
   font-weight:900;
   font-size:14px;
-
-  box-shadow:
-    0 8px 25px rgba(124,58,237,.3);
-}
-
-.full:disabled{
-  opacity:.6;
+  box-shadow:0 8px 25px rgba(124,58,237,.3);
 }
 
 .authSwitch{
   text-align:center;
-
   margin-top:16px;
-
-  color:#9da8bf;
+  color:#aab6cc;
   font-size:12px;
 }
 
 .link{
-  color:#c4b5fd;
+  color:#fff;
   text-decoration:underline;
   cursor:pointer;
   font-weight:800;
 }
 
 .error{
-  color:#ff9d9d;
-
-  background:rgba(239,68,68,.1);
-
-  border:1px solid rgba(239,68,68,.2);
-
-  border-radius:10px;
-
+  color:#fda4af;
+  background:rgba(244,63,94,.1);
+  border:1px solid rgba(244,63,94,.2);
+  border-radius:9px;
   padding:9px;
-
-  margin-top:12px;
-
   font-size:12px;
+  margin-top:10px;
+  display:none;
 }
-
-.success{
-  color:#86efac;
-
-  background:rgba(34,197,94,.1);
-
-  border:1px solid rgba(34,197,94,.2);
-
-  border-radius:10px;
-
-  padding:9px;
-
-  margin-top:12px;
-
-  font-size:12px;
-}
-
-/* ================= MESSAGE ================= */
 
 .message{
-  padding:15px 0;
-  border-bottom:1px solid #27314c;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-/* ================= DESKTOP ================= */
-
+/* DESKTOP */
 @media(min-width:700px){
-
-  .feed,
-  #reelsSection{
+  .feed,#reelsSection{
     padding-left:0;
     padding-right:0;
   }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= PUBLIC APP ================= -->
-
-<div id="app">
-
+<!-- TOP -->
 <header class="topbar">
 
-  <div class="newsTop">
-    📰 News
-  </div>
+  <div class="newsTop">📰 News</div>
 
-  <div class="logo">
-    two4nine
-  </div>
+  <div class="logo">two4nine</div>
 
   <div class="topRight">
 
-    <button
-      class="topBtn"
-      id="loginTop">
+    <button id="loginTop" class="topBtn">
       Login
     </button>
 
-    <button
-      class="topBtn createTop"
-      id="createTop">
+    <button id="createTop" class="topBtn createTop">
       Create Account
     </button>
 
-    <button
-      class="topBtn hidden"
-      id="messageTop">
+    <button id="messageTop" class="topBtn hidden">
       💬
     </button>
 
-    <button
-      class="avatar hidden"
-      id="profileTop">
-      ?
-    </button>
+    <div id="profileTop" class="avatar hidden">
+      U
+    </div>
 
   </div>
 
 </header>
 
-
 <!-- SEARCH -->
-
 <div class="searchWrap">
-
   <input
     id="search"
     class="search"
-    placeholder="Search people, news, topics...">
-
+    placeholder="🔎 Search people, news, topics...">
 </div>
-
 
 <!-- STORIES -->
-
 <section class="section">
 
-  <div class="title">
-    Stories
-  </div>
+  <div class="title">Stories</div>
 
-  <div class="stories">
+  <div class="stories" id="stories">
 
     <div class="story" id="yourStory">
-
-      <div class="storyCircle your">
-        ＋
-      </div>
-
-      <div class="storyName">
-        Your Story
-      </div>
-
+      <div class="storyCircle your">＋</div>
+      <div class="storyName">Your Story</div>
     </div>
 
-    <div class="story"
-         onclick="demoStory('Rahul')">
-
+    <div class="story" data-story="Rahul">
       <div class="storyCircle">R</div>
-
-      <div class="storyName">
-        Rahul
-      </div>
-
+      <div class="storyName">Rahul</div>
     </div>
 
-    <div class="story"
-         onclick="demoStory('Priya')">
-
+    <div class="story" data-story="Priya">
       <div class="storyCircle">P</div>
-
-      <div class="storyName">
-        Priya
-      </div>
-
+      <div class="storyName">Priya</div>
     </div>
 
-    <div class="story"
-         onclick="demoStory('Aman')">
-
+    <div class="story" data-story="Aman">
       <div class="storyCircle">A</div>
-
-      <div class="storyName">
-        Aman
-      </div>
-
+      <div class="storyName">Aman</div>
     </div>
 
-    <div class="story"
-         onclick="demoStory('Neha')">
-
+    <div class="story" data-story="Neha">
       <div class="storyCircle">N</div>
-
-      <div class="storyName">
-        Neha
-      </div>
-
+      <div class="storyName">Neha</div>
     </div>
 
-    <div class="story"
-         onclick="demoStory('Simran')">
-
+    <div class="story" data-story="Simran">
       <div class="storyCircle">S</div>
-
-      <div class="storyName">
-        Simran
-      </div>
-
+      <div class="storyName">Simran</div>
     </div>
 
-    <div class="story"
-         onclick="demoStory('Rohan')">
-
+    <div class="story" data-story="Rohan">
       <div class="storyCircle">R</div>
-
-      <div class="storyName">
-        Rohan
-      </div>
-
+      <div class="storyName">Rohan</div>
     </div>
 
   </div>
-
 </section>
 
-
 <!-- FEED -->
+<main id="feed" class="feed">
 
-<main class="feed" id="feed">
+  <div class="card">
 
-<div class="card">
+    <div class="head">
+      <div class="avatar">2</div>
 
-  <div class="head">
-
-    <div class="avatar">
-      2
-    </div>
-
-    <div class="info">
-
-      <div class="name">
-        two4nine
+      <div class="info">
+        <div class="name">two4nine</div>
+        <div class="time">Welcome ❤️</div>
       </div>
-
-      <div class="time">
-        Welcome
-      </div>
-
     </div>
 
-  </div>
+    <div class="body">
 
-  <div class="body">
-
-    <div class="text">
-
-      Different generations. One place. ❤️
-
-      <br><br>
-
-      News, people, discussions, memes and
-      everything happening around you.
-
-    </div>
-
-  </div>
-
-  <div class="actions">
-
-    <button class="action"
-            onclick="requireLogin('Like')">
-      ❤️ Like
-    </button>
-
-    <button class="action"
-            onclick="requireLogin('Comment')">
-      💬 Comment
-    </button>
-
-    <button class="action"
-            onclick="requireLogin('Share')">
-      ↗ Share
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- NEWS -->
-
-<div id="newsFeed">
-
-  <div style="
-    text-align:center;
-    padding:25px;
-    color:#8490ad;
-  ">
-    Loading latest news...
-  </div>
-
-</div>
-
-
-<!-- USER POSTS -->
-
-<div id="userPosts"></div>
-
-
-<!-- MEME -->
-
-<div class="card">
-
-  <div class="head">
-
-    <div class="avatar">
-      😂
-    </div>
-
-    <div class="info">
-
-      <div class="name">
-        Community Meme
-      </div>
-
-      <div class="time">
-        Demo
+      <div class="text">
+        <b>Different generations. One place. ❤️</b>
+        <br><br>
+        News, people, discussions, memes and everything
+        happening around you.
       </div>
 
     </div>
 
-  </div>
+    <div class="actions">
 
-  <div class="body">
+      <button class="action" data-login-action="Like">
+        ❤️ Like
+      </button>
 
-    <div class="text">
+      <button class="action" data-login-action="Comment">
+        💬 Comment
+      </button>
 
-      Me: "Bas 5 minute social media dekhunga."
-
-      <br>
-
-      Also me 1 hour later: 😭😂
+      <button class="action" data-login-action="Share">
+        ↗ Share
+      </button>
 
     </div>
 
   </div>
 
-  <div class="actions">
-
-    <button class="action"
-            onclick="requireLogin('Like')">
-      ❤️ Like
-    </button>
-
-    <button class="action"
-            onclick="requireLogin('Comment')">
-      💬 Comment
-    </button>
-
+  <div id="newsFeed">
+    <div style="text-align:center;padding:30px;color:#94a3b8">
+      📰 Loading latest news...
+    </div>
   </div>
 
-</div>
+  <div id="userPosts"></div>
+
+  <div class="card">
+
+    <div class="head">
+
+      <div class="avatar">😂</div>
+
+      <div class="info">
+        <div class="name">Community Meme</div>
+        <div class="time">two4nine</div>
+      </div>
+
+    </div>
+
+    <div class="body">
+
+      <div class="text">
+        Me: "Bas 5 minute social media dekhunga."
+        <br><br>
+        Also me 1 hour later: 😭😂
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button class="action" data-login-action="Like">
+        ❤️ Like
+      </button>
+
+      <button class="action" data-login-action="Comment">
+        💬 Comment
+      </button>
+
+    </div>
+
+  </div>
 
 </main>
 
-
 <!-- REELS -->
+<section id="reelsSection" class="hidden">
 
-<section
-  id="reelsSection"
-  class="hidden">
-
-  <div class="title">
-    Reels
-  </div>
+  <div class="title">🎬 Reels</div>
 
   <div class="reel">
 
     <div>
-
-      <div class="reelIcon">
-        ▶️
-      </div>
+      <div class="reelIcon">▶️</div>
 
       <div class="newsTitle">
         Reels are coming
@@ -957,172 +635,81 @@ button{
         Short videos from the two4nine community
         will appear here.
       </div>
-
     </div>
 
   </div>
 
 </section>
 
-
 <!-- BOTTOM -->
-
 <nav class="bottom">
 
-  <button
-    class="nav active"
-    onclick="home(this)">
-
-    <span class="navIcon">
-      ⌂
-    </span>
-
+  <button class="nav active" id="homeNav">
+    <span class="navIcon">⌂</span>
     Home
-
   </button>
 
-
-  <button
-    class="nav"
-    onclick="searchFocus(this)">
-
-    <span class="navIcon">
-      ⌕
-    </span>
-
+  <button class="nav" id="searchNav">
+    <span class="navIcon">⌕</span>
     Search
-
   </button>
 
-
-  <button
-    class="post"
-    onclick="openPost()">
-
+  <button class="post" id="postNav">
     +
-
   </button>
 
-
-  <button
-    class="nav"
-    onclick="reels(this)">
-
-    <span class="navIcon">
-      ▶
-    </span>
-
+  <button class="nav" id="reelsNav">
+    <span class="navIcon">▶</span>
     Reels
-
   </button>
 
-
-  <button
-    class="nav"
-    onclick="notifications(this)">
-
-    <span class="navIcon">
-      ♡
-    </span>
-
+  <button class="nav" id="notificationNav">
+    <span class="navIcon">♡</span>
     Notifications
-
   </button>
 
 </nav>
 
-</div>
-
-
-<!-- ================= AUTH MODAL ================= -->
-
-<div
-  id="authModal"
-  class="modal hidden">
+<!-- AUTH -->
+<div id="authModal" class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div class="modalTitle"
-           id="authTitle">
+      <div id="authTitle" class="modalTitle">
         Create Account
       </div>
 
-      <button
-        class="close"
-        id="authClose">
+      <button class="close" id="authClose">
         ×
       </button>
 
     </div>
 
-
-    <div class="authLogo">
-      two4nine
-    </div>
-
-    <div class="authSub">
-      Different generations. One place. ❤️
-    </div>
-
-
-    <!-- NAME -->
-
-    <input
-      id="nameInput"
-      class="input"
-      type="text"
-      placeholder="Your name">
-
-
-    <!-- EMAIL -->
-
     <input
       id="email"
       class="input"
       type="email"
-      placeholder="Email address">
-
-
-    <!-- PASSWORD -->
+      placeholder="📧 Email address">
 
     <input
       id="password"
       class="input"
       type="password"
-      placeholder="Password">
-
-
-    <!-- CONFIRM -->
+      placeholder="🔒 Password">
 
     <input
       id="confirm"
       class="input"
       type="password"
-      placeholder="Confirm password">
+      placeholder="🔒 Confirm password">
 
-
-    <button
-      id="authButton"
-      class="full">
-
+    <button id="authButton" class="full">
       Create Account
-
     </button>
 
-
-    <div
-      id="authError"
-      class="error hidden">
-    </div>
-
-
-    <div
-      id="authSuccess"
-      class="success hidden">
-    </div>
-
+    <div id="authError" class="error"></div>
 
     <div class="authSwitch">
 
@@ -1130,12 +717,8 @@ button{
         Already have an account?
       </span>
 
-      <span
-        class="link"
-        id="switchButton">
-
+      <span id="switchButton" class="link">
         Login
-
       </span>
 
     </div>
@@ -1144,24 +727,18 @@ button{
 
 </div>
 
-
-<!-- ================= POST MODAL ================= -->
-
-<div
-  id="postModal"
-  class="modal hidden">
+<!-- POST -->
+<div id="postModal" class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
       <div class="modalTitle">
-        Create Post
+        ✍️ Create Post
       </div>
 
-      <button
-        class="close"
-        onclick="closeModal('postModal')">
+      <button class="close" data-close="postModal">
         ×
       </button>
 
@@ -1169,28 +746,51 @@ button{
 
     <textarea
       id="postText"
-      class="input"
-      style="min-height:140px"
-      placeholder="What's on your mind?"></textarea>
+      class="textarea"
+      placeholder="What's on your mind?">
+    </textarea>
 
-    <button
-      class="full"
-      onclick="publishPost()">
-
+    <button id="publishPost" class="full">
       Publish Post
-
     </button>
 
   </div>
 
 </div>
 
+<!-- STORY -->
+<div id="storyModal" class="modal hidden">
 
-<!-- ================= MESSAGE ================= -->
+  <div class="box">
 
-<div
-  id="messageModal"
-  class="modal hidden">
+    <div class="modalHead">
+
+      <div class="modalTitle">
+        🌈 Create Story
+      </div>
+
+      <button class="close" data-close="storyModal">
+        ×
+      </button>
+
+    </div>
+
+    <textarea
+      id="storyText"
+      class="textarea"
+      placeholder="Write your story...">
+    </textarea>
+
+    <button id="publishStory" class="full">
+      Add Story
+    </button>
+
+  </div>
+
+</div>
+
+<!-- MESSAGE -->
+<div id="messageModal" class="modal hidden">
 
   <div class="box">
 
@@ -1200,9 +800,7 @@ button{
         💬 Messages
       </div>
 
-      <button
-        class="close"
-        onclick="closeModal('messageModal')">
+      <button class="close" data-close="messageModal">
         ×
       </button>
 
@@ -1210,12 +808,10 @@ button{
 
     <div class="message">
 
-      <b>
-        Private Messages
-      </b>
+      <b>Private Messages</b>
 
       <div class="desc">
-        Private chat system will appear here.
+        Your private conversations will appear here.
       </div>
 
     </div>
@@ -1224,24 +820,18 @@ button{
 
 </div>
 
-
-<!-- ================= NOTIFICATIONS ================= -->
-
-<div
-  id="notificationModal"
-  class="modal hidden">
+<!-- NOTIFICATIONS -->
+<div id="notificationModal" class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
       <div class="modalTitle">
-        ♡ Notifications
+        🔔 Notifications
       </div>
 
-      <button
-        class="close"
-        onclick="closeModal('notificationModal')">
+      <button class="close" data-close="notificationModal">
         ×
       </button>
 
@@ -1249,9 +839,7 @@ button{
 
     <div class="message">
 
-      <b>
-        Welcome to two4nine ❤️
-      </b>
+      <b>Welcome to two4nine ❤️</b>
 
       <div class="desc">
         Your notifications will appear here.
@@ -1263,223 +851,268 @@ button{
 
 </div>
 
-
-<!-- ================= STORY VIEW ================= -->
-
-<div
-  id="storyView"
-  class="modal hidden">
+<!-- STORY VIEW -->
+<div id="storyView" class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div
-        id="storyViewTitle"
-        class="modalTitle">
+      <div id="storyViewTitle" class="modalTitle">
         Story
       </div>
 
-      <button
-        class="close"
-        onclick="closeModal('storyView')">
+      <button class="close" data-close="storyView">
         ×
       </button>
 
     </div>
 
-    <div
-      id="storyViewText"
-      class="text">
-    </div>
+    <div id="storyViewText" class="text"></div>
 
   </div>
 
 </div>
 
-
 <script>
 
-/* =====================================================
+/* =========================
    FIREBASE
-===================================================== */
+========================= */
 
 const firebaseConfig = {
-
-  apiKey:
-    "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
-
-  authDomain:
-    "two4nine-7a29d.firebaseapp.com",
-
-  projectId:
-    "two4nine-7a29d",
-
-  storageBucket:
-    "two4nine-7a29d.firebasestorage.app",
-
-  messagingSenderId:
-    "573418811789",
-
-  appId:
-    "1:573418811789:web:cad8463d4cba5e8a990dc4",
-
-  measurementId:
-    "G-V2X4YK8NFG"
-
+  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+  authDomain: "two4nine-7a29d.firebaseapp.com",
+  projectId: "two4nine-7a29d",
+  storageBucket: "two4nine-7a29d.firebasestorage.app",
+  messagingSenderId: "573418811789",
+  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
+  measurementId: "G-V2X4YK8NFG"
 };
-
 
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
-
 const db = firebase.firestore();
 
 
-/* =====================================================
+/* =========================
    AUTH
-===================================================== */
+========================= */
 
 let authMode = "signup";
 
-
-const authModal =
-  document.getElementById("authModal");
-
-const authButton =
-  document.getElementById("authButton");
-
-const loginTop =
-  document.getElementById("loginTop");
-
-const createTop =
-  document.getElementById("createTop");
-
-const authClose =
-  document.getElementById("authClose");
-
-const switchButton =
-  document.getElementById("switchButton");
+const authModal = document.getElementById("authModal");
+const authTitle = document.getElementById("authTitle");
+const authButton = document.getElementById("authButton");
+const confirmInput = document.getElementById("confirm");
+const switchText = document.getElementById("switchText");
+const switchButton = document.getElementById("switchButton");
+const authError = document.getElementById("authError");
 
 
-/* OPEN LOGIN */
-
-loginTop.addEventListener("click",function(){
-
-  openAuth("login");
-
-});
-
-
-/* OPEN CREATE ACCOUNT */
-
-createTop.addEventListener("click",function(){
-
-  openAuth("signup");
-
-});
-
-
-/* CLOSE */
-
-authClose.addEventListener("click",function(){
-
-  closeModal("authModal");
-
-});
-
-
-/* SWITCH */
-
-switchButton.addEventListener("click",function(){
-
-  if(authMode==="signup"){
-
-    openAuth("login");
-
-  }else{
-
-    openAuth("signup");
-
-  }
-
-});
-
-
-/* OPEN AUTH */
-
-function openAuth(mode){
+function showAuth(mode){
 
   authMode = mode;
 
-  document
-    .getElementById("authError")
-    .classList.add("hidden");
+  authError.style.display = "none";
+  authError.textContent = "";
 
-  document
-    .getElementById("authSuccess")
-    .classList.add("hidden");
+  document.getElementById("email").value = "";
+  document.getElementById("password").value = "";
+  document.getElementById("confirm").value = "";
 
-  document
-    .getElementById("email")
-    .value = "";
+  if(mode === "signup"){
 
-  document
-    .getElementById("password")
-    .value = "";
+    authTitle.textContent = "Create Account";
+    authButton.textContent = "Create Account";
+    confirmInput.classList.remove("hidden");
 
-  document
-    .getElementById("confirm")
-    .value = "";
-
-  document
-    .getElementById("nameInput")
-    .value = "";
-
-  if(mode==="signup"){
-
-    document
-      .getElementById("authTitle")
-      .textContent="Create Account";
-
-    authButton.textContent=
-      "Create Account";
-
-    document
-      .getElementById("nameInput")
-      .classList.remove("hidden");
-
-    document
-      .getElementById("confirm")
-      .classList.remove("hidden");
-
-    document
-      .getElementById("switchText")
-      .textContent=
-        "Already have an account?";
-
-    switchButton.textContent=
-      "Login";
+    switchText.textContent = "Already have an account?";
+    switchButton.textContent = "Login";
 
   }else{
 
-    document
-      .getElementById("authTitle")
-      .textContent="Login";
+    authTitle.textContent = "Login";
+    authButton.textContent = "Login";
+    confirmInput.classList.add("hidden");
 
-    authButton.textContent=
-      "Login";
+    switchText.textContent = "Don't have an account?";
+    switchButton.textContent = "Create Account";
 
-    document
-      .getElementById("nameInput")
-      .classList.add("hidden");
+  }
 
-    document
-      .getElementById("confirm")
-      .classList.add("hidden");
+  authModal.classList.remove("hidden");
 
-    document
-      .getElementById("switchText")
-      .textContent=
-        "Don't have an a
+}
+
+
+function showError(message){
+
+  authError.textContent = message;
+  authError.style.display = "block";
+
+}
+
+
+function doAuth(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const confirm =
+    document.getElementById("confirm").value;
+
+  if(!email){
+
+    showError("Email enter karo.");
+    return;
+
+  }
+
+  if(!password){
+
+    showError("Password enter karo.");
+    return;
+
+  }
+
+  if(authMode === "signup"){
+
+    if(password.length < 6){
+
+      showError("Password minimum 6 characters ka hona chahiye.");
+      return;
+
+    }
+
+    if(password !== confirm){
+
+      showError("Dono passwords same hone chahiye.");
+      return;
+
+    }
+
+    authButton.disabled = true;
+    authButton.textContent = "Creating...";
+
+    auth.createUserWithEmailAndPassword(email,password)
+
+    .then(function(result){
+
+      return db.collection("users")
+        .doc(result.user.uid)
+        .set({
+          uid: result.user.uid,
+          email: email,
+          createdAt:
+            firebase.firestore.FieldValue.serverTimestamp()
+        })
+        .catch(function(){
+
+          /* Account Firebase Auth mein already ban gaya.
+             Firestore profile fail ho to bhi login continue kare. */
+
+          return null;
+
+        });
+
+    })
+
+    .then(function(){
+
+      authButton.disabled = false;
+      authButton.textContent = "Create Account";
+
+      authModal.classList.add("hidden");
+
+      alert("🎉 Account successfully created!");
+
+    })
+
+    .catch(function(e){
+
+      authButton.disabled = false;
+      authButton.textContent = "Create Account";
+
+      showError(firebaseError(e));
+
+    });
+
+  }else{
+
+    authButton.disabled = true;
+    authButton.textContent = "Logging in...";
+
+    auth.signInWithEmailAndPassword(email,password)
+
+    .then(function(){
+
+      authButton.disabled = false;
+      authButton.textContent = "Login";
+
+      authModal.classList.add("hidden");
+
+    })
+
+    .catch(function(e){
+
+      authButton.disabled = false;
+      authButton.textContent = "Login";
+
+      showError(firebaseError(e));
+
+    });
+
+  }
+
+}
+
+
+function firebaseError(e){
+
+  if(e.code === "auth/email-already-in-use")
+    return "⚠️ Is email se account already bana hua hai. Login karo.";
+
+  if(e.code === "auth/invalid-email")
+    return "⚠️ Email address sahi nahi hai.";
+
+  if(e.code === "auth/weak-password")
+    return "⚠️ Password kam se kam 6 characters ka hona chahiye.";
+
+  if(e.code === "auth/invalid-credential")
+    return "⚠️ Email ya password galat hai.";
+
+  if(e.code === "auth/operation-not-allowed")
+    return "⚠️ Firebase mein Email/Password Login enable nahi hai.";
+
+  if(e.code === "auth/unauthorized-domain")
+    return "⚠️ GitHub Pages domain Firebase mein authorized nahi hai.";
+
+  if(e.code === "auth/network-request-failed")
+    return "⚠️ Internet connection check karo.";
+
+  return "⚠️ " + (e.message || "Something went wrong.");
+
+}
+
+
+/* BUTTONS */
+
+document.getElementById("createTop")
+  .addEventListener("click",function(){
+    showAuth("signup");
+  });
+
+document.getElementById("loginTop")
+  .addEventListener("click",function(){
+    showAuth("login");
+  });
+
+document.getElementById("authButton")
+  .addEventListener("click",doAuth);
+
+document.getElementById("s
