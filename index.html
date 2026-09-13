@@ -8,235 +8,226 @@
 
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#07111f;color:#fff;
- font-family:Arial,Helvetica,sans-serif;
-}
+body{margin:0;background:#07111f;color:#fff;font-family:Arial,sans-serif}
 button,input,textarea{font:inherit}
 button{cursor:pointer;border:0}
 .hidden{display:none!important}
 
 .top{
- position:sticky;top:0;z-index:20;height:64px;
- background:#091827f2;backdrop-filter:blur(14px);
- border-bottom:1px solid #ffffff14;
- display:flex;align-items:center;justify-content:space-between;
- padding:0 14px;
+position:sticky;top:0;z-index:20;height:64px;
+background:#091827f5;border-bottom:1px solid #ffffff15;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 12px
 }
+
 .brand{
- font-size:23px;font-weight:900;letter-spacing:-1px;
- display:flex;align-items:center;gap:2px
+font-size:23px;font-weight:900;display:flex;
+align-items:center;gap:2px
 }
+
 .puri{
- width:24px;height:24px;border-radius:50%;
- display:inline-flex;align-items:center;justify-content:center;
- background:radial-gradient(circle at 35% 30%,#ffe69a,#eaa72b 58%,#a9650d);
- color:#168447;border:3px solid #f7c95a;font-size:10px
+width:25px;height:25px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+background:radial-gradient(circle at 35% 30%,#ffe69a,#eaa72b 55%,#a9650d);
+border:3px solid #f7c95a;color:#168447
 }
 
 .topBtns{display:flex;gap:7px}
 .topBtn{
- padding:8px 12px;border-radius:20px;
- background:#17283d;color:white;font-weight:700
+padding:9px 12px;border-radius:20px;
+background:#17283d;color:#fff;font-weight:700
 }
 .createTop{background:#18b879}
+
 .iconBtn{
- background:#17283d;color:white;border-radius:50%;
- width:38px;height:38px;font-size:18px
+width:40px;height:40px;border-radius:50%;
+background:#17283d;color:#fff;font-size:18px
 }
 
-.wrap{
- max-width:720px;margin:auto;padding-bottom:82px
-}
+.wrap{max-width:720px;margin:auto;padding-bottom:85px}
 
 .search{
- margin:12px 14px;
- background:#102238;border:1px solid #ffffff12;
- border-radius:14px;padding:11px 14px
+margin:12px;background:#102238;border:1px solid #ffffff12;
+border-radius:15px;padding:12px 14px
 }
 .search input{
- width:100%;background:none;border:0;outline:0;
- color:white;font-size:15px
+width:100%;background:none;border:0;outline:0;
+color:#fff;font-size:16px
 }
 
 .stories{
- display:flex;gap:13px;overflow-x:auto;
- padding:7px 14px 15px;scrollbar-width:none
+display:flex;gap:13px;overflow-x:auto;
+padding:7px 14px 16px;scrollbar-width:none
 }
 .stories::-webkit-scrollbar{display:none}
 
 .story{
- min-width:62px;text-align:center;
- font-size:11px;color:#b9c8d8
+min-width:62px;text-align:center;
+font-size:11px;color:#b9c8d8
 }
+
 .avatar{
- width:54px;height:54px;border-radius:50%;
- margin:auto auto 5px;
- display:flex;align-items:center;justify-content:center;
- font-weight:900;color:white;
- border:2px solid #27d994;
- background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8)
+width:54px;height:54px;border-radius:50%;
+margin:auto auto 5px;
+display:flex;align-items:center;justify-content:center;
+font-weight:900;
+border:2px solid #27d994;
+background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8)
 }
+
 .your .avatar{
- border:2px dashed #27d994;
- background:#102238;font-size:23px
+background:#102238;border:2px dashed #27d994;
+font-size:22px
 }
 
 .card{
- margin:8px 12px;
- background:#0d1d30;
- border:1px solid #ffffff10;
- border-radius:18px;
- overflow:hidden
+margin:9px 12px;background:#0d1d30;
+border:1px solid #ffffff10;border-radius:18px;
+overflow:hidden
 }
 
 .head{
- display:flex;align-items:center;gap:10px;
- padding:13px
+display:flex;align-items:center;gap:10px;padding:13px
 }
+
 .head .avatar{
- width:40px;height:40px;margin:0;
- font-size:13px;border-width:1px
+width:42px;height:42px;margin:0;font-size:13px
 }
+
 .meta{flex:1}
 .name{font-weight:800}
 .time{font-size:11px;color:#7890a8}
 
-.more{
- background:none;color:#8da2b7;font-size:20px
+.body{
+padding:0 14px 15px;
+line-height:1.5;white-space:pre-wrap
 }
 
-.body{
- padding:0 14px 14px;
- line-height:1.5;
- white-space:pre-wrap
+.actions{
+display:flex;border-top:1px solid #ffffff0d
+}
+
+.actions button{
+flex:1;background:none;color:#a9bbcd;padding:12px 4px
+}
+
+.composer{padding:14px}
+
+.composer textarea{
+width:100%;min-height:85px;resize:none;
+background:#081522;border:1px solid #ffffff14;
+border-radius:14px;padding:12px;color:#fff;outline:0
+}
+
+.row{display:flex;gap:8px;align-items:center}
+
+.primary{
+background:#18b879;color:#00140d;
+padding:10px 16px;border-radius:12px;
+font-weight:800
+}
+
+.secondary{
+background:#17283d;color:#fff;
+padding:10px 14px;border-radius:12px
 }
 
 .news{
- background:linear-gradient(135deg,#122b48,#10213a);
- padding:15px
+background:linear-gradient(135deg,#122b48,#10213a);
+padding:15px
 }
+
 .tag{
- display:inline-block;padding:4px 8px;
- border-radius:10px;background:#18b87922;
- color:#39e3a0;font-size:11px;font-weight:800
+display:inline-block;padding:4px 8px;border-radius:10px;
+background:#18b87922;color:#39e3a0;
+font-size:11px;font-weight:800
 }
+
 .news h3{margin:9px 0 6px;font-size:18px}
 .news p{margin:0;color:#b4c3d3;font-size:13px}
 
-.actions{
- display:flex;border-top:1px solid #ffffff0d
-}
-.actions button{
- flex:1;background:none;color:#a9bbcd;
- padding:11px 5px
-}
-.actions button:hover{background:#ffffff06}
-
-.composer{padding:14px}
-.composer textarea{
- width:100%;min-height:82px;resize:none;
- background:#081522;border:1px solid #ffffff14;
- border-radius:14px;padding:12px;
- color:white;outline:none
-}
-
-.row{
- display:flex;gap:8px;align-items:center
-}
-.primary{
- background:#18b879;color:#00140d;
- padding:10px 16px;border-radius:12px;
- font-weight:800
-}
-.secondary{
- background:#17283d;color:white;
- padding:10px 14px;border-radius:12px
-}
-
 .reel{
- background:#101d31;padding:18px;
- min-height:150px;
- display:flex;align-items:center;
- justify-content:center;text-align:center
+min-height:150px;padding:20px;
+display:flex;align-items:center;
+justify-content:center;text-align:center;
+background:linear-gradient(135deg,#151d3c,#25163d)
 }
-.reel strong{font-size:28px}
+
+.reel strong{font-size:30px}
 
 .bottom{
- position:fixed;bottom:0;left:0;right:0;
- z-index:30;height:66px;
- background:#091827f5;
- backdrop-filter:blur(16px);
- border-top:1px solid #ffffff14;
- display:flex;justify-content:center
+position:fixed;bottom:0;left:0;right:0;z-index:30;
+height:67px;background:#091827f7;
+border-top:1px solid #ffffff14;
+display:flex
 }
+
 .bottom button{
- flex:1;max-width:145px;
- background:none;color:#93a9bf;font-size:12px
+flex:1;background:none;color:#93a9bf;font-size:12px
 }
+
 .bottom button b{
- display:block;font-size:20px;margin-bottom:2px
+display:block;font-size:21px;margin-bottom:2px
 }
+
 .bottom .active{color:#35e4a0}
 
 .modal{
- position:fixed;inset:0;z-index:50;
- background:#0009;
- display:flex;align-items:center;
- justify-content:center;padding:18px
+position:fixed;inset:0;z-index:50;
+background:#000b;display:flex;
+align-items:center;justify-content:center;
+padding:18px
 }
-.modalBox{
- width:min(430px,100%);
- background:#0d1d30;
- border:1px solid #ffffff15;
- border-radius:20px;padding:20px;
- box-shadow:0 20px 70px #0008
-}
-.modalBox h2{margin-top:0}
 
-.field{
- width:100%;padding:12px;margin:6px 0;
- background:#071522;
- border:1px solid #ffffff14;
- border-radius:12px;color:white;outline:none
+.modalBox{
+width:min(430px,100%);
+background:#0d1d30;
+border:1px solid #ffffff18;
+border-radius:22px;padding:20px;
+box-shadow:0 20px 70px #0009
 }
+
+.modalBox h2{margin-top:0;font-size:30px}
 
 .close{
- float:right;background:none;
- color:#9fb1c4;font-size:22px
+float:right;background:none;color:#9fb1c4;
+font-size:28px
+}
+
+.field{
+width:100%;padding:14px;margin:6px 0;
+background:#071522;border:1px solid #ffffff14;
+border-radius:14px;color:#fff;outline:0
 }
 
 .switch{
- text-align:center;color:#9fb1c4;
- font-size:13px;margin-top:12px
+text-align:center;color:#9fb1c4;
+font-size:13px;margin-top:14px
 }
+
 .switch button{
- background:none;color:#35e4a0
+background:none;color:#35e4a0
 }
 
 .profileBox{text-align:center}
 
 .bigAvatar{
- width:82px;height:82px;border-radius:50%;
- margin:8px auto 12px;
- display:flex;align-items:center;
- justify-content:center;
- background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8);
- font-size:30px;font-weight:900
+width:85px;height:85px;border-radius:50%;
+margin:8px auto 12px;
+display:flex;align-items:center;justify-content:center;
+background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8);
+font-size:30px;font-weight:900
 }
 
-.empty{
- text-align:center;padding:28px;
- color:#8195aa
-}
+.empty{text-align:center;padding:28px;color:#8195aa}
 
 .toast{
- position:fixed;left:50%;bottom:78px;
- transform:translateX(-50%);
- background:#f4fbff;color:#06111e;
- padding:10px 15px;border-radius:12px;
- z-index:80;font-weight:700;
- box-shadow:0 8px 30px #0007
+position:fixed;left:50%;bottom:80px;
+transform:translateX(-50%);
+background:#f4fbff;color:#06111e;
+padding:11px 16px;border-radius:13px;
+z-index:100;font-weight:700;
+box-shadow:0 8px 30px #0008
 }
 </style>
 </head>
@@ -246,16 +237,16 @@ button{cursor:pointer;border:0}
 <header class="top">
 
 <div class="brand">
- <span>tw</span>
- <span class="puri">●</span>
- <span>4nine</span>
+<span>tw</span>
+<span class="puri">●</span>
+<span>4nine</span>
 </div>
 
 <div id="accountArea" class="topBtns">
- <button class="topBtn" onclick="openAuth('login')">Login</button>
- <button class="topBtn createTop" onclick="openAuth('signup')">
- Create Account
- </button>
+<button class="topBtn" onclick="openAuth('login')">Login</button>
+<button class="topBtn createTop" onclick="openAuth('signup')">
+Create Account
+</button>
 </div>
 
 </header>
@@ -264,17 +255,16 @@ button{cursor:pointer;border:0}
 <main class="wrap">
 
 <div class="search">
-<input
- id="searchInput"
- placeholder="🔎 Search news, people, posts..."
- oninput="renderSearch(this.value)">
+<input id="searchInput"
+placeholder="🔎 Search news, people, posts..."
+oninput="searchSite(this.value)">
 </div>
 
 
-<section class="stories" id="stories"></section>
-
-
 <div id="searchResults"></div>
+
+
+<section class="stories" id="stories"></section>
 
 
 <section class="card composer">
@@ -284,21 +274,22 @@ button{cursor:pointer;border:0}
 <div class="avatar" id="composerAvatar">?</div>
 
 <div class="meta">
+
 <div class="name" id="composerName">
 Welcome to two4nine
 </div>
+
 <div class="time">
 Different generations. One place. ❤️
 </div>
-</div>
 
 </div>
 
+</div>
 
-<textarea
- id="postText"
- placeholder="What's happening?">
-</textarea>
+
+<textarea id="postText"
+placeholder="What's happening?"></textarea>
 
 
 <div class="row" style="justify-content:flex-end;margin-top:8px">
@@ -333,15 +324,13 @@ Post
 </div>
 
 <div class="reel">
-
 <div>
 <strong>▶ Reels</strong>
-<br>
+<br><br>
 <span style="color:#9bb0c5">
-Your short videos will live here.
+Short videos will appear here.
 </span>
 </div>
-
 </div>
 
 </section>
@@ -351,7 +340,7 @@ Your short videos will live here.
 
 <nav class="bottom">
 
-<button class="active" onclick="scrollTopPage()">
+<button class="active" onclick="home()">
 <b>⌂</b>Home
 </button>
 
@@ -359,63 +348,58 @@ Your short videos will live here.
 <b>⌕</b>Search
 </button>
 
-<button onclick="requireLogin(addPost)">
+<button onclick="addPost()">
 <b>＋</b>Post
 </button>
 
-<button onclick="toast('Reels section is below the feed 🎬')">
+<button onclick="toast('Reels coming soon 🎬')">
 <b>▶</b>Reels
 </button>
 
-<button onclick="openNotifications()">
+<button onclick="notifications()">
 <b>♡</b>Notifications
 </button>
 
 </nav>
 
 
-<!-- LOGIN -->
+<!-- AUTH -->
 
 <div id="authModal" class="modal hidden">
 
 <div class="modalBox">
 
-<button class="close" onclick="closeModal('authModal')">
-×
-</button>
+<button class="close" onclick="closeModal('authModal')">×</button>
 
 <h2 id="authTitle">Login</h2>
 
 <input
- class="field"
- id="authUsername"
- placeholder="Choose username"
- autocomplete="username"
- style="display:none">
+id="authUsername"
+class="field"
+placeholder="Choose username"
+style="display:none">
 
 <input
- class="field"
- id="authEmail"
- type="email"
- placeholder="Email"
- autocomplete="email">
+id="authEmail"
+class="field"
+type="email"
+placeholder="Email">
 
 <input
- class="field"
- id="authPassword"
- type="password"
- placeholder="Password"
- autocomplete="current-password">
+id="authPassword"
+class="field"
+type="password"
+placeholder="Password">
 
 <button
- class="primary"
- style="width:100%;margin-top:8px"
- onclick="doAuth()"
- id="authButton">
+id="authButton"
+class="primary"
+style="width:100%;margin-top:10px"
+onclick="doAuth()">
 Login
 </button>
 
-<div class="switch" id="authSwitch">
+<div id="authSwitch" class="switch">
 New here?
 <button onclick="switchAuth()">Create Account</button>
 </div>
@@ -441,9 +425,9 @@ New here?
 <p id="profileEmail" style="color:#8fa5ba"></p>
 
 <button
- class="secondary"
- onclick="logout()"
- style="width:100%;margin-top:8px">
+class="secondary"
+onclick="logout()"
+style="width:100%">
 Logout
 </button>
 
@@ -464,25 +448,26 @@ Logout
 <h2>💬 Messages</h2>
 
 <input
- class="field"
- id="msgTo"
- placeholder="Send to username">
+id="msgTo"
+class="field"
+placeholder="Username">
 
 <textarea
- class="field"
- id="msgText"
- placeholder="Write a private message..."
- style="min-height:100px">
+id="msgText"
+class="field"
+placeholder="Private message..."
+style="min-height:100px">
 </textarea>
 
 <button
- class="primary"
- style="width:100%"
- onclick="sendMessage()">
+class="primary"
+style="width:100%"
+onclick="sendMessage()">
 Send
 </button>
 
-<div id="msgStatus" class="empty" style="padding:15px 0"></div>
+<div id="msgStatus" class="empty">
+</div>
 
 </div>
 </div>
@@ -500,8 +485,8 @@ Send
 
 <h2>♡ Notifications</h2>
 
-<div id="noticeList" class="empty">
-No new notifications.
+<div class="empty">
+No new notifications yet.
 </div>
 
 </div>
@@ -520,10 +505,14 @@ No new notifications.
 
 <script>
 
+/* =========================
+   FIREBASE
+========================= */
+
 const firebaseConfig = {
 
 apiKey:
-"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZBwmgrLVYU",
+"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
 
 authDomain:
 "two4nine-7a29d.firebaseapp.com",
@@ -548,59 +537,64 @@ measurementId:
 
 firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const db = firebase.firestore();
+const auth=firebase.auth();
+const db=firebase.firestore();
 
-let currentUser = null;
-let currentProfile = null;
-let authMode = "login";
-let allPosts = [];
-let newsItems = [];
+let currentUser=null;
+let profile=null;
+let authMode="login";
+let posts=[];
+let news=[];
 
 
-function esc(s){
+/* =========================
+   HELPERS
+========================= */
 
-return String(s ?? "").replace(/[&<>"']/g,m=>({
+function esc(x){
 
+return String(x||"").replace(/[&<>"']/g,function(m){
+
+return {
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#39;"
+}[m];
 
-}[m]));
+});
 
 }
 
 
-function initials(n){
+function initials(name){
 
-return (n || "?")
+return (name||"?")
 .trim()
 .split(/\s+/)
 .slice(0,2)
 .map(x=>x[0])
 .join("")
-.toUpperCase() || "?";
+.toUpperCase()||"?";
 
 }
 
 
-function timeAgo(ts){
+function ago(date){
 
-const d =
-ts?.toDate
-? ts.toDate()
-: new Date(ts || Date.now());
+let d=date?.toDate?
+date.toDate():
+new Date(date||Date.now());
 
-const m =
-Math.floor((Date.now()-d)/60000);
+let m=Math.floor(
+(Date.now()-d.getTime())/60000
+);
 
-if(m<1)return "just now";
-
+if(m<1)return"just now";
 if(m<60)return m+"m";
 
-const h=Math.floor(m/60);
+let h=Math.floor(m/60);
 
 if(h<24)return h+"h";
 
@@ -609,21 +603,21 @@ return Math.floor(h/24)+"d";
 }
 
 
-function toast(t){
+function toast(text){
 
-const x=document.getElementById("toast");
+let t=document.getElementById("toast");
 
-x.textContent=t;
+t.textContent=text;
 
-x.classList.remove("hidden");
+t.classList.remove("hidden");
 
 clearTimeout(window.toastTimer);
 
-window.toastTimer=setTimeout(()=>{
+window.toastTimer=setTimeout(function(){
 
-x.classList.add("hidden");
+t.classList.add("hidden");
 
-},2200);
+},2500);
 
 }
 
@@ -636,22 +630,9 @@ document.getElementById(id)
 }
 
 
-function requireLogin(fn){
-
-if(!currentUser){
-
-openAuth("login");
-
-toast("Login required");
-
-return;
-
-}
-
-fn();
-
-}
-
+/* =========================
+   AUTH
+========================= */
 
 function openAuth(mode){
 
@@ -660,47 +641,47 @@ authMode=mode;
 document.getElementById("authModal")
 .classList.remove("hidden");
 
-updateAuthUI();
+updateAuth();
 
 }
 
 
 function switchAuth(){
 
-authMode =
+authMode=
 authMode==="login"
-? "signup"
-: "login";
+?"signup"
+:"login";
 
-updateAuthUI();
+updateAuth();
 
 }
 
 
-function updateAuthUI(){
+function updateAuth(){
 
-const signup=authMode==="signup";
+let signup=authMode==="signup";
 
 document.getElementById("authTitle")
-.textContent =
+.textContent=
 signup
-? "Create Account"
-: "Login";
+?"Create Account"
+:"Login";
 
 document.getElementById("authButton")
-.textContent =
+.textContent=
 signup
-? "Create Account"
-: "Login";
+?"Create Account"
+:"Login";
 
 document.getElementById("authUsername")
-.style.display =
+.style.display=
 signup
-? "block"
-: "none";
+?"block"
+:"none";
 
 document.getElementById("authSwitch")
-.innerHTML =
+.innerHTML=
 signup
 ?
 'Already have an account? <button onclick="switchAuth()">Login</button>'
@@ -712,20 +693,21 @@ signup
 
 async function doAuth(){
 
-const email =
+let email=
 document.getElementById("authEmail")
 .value.trim();
 
-const pass =
+let password=
 document.getElementById("authPassword")
 .value;
 
-const username =
+let username=
 document.getElementById("authUsername")
 .value.trim()
 .replace(/^@/,"");
 
-if(!email || !pass){
+
+if(!email||!password){
 
 toast("Email and password required");
 
@@ -739,28 +721,30 @@ try{
 if(authMode==="login"){
 
 await auth.signInWithEmailAndPassword(
-email,
-pass
+email,password
 );
 
 closeModal("authModal");
 
 toast("Welcome back ❤️");
 
+return;
+
 }
 
-else{
 
 if(username.length<3){
 
-toast("Username must be 3+ characters");
+toast("Username 3+ characters");
 
 return;
 
 }
 
 
-const dup =
+/* Check username */
+
+let check=
 await db
 .collection("users")
 .where("username","==",username)
@@ -768,7 +752,7 @@ await db
 .get();
 
 
-if(!dup.empty){
+if(!check.empty){
 
 toast("Username already taken");
 
@@ -777,19 +761,22 @@ return;
 }
 
 
-const cred =
+/* Create account */
+
+let result=
 await auth.createUserWithEmailAndPassword(
-email,
-pass
+email,password
 );
 
 
+/* Save profile */
+
 await db
 .collection("users")
-.doc(cred.user.uid)
+.doc(result.user.uid)
 .set({
 
-uid:cred.user.uid,
+uid:result.user.uid,
 username:username,
 email:email,
 createdAt:
@@ -802,97 +789,112 @@ closeModal("authModal");
 
 toast("Account created 🎉");
 
-}
 
 }catch(e){
 
 console.error(e);
 
-toast(firebaseError(e));
+showFirebaseError(e);
 
 }
 
 }
 
 
-function firebaseError(e){
+function showFirebaseError(e){
 
-const c=e?.code||"";
+let c=e?.code||"";
 
 if(c.includes("email-already"))
-return "Email already registered";
+return toast("Email already registered");
 
-if(c.includes("wrong-password") ||
-c.includes("invalid-credential"))
-return "Wrong email or password";
+if(c.includes("invalid-email"))
+return toast("Invalid email");
 
 if(c.includes("weak-password"))
-return "Password should be stronger";
+return toast("Password too weak");
 
-if(c.includes("network"))
-return "Network problem";
+if(c.includes("wrong-password"))
+return toast("Wrong password");
 
-return e?.message || "Something went wrong";
+if(c.includes("invalid-credential"))
+return toast("Wrong email or password");
 
-}
+if(c.includes("permission-denied"))
+return toast("Firestore permission denied");
 
-
-async function loadProfile(){
-
-if(!currentUser){
-
-currentProfile=null;
-
-return;
+toast(e?.message||"Firebase error");
 
 }
 
 
-const d =
+/* =========================
+   AUTH STATE
+========================= */
+
+auth.onAuthStateChanged(async function(user){
+
+currentUser=user;
+
+if(user){
+
+try{
+
+let snap=
 await db
 .collection("users")
-.doc(currentUser.uid)
+.doc(user.uid)
 .get();
 
+if(snap.exists){
 
-currentProfile =
-d.exists
-? d.data()
-: {
-username:
-currentUser.email.split("@")[0]
+profile=snap.data();
+
+}else{
+
+profile={
+username:user.email.split("@")[0],
+email:user.email
 };
 
 }
 
+}catch(e){
 
-auth.onAuthStateChanged(async u=>{
+profile={
+username:user.email.split("@")[0],
+email:user.email
+};
 
-currentUser=u;
+}
 
-await loadProfile();
+}else{
+
+profile=null;
+
+}
 
 renderAccount();
-
 renderStories();
-
 loadPosts();
 
 });
 
 
+/* =========================
+   ACCOUNT UI
+========================= */
+
 function renderAccount(){
 
-const a =
+let box=
 document.getElementById("accountArea");
-
 
 if(!currentUser){
 
-a.innerHTML =
+box.innerHTML=
 
-'<button class="topBtn" onclick="openAuth(\'login\')">Login</button>' +
-
+'<button class="topBtn" onclick="openAuth(\'login\')">Login</button>'+
 '<button class="topBtn createTop" onclick="openAuth(\'signup\')">Create Account</button>';
 
 document.getElementById("composerName")
@@ -901,46 +903,48 @@ document.getElementById("composerName")
 document.getElementById("composerAvatar")
 .textContent="?";
 
+return;
+
 }
 
-else{
 
-const n =
-currentProfile?.username || "User";
+let name=profile?.username||"User";
 
-a.innerHTML =
+box.innerHTML=
 
-'<button class="iconBtn" onclick="openMessages()">💬</button>' +
-
-'<button class="topBtn" onclick="openProfile()">👤 ' +
-
-esc(n) +
-
+'<button class="iconBtn" onclick="openMessages()">💬</button>'+
+'<button class="topBtn" onclick="openProfile()">👤 '+
+esc(name)+
 '</button>';
 
 document.getElementById("composerName")
-.textContent="@"+n;
+.textContent="@"+name;
 
 document.getElementById("composerAvatar")
-.textContent=initials(n);
-
-}
+.textContent=initials(name);
 
 }
 
 
 function openProfile(){
 
-document.getElementById("profileName")
-.textContent="@"+
-(currentProfile?.username || "User");
+if(!currentUser){
 
-document.getElementById("profileEmail")
-.textContent=currentUser?.email || "";
+openAuth("login");
+
+return;
+
+}
 
 document.getElementById("profileAvatar")
 .textContent=
-initials(currentProfile?.username);
+initials(profile?.username);
+
+document.getElementById("profileName")
+.textContent="@"+(profile?.username||"User");
+
+document.getElementById("profileEmail")
+.textContent=currentUser.email;
 
 document.getElementById("profileModal")
 .classList.remove("hidden");
@@ -959,6 +963,10 @@ toast("Logged out");
 }
 
 
+/* =========================
+   POSTS
+========================= */
+
 async function addPost(){
 
 if(!currentUser){
@@ -969,11 +977,9 @@ return;
 
 }
 
-
-const text =
+let text=
 document.getElementById("postText")
 .value.trim();
-
 
 if(!text){
 
@@ -991,7 +997,7 @@ await db.collection("posts").add({
 uid:currentUser.uid,
 
 username:
-currentProfile?.username || "User",
+profile?.username||"User",
 
 text:text,
 
@@ -1012,12 +1018,16 @@ loadPosts();
 
 }catch(e){
 
-toast(firebaseError(e));
+showFirebaseError(e);
 
 }
 
 }
 
+
+/* =========================
+   STORIES
+========================= */
 
 async function addStory(){
 
@@ -1029,11 +1039,9 @@ return;
 
 }
 
-
-const text =
+let text=
 document.getElementById("postText")
 .value.trim();
-
 
 if(!text){
 
@@ -1051,7 +1059,7 @@ await db.collection("posts").add({
 uid:currentUser.uid,
 
 username:
-currentProfile?.username || "User",
+profile?.username||"User",
 
 text:text,
 
@@ -1068,43 +1076,137 @@ document.getElementById("postText")
 
 toast("Story added ✨");
 
-renderStories();
-
 loadPosts();
 
 }catch(e){
 
-toast(firebaseError(e));
+showFirebaseError(e);
 
 }
 
 }
 
+
+function renderStories(){
+
+let list=
+posts.filter(x=>x.type==="story")
+.slice(0,10);
+
+let html=
+
+'<div class="story your" onclick="addStory()">'+
+'<div class="avatar">＋</div>'+
+'<div>Your Story</div>'+
+'</div>';
+
+
+if(profile?.username){
+
+html+=
+
+'<div class="story">'+
+'<div class="avatar">'+
+initials(profile.username)+
+'</div>'+
+'<div>@'+
+esc(profile.username)+
+'</div>'+
+'</div>';
+
+}
+
+
+let defaultUsers=
+["Rahul","Priya","Aman","Neha","Simran","Rohan"];
+
+let used=[];
+
+
+list.forEach(function(s){
+
+if(used.includes(s.username))return;
+
+used.push(s.username);
+
+html+=
+
+'<div class="story" onclick="toast(\'Story by '+esc(s.username)+'\')">'+
+'<div class="avatar">'+
+initials(s.username)+
+'</div>'+
+'<div>'+
+esc(s.username)+
+'</div>'+
+'</div>';
+
+});
+
+
+defaultUsers.forEach(function(n){
+
+if(!used.includes(n)&&n!==profile?.username){
+
+html+=
+
+'<div class="story">'+
+'<div class="avatar">'+
+n[0]+
+'</div>'+
+'<div>'+n+'</div>'+
+'</div>';
+
+}
+
+});
+
+
+html+=
+
+'<div class="story">'+
+'<div class="avatar">•••</div>'+
+'<div>More</div>'+
+'</div>';
+
+
+document.getElementById("stories")
+.innerHTML=html;
+
+}
+
+
+/* =========================
+   LOAD POSTS
+========================= */
 
 async function loadPosts(){
 
 try{
 
-const snap =
+let snap=
 await db
 .collection("posts")
 .get();
 
-allPosts =
+posts=
 snap.docs
-.map(d=>({
+.map(function(d){
 
+return {
 id:d.id,
 ...d.data()
+};
 
-}))
-.sort((a,b)=>
-getMillis(b.createdAt) -
-getMillis(a.createdAt)
-);
+})
+.sort(function(a,b){
+
+return millis(b.createdAt)-
+millis(a.createdAt);
+
+});
+
 
 renderFeed();
-
 renderStories();
 
 }catch(e){
@@ -1112,15 +1214,15 @@ renderStories();
 console.error(e);
 
 document.getElementById("feed")
-.innerHTML =
-'<div class="empty">Could not load posts. Check Firestore rules.</div>';
+.innerHTML=
+'<div class="empty">Could not load posts.</div>';
 
 }
 
 }
 
 
-function getMillis(x){
+function millis(x){
 
 if(x?.toDate)
 return x.toDate().getTime();
@@ -1135,35 +1237,35 @@ return 0;
 
 function renderFeed(){
 
-const feed =
+let feed=
 document.getElementById("feed");
 
-const posts =
-allPosts.filter(p=>p.type!=="story");
+let normal=
+posts.filter(x=>x.type!=="story");
 
-let out="";
+let html="";
 
 
-if(!posts.length){
+if(!normal.length){
 
-out +=
-'<div class="empty">No posts yet. Be the first one! ❤️</div>';
+html+=
+'<div class="empty">No posts yet. Be the first ❤️</div>';
 
 }
 
 
-posts.forEach(p=>{
+normal.forEach(function(p){
 
-const n=esc(p.username||"User");
+let n=esc(p.username||"User");
 
-out += `
+html+=`
 
 <article class="card">
 
 <div class="head">
 
 <div class="avatar">
-${esc(initials(n))}
+${initials(n)}
 </div>
 
 <div class="meta">
@@ -1173,38 +1275,28 @@ ${esc(initials(n))}
 </div>
 
 <div class="time">
-${timeAgo(p.createdAt)}
+${ago(p.createdAt)}
 </div>
 
 </div>
 
-<button
-class="more"
-onclick="sharePost('${esc((p.text||"").replace(/'/g,""))}')">
-⋯
-</button>
-
 </div>
-
 
 <div class="body">
-${esc(p.text||"")}
+${esc(p.text)}
 </div>
-
 
 <div class="actions">
 
-<button onclick="likePost('${p.id}')">
-♡ <span id="like-${p.id}">
-${likes(p.id)}
-</span>
+<button onclick="like('${p.id}')">
+♡ <span id="likes-${p.id}">0</span>
 </button>
 
-<button onclick="commentPost('${p.id}')">
+<button onclick="comment()">
 💬 Comment
 </button>
 
-<button onclick="sharePost('${esc((p.text||"").replace(/'/g,""))}')">
+<button onclick="share('${esc(p.text)}')">
 ↗ Share
 </button>
 
@@ -1217,39 +1309,43 @@ ${likes(p.id)}
 });
 
 
-feed.innerHTML=out;
+feed.innerHTML=html;
 
 }
 
 
-function likes(id){
+/* =========================
+   LIKE COMMENT SHARE
+========================= */
 
-return Number(
-localStorage.getItem("like_"+id)||0
-);
+function like(id){
 
-}
+let key="two4nine_like_"+id;
 
-
-function likePost(id){
-
-const key="like_"+id;
-
-const n=likes(id)+1;
+let n=
+Number(localStorage.getItem(key)||0)+1;
 
 localStorage.setItem(key,n);
 
-const x =
-document.getElementById("like-"+id);
+let x=
+document.getElementById("likes-"+id);
 
 if(x)x.textContent=n;
 
 }
 
 
-function commentPost(id){
+function comment(){
 
-const text=prompt("Comment:");
+if(!currentUser){
+
+openAuth("login");
+
+return;
+
+}
+
+let text=prompt("Write comment:");
 
 if(text?.trim())
 toast("Comment added 💬");
@@ -1257,148 +1353,30 @@ toast("Comment added 💬");
 }
 
 
-async function sharePost(text){
+async function share(text){
 
 try{
 
 await navigator.clipboard.writeText(text);
 
-toast("Post copied 📋");
+toast("Copied 📋");
 
 }catch(e){
 
-toast(text.slice(0,50));
+toast("Share: "+text.slice(0,40));
 
 }
 
 }
 
 
-function renderStories(){
-
-const stories =
-allPosts
-.filter(p=>p.type==="story")
-.slice(0,12);
-
-let html =
-
-'<div class="story your" onclick="requireLogin(addStory)">' +
-
-'<div class="avatar">＋</div>' +
-
-'<div>Your Story</div>' +
-
-'</div>';
-
-
-if(currentProfile?.username){
-
-html += `
-
-<div class="story">
-
-<div class="avatar">
-${initials(currentProfile.username)}
-</div>
-
-<div>
-@${esc(currentProfile.username)}
-</div>
-
-</div>
-
-`;
-
-}
-
-
-const used=new Set();
-
-
-stories.forEach(s=>{
-
-if(used.has(s.username))return;
-
-used.add(s.username);
-
-html += `
-
-<div
-class="story"
-onclick="toast('${esc(s.text||"Story").replace(/'/g,"")}')">
-
-<div class="avatar">
-${initials(s.username)}
-</div>
-
-<div>
-${esc(s.username)}
-</div>
-
-</div>
-
-`;
-
-});
-
-
-[
-"Rahul",
-"Priya",
-"Aman",
-"Neha",
-"Simran",
-"Rohan"
-].forEach(n=>{
-
-if(
-!used.has(n) &&
-n!==currentProfile?.username
-){
-
-html += `
-
-<div class="story">
-
-<div class="avatar">
-${n[0]}
-</div>
-
-<div>${n}</div>
-
-</div>
-
-`;
-
-}
-
-});
-
-
-html += `
-
-<div class="story">
-
-<div class="avatar">•••</div>
-
-<div>More</div>
-
-</div>
-
-`;
-
-document.getElementById("stories")
-.innerHTML=html;
-
-}
-
+/* =========================
+   NEWS
+========================= */
 
 async function loadNews(){
 
-try{
-
-const cats=[
+let queries=[
 
 ["World","world"],
 
@@ -1412,360 +1390,61 @@ const cats=[
 
 ];
 
-
-const results=[];
-
-
-for(const [cat,q] of cats){
-
-const url =
-
-"https://api.rss2json.com/v1/api.json?rss_url=" +
-
-encodeURIComponent(
-
-"https://news.google.com/rss/search?q="+
-q+
-"&hl=en-IN&gl=IN&ceid=IN:en"
-
-);
-
-
-const r=await fetch(url);
-
-const j=await r.json();
-
-
-(j.items||[])
-.slice(0,5)
-.forEach(x=>{
-
-results.push({
-
-cat:cat,
-
-title:x.title,
-
-link:x.link,
-
-date:new Date(
-x.pubDate || Date.now()
-)
-
-});
-
-});
-
-}
-
-
-results.sort(
-(a,b)=>b.date-a.date
-);
-
-newsItems=results.slice(0,10);
-
-renderNews();
-
-}catch(e){
-
-console.error(e);
-
-newsItems=[
-
-{
-cat:"World",
-title:"Latest world news and major international updates.",
-date:new Date()
-},
-
-{
-cat:"AI & Technology",
-title:"AI and technology continue to change everyday life.",
-date:new Date()
-},
-
-{
-cat:"Sports",
-title:"Latest sports stories and major sporting updates.",
-date:new Date()
-},
-
-{
-cat:"Business",
-title:"Business and market developments from around the world.",
-date:new Date()
-}
-
-];
-
-renderNews();
-
-}
-
-}
-
-
-function renderNews(){
-
-const feed =
-document.getElementById("feed");
-
-let news =
-
-'<div style="padding:10px 12px 2px;font-weight:900;font-size:18px">📰 Latest News</div>';
-
-
-newsItems.forEach(n=>{
-
-news += `
-
-<article class="card">
-
-<div class="news">
-
-<span class="tag">
-${esc(n.cat)}
-</span>
-
-<h3>
-${esc(n.title)}
-</h3>
-
-<p>
-${timeAgo(n.date)} · News
-</p>
-
-</div>
-
-<div class="actions">
-
-<button onclick="openNews()">
-Read
-</button>
-
-<button onclick="sharePost('${esc(n.title).replace(/'/g,"")}')">
-↗ Share
-</button>
-
-</div>
-
-</article>
-
-`;
-
-});
-
-
-feed.innerHTML =
-news + feed.innerHTML;
-
-}
-
-
-function openNews(){
-
-toast("Opening latest news");
-
-}
-
-
-function renderSearch(q){
-
-const box =
-document.getElementById("searchResults");
-
-q=q.trim().toLowerCase();
-
-
-if(!q){
-
-box.innerHTML="";
-
-return;
-
-}
-
-
-const p =
-allPosts
-.filter(x=>
-(x.username+" "+x.text)
-.toLowerCase()
-.includes(q)
-)
-.slice(0,8);
-
-
-box.innerHTML =
-
-'<div style="padding:8px 14px;font-weight:800">Search results</div>' +
-
-(
-
-!p.length
-
-?
-
-'<div class="empty">No matching posts.</div>'
-
-:
-
-p.map(x=>`
-
-<div class="card">
-
-<div class="head">
-
-<div class="avatar">
-${initials(x.username)}
-</div>
-
-<div>
-
-<b>@${esc(x.username)}</b>
-
-<div class="time">
-${esc(x.text)}
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-`).join("")
-
-);
-
-}
-
-
-function focusSearch(){
-
-document
-.getElementById("searchInput")
-.focus();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-function scrollTopPage(){
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-function openMessages(){
-
-if(!currentUser){
-
-openAuth("login");
-
-return;
-
-}
-
-document
-.getElementById("messageModal")
-.classList.remove("hidden");
-
-}
-
-
-async function sendMessage(){
-
-const to =
-document.getElementById("msgTo")
-.value.trim()
-.replace(/^@/,"");
-
-const text =
-document.getElementById("msgText")
-.value.trim();
-
-
-if(!to || !text){
-
-toast("Username and message required");
-
-return;
-
-}
+let result=[];
 
 
 try{
 
-await db.collection("messages").add({
+for(let item of queries){
 
-uid:currentUser.uid,
+let category=item[0];
+let query=item[1];
 
-from:
-currentProfile?.username || "User",
+let rss=
+"https://news.google.com/rss/search?q="+
+encodeURIComponent(query)+
+"&hl=en-IN&gl=IN&ceid=IN:en";
 
-to:to,
+let url=
+"https://api.rss2json.com/v1/api.json?rss_url="+
+encodeURIComponent(rss);
 
-text:text,
+let r=await fetch(url);
+let data=await r.json();
 
-createdAt:
-firebase.firestore.FieldValue.serverTimestamp()
+(data.items||[]).slice(0,4).forEach(function(x){
+
+result.push({
+
+category:category,
+title:x.title,
+date:new Date(x.pubDate||Date.now())
 
 });
 
+});
 
-document.getElementById("msgText")
-.value="";
+}
 
-document.getElementById("msgStatus")
-.textContent="Message sent ✓";
 
-toast("Message sent 💬");
+result.sort(function(a,b){
+
+return b.date-a.date;
+
+});
+
+news=result.slice(0,10);
+
+renderNews();
 
 }catch(e){
 
-toast(firebaseError(e));
+news=[
 
-}
+{
+category:"World",
+title:"Latest world news and international updates."
+},
 
-}
-
-
-function openNotifications(){
-
-if(!currentUser){
-
-openAuth("login");
-
-return;
-
-}
-
-
-document.getElementById("noticeList")
-.textContent=
-"No new notifications yet.";
-
-document.getElementById("noticeModal")
-.classList.remove("hidden");
-
-}
-
-
-loadNews();
-
-setInterval(loadNews,300000);
-
-</script>
-
-</body>
-</html>
+{
+category:"AI & Tech
