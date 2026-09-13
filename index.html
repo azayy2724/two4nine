@@ -10,1207 +10,609 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box}
 body{
-  background:#020b14;
+  margin:0;
+  background:#080b12;
   color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-  padding-bottom:90px;
+  font-family:Arial,sans-serif;
 }
-
-button,input,textarea{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-/* TOP */
+button,input,textarea{font:inherit}
+button{cursor:pointer}
 
 .top{
-  height:88px;
+  height:62px;
+  background:#0d111a;
+  border-bottom:1px solid #202633;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 28px;
-  background:rgba(2,11,20,.97);
+  padding:0 14px;
   position:sticky;
   top:0;
-  z-index:50;
-}
-
-.topLeft{
-  color:#fff;
-  font-size:21px;
-  font-weight:700;
-  background:none;
-  border:0;
-  border-bottom:4px solid #168cff;
-  padding:18px 10px 14px;
+  z-index:20;
 }
 
 .logo{
-  font-size:42px;
+  font-size:22px;
   font-weight:800;
-  letter-spacing:-2px;
+  letter-spacing:.5px;
 }
 
-.logo span{
-  color:#168cff;
+.topLeft{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:15px;
+  font-weight:700;
 }
 
 .topRight{
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:10px;
 }
 
-.messageBtn{
-  border:0;
-  background:none;
-  color:#fff;
-  font-size:34px;
+.iconBtn{
+  background:#151b27;
+  border:1px solid #283040;
+  color:white;
+  border-radius:20px;
+  padding:8px 12px;
 }
 
 .profile{
-  width:48px;
-  height:48px;
+  width:36px;
+  height:36px;
   border-radius:50%;
-  object-fit:cover;
-}
-
-/* SEARCH */
-
-.search{
-  margin:18px 32px;
-  height:62px;
-  border-radius:35px;
-  background:#132334;
-  border:1px solid #1c344b;
+  background:linear-gradient(135deg,#604cff,#ff4e9b);
   display:flex;
   align-items:center;
-  padding:0 20px;
+  justify-content:center;
+  font-weight:bold;
 }
 
-.searchIcon{
-  font-size:32px;
-  color:#a9bdd7;
+.container{
+  max-width:620px;
+  margin:auto;
+  padding-bottom:90px;
+}
+
+.search{
+  padding:12px 14px;
 }
 
 .search input{
-  flex:1;
-  background:none;
-  border:0;
+  width:100%;
+  padding:12px 16px;
+  border-radius:25px;
+  border:1px solid #293140;
+  background:#151b25;
+  color:white;
   outline:none;
-  color:#fff;
-  font-size:20px;
-  padding-left:14px;
 }
-
-.search input::placeholder{
-  color:#91a6c0;
-}
-
-/* STORIES */
 
 .stories{
   display:flex;
-  gap:22px;
+  gap:14px;
   overflow-x:auto;
-  padding:10px 28px 22px;
+  padding:8px 14px 16px;
   scrollbar-width:none;
 }
 
-.stories::-webkit-scrollbar{
-  display:none;
-}
+.stories::-webkit-scrollbar{display:none}
 
 .story{
-  min-width:95px;
+  min-width:64px;
   text-align:center;
+  font-size:11px;
+  color:#c7ccd6;
 }
 
 .storyCircle{
-  width:88px;
-  height:88px;
-  margin:auto;
-  padding:4px;
+  width:58px;
+  height:58px;
+  margin:auto auto 5px;
   border-radius:50%;
-  background:linear-gradient(
-    135deg,
-    #ff7a00,
-    #ff1875,
-    #8b35ff,
-    #008cff
-  );
+  padding:2px;
+  background:linear-gradient(135deg,#ff006e,#ff8a00,#7b61ff);
 }
 
 .storyInner{
   width:100%;
   height:100%;
   border-radius:50%;
-  background:#07121e;
-  border:3px solid #06101a;
-  overflow:hidden;
+  background:#171d29;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
+  font-size:21px;
+  font-weight:bold;
 }
 
-.storyInner img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.story.add .storyCircle{
+  background:#263040;
 }
 
-.storyPlus{
-  font-size:45px;
-  color:#fff;
+.story.add .storyInner{
+  background:#111722;
+  font-size:27px;
 }
-
-.storyName{
-  margin-top:9px;
-  font-size:15px;
-  color:#e8edf5;
-  white-space:nowrap;
-}
-
-/* FEED */
 
 .feed{
-  max-width:1050px;
-  margin:auto;
-  padding:0 26px;
+  padding:0 10px;
 }
 
-.post{
-  background:linear-gradient(
-    145deg,
-    #071521,
-    #06111c
-  );
-  border:1px solid #173047;
-  border-radius:20px;
-  margin-bottom:18px;
+.card{
+  background:#10151f;
+  border:1px solid #202938;
+  border-radius:15px;
+  margin:10px 0;
   overflow:hidden;
 }
 
-.postHeader{
+.cardHead{
   display:flex;
   align-items:center;
-  padding:18px 20px 10px;
+  gap:10px;
+  padding:13px;
 }
 
 .avatar{
-  width:52px;
-  height:52px;
+  width:40px;
+  height:40px;
   border-radius:50%;
-  object-fit:cover;
-  margin-right:13px;
-}
-
-.userInfo{
-  flex:1;
+  background:linear-gradient(135deg,#536dfe,#ec407a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
 }
 
 .userName{
-  font-size:20px;
   font-weight:700;
 }
 
-.verified{
-  color:#168cff;
+.small{
+  font-size:12px;
+  color:#8e98aa;
+  margin-top:3px;
 }
 
-.time{
-  color:#91a6c0;
-  margin-top:4px;
-  font-size:15px;
+.cardBody{
+  padding:0 14px 14px;
+  line-height:1.5;
 }
 
-.more{
-  font-size:28px;
-  color:#a9bdd7;
+.newsBox{
+  padding:15px;
+  background:#151d2b;
 }
 
-.postText{
-  padding:5px 20px 13px;
-  font-size:19px;
-  line-height:1.45;
+.newsTitle{
+  font-size:17px;
+  font-weight:700;
+  line-height:1.35;
 }
 
-.tags{
-  color:#52a9ff;
-  font-size:15px;
-  padding:0 20px 14px;
-}
-
-.postImage{
-  width:calc(100% - 40px);
-  margin:0 20px;
-  max-height:520px;
-  object-fit:cover;
-  border-radius:13px;
-  display:block;
+.newsSource{
+  color:#8f9bad;
+  font-size:12px;
+  margin-top:8px;
 }
 
 .actions{
   display:flex;
-  justify-content:space-between;
-  padding:14px 20px 17px;
+  gap:8px;
+  padding:10px 13px;
+  border-top:1px solid #202938;
 }
 
 .action{
-  border:0;
   background:none;
-  color:#b9c9dd;
-  font-size:17px;
+  border:0;
+  color:#c7cfdb;
+  padding:5px;
 }
 
-.action:hover{
-  color:#168cff;
+.section{
+  display:none;
+  padding:15px;
 }
 
-.action.liked{
-  color:#ff2759;
-}
+.section.active{display:block}
 
-/* BOTTOM NAV */
+.reel{
+  background:#10151f;
+  border:1px solid #202938;
+  border-radius:15px;
+  min-height:300px;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  text-align:center;
+}
 
 .bottom{
   position:fixed;
+  bottom:0;
   left:0;
   right:0;
-  bottom:0;
-  height:88px;
-  background:rgba(3,13,23,.98);
-  border-top:1px solid #173047;
+  height:66px;
+  background:#0d111a;
+  border-top:1px solid #252c38;
   display:flex;
   justify-content:space-around;
   align-items:center;
-  z-index:100;
+  z-index:30;
 }
 
-.navItem{
+.nav{
+  color:#8e98aa;
   background:none;
   border:0;
-  color:#a8bad1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:5px;
-  font-size:14px;
+  text-align:center;
+  font-size:11px;
 }
 
-.navItem.active{
-  color:#168cff;
+.nav span{
+  display:block;
+  font-size:21px;
+  margin-bottom:2px;
 }
 
-.navIcon{
-  font-size:29px;
-}
-
-.postNav{
-  width:66px;
-  height:66px;
-  border-radius:50%;
-  border:0;
-  background:#168cff;
-  color:#fff;
-  font-size:42px;
-  box-shadow:0 0 25px rgba(22,140,255,.35);
-}
-
-.notificationBadge{
-  position:absolute;
-  background:#ff3158;
-  color:#fff;
-  font-size:12px;
-  font-weight:bold;
-  min-width:22px;
-  height:22px;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-left:24px;
-  margin-top:-5px;
-}
-
-/* MODALS */
+.nav.active{color:white}
 
 .modal{
-  display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.78);
-  z-index:200;
-  align-items:center;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:flex-end;
   justify-content:center;
-  padding:20px;
+  z-index:50;
 }
 
-.modalBox{
+.modal.show{display:flex}
+
+.sheet{
   width:100%;
-  max-width:480px;
-  max-height:90vh;
+  max-width:620px;
+  max-height:85vh;
   overflow:auto;
-  background:#091725;
-  border:1px solid #1d3a53;
-  border-radius:22px;
-  padding:24px;
-}
-
-.modalTitle{
-  font-size:27px;
-  font-weight:800;
-  margin-bottom:20px;
+  background:#10151f;
+  border:1px solid #293140;
+  border-radius:22px 22px 0 0;
+  padding:20px;
 }
 
 .close{
   float:right;
-  background:none;
+  background:#202938;
+  color:white;
   border:0;
-  color:#a9bdd7;
-  font-size:28px;
+  border-radius:50%;
+  width:34px;
+  height:34px;
 }
 
-.formInput,
-.formTextarea{
+.sheet h2{margin-top:5px}
+
+textarea{
   width:100%;
-  background:#132334;
-  border:1px solid #28435b;
-  color:#fff;
-  border-radius:13px;
-  padding:14px;
-  margin-bottom:12px;
+  min-height:120px;
+  background:#080d15;
+  color:white;
+  border:1px solid #303949;
+  border-radius:12px;
+  padding:12px;
+  resize:none;
   outline:none;
-  font-size:16px;
-}
-
-.formTextarea{
-  min-height:130px;
-  resize:vertical;
 }
 
 .primary{
   width:100%;
   border:0;
-  border-radius:13px;
-  background:#168cff;
-  color:#fff;
-  padding:14px;
-  font-size:17px;
-  font-weight:bold;
-}
-
-.secondary{
-  width:100%;
-  border:1px solid #31506b;
-  border-radius:13px;
-  background:#101f2e;
-  color:#fff;
+  border-radius:12px;
   padding:13px;
   margin-top:10px;
+  background:#635bff;
+  color:white;
+  font-weight:700;
 }
 
-/* MESSAGES */
-
-.chatUser{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:13px 5px;
-  border-bottom:1px solid #193044;
-}
-
-.chatUser img{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-}
-
-.chatInfo{
-  flex:1;
+.chat{
+  padding:14px;
+  border-bottom:1px solid #242c38;
 }
 
 .chatName{
-  font-weight:bold;
-  font-size:17px;
+  font-weight:700;
 }
 
-.chatPreview{
-  color:#8ea3ba;
-  margin-top:4px;
+.notice{
+  background:#151d2b;
+  border:1px solid #283244;
+  padding:12px;
+  border-radius:12px;
+  margin:8px 0;
 }
 
-/* NOTIFICATIONS */
-
-.notification{
-  padding:15px 5px;
-  border-bottom:1px solid #193044;
-}
-
-.notification small{
-  display:block;
-  color:#8499af;
-  margin-top:4px;
-}
-
-/* REELS */
-
-#reelsSection{
-  display:none;
-}
-
-.sectionTitle{
+.storyView{
+  min-height:400px;
+  background:linear-gradient(145deg,#1b2140,#641b48);
+  border-radius:18px;
+  padding:30px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin:10px 0 15px;
-  font-size:25px;
+  justify-content:center;
+  text-align:center;
 }
 
-@media(max-width:600px){
+.storyText{
+  font-size:28px;
+  font-weight:700;
+  line-height:1.35;
+}
 
-  .top{
-    height:72px;
-    padding:0 15px;
-  }
+.empty{
+  text-align:center;
+  color:#8993a5;
+  padding:30px 10px;
+}
 
-  .topLeft{
-    font-size:17px;
-    padding:15px 5px 12px;
-  }
+.authInput{
+  width:100%;
+  padding:13px;
+  margin:6px 0;
+  background:#080d15;
+  color:white;
+  border:1px solid #303949;
+  border-radius:10px;
+  outline:none;
+}
 
-  .logo{
-    font-size:30px;
-  }
+.linkBtn{
+  background:none;
+  border:0;
+  color:#8d8aff;
+  padding:12px 0;
+}
 
-  .topRight{
-    gap:8px;
-  }
-
-  .messageBtn{
-    font-size:30px;
-  }
-
-  .profile{
-    width:38px;
-    height:38px;
-  }
-
-  .search{
-    margin:14px 15px;
-    height:52px;
-  }
-
-  .search input{
-    font-size:16px;
-  }
-
-  .stories{
-    padding:8px 15px 18px;
-    gap:17px;
-  }
-
-  .story{
-    min-width:78px;
-  }
-
-  .storyCircle{
-    width:70px;
-    height:70px;
-  }
-
-  .storyPlus{
-    font-size:35px;
-  }
-
-  .storyName{
-    font-size:13px;
-  }
-
-  .feed{
-    padding:0 10px;
-  }
-
-  .post{
-    border-radius:16px;
-  }
-
-  .postHeader{
-    padding:15px 14px 8px;
-  }
-
-  .avatar{
-    width:43px;
-    height:43px;
-  }
-
-  .userName{
-    font-size:17px;
-  }
-
-  .postText{
-    padding:5px 14px 12px;
-    font-size:17px;
-  }
-
-  .tags{
-    padding:0 14px 12px;
-  }
-
-  .postImage{
-    width:calc(100% - 28px);
-    margin:0 14px;
-  }
-
-  .actions{
-    padding:13px 14px;
-  }
-
-  .action{
-    font-size:14px;
-  }
-
-  .bottom{
-    height:76px;
-  }
-
-  .navIcon{
-    font-size:25px;
-  }
-
-  .postNav{
-    width:58px;
-    height:58px;
-    font-size:35px;
-  }
+.loading{
+  text-align:center;
+  color:#8e98aa;
+  padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= TOP ================= -->
-
 <header class="top">
+  <div class="topLeft">📰 News</div>
 
-  <button class="topLeft" onclick="showNews()">
-    📰 News
-  </button>
-
-  <div class="logo">
-    two<span>4</span>nine
-  </div>
+  <div class="logo">two4nine</div>
 
   <div class="topRight">
-
-    <button
-      class="messageBtn"
-      onclick="openMessages()"
-      aria-label="Messages"
-    >
-      💬
-    </button>
-
-    <img
-      class="profile"
-      src="https://i.pravatar.cc/100?img=12"
-      alt="Profile"
-    >
-
+    <button class="iconBtn" onclick="openMessages()">💬</button>
+    <div class="profile" id="profileBtn" onclick="openAuth()">?</div>
   </div>
-
 </header>
 
+<main class="container">
 
-<!-- ================= SEARCH ================= -->
+  <div class="search">
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search news, people, topics..."
+      oninput="searchFeed()"
+    >
+  </div>
 
-<div class="search">
+  <!-- STORIES -->
+  <div class="stories" id="stories">
 
-  <span class="searchIcon">⌕</span>
-
-  <input
-    id="searchInput"
-    type="text"
-    placeholder="Search people, memes, news..."
-    oninput="searchFeed()"
-  >
-
-</div>
-
-
-<!-- ================= STORIES ================= -->
-<!-- IMPORTANT: YAHAN SIRF PEOPLE HAIN -->
-
-<div class="stories">
-
-  <!-- YOUR STORY -->
-
-  <div class="story" onclick="createStory()">
-
-    <div class="storyCircle">
-
-      <div class="storyInner">
-        <div class="storyPlus">+</div>
+    <div class="story add" onclick="openStoryCreator()">
+      <div class="storyCircle">
+        <div class="storyInner">＋</div>
       </div>
-
-    </div>
-
-    <div class="storyName">
       Your Story
     </div>
 
-  </div>
-
-
-  <!-- RAHUL -->
-
-  <div class="story" onclick="viewStory('Rahul')">
-
-    <div class="storyCircle">
-
-      <div class="storyInner">
-
-        <img
-          src="https://i.pravatar.cc/200?img=12"
-          alt="Rahul"
-        >
-
-      </div>
-
-    </div>
-
-    <div class="storyName">
+    <div class="story">
+      <div class="storyCircle"><div class="storyInner">R</div></div>
       Rahul
     </div>
 
-  </div>
-
-
-  <!-- PRIYA -->
-
-  <div class="story" onclick="viewStory('Priya')">
-
-    <div class="storyCircle">
-
-      <div class="storyInner">
-
-        <img
-          src="https://i.pravatar.cc/200?img=47"
-          alt="Priya"
-        >
-
-      </div>
-
-    </div>
-
-    <div class="storyName">
+    <div class="story">
+      <div class="storyCircle"><div class="storyInner">P</div></div>
       Priya
     </div>
 
-  </div>
-
-
-  <!-- AMAN -->
-
-  <div class="story" onclick="viewStory('Aman')">
-
-    <div class="storyCircle">
-
-      <div class="storyInner">
-
-        <img
-          src="https://i.pravatar.cc/200?img=13"
-          alt="Aman"
-        >
-
-      </div>
-
-    </div>
-
-    <div class="storyName">
+    <div class="story">
+      <div class="storyCircle"><div class="storyInner">A</div></div>
       Aman
     </div>
 
-  </div>
-
-
-  <!-- NEHA -->
-
-  <div class="story" onclick="viewStory('Neha')">
-
-    <div class="storyCircle">
-
-      <div class="storyInner">
-
-        <img
-          src="https://i.pravatar.cc/200?img=44"
-          alt="Neha"
-        >
-
-      </div>
-
-    </div>
-
-    <div class="storyName">
+    <div class="story">
+      <div class="storyCircle"><div class="storyInner">N</div></div>
       Neha
     </div>
 
-  </div>
-
-
-  <!-- SIMRAN -->
-
-  <div class="story" onclick="viewStory('Simran')">
-
-    <div class="storyCircle">
-
-      <div class="storyInner">
-
-        <img
-          src="https://i.pravatar.cc/200?img=32"
-          alt="Simran"
-        >
-
-      </div>
-
-    </div>
-
-    <div class="storyName">
+    <div class="story">
+      <div class="storyCircle"><div class="storyInner">S</div></div>
       Simran
     </div>
 
-  </div>
-
-
-  <!-- ROHAN -->
-
-  <div class="story" onclick="viewStory('Rohan')">
-
-    <div class="storyCircle">
-
-      <div class="storyInner">
-
-        <img
-          src="https://i.pravatar.cc/200?img=68"
-          alt="Rohan"
-        >
-
-      </div>
-
-    </div>
-
-    <div class="storyName">
+    <div class="story">
+      <div class="storyCircle"><div class="storyInner">R</div></div>
       Rohan
     </div>
 
+    <div id="realStories"></div>
+
   </div>
 
-</div>
+  <!-- HOME FEED -->
+  <section id="homeSection">
 
+    <div class="feed" id="feed">
 
-<!-- ================= FEED ================= -->
-
-<main class="feed" id="feed">
-
-
-  <!-- USER POST -->
-
-  <article class="post searchable">
-
-    <div class="postHeader">
-
-      <img
-        class="avatar"
-        src="https://i.pravatar.cc/100?img=12"
-      >
-
-      <div class="userInfo">
-
-        <div class="userName">
-          Rohit Sharma
-          <span class="verified">✔</span>
+      <article class="card searchable">
+        <div class="cardHead">
+          <div class="avatar">Y</div>
+          <div>
+            <div class="userName">You</div>
+            <div class="small">Just now</div>
+          </div>
         </div>
 
-        <div class="time">
-          2 hours ago · 🌐
+        <div class="cardBody">
+          Welcome to <b>two4nine</b> ❤️<br>
+          Different Generations. One Place.
         </div>
 
-      </div>
+        <div class="actions">
+          <button class="action">❤️ Like</button>
+          <button class="action">💬 Comment</button>
+          <button class="action">↗ Share</button>
+        </div>
+      </article>
 
-      <div class="more">
-        ⋮
-      </div>
-
-    </div>
-
-    <div class="postText">
-      Zindagi ek hi baar milti hai, isliye har pal ko
-      khas banao 💯
-    </div>
-
-    <img
-      class="postImage"
-      src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-    >
-
-    <div class="actions">
-
-      <button class="action" onclick="likePost(this)">
-        ❤️ 1.2K
-      </button>
-
-      <button class="action" onclick="openComments()">
-        💬 245
-      </button>
-
-      <button class="action" onclick="sharePost()">
-        ↗ 120
-      </button>
-
-      <button class="action">
-        🔖
-      </button>
-
-    </div>
-
-  </article>
-
-
-  <!-- NEWS -->
-
-  <article class="post searchable">
-
-    <div class="postHeader">
-
-      <img
-        class="avatar"
-        src="https://i.pravatar.cc/100?img=5"
-      >
-
-      <div class="userInfo">
-
-        <div class="userName">
-          Breaking News
-          <span class="verified">✔</span>
+      <article class="card searchable">
+        <div class="cardHead">
+          <div class="avatar">📰</div>
+          <div>
+            <div class="userName">two4nine News</div>
+            <div class="small">Latest headlines</div>
+          </div>
         </div>
 
-        <div class="time">
-          3 hours ago · 🌐
+        <div class="newsBox">
+          <div class="newsTitle">
+            Loading latest news...
+          </div>
+          <div class="newsSource">Google News</div>
         </div>
 
-      </div>
+        <div class="actions">
+          <button class="action">❤️ Like</button>
+          <button class="action">💬 Comment</button>
+          <button class="action">↗ Share</button>
+        </div>
+      </article>
 
-      <div class="more">
-        ⋮
-      </div>
-
-    </div>
-
-    <div class="postText">
-      India ने चाँद पर एक और बड़ी सफलता हासिल की है।
-      ISRO के वैज्ञानिकों ने मिशन को सफलतापूर्वक पूरा किया।
-    </div>
-
-    <div class="tags">
-      #Space #ISRO #India
-    </div>
-
-    <img
-      class="postImage"
-      src="https://images.unsplash.com/photo-1517976547714-720226b864c1?auto=format&fit=crop&w=1200&q=80"
-    >
-
-    <div class="actions">
-
-      <button class="action" onclick="likePost(this)">
-        ❤️ 4.8K
-      </button>
-
-      <button class="action" onclick="openComments()">
-        💬 612
-      </button>
-
-      <button class="action" onclick="sharePost()">
-        ↗ 420
-      </button>
-
-      <button class="action">
-        🔖
-      </button>
-
-    </div>
-
-  </article>
-
-
-  <!-- MEME -->
-
-  <article class="post searchable">
-
-    <div class="postHeader">
-
-      <img
-        class="avatar"
-        src="https://i.pravatar.cc/100?img=9"
-      >
-
-      <div class="userInfo">
-
-        <div class="userName">
-          Meme Zone
-          <span class="verified">✔</span>
+      <article class="card searchable">
+        <div class="cardHead">
+          <div class="avatar">😂</div>
+          <div>
+            <div class="userName">two4nine Memes</div>
+            <div class="small">Community</div>
+          </div>
         </div>
 
-        <div class="time">
-          5 hours ago · 🌐
+        <div class="cardBody">
+          When you open your phone for 5 minutes...<br><br>
+          <b>2 hours later: 😭😂</b>
         </div>
 
-      </div>
-
-      <div class="more">
-        ⋮
-      </div>
-
-    </div>
-
-    <div class="postText">
-      When you say “I'll just watch one more episode”
-      ... and it becomes 5 AM. 😂
-    </div>
-
-    <img
-      class="postImage"
-      src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80"
-    >
-
-    <div class="actions">
-
-      <button class="action" onclick="likePost(this)">
-        ❤️ 8.7K
-      </button>
-
-      <button class="action" onclick="openComments()">
-        💬 921
-      </button>
-
-      <button class="action" onclick="sharePost()">
-        ↗ 310
-      </button>
-
-      <button class="action">
-        🔖
-      </button>
+        <div class="actions">
+          <button class="action">❤️ Like</button>
+          <button class="action">💬 Comment</button>
+          <button class="action">↗ Share</button>
+        </div>
+      </article>
 
     </div>
 
-  </article>
+    <div id="newsFeed" class="feed"></div>
 
+  </section>
 
   <!-- REELS -->
+  <section id="reelsSection" class="section">
 
-  <section id="reelsSection">
+    <h2>🎬 Reels</h2>
 
-    <div class="sectionTitle">
-
-      <span>🎬 Reels</span>
-
-      <span>🔥 Trending</span>
-
+    <div class="reel">
+      <div>
+        <div>🎥</div>
+        <div style="font-size:16px;margin-top:12px">
+          Reels are coming soon
+        </div>
+      </div>
     </div>
 
-    <article class="post">
-
-      <div class="postHeader">
-
-        <img
-          class="avatar"
-          src="https://i.pravatar.cc/100?img=32"
-        >
-
-        <div class="userInfo">
-
-          <div class="userName">
-            Trending Creator ✔
-          </div>
-
-          <div class="time">
-            20 minutes ago
-          </div>
-
+    <div class="reel">
+      <div>
+        <div>🔥</div>
+        <div style="font-size:16px;margin-top:12px">
+          Short videos from the community
         </div>
-
       </div>
-
-      <div class="postText">
-        POV: जब दोस्त बोलता है
-        "बस 5 मिनट में आ रहा हूँ" 😂
-      </div>
-
-      <div style="
-        height:420px;
-        margin:0 14px;
-        border-radius:15px;
-        background:linear-gradient(145deg,#142d48,#321b4b);
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-size:70px;
-      ">
-        ▶️
-      </div>
-
-      <div class="actions">
-
-        <button class="action">
-          ❤️ 24K
-        </button>
-
-        <button class="action">
-          💬 1.2K
-        </button>
-
-        <button class="action">
-          ↗ 4K
-        </button>
-
-        <button class="action">
-          🔖
-        </button>
-
-      </div>
-
-    </article>
+    </div>
 
   </section>
 
 </main>
 
 
-<!-- ================= BOTTOM ================= -->
-
+<!-- BOTTOM NAV -->
 <nav class="bottom">
 
-  <button
-    class="navItem active"
-    onclick="goHome()"
-  >
-    <div class="navIcon">
-      ⌂
-    </div>
-    <div>
-      Home
-    </div>
+  <button class="nav active" id="navHome" onclick="showHome()">
+    <span>⌂</span>
+    Home
   </button>
 
-
-  <button
-    class="navItem"
-    onclick="focusSearch()"
-  >
-    <div class="navIcon">
-      ⌕
-    </div>
-    <div>
-      Search
-    </div>
+  <button class="nav" onclick="focusSearch()">
+    <span>⌕</span>
+    Search
   </button>
 
-
-  <button
-    class="postNav"
-    onclick="openPostModal()"
-  >
-    +
+  <button class="nav" onclick="openPostCreator()">
+    <span>＋</span>
+    Post
   </button>
 
-
-  <button
-    class="navItem"
-    onclick="showReels()"
-  >
-    <div class="navIcon">
-      🎬
-    </div>
-    <div>
-      Reels
-    </div>
+  <button class="nav" id="navReels" onclick="showReels()">
+    <span>▶</span>
+    Reels
   </button>
 
-
-  <button
-    class="navItem"
-    onclick="openNotifications()"
-  >
-
-    <div
-      class="navIcon"
-      style="position:relative;"
-    >
-
-      🔔
-
-      <span class="notificationBadge">
-        3
-      </span>
-
-    </div>
-
-    <div>
-      Notifications
-    </div>
-
+  <button class="nav" onclick="openNotifications()">
+    <span>♡</span>
+    Notifications
   </button>
 
 </nav>
 
 
-<!-- ================= POST MODAL ================= -->
+<!-- STORY CREATOR -->
+<div class="modal" id="storyModal">
 
-<div
-  class="modal"
-  id="postModal"
->
+  <div class="sheet">
 
-  <div class="modalBox">
+    <button class="close" onclick="closeModal('storyModal')">×</button>
 
-    <button
-      class="close"
-      onclick="closeModal('postModal')"
-    >
-      ×
-    </button>
+    <h2>＋ Your Story</h2>
 
-    <div class="modalTitle">
-      Create Post
-    </div>
+    <p class="small">
+      Text story • visible for 24 hours
+    </p>
 
     <textarea
-      id="postText"
-      class="formTextarea"
-      placeholder="What's on your mind?"
+      id="storyText"
+      maxlength="300"
+      placeholder="What's happening?"
     ></textarea>
 
-    <input
-      id="postImage"
-      class="formInput"
-      placeholder="Image URL (optional)"
-    >
-
-    <button
-      class="primary"
-      onclick="createPost()"
-    >
-      Publish Post
+    <button class="primary" onclick="publishStory()">
+      Publish Story
     </button>
 
   </div>
@@ -1218,209 +620,575 @@ button{
 </div>
 
 
-<!-- ================= LOGIN ================= -->
+<!-- STORY VIEWER -->
+<div class="modal" id="storyViewer">
 
-<div
-  class="modal"
-  id="loginModal"
->
+  <div class="sheet">
 
-  <div class="modalBox">
+    <button class="close" onclick="closeModal('storyViewer')">×</button>
 
-    <button
-      class="close"
-      onclick="closeModal('loginModal')"
-    >
-      ×
-    </button>
+    <h2 id="storyViewerName">Story</h2>
 
-    <div class="modalTitle">
-      Login / Signup
+    <div class="storyView">
+      <div class="storyText" id="storyViewerText"></div>
     </div>
 
+  </div>
+
+</div>
+
+
+<!-- POST CREATOR -->
+<div class="modal" id="postModal">
+
+  <div class="sheet">
+
+    <button class="close" onclick="closeModal('postModal')">×</button>
+
+    <h2>Create Post</h2>
+
+    <textarea
+      id="postText"
+      maxlength="1000"
+      placeholder="What's on your mind?"
+    ></textarea>
+
+    <button class="primary" onclick="publishPost()">
+      Post
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- MESSAGES -->
+<div class="modal" id="messagesModal">
+
+  <div class="sheet">
+
+    <button class="close" onclick="closeModal('messagesModal')">×</button>
+
+    <h2>💬 Messages</h2>
+
+    <div class="chat">
+      <div class="chatName">Rahul</div>
+      <div class="small">Hey! Welcome to two4nine 👋</div>
+    </div>
+
+    <div class="chat">
+      <div class="chatName">Priya</div>
+      <div class="small">Did you see today's news?</div>
+    </div>
+
+    <div class="chat">
+      <div class="chatName">Aman</div>
+      <div class="small">Let's catch up later.</div>
+    </div>
+
+    <div class="notice">
+      🔒 Messages are private.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+<div class="modal" id="notificationsModal">
+
+  <div class="sheet">
+
+    <button class="close" onclick="closeModal('notificationsModal')">×</button>
+
+    <h2>♡ Notifications</h2>
+
+    <div class="notice">
+      ❤️ Rahul liked your post.
+    </div>
+
+    <div class="notice">
+      💬 Priya commented on your post.
+    </div>
+
+    <div class="notice">
+      👋 Aman started following you.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- AUTH -->
+<div class="modal" id="authModal">
+
+  <div class="sheet">
+
+    <button class="close" onclick="closeModal('authModal')">×</button>
+
+    <h2 id="authTitle">Login</h2>
+
     <input
+      class="authInput"
       id="email"
-      class="formInput"
       type="email"
       placeholder="Email"
     >
 
     <input
+      class="authInput"
       id="password"
-      class="formInput"
       type="password"
       placeholder="Password"
     >
 
-    <button
-      class="primary"
-      onclick="loginUser()"
-    >
+    <button class="primary" onclick="loginUser()">
       Login
     </button>
 
-    <button
-      class="secondary"
-      onclick="signupUser()"
-    >
-      Create Account
+    <button class="linkBtn" onclick="signupUser()">
+      Create new account
     </button>
+
+    <div id="authMessage" class="small"></div>
 
   </div>
 
 </div>
 
 
-<!-- ================= MESSAGES ================= -->
+<script>
 
-<div
-  class="modal"
-  id="messageModal"
->
+/* =========================
+   FIREBASE
+========================= */
 
-  <div class="modalBox">
+const firebaseConfig = {
+  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+  authDomain: "two4nine-7a29d.firebaseapp.com",
+  projectId: "two4nine-7a29d",
+  storageBucket: "two4nine-7a29d.firebasestorage.app",
+  messagingSenderId: "573418811789",
+  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
+  measurementId: "G-V2X4YK8NFG"
+};
 
-    <button
-      class="close"
-      onclick="closeModal('messageModal')"
-    >
-      ×
-    </button>
+firebase.initializeApp(firebaseConfig);
 
-    <div class="modalTitle">
-      💬 Messages
-    </div>
-
-
-    <div
-      class="chatUser"
-      onclick="openChat('Priya')"
-    >
-
-      <img
-        src="https://i.pravatar.cc/100?img=47"
-      >
-
-      <div class="chatInfo">
-
-        <div class="chatName">
-          Priya
-        </div>
-
-        <div class="chatPreview">
-          Hi! 👋
-        </div>
-
-      </div>
-
-      <span>2m</span>
-
-    </div>
+const auth = firebase.auth();
+const db = firebase.firestore();
 
 
-    <div
-      class="chatUser"
-      onclick="openChat('Rahul')"
-    >
+/* =========================
+   AUTH STATE
+========================= */
 
-      <img
-        src="https://i.pravatar.cc/100?img=12"
-      >
+auth.onAuthStateChanged(function(user){
 
-      <div class="chatInfo">
+  const profile = document.getElementById("profileBtn");
 
-        <div class="chatName">
-          Rahul
-        </div>
+  if(user){
 
-        <div class="chatPreview">
-          Kya kar rahe ho?
-        </div>
+    profile.textContent =
+      (user.email || "U").charAt(0).toUpperCase();
 
-      </div>
+  }else{
 
-      <span>8m</span>
+    profile.textContent = "?";
 
-    </div>
+  }
+
+});
 
 
-    <div
-      class="chatUser"
-      onclick="openChat('Aman')"
-    >
+/* =========================
+   MODALS
+========================= */
 
-      <img
-        src="https://i.pravatar.cc/100?img=13"
-      >
+function openModal(id){
+  document.getElementById(id).classList.add("show");
+}
 
-      <div class="chatInfo">
-
-        <div class="chatName">
-          Aman
-        </div>
-
-        <div class="chatPreview">
-          Kal milte hain?
-        </div>
-
-      </div>
-
-      <span>1h</span>
-
-    </div>
-
-  </div>
-
-</div>
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
+}
 
 
-<!-- ================= NOTIFICATIONS ================= -->
+/* =========================
+   AUTH
+========================= */
 
-<div
-  class="modal"
-  id="notificationModal"
->
+function openAuth(){
 
-  <div class="modalBox">
+  if(auth.currentUser){
 
-    <button
-      class="close"
-      onclick="closeModal('notificationModal')"
-    >
-      ×
-    </button>
+    if(confirm("Logout from two4nine?")){
+      auth.signOut();
+    }
 
-    <div class="modalTitle">
-      🔔 Notifications
-    </div>
+    return;
+  }
 
-    <div class="notification">
-      ❤️ <strong>Rahul</strong> liked your post.
-      <small>2 minutes ago</small>
-    </div>
+  openModal("authModal");
+}
 
-    <div class="notification">
-      💬 <strong>Priya</strong> commented on your post.
-      <small>10 minutes ago</small>
-    </div>
+function loginUser(){
 
-    <div class="notification">
-      👤 <strong>Aman</strong> started following you.
-      <small>25 minutes ago</small>
-    </div>
+  const email =
+    document.getElementById("email").value.trim();
 
-    <div class="notification">
-      🔥 Your post is trending!
-      <small>1 hour ago</small>
-    </div>
+  const password =
+    document.getElementById("password").value;
 
-  </div>
+  if(!email || !password){
 
-</div>
+    document.getElementById("authMessage").textContent =
+      "Email and password required.";
+
+    return;
+  }
+
+  auth.signInWithEmailAndPassword(email,password)
+
+  .then(function(){
+
+    closeModal("authModal");
+
+  })
+
+  .catch(function(error){
+
+    document.getElementById("authMessage").textContent =
+      error.message;
+
+  });
+
+}
+
+function signupUser(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  if(!email || !password){
+
+    document.getElementById("authMessage").textContent =
+      "Enter email and password.";
+
+    return;
+  }
+
+  if(password.length < 6){
+
+    document.getElementById("authMessage").textContent =
+      "Password must be at least 6 characters.";
+
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email,password)
+
+  .then(function(){
+
+    closeModal("authModal");
+
+  })
+
+  .catch(function(error){
+
+    document.getElementById("authMessage").textContent =
+      error.message;
+
+  });
+
+}
 
 
-<!-- ================= STORY VIEW ================= -->
+/* =========================
+   STORIES
+========================= */
 
-<div
-  class="modal"
-  id="s
+function openStoryCreator(){
+
+  if(!auth.currentUser){
+
+    alert("Please login first to post a Story.");
+
+    openAuth();
+
+    return;
+  }
+
+  document.getElementById("storyText").value = "";
+
+  openModal("storyModal");
+}
+
+
+async function publishStory(){
+
+  const user = auth.currentUser;
+
+  if(!user){
+
+    alert("Please login first.");
+
+    return;
+  }
+
+  const text =
+    document.getElementById("storyText").value.trim();
+
+  if(!text){
+
+    alert("Story mein kuch likho.");
+
+    return;
+  }
+
+  const now = firebase.firestore.Timestamp.now();
+
+  const expiresAt =
+    firebase.firestore.Timestamp.fromDate(
+      new Date(Date.now() + 24 * 60 * 60 * 1000)
+    );
+
+  try{
+
+    await db.collection("stories").add({
+
+      uid:user.uid,
+
+      email:user.email || "",
+
+      text:text,
+
+      createdAt:now,
+
+      expiresAt:expiresAt
+
+    });
+
+    document.getElementById("storyText").value = "";
+
+    closeModal("storyModal");
+
+    alert("Story published! 🎉");
+
+    loadStories();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert("Story publish nahi hui: " + error.message);
+
+  }
+
+}
+
+
+/* =========================
+   LOAD STORIES
+========================= */
+
+function loadStories(){
+
+  const box =
+    document.getElementById("realStories");
+
+  box.innerHTML = "";
+
+  db.collection("stories")
+    .where(
+      "expiresAt",
+      ">",
+      firebase.firestore.Timestamp.now()
+    )
+    .orderBy("expiresAt","asc")
+    .limit(20)
+    .get()
+
+    .then(function(snapshot){
+
+      snapshot.forEach(function(doc){
+
+        const data = doc.data();
+
+        const name =
+          data.email
+          ? data.email.split("@")[0]
+          : "User";
+
+        const first =
+          name.charAt(0).toUpperCase();
+
+        const story =
+          document.createElement("div");
+
+        story.className = "story";
+
+        story.innerHTML = `
+          <div class="storyCircle">
+            <div class="storyInner">${first}</div>
+          </div>
+          ${escapeHtml(name)}
+        `;
+
+        story.onclick = function(){
+
+          viewStory(
+            name,
+            data.text
+          );
+
+        };
+
+        box.appendChild(story);
+
+      });
+
+    })
+
+    .catch(function(error){
+
+      console.log("Stories error:",error);
+
+    });
+
+}
+
+
+function viewStory(name,text){
+
+  document.getElementById("storyViewerName").textContent =
+    name + "'s Story";
+
+  document.getElementById("storyViewerText").textContent =
+    text;
+
+  openModal("storyViewer");
+
+}
+
+
+/* =========================
+   POST
+========================= */
+
+function openPostCreator(){
+
+  if(!auth.currentUser){
+
+    alert("Please login first to create a post.");
+
+    openAuth();
+
+    return;
+  }
+
+  document.getElementById("postText").value = "";
+
+  openModal("postModal");
+}
+
+
+async function publishPost(){
+
+  const user = auth.currentUser;
+
+  if(!user){
+
+    return;
+  }
+
+  const text =
+    document.getElementById("postText").value.trim();
+
+  if(!text){
+
+    alert("Post mein kuch likho.");
+
+    return;
+  }
+
+  try{
+
+    await db.collection("posts").add({
+
+      uid:user.uid,
+
+      email:user.email || "",
+
+      text:text,
+
+      createdAt:
+        firebase.firestore.FieldValue.serverTimestamp()
+
+    });
+
+    document.getElementById("postText").value = "";
+
+    closeModal("postModal");
+
+    alert("Post published! 🎉");
+
+    loadPosts();
+
+  }catch(error){
+
+    alert("Post publish nahi hui: " + error.message);
+
+  }
+
+}
+
+
+/* =========================
+   LOAD POSTS
+========================= */
+
+function loadPosts(){
+
+  db.collection("posts")
+    .orderBy("createdAt","desc")
+    .limit(20)
+    .get()
+
+    .then(function(snapshot){
+
+      const feed =
+        document.getElementById("feed");
+
+      snapshot.forEach(function(doc){
+
+        const data = doc.data();
+
+        const name =
+          data.email
+          ? data.email.split("@")[0]
+          : "User";
+
+        const card =
+          document.createElement("article");
+
+        card.className = "card searchable";
+
+        card.innerHTML = `
+
+          <div class="cardHead">
+
+            <div class="avatar">
+              ${name.charAt(0).toUpperCase()}
+            </div>
+
+            <div>
+
+              <div class="userName">
+                ${escapeHtml(name)}
+              <
