@@ -2,511 +2,1249 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>two4nine — News • Memes • People</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>two4nine</title>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 
 <style>
-*{box-sizing:border-box}
-body{
+*{
+  box-sizing:border-box;
   margin:0;
-  background:#08090d;
-  color:#f5f5f7;
-  font-family:Arial,Helvetica,sans-serif;
+  padding:0;
 }
-button,input,textarea{font:inherit}
-button{cursor:pointer}
+
+body{
+  background:#020b14;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  padding-bottom:90px;
+}
+
+button,input,textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
 
 .top{
-  position:sticky;
-  top:0;
-  z-index:50;
-  height:82px;
-  background:#090a0e;
-  border-bottom:1px solid #252832;
+  height:88px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 22px;
+  padding:0 28px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(2,11,20,.96);
+  backdrop-filter:blur(15px);
+}
+
+.topLeft{
+  color:#fff;
+  font-size:21px;
+  font-weight:700;
+  border-bottom:4px solid #168cff;
+  padding:18px 10px 14px;
 }
 
 .logo{
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-}
-.logo span{color:#ff2455}
-
-.topBtn{
-  border:1px solid #303441;
-  background:#151821;
-  color:white;
-  border-radius:15px;
-  padding:13px 17px;
+  font-size:42px;
   font-weight:800;
-}
-.newsBtn{
-  background:#ff2455;
-  border:0;
+  letter-spacing:-2px;
 }
 
-.container{
-  max-width:680px;
-  margin:auto;
-  padding-bottom:95px;
+.logo span{
+  color:#168cff;
+}
+
+.topRight{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.messageBtn{
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:21px;
+  font-weight:700;
+}
+
+.profile{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
 }
 
 .search{
-  margin:20px;
-  background:#151821;
-  border:1px solid #303441;
-  border-radius:30px;
-  padding:15px 20px;
+  margin:18px 32px;
+  height:62px;
+  border-radius:35px;
+  background:#132334;
+  border:1px solid #1c344b;
   display:flex;
   align-items:center;
-  gap:10px;
+  padding:0 20px;
 }
+
+.search span{
+  font-size:31px;
+  color:#a9bdd7;
+}
+
 .search input{
-  width:100%;
+  flex:1;
+  background:none;
   border:0;
-  outline:0;
-  background:transparent;
-  color:white;
-  font-size:17px;
+  outline:none;
+  color:#fff;
+  font-size:20px;
+  padding-left:14px;
 }
-.search input::placeholder{color:#777b86}
 
-.trending{
-  padding:5px 20px 18px;
-  border-bottom:1px solid #252832;
+.search input::placeholder{
+  color:#91a6c0;
 }
-.trendingTitle{
-  font-size:21px;
-  font-weight:900;
-  margin-bottom:13px;
-}
-.tags{
+
+.stories{
   display:flex;
-  gap:9px;
+  gap:25px;
   overflow-x:auto;
-}
-.tags::-webkit-scrollbar{display:none}
-.tag{
-  white-space:nowrap;
-  background:#171a23;
-  border:1px solid #242936;
-  padding:9px 15px;
-  border-radius:22px;
-  color:#cfd1d8;
+  padding:12px 28px 20px;
+  scrollbar-width:none;
 }
 
-.feed{padding-top:8px}
-
-.card{
-  background:#101218;
-  border-bottom:1px solid #252832;
-  margin-bottom:12px;
+.stories::-webkit-scrollbar{
+  display:none;
 }
 
-.user{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  padding:14px 17px;
+.story{
+  min-width:105px;
+  text-align:center;
 }
-.avatar{
-  width:44px;
-  height:44px;
+
+.storyCircle{
+  width:96px;
+  height:96px;
+  margin:auto;
+  padding:4px;
   border-radius:50%;
-  background:linear-gradient(135deg,#ff1670,#613cff);
+  background:linear-gradient(135deg,#ff7a00,#ff1875,#8b35ff,#008cff);
+}
+
+.storyInner{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#081521;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:20px;
-  font-weight:900;
-}
-.username{font-weight:900}
-.meta{
-  color:#969aa5;
-  font-size:13px;
-  margin-top:4px;
+  overflow:hidden;
+  border:3px solid #06101a;
 }
 
-.dots{
-  margin-left:auto;
-  color:#aaa;
+.storyInner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.storyPlus{
+  font-size:45px;
+  color:#fff;
+}
+
+.storyName{
+  margin-top:9px;
+  font-size:16px;
+  color:#e8edf5;
+  white-space:nowrap;
+}
+
+.feed{
+  max-width:1050px;
+  margin:auto;
+  padding:0 26px;
+}
+
+.post{
+  background:linear-gradient(145deg,#071521,#06111c);
+  border:1px solid #173047;
+  border-radius:20px;
+  margin-bottom:18px;
+  overflow:hidden;
+}
+
+.postHeader{
+  display:flex;
+  align-items:center;
+  padding:18px 20px 10px;
+}
+
+.avatar{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-right:13px;
+}
+
+.userInfo{
+  flex:1;
+}
+
+.userName{
   font-size:20px;
+  font-weight:700;
+}
+
+.verified{
+  color:#168cff;
+}
+
+.time{
+  color:#91a6c0;
+  margin-top:4px;
+  font-size:15px;
+}
+
+.more{
+  font-size:28px;
+  color:#a9bdd7;
 }
 
 .postText{
-  padding:3px 17px 14px;
-  line-height:1.5;
-  font-size:16px;
+  padding:5px 20px 13px;
+  font-size:19px;
+  line-height:1.45;
 }
 
-.media{
-  width:100%;
-  min-height:310px;
-  background:linear-gradient(135deg,#24132c,#111525);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:35px 20px;
+.tags{
+  color:#52a9ff;
+  font-size:15px;
+  padding:0 20px 14px;
 }
-.media.reel{
-  min-height:390px;
-}
-.mediaEmoji{font-size:70px}
-.mediaText{
-  font-size:28px;
-  font-weight:900;
-  line-height:1.2;
+
+.postImage{
+  width:calc(100% - 40px);
+  margin:0 20px;
+  max-height:520px;
+  object-fit:cover;
+  border-radius:13px;
+  display:block;
 }
 
 .actions{
   display:flex;
-  gap:7px;
-  padding:10px 13px 5px;
+  justify-content:space-between;
+  padding:14px 20px 17px;
+  color:#b9c9dd;
 }
+
 .action{
   border:0;
-  background:transparent;
-  color:#d8dae0;
-  padding:7px 9px;
-  font-size:15px;
-}
-.action.liked{color:#ff3766}
-
-.source{
-  color:#737783;
-  font-size:12px;
-  padding:0 17px 14px;
+  background:none;
+  color:#b9c9dd;
+  font-size:17px;
 }
 
-.empty{
-  text-align:center;
-  color:#777b86;
-  padding:50px 20px;
+.action.liked{
+  color:#ff2759;
+}
+
+.action:hover{
+  color:#168cff;
 }
 
 .bottom{
   position:fixed;
-  bottom:0;
   left:0;
   right:0;
-  z-index:60;
-  height:78px;
-  background:rgba(8,9,13,.97);
-  border-top:1px solid #282b35;
+  bottom:0;
+  height:88px;
+  background:rgba(3,13,23,.98);
+  border-top:1px solid #173047;
   display:flex;
   justify-content:space-around;
   align-items:center;
+  z-index:100;
 }
+
 .navItem{
+  background:none;
   border:0;
-  background:transparent;
-  color:#a8abb5;
+  color:#a8bad1;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:4px;
-  font-size:12px;
+  gap:5px;
+  font-size:14px;
 }
-.navIcon{font-size:25px}
-.navItem.active{color:white}
 
-.postBtn{
-  width:55px;
-  height:48px;
-  border-radius:16px;
+.navIcon{
+  font-size:30px;
+}
+
+.navItem.active{
+  color:#168cff;
+}
+
+.postNav{
+  width:66px;
+  height:66px;
+  border-radius:50%;
   border:0;
-  background:#ff2455;
+  background:#168cff;
   color:white;
-  font-size:29px;
-  line-height:1;
+  font-size:42px;
+  box-shadow:0 0 25px rgba(22,140,255,.35);
+}
+
+.notificationBadge{
+  position:absolute;
+  background:#ff3158;
+  color:#fff;
+  font-size:12px;
+  font-weight:bold;
+  min-width:22px;
+  height:22px;
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-left:25px;
+  margin-top:-5px;
 }
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  z-index:100;
   background:rgba(0,0,0,.75);
-  align-items:flex-end;
+  z-index:200;
+  align-items:center;
   justify-content:center;
+  padding:20px;
 }
+
 .modalBox{
   width:100%;
-  max-width:680px;
-  background:#12141b;
-  border:1px solid #303441;
-  border-radius:25px 25px 0 0;
-  padding:22px;
+  max-width:480px;
   max-height:90vh;
   overflow:auto;
+  background:#091725;
+  border:1px solid #1d3a53;
+  border-radius:22px;
+  padding:24px;
 }
-.modalHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
+
+.modalTitle{
+  font-size:27px;
+  font-weight:800;
+  margin-bottom:20px;
 }
-.modalHead h2{margin:0}
+
 .close{
+  float:right;
+  background:none;
   border:0;
-  background:#252832;
-  color:white;
-  width:38px;
-  height:38px;
-  border-radius:50%;
+  color:#a9bdd7;
+  font-size:25px;
 }
 
-.typeRow{
-  display:flex;
-  gap:8px;
-  margin-bottom:15px;
-}
-.typeBtn{
-  flex:1;
-  border:1px solid #343845;
-  background:#181b24;
-  color:#ddd;
-  padding:11px;
-  border-radius:12px;
-}
-.typeBtn.selected{
-  background:#ff2455;
-  border-color:#ff2455;
-  color:white;
-}
-
-textarea{
+.formInput,
+.formTextarea{
   width:100%;
-  min-height:130px;
-  resize:none;
-  border:1px solid #343845;
-  border-radius:15px;
-  background:#0d0f14;
-  color:white;
-  padding:15px;
+  background:#132334;
+  border:1px solid #28435b;
+  color:#fff;
+  border-radius:13px;
+  padding:14px;
+  margin-bottom:12px;
   outline:none;
+  font-size:16px;
 }
+
+.formTextarea{
+  min-height:130px;
+  resize:vertical;
+}
+
 .primary{
   width:100%;
   border:0;
-  background:#ff2455;
-  color:white;
-  padding:14px;
-  border-radius:14px;
-  font-weight:900;
-  margin-top:13px;
-}
-
-.loginInput{
-  width:100%;
-  background:#0d0f14;
-  color:white;
-  border:1px solid #343845;
   border-radius:13px;
+  background:#168cff;
+  color:#fff;
   padding:14px;
-  margin-bottom:10px;
-  outline:none;
+  font-size:17px;
+  font-weight:bold;
 }
 
-.notice{
-  background:#191c25;
-  border:1px solid #303441;
-  border-radius:14px;
+.secondary{
+  width:100%;
+  border:1px solid #31506b;
+  border-radius:13px;
+  background:#101f2e;
+  color:#fff;
   padding:13px;
-  margin-bottom:12px;
-  color:#c9cbd2;
-  font-size:14px;
+  margin-top:10px;
 }
 
-.communityBox{
-  margin:15px 20px;
-  padding:18px;
-  border:1px solid #303441;
-  border-radius:18px;
-  background:#12151c;
+.loginText{
+  text-align:center;
+  color:#a9bdd7;
+  margin-top:15px;
 }
-.communityBox h3{margin:0 0 7px}
 
-@media(max-width:500px){
-  .top{padding:0 12px;height:76px}
-  .logo{font-size:27px}
-  .topBtn{padding:11px 12px;font-size:13px}
-  .container{padding-bottom:90px}
+.chatUser{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 5px;
+  border-bottom:1px solid #193044;
+}
+
+.chatUser img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+}
+
+.chatInfo{
+  flex:1;
+}
+
+.chatName{
+  font-weight:bold;
+  font-size:17px;
+}
+
+.chatPreview{
+  color:#8ea3ba;
+  margin-top:4px;
+}
+
+.notification{
+  padding:15px 5px;
+  border-bottom:1px solid #193044;
+}
+
+.notification strong{
+  color:#fff;
+}
+
+.notification small{
+  display:block;
+  color:#8499af;
+  margin-top:4px;
+}
+
+.reelsBox{
+  display:none;
+}
+
+.sectionTitle{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:10px 0 15px;
+  font-size:25px;
+}
+
+.empty{
+  text-align:center;
+  color:#8da3ba;
+  padding:40px 10px;
+}
+
+@media(max-width:600px){
+
+  .top{
+    height:72px;
+    padding:0 15px;
+  }
+
+  .topLeft{
+    font-size:17px;
+    padding:15px 5px 12px;
+  }
+
+  .logo{
+    font-size:30px;
+  }
+
+  .topRight{
+    gap:8px;
+  }
+
+  .messageBtn{
+    font-size:0;
+  }
+
+  .messageBtn:first-letter{
+    font-size:30px;
+  }
+
+  .profile{
+    width:38px;
+    height:38px;
+  }
+
+  .search{
+    margin:14px 15px;
+    height:52px;
+  }
+
+  .search input{
+    font-size:16px;
+  }
+
+  .stories{
+    padding:8px 15px 18px;
+    gap:17px;
+  }
+
+  .story{
+    min-width:78px;
+  }
+
+  .storyCircle{
+    width:70px;
+    height:70px;
+  }
+
+  .storyPlus{
+    font-size:34px;
+  }
+
+  .storyName{
+    font-size:13px;
+  }
+
+  .feed{
+    padding:0 10px;
+  }
+
+  .post{
+    border-radius:16px;
+  }
+
+  .postHeader{
+    padding:15px 14px 8px;
+  }
+
+  .avatar{
+    width:43px;
+    height:43px;
+  }
+
+  .userName{
+    font-size:17px;
+  }
+
+  .postText{
+    padding:5px 14px 12px;
+    font-size:17px;
+  }
+
+  .tags{
+    padding:0 14px 12px;
+  }
+
+  .postImage{
+    width:calc(100% - 28px);
+    margin:0 14px;
+  }
+
+  .actions{
+    padding:13px 14px;
+  }
+
+  .action{
+    font-size:14px;
+  }
+
+  .bottom{
+    height:76px;
+  }
+
+  .navIcon{
+    font-size:25px;
+  }
+
+  .postNav{
+    width:58px;
+    height:58px;
+    font-size:35px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
 <header class="top">
-  <button class="topBtn" onclick="showCommunity()">👥 Community</button>
 
-  <div class="logo">two<span>4</span>nine</div>
+  <button class="topLeft" onclick="showNews()">
+    📰 News
+  </button>
 
-  <button class="topBtn newsBtn" onclick="showNews()">📰 News</button>
+  <div class="logo">
+    two<span>4</span>nine
+  </div>
+
+  <div class="topRight">
+
+    <button class="messageBtn" onclick="openMessages()">
+      💬
+    </button>
+
+    <img
+      class="profile"
+      src="https://i.pravatar.cc/100?img=12"
+      alt="Profile"
+    >
+
+  </div>
 </header>
 
-<main class="container">
 
-  <div class="search">
-    🔍
-    <input id="searchInput"
-      placeholder="Search people, memes, news..."
-      oninput="searchFeed()">
-  </div>
+<!-- SEARCH -->
+<div class="search">
+  <span>⌕</span>
+  <input
+    id="searchInput"
+    type="text"
+    placeholder="Search people, memes, news..."
+    oninput="searchFeed()"
+  >
+</div>
 
-  <section class="trending">
-    <div class="trendingTitle">🔥 Trending now</div>
-    <div class="tags">
-      <span class="tag">#two4nine</span>
-      <span class="tag">#India</span>
-      <span class="tag">#Technology</span>
-      <span class="tag">#Sports</span>
-      <span class="tag">#Memes</span>
+
+<!-- STORIES -->
+<div class="stories">
+
+  <div class="story" onclick="createStory()">
+    <div class="storyCircle">
+      <div class="storyInner">
+        <div class="storyPlus">+</div>
+      </div>
     </div>
-  </section>
-
-  <div id="communityBox" class="communityBox" style="display:none">
-    <h3>👥 Community</h3>
-    <div>Talk, share, discuss and connect with people.</div>
+    <div class="storyName">Your Story</div>
   </div>
 
-  <section id="feed" class="feed">
-    <div class="empty">Loading two4nine...</div>
+  <div class="story" onclick="viewStory('Rahul')">
+    <div class="storyCircle">
+      <div class="storyInner">
+        <img src="https://i.pravatar.cc/200?img=12">
+      </div>
+    </div>
+    <div class="storyName">Rahul</div>
+  </div>
+
+  <div class="story" onclick="viewStory('Priya')">
+    <div class="storyCircle">
+      <div class="storyInner">
+        <img src="https://i.pravatar.cc/200?img=47">
+      </div>
+    </div>
+    <div class="storyName">Priya</div>
+  </div>
+
+  <div class="story" onclick="viewStory('Trending')">
+    <div class="storyCircle">
+      <div class="storyInner">
+        <span style="font-size:43px;">🔥</span>
+      </div>
+    </div>
+    <div class="storyName">Trending</div>
+  </div>
+
+  <div class="story" onclick="showNews()">
+    <div class="storyCircle">
+      <div class="storyInner">
+        <span style="font-size:42px;">📰</span>
+      </div>
+    </div>
+    <div class="storyName">News</div>
+  </div>
+
+  <div class="story" onclick="showReels()">
+    <div class="storyCircle">
+      <div class="storyInner">
+        <span style="font-size:42px;">🎬</span>
+      </div>
+    </div>
+    <div class="storyName">Reels</div>
+  </div>
+
+  <div class="story" onclick="showMemes()">
+    <div class="storyCircle">
+      <div class="storyInner">
+        <span style="font-size:42px;">😂</span>
+      </div>
+    </div>
+    <div class="storyName">Memes</div>
+  </div>
+
+</div>
+
+
+<!-- FEED -->
+<main class="feed" id="feed">
+
+
+  <!-- USER POST -->
+  <article class="post searchable">
+
+    <div class="postHeader">
+
+      <img
+        class="avatar"
+        src="https://i.pravatar.cc/100?img=12"
+      >
+
+      <div class="userInfo">
+
+        <div class="userName">
+          Rohit Sharma <span class="verified">✔</span>
+        </div>
+
+        <div class="time">
+          2 hours ago · 🌐
+        </div>
+
+      </div>
+
+      <div class="more">⋮</div>
+
+    </div>
+
+    <div class="postText">
+      Zindagi ek hi baar milti hai, isliye har pal ko
+      khas banao 💯
+    </div>
+
+    <img
+      class="postImage"
+      src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+    >
+
+    <div class="actions">
+
+      <button class="action" onclick="likePost(this)">
+        ❤️ 1.2K
+      </button>
+
+      <button class="action" onclick="openComments()">
+        💬 245
+      </button>
+
+      <button class="action" onclick="sharePost()">
+        ↗ 120
+      </button>
+
+      <button class="action">
+        🔖
+      </button>
+
+    </div>
+
+  </article>
+
+
+  <!-- NEWS POST -->
+  <article class="post searchable">
+
+    <div class="postHeader">
+
+      <img
+        class="avatar"
+        src="https://i.pravatar.cc/100?img=5"
+      >
+
+      <div class="userInfo">
+
+        <div class="userName">
+          Breaking News <span class="verified">✔</span>
+        </div>
+
+        <div class="time">
+          3 hours ago · 🌐
+        </div>
+
+      </div>
+
+      <div class="more">⋮</div>
+
+    </div>
+
+    <div class="postText">
+      India ने चाँद पर एक और बड़ी सफलता हासिल की है।
+      ISRO के वैज्ञानिकों ने मिशन को सफलतापूर्वक पूरा किया।
+    </div>
+
+    <div class="tags">
+      #Space #ISRO #India
+    </div>
+
+    <img
+      class="postImage"
+      src="https://images.unsplash.com/photo-1517976547714-720226b864c1?auto=format&fit=crop&w=1200&q=80"
+    >
+
+    <div class="actions">
+
+      <button class="action" onclick="likePost(this)">
+        ❤️ 4.8K
+      </button>
+
+      <button class="action" onclick="openComments()">
+        💬 612
+      </button>
+
+      <button class="action" onclick="sharePost()">
+        ↗ 420
+      </button>
+
+      <button class="action">
+        🔖
+      </button>
+
+    </div>
+
+  </article>
+
+
+  <!-- MEME POST -->
+  <article class="post searchable">
+
+    <div class="postHeader">
+
+      <img
+        class="avatar"
+        src="https://i.pravatar.cc/100?img=9"
+      >
+
+      <div class="userInfo">
+
+        <div class="userName">
+          Meme Zone <span class="verified">✔</span>
+        </div>
+
+        <div class="time">
+          5 hours ago · 🌐
+        </div>
+
+      </div>
+
+      <div class="more">⋮</div>
+
+    </div>
+
+    <div class="postText">
+      When you say “I'll just watch one more episode”
+      ... and it becomes 5 AM. 😂
+    </div>
+
+    <img
+      class="postImage"
+      src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80"
+    >
+
+    <div class="actions">
+
+      <button class="action" onclick="likePost(this)">
+        ❤️ 8.7K
+      </button>
+
+      <button class="action" onclick="openComments()">
+        💬 921
+      </button>
+
+      <button class="action" onclick="sharePost()">
+        ↗ 310
+      </button>
+
+      <button class="action">
+        🔖
+      </button>
+
+    </div>
+
+  </article>
+
+
+  <!-- REELS -->
+  <section id="reelsSection" class="reelsBox">
+
+    <div class="sectionTitle">
+      <span>🎬 Reels</span>
+      <span>🔥 Trending</span>
+    </div>
+
+    <article class="post">
+
+      <div class="postHeader">
+
+        <img
+          class="avatar"
+          src="https://i.pravatar.cc/100?img=32"
+        >
+
+        <div class="userInfo">
+
+          <div class="userName">
+            Trending Creator ✔
+          </div>
+
+          <div class="time">
+            20 minutes ago
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="postText">
+        POV: जब दोस्त बोलता है "बस 5 मिनट में आ रहा हूँ" 😂
+      </div>
+
+      <div style="
+        height:420px;
+        margin:0 14px;
+        border-radius:15px;
+        background:linear-gradient(145deg,#142d48,#321b4b);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:70px;
+      ">
+        ▶️
+      </div>
+
+      <div class="actions">
+
+        <button class="action">❤️ 24K</button>
+        <button class="action">💬 1.2K</button>
+        <button class="action">↗ 4K</button>
+        <button class="action">🔖</button>
+
+      </div>
+
+    </article>
+
   </section>
 
 </main>
 
+
+<!-- BOTTOM NAV -->
 <nav class="bottom">
 
-  <button class="navItem active" onclick="home()">
-    <span class="navIcon">🏠</span>
-    Home
+  <button class="navItem active" onclick="goHome()">
+    <div class="navIcon">⌂</div>
+    <div>Home</div>
+  </button>
+
+  <button class="navItem" onclick="focusSearch()">
+    <div class="navIcon">⌕</div>
+    <div>Search</div>
+  </button>
+
+  <button class="postNav" onclick="openPostModal()">
+    +
   </button>
 
   <button class="navItem" onclick="showReels()">
-    <span class="navIcon">🎬</span>
-    Reels
+    <div class="navIcon">🎬</div>
+    <div>Reels</div>
   </button>
 
-  <button class="navItem" onclick="openPost()">
-    <span class="postBtn">+</span>
-    Post
-  </button>
-
-  <button class="navItem" onclick="showMemes()">
-    <span class="navIcon">😂</span>
-    Meme
-  </button>
-
-  <button class="navItem" onclick="openAlerts()">
-    <span class="navIcon">🔔</span>
-    Alerts
+  <button class="navItem" onclick="openNotifications()">
+    <div class="navIcon" style="position:relative;">
+      🔔
+      <span class="notificationBadge">3</span>
+    </div>
+    <div>Notifications</div>
   </button>
 
 </nav>
 
+
 <!-- POST MODAL -->
-<div id="postModal" class="modal">
+<div class="modal" id="postModal">
+
   <div class="modalBox">
 
-    <div class="modalHead">
-      <h2>Create</h2>
-      <button class="close" onclick="closePost()">×</button>
+    <button class="close" onclick="closeModal('postModal')">
+      ×
+    </button>
+
+    <div class="modalTitle">
+      Create Post
     </div>
 
-    <div class="typeRow">
-      <button id="typePost" class="typeBtn selected"
-        onclick="setType('post')">📝 Post</button>
+    <textarea
+      id="postText"
+      class="formTextarea"
+      placeholder="What's on your mind?"
+    ></textarea>
 
-      <button id="typeMeme" class="typeBtn"
-        onclick="setType('meme')">😂 Meme</button>
+    <input
+      id="postImage"
+      class="formInput"
+      placeholder="Image URL (optional)"
+    >
 
-      <button id="typeReel" class="typeBtn"
-        onclick="setType('reel')">🎬 Reel</button>
-    </div>
-
-    <textarea id="postText"
-      placeholder="What's happening? Share something..."></textarea>
-
-    <button class="primary" onclick="publishPost()">
-      Publish
+    <button
+      class="primary"
+      onclick="createPost()"
+    >
+      Publish Post
     </button>
 
   </div>
+
 </div>
 
+
 <!-- LOGIN MODAL -->
-<div id="loginModal" class="modal">
+<div class="modal" id="loginModal">
+
   <div class="modalBox">
 
-    <div class="modalHead">
-      <h2>Login / Sign up</h2>
-      <button class="close" onclick="closeLogin()">×</button>
+    <button class="close" onclick="closeModal('loginModal')">
+      ×
+    </button>
+
+    <div class="modalTitle">
+      Login / Signup
     </div>
 
-    <div class="notice">
-      👤 Create your two4nine account to post and interact.
-    </div>
+    <input
+      id="email"
+      class="formInput"
+      type="email"
+      placeholder="Email"
+    >
 
-    <input id="email" class="loginInput"
-      type="email" placeholder="Email">
+    <input
+      id="password"
+      class="formInput"
+      type="password"
+      placeholder="Password"
+    >
 
-    <input id="password" class="loginInput"
-      type="password" placeholder="Password">
-
-    <button class="primary" onclick="login()">
+    <button
+      class="primary"
+      onclick="loginUser()"
+    >
       Login
     </button>
 
-    <button class="primary"
-      style="background:#252832"
-      onclick="signup()">
-      Create account
+    <button
+      class="secondary"
+      onclick="signupUser()"
+    >
+      Create Account
     </button>
 
-    <button class="action"
-      style="width:100%;margin-top:8px"
-      onclick="forgotPassword()">
-      Forgot password?
-    </button>
+    <div class="loginText">
+      Login karke posts create kar sakte ho.
+    </div>
 
   </div>
+
 </div>
 
-<!-- ALERT MODAL -->
-<div id="alertModal" class="modal">
+
+<!-- MESSAGE MODAL -->
+<div class="modal" id="messageModal">
+
   <div class="modalBox">
-    <div class="modalHead">
-      <h2>🔔 Notifications</h2>
-      <button class="close" onclick="closeAlerts()">×</button>
+
+    <button class="close" onclick="closeModal('messageModal')">
+      ×
+    </button>
+
+    <div class="modalTitle">
+      💬 Messages
     </div>
 
-    <div class="notice">
-      🎉 Welcome to two4nine!
+    <div class="chatUser" onclick="openChat('Priya')">
+
+      <img src="https://i.pravatar.cc/100?img=47">
+
+      <div class="chatInfo">
+
+        <div class="chatName">
+          Priya
+        </div>
+
+        <div class="chatPreview">
+          Hi! 👋
+        </div>
+
+      </div>
+
+      <span>2m</span>
+
     </div>
 
-    <div class="notice">
-      🔥 Trending content is appearing in your feed.
+
+    <div class="chatUser" onclick="openChat('Rahul')">
+
+      <img src="https://i.pravatar.cc/100?img=12">
+
+      <div class="chatInfo">
+
+        <div class="chatName">
+          Rahul
+        </div>
+
+        <div class="chatPreview">
+          Kya kar rahe ho?
+        </div>
+
+      </div>
+
+      <span>8m</span>
+
     </div>
 
-    <div class="notice">
-      👥 More community features are coming soon.
+
+    <div class="chatUser" onclick="openChat('Sneha')">
+
+      <img src="https://i.pravatar.cc/100?img=45">
+
+      <div class="chatInfo">
+
+        <div class="chatName">
+          Sneha
+        </div>
+
+        <div class="chatPreview">
+          Photo bheji hai
+        </div>
+
+      </div>
+
+      <span>12m</span>
+
     </div>
+
+
+    <div class="chatUser" onclick="openChat('Aman')">
+
+      <img src="https://i.pravatar.cc/100?img=13">
+
+      <div class="chatInfo">
+
+        <div class="chatName">
+          Aman
+        </div>
+
+        <div class="chatPreview">
+          Kal milte hain?
+        </div>
+
+      </div>
+
+      <span>1h</span>
+
+    </div>
+
   </div>
+
 </div>
 
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+
+<!-- NOTIFICATIONS MODAL -->
+<div class="modal" id="notificationModal">
+
+  <div class="modalBox">
+
+    <button class="close" onclick="closeModal('notificationModal')">
+      ×
+    </button>
+
+    <div class="modalTitle">
+      🔔 Notifications
+    </div>
+
+    <div class="notification">
+      ❤️ <strong>Rahul</strong> liked your post.
+      <small>2 minutes ago</small>
+    </div>
+
+    <div class="notification">
+      💬 <strong>Priya</strong> commented on your post.
+      <small>10 minutes ago</small>
+    </div>
+
+    <div class="notification">
+      👤 <strong>Aman</strong> started following you.
+      <small>25 minutes ago</small>
+    </div>
+
+    <div class="notification">
+      🔥 Your post is trending!
+      <small>1 hour ago</small>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- STORY MODAL -->
+<div class="modal" id="storyModal">
+
+  <div class="modalBox">
+
+    <button class="close" onclick="closeModal('storyModal')">
+      ×
+    </button>
+
+    <div class="modalTitle" id="storyTitle">
+      Story
+    </div>
+
+    <div style="
+      height:450px;
+      border-radius:18px;
+      background:linear-gradient(145deg,#071a2b,#37102e);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:26px;
+      padding:25px;
+    " id="storyContent">
+      Story
+    </div>
+
+  </div>
+
+</div>
+
 
 <script>
+
+/* =========================
+   FIREBASE
+========================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
@@ -521,672 +1259,4 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
-const db = firebase.firestore();
-
-let currentUser = null;
-let currentType = "post";
-let allItems = [];
-
-/* AUTH */
-
-auth.onAuthStateChanged(user => {
-  currentUser = user;
-  loadFeed();
-});
-
-/* LOGIN */
-
-function openLogin(){
-  document.getElementById("loginModal").style.display="flex";
-}
-
-function closeLogin(){
-  document.getElementById("loginModal").style.display="none";
-}
-
-async function login(){
-  const email=document.getElementById("email").value.trim();
-  const password=document.getElementById("password").value;
-
-  if(!email || !password){
-    alert("Email aur password enter karo.");
-    return;
-  }
-
-  try{
-    await auth.signInWithEmailAndPassword(email,password);
-    closeLogin();
-    alert("Login successful 🎉");
-  }catch(e){
-    alert(e.message);
-  }
-}
-
-async function signup(){
-  const email=document.getElementById("email").value.trim();
-  const password=document.getElementById("password").value;
-
-  if(!email || password.length<6){
-    alert("Valid email aur minimum 6 character password chahiye.");
-    return;
-  }
-
-  try{
-    await auth.createUserWithEmailAndPassword(email,password);
-    closeLogin();
-    alert("Account created 🎉");
-  }catch(e){
-    alert(e.message);
-  }
-}
-
-async function forgotPassword(){
-  const email=document.getElementById("email").value.trim();
-
-  if(!email){
-    alert("Pehle email enter karo.");
-    return;
-  }
-
-  try{
-    await auth.sendPasswordResetEmail(email);
-    alert("Password reset email bhej diya gaya.");
-  }catch(e){
-    alert(e.message);
-  }
-}
-
-/* POST */
-
-function openPost(){
-
-  if(!currentUser){
-    openLogin();
-    return;
-  }
-
-  document.getElementById("postModal").style.display="flex";
-}
-
-function closePost(){
-  document.getElementById("postModal").style.display="none";
-}
-
-function setType(type){
-
-  currentType=type;
-
-  document.querySelectorAll(".typeBtn")
-    .forEach(x=>x.classList.remove("selected"));
-
-  if(type==="post")
-    document.getElementById("typePost").classList.add("selected");
-
-  if(type==="meme")
-    document.getElementById("typeMeme").classList.add("selected");
-
-  if(type==="reel")
-    document.getElementById("typeReel").classList.add("selected");
-}
-
-async function publishPost(){
-
-  if(!currentUser){
-    openLogin();
-    return;
-  }
-
-  const text=document.getElementById("postText").value.trim();
-
-  if(!text){
-    alert("Kuchh likho pehle 🙂");
-    return;
-  }
-
-  try{
-
-    await db.collection("posts").add({
-
-      uid:currentUser.uid,
-
-      email:currentUser.email,
-
-      type:currentType,
-
-      text:text,
-
-      likes:[],
-
-      comments:[],
-
-      createdAt:firebase.firestore.FieldValue.serverTimestamp()
-
-    });
-
-    document.getElementById("postText").value="";
-
-    closePost();
-
-    alert("Post published 🎉");
-
-    loadFeed();
-
-  }catch(e){
-
-    console.error(e);
-
-    alert(
-      "Post save nahi hua.\n\n" +
-      "Agar Permission Denied aaye to Firebase Firestore Rules update karni hongi."
-    );
-
-  }
-}
-
-/* FIRESTORE FEED */
-
-async function loadFeed(){
-
-  const feed=document.getElementById("feed");
-
-  feed.innerHTML='<div class="empty">Loading feed...</div>';
-
-  allItems=[];
-
-  try{
-
-    const snap=await db
-      .collection("posts")
-      .limit(50)
-      .get();
-
-    snap.forEach(doc=>{
-
-      const d=doc.data();
-
-      allItems.push({
-        id:doc.id,
-        kind:"post",
-        ...d
-      });
-
-    });
-
-  }catch(e){
-
-    console.log("Firestore:",e.message);
-
-  }
-
-  /* Demo + real feed content */
-
-  allItems.push({
-
-    id:"demo-news-1",
-    kind:"news",
-    type:"news",
-    text:"Latest news stories will appear here automatically.",
-    source:"Google News",
-    createdAt:null
-  });
-
-  allItems.push({
-
-    id:"demo-meme-1",
-    kind:"meme",
-    type:"meme",
-    text:"When you open two4nine just for 5 minutes 😂",
-    createdAt:null
-  });
-
-  allItems.push({
-
-    id:"demo-reel-1",
-    kind:"reel",
-    type:"reel",
-    text:"Your next viral moment starts here 🚀",
-    createdAt:null
-  });
-
-  renderFeed(allItems);
-
-}
-
-/* RENDER */
-
-function renderFeed(items){
-
-  const feed=document.getElementById("feed");
-
-  if(!items.length){
-    feed.innerHTML='<div class="empty">Nothing here yet.</div>';
-    return;
-  }
-
-  feed.innerHTML="";
-
-  items.forEach(item=>{
-
-    const card=document.createElement("article");
-
-    card.className="card";
-
-    let name="two4nine";
-    let avatar="T";
-    let typeLabel="Post";
-
-    if(item.kind==="news"){
-      name="two4nine News";
-      avatar="📰";
-      typeLabel="News";
-    }
-
-    if(item.kind==="meme"){
-      name="two4nine";
-      avatar="😂";
-      typeLabel="Meme";
-    }
-
-    if(item.kind==="reel"){
-      name="two4nine";
-      avatar="🎬";
-      typeLabel="Reel";
-    }
-
-    if(item.kind==="post"){
-
-      name=item.email
-        ? item.email.split("@")[0]
-        : "two4nine User";
-
-      avatar=name.charAt(0).toUpperCase();
-
-      typeLabel=item.type || "Post";
-
-    }
-
-    let media="";
-
-    if(item.kind==="news"){
-
-      media=`
-        <div class="media">
-          <div>
-            <div class="mediaEmoji">📰</div>
-            <div class="mediaText">News inside your main feed</div>
-          </div>
-        </div>
-      `;
-
-    }else if(item.kind==="meme"){
-
-      media=`
-        <div class="media">
-          <div>
-            <div class="mediaEmoji">😂</div>
-            <div class="mediaText">${escapeHtml(item.text)}</div>
-          </div>
-        </div>
-      `;
-
-    }else if(item.kind==="reel"){
-
-      media=`
-        <div class="media reel">
-          <div>
-            <div class="mediaEmoji">▶️</div>
-            <div class="mediaText">${escapeHtml(item.text)}</div>
-          </div>
-        </div>
-      `;
-
-    }
-
-    let text="";
-
-    if(item.kind==="post" && item.type==="post"){
-      text=`
-        <div class="postText">
-          ${escapeHtml(item.text)}
-        </div>
-      `;
-    }
-
-    let actions="";
-
-    if(item.kind==="post"){
-
-      const liked =
-        item.likes &&
-        currentUser &&
-        item.likes.includes(currentUser.uid);
-
-      const likeCount =
-        item.likes ? item.likes.length : 0;
-
-      actions=`
-        <div class="actions">
-
-          <button
-            class="action ${liked?'liked':''}"
-            onclick="likePost('${item.id}')">
-            ${liked?'❤️':'🤍'} ${likeCount}
-          </button>
-
-          <button
-            class="action"
-            onclick="commentPost('${item.id}')">
-            💬 Comment
-          </button>
-
-          <button
-            class="action"
-            onclick="sharePost()">
-            ↗️ Share
-          </button>
-
-        </div>
-      `;
-    }
-
-    card.innerHTML=`
-
-      <div class="user">
-
-        <div class="avatar">${avatar}</div>
-
-        <div>
-          <div class="username">${escapeHtml(name)}</div>
-          <div class="meta">
-            ${typeLabel} • ${timeText(item.createdAt)}
-          </div>
-        </div>
-
-        <div class="dots">•••</div>
-
-      </div>
-
-      ${media}
-
-      ${text}
-
-      ${actions}
-
-      ${
-        item.source
-        ? `<div class="source">Source: ${escapeHtml(item.source)}</div>`
-        : ""
-      }
-
-    `;
-
-    feed.appendChild(card);
-
-  });
-
-}
-
-/* LIKE */
-
-async function likePost(id){
-
-  if(!currentUser){
-    openLogin();
-    return;
-  }
-
-  try{
-
-    const ref=db.collection("posts").doc(id);
-
-    const snap=await ref.get();
-
-    if(!snap.exists)return;
-
-    const data=snap.data();
-
-    let likes=data.likes || [];
-
-    if(likes.includes(currentUser.uid)){
-
-      likes=likes.filter(
-        uid=>uid!==currentUser.uid
-      );
-
-    }else{
-
-      likes.push(currentUser.uid);
-
-    }
-
-    await ref.update({likes:likes});
-
-    loadFeed();
-
-  }catch(e){
-
-    alert(e.message);
-
-  }
-
-}
-
-/* COMMENTS */
-
-async function commentPost(id){
-
-  if(!currentUser){
-    openLogin();
-    return;
-  }
-
-  const text=prompt("Comment likho:");
-
-  if(!text)return;
-
-  try{
-
-    const ref=db.collection("posts").doc(id);
-
-    const snap=await ref.get();
-
-    const data=snap.data();
-
-    const comments=data.comments || [];
-
-    comments.push({
-
-      uid:currentUser.uid,
-
-      email:currentUser.email,
-
-      text:text,
-
-      time:Date.now()
-
-    });
-
-    await ref.update({
-      comments:comments
-    });
-
-    alert("Comment added 💬");
-
-  }catch(e){
-
-    alert(e.message);
-
-  }
-
-}
-
-/* SHARE */
-
-function sharePost(){
-
-  if(navigator.share){
-
-    navigator.share({
-      title:"two4nine",
-      text:"Check this out on two4nine!",
-      url:location.href
-    });
-
-  }else{
-
-    navigator.clipboard.writeText(location.href);
-
-    alert("Link copied 🔗");
-
-  }
-
-}
-
-/* SEARCH */
-
-function searchFeed(){
-
-  const q=
-    document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase()
-    .trim();
-
-  if(!q){
-
-    renderFeed(allItems);
-
-    return;
-
-  }
-
-  const filtered=allItems.filter(item=>{
-
-    return (
-
-      (item.text || "")
-        .toLowerCase()
-        .includes(q)
-
-      ||
-
-      (item.email || "")
-        .toLowerCase()
-        .includes(q)
-
-      ||
-
-      (item.source || "")
-        .toLowerCase()
-        .includes(q)
-
-    );
-
-  });
-
-  renderFeed(filtered);
-
-}
-
-/* NAV */
-
-function home(){
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-  document
-    .getElementById("communityBox")
-    .style.display="none";
-
-}
-
-function showCommunity(){
-
-  const box=document.getElementById("communityBox");
-
-  box.style.display="block";
-
-  box.scrollIntoView({
-    behavior:"smooth"
-  });
-
-}
-
-function showNews(){
-
-  const news=allItems.filter(
-    x=>x.kind==="news"
-  );
-
-  renderFeed(news);
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-function showReels(){
-
-  const reels=allItems.filter(
-    x=>x.kind==="reel"
-  );
-
-  renderFeed(reels);
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-function showMemes(){
-
-  const memes=allItems.filter(
-    x=>x.kind==="meme"
-  );
-
-  renderFeed(memes);
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-function openAlerts(){
-
-  document
-    .getElementById("alertModal")
-    .style.display="flex";
-
-}
-
-function closeAlerts(){
-
-  document
-    .getElementById("alertModal")
-    .style.display="none";
-
-}
-
-/* UTILS */
-
-function timeText(timestamp){
-
-  if(!timestamp)return"now";
-
-  try{
-
-    const date=timestamp.toDate
-      ? timestamp.toDate()
-      : new Date(timestamp);
-
-    const mins=
+const db
