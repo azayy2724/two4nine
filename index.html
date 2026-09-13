@@ -2,27 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<meta
-  name="theme-color"
-  content="#080b12"
->
-
-<title>two4nine • World News & Memes</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#070b10">
+<meta name="description" content="two4nine - World News, Technology, Trends and Internet Memes">
+<title>two4nine — World News & Memes</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
@@ -30,14 +19,15 @@ html{
 }
 
 body{
-  margin:0;
-  background:#070a10;
-  color:#f5f7fb;
-  font-family:
-    Inter,
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#070b10;
+  color:#eef3f8;
+  min-height:100vh;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 button,
@@ -46,1149 +36,612 @@ input{
 }
 
 button{
+  border:0;
   cursor:pointer;
 }
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-
-/* =========================================================
-   APP
-========================================================= */
-
-.app{
-  max-width:1180px;
-  margin:auto;
-  min-height:100vh;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
 
 .header{
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:50;
+  background:rgba(7,11,16,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid #18212c;
+}
 
-  height:68px;
-
+.headerInner{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 18px;
   display:flex;
   align-items:center;
-  gap:16px;
-
-  padding:0 18px;
-
-  background:
-    rgba(7,10,16,.94);
-
-  border-bottom:
-    1px solid rgba(255,255,255,.08);
-
-  backdrop-filter:
-    blur(16px);
+  gap:18px;
 }
 
 .logo{
-  font-size:26px;
-  font-weight:1000;
-  letter-spacing:-1.5px;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-1px;
   white-space:nowrap;
 }
 
 .logo span{
-  color:#35e0a0;
+  color:#32e6a1;
 }
 
 .live{
-  display:flex;
-  align-items:center;
-  gap:6px;
-
-  padding:6px 9px;
-
-  border-radius:20px;
-
-  background:#ff314a15;
-  color:#ff6476;
-
   font-size:10px;
-  font-weight:900;
+  font-weight:800;
+  color:#ff6c87;
+  background:#21101a;
+  border:1px solid #3b1825;
+  border-radius:30px;
+  padding:6px 9px;
+  white-space:nowrap;
 }
 
 .liveDot{
-  width:7px;
-  height:7px;
-
+  display:inline-block;
+  width:6px;
+  height:6px;
+  background:#ff416d;
   border-radius:50%;
-
-  background:#ff4056;
-
-  box-shadow:
-    0 0 10px #ff4056;
+  margin-right:4px;
+  box-shadow:0 0 8px #ff416d;
 }
 
-.search{
+.searchBox{
   margin-left:auto;
-
-  width:min(300px,42vw);
-
+  width:min(300px,48vw);
   position:relative;
 }
 
-.search input{
+.searchBox input{
   width:100%;
-
-  padding:
-    10px
-    38px
-    10px
-    14px;
-
-  border:
-    1px solid rgba(255,255,255,.09);
-
-  border-radius:13px;
-
+  background:#101722;
+  border:1px solid #202b39;
+  color:#fff;
   outline:none;
-
-  background:#101722;
-
-  color:white;
+  border-radius:14px;
+  padding:11px 40px 11px 14px;
 }
 
-.search span{
+.searchBox input:focus{
+  border-color:#32e6a1;
+}
+
+.searchIcon{
   position:absolute;
-  right:12px;
-  top:9px;
-
-  color:#78879b;
+  right:13px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#8792a2;
 }
 
+.categories{
+  border-bottom:1px solid #111923;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
 
-/* =========================================================
-   DESKTOP NAV
-========================================================= */
+.categories::-webkit-scrollbar{
+  display:none;
+}
 
-.topNav{
+.categoryInner{
+  max-width:1200px;
+  margin:auto;
+  padding:10px 18px;
   display:flex;
-  gap:8px;
-
-  padding:
-    12px 18px;
-
-  overflow:auto;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.05);
+  gap:7px;
 }
 
-.topNav button{
-  border:0;
-
+.cat{
+  flex:0 0 auto;
   background:#101722;
-
-  color:#9ba9bb;
-
-  padding:
-    9px 14px;
-
+  color:#aeb8c6;
+  padding:8px 13px;
   border-radius:10px;
-
-  white-space:nowrap;
-
   font-size:12px;
   font-weight:800;
+  border:1px solid #151e29;
 }
 
-.topNav button.active{
-  background:#35e0a0;
-  color:#03130d;
+.cat:hover,
+.cat.active{
+  color:#06120d;
+  background:#32e6a1;
+  border-color:#32e6a1;
 }
 
-
-/* =========================================================
-   BIRTHDAY
-========================================================= */
-
-.birthday{
-  display:none;
-
-  margin:16px 18px 0;
-
-  padding:22px;
-
-  border-radius:22px;
-
-  position:relative;
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      120deg,
-      #26143e,
-      #132c43,
-      #341327
-    );
-
-  border:
-    1px solid rgba(255,255,255,.12);
-
-  box-shadow:
-    0 15px 50px rgba(0,0,0,.3);
-
-  text-align:center;
+.container{
+  width:min(1160px,calc(100% - 32px));
+  margin:auto;
 }
-
-.birthday.show{
-  display:block;
-}
-
-.birthday:before{
-  content:"";
-
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
-  border-radius:50%;
-
-  background:#35e0a022;
-
-  left:-70px;
-  top:-80px;
-}
-
-.birthday:after{
-  content:"";
-
-  position:absolute;
-
-  width:160px;
-  height:160px;
-
-  border-radius:50%;
-
-  background:#ff5c8d18;
-
-  right:-60px;
-  bottom:-80px;
-}
-
-.birthdayContent{
-  position:relative;
-  z-index:2;
-}
-
-.birthdayEmoji{
-  font-size:35px;
-}
-
-.birthday h2{
-  margin:
-    7px
-    0
-    5px;
-
-  font-size:
-    clamp(
-      25px,
-      6vw,
-      42px
-    );
-
-  letter-spacing:-1px;
-}
-
-.birthday p{
-  margin:0;
-
-  color:#cbd6e4;
-
-  font-size:13px;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
 
 .hero{
-  margin:18px;
-
-  padding:
-    clamp(22px,5vw,42px);
-
+  margin-top:28px;
+  border:1px solid #263343;
   border-radius:25px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #101d2e,
-      #151326
-    );
-
-  border:
-    1px solid rgba(255,255,255,.08);
-
+  min-height:260px;
+  padding:34px;
   position:relative;
   overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(50,230,161,.12),transparent 28%),
+    radial-gradient(circle at 75% 100%,rgba(139,92,246,.10),transparent 35%),
+    linear-gradient(135deg,#111a29,#111320);
 }
 
-.heroGlow{
-  position:absolute;
-
-  width:300px;
-  height:300px;
-
-  border-radius:50%;
-
-  background:#35e0a014;
-
-  right:-100px;
-  top:-130px;
-
-  filter:blur(10px);
-}
-
-.heroContent{
-  position:relative;
-  z-index:2;
-
-  max-width:720px;
-}
-
-.eyebrow{
-  color:#35e0a0;
-
-  text-transform:uppercase;
-
+.heroTag{
+  color:#32e6a1;
+  font-size:11px;
   letter-spacing:2px;
-
-  font-size:10px;
-
-  font-weight:1000;
+  font-weight:900;
+  margin-bottom:12px;
 }
 
 .hero h1{
-  font-size:
-    clamp(
-      30px,
-      7vw,
-      58px
-    );
-
-  line-height:.98;
-
-  letter-spacing:-3px;
-
-  margin:
-    10px
-    0
-    14px;
-}
-
-.hero p{
-  color:#aab8c9;
-
-  line-height:1.6;
-
+  font-size:clamp(40px,8vw,70px);
+  line-height:.94;
+  letter-spacing:-4px;
   max-width:650px;
 }
 
-
-/* =========================================================
-   MAIN LAYOUT
-========================================================= */
-
-.main{
-  display:grid;
-
-  grid-template-columns:
-    minmax(0,1fr)
-    330px;
-
-  gap:16px;
-
-  padding:
-    0 18px;
+.hero p{
+  color:#9faaba;
+  margin-top:22px;
+  max-width:650px;
+  line-height:1.7;
+  font-size:15px;
 }
 
-
-/* =========================================================
-   SECTION HEAD
-========================================================= */
-
-.sectionHead{
-  display:flex;
-
-  justify-content:space-between;
-  align-items:center;
-
-  gap:10px;
-
-  margin:
-    5px
-    0
-    12px;
-}
-
-.sectionHead h2{
-  margin:0;
-
-  font-size:20px;
-
-  letter-spacing:-.6px;
-}
-
-.sectionHead span{
-  color:#718096;
-
+.status{
+  margin-top:12px;
+  color:#697588;
   font-size:11px;
 }
 
-
-/* =========================================================
-   NEWS GRID
-========================================================= */
-
-.newsGrid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-  gap:12px;
+.sectionHead{
+  margin-top:26px;
+  margin-bottom:13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.newsCard{
-  background:#0d131d;
-
-  border:
-    1px solid rgba(255,255,255,.07);
-
-  border-radius:18px;
-
-  overflow:hidden;
-
-  transition:
-    transform .18s,
-    border-color .18s;
-}
-
-.newsCard:hover{
-  transform:translateY(-2px);
-
-  border-color:
-    rgba(53,224,160,.35);
-}
-
-.newsImage{
-  height:150px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #17263a,
-      #111722
-    );
-
-  display:grid;
-
-  place-items:center;
-
-  font-size:40px;
-
-  position:relative;
-}
-
-.newsImage .tag{
-  position:absolute;
-
-  left:10px;
-  top:10px;
-
-  padding:5px 8px;
-
-  border-radius:7px;
-
-  background:#000b;
-
-  color:#fff;
-
-  font-size:9px;
-
+.sectionTitle{
+  font-size:17px;
   font-weight:900;
 }
 
-.newsBody{
-  padding:14px;
+.sectionMeta{
+  font-size:10px;
+  color:#738092;
+}
+
+.newsGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.newsCard{
+  background:#0c131d;
+  border:1px solid #1b2634;
+  border-radius:18px;
+  padding:17px;
+  min-height:190px;
+  transition:.2s;
+  display:flex;
+  flex-direction:column;
+}
+
+.newsCard:hover{
+  transform:translateY(-3px);
+  border-color:#2e9e78;
+}
+
+.newsCategory{
+  display:inline-flex;
+  width:max-content;
+  background:#13241f;
+  color:#48e8ac;
+  padding:5px 8px;
+  border-radius:7px;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
 }
 
 .newsTitle{
   font-size:16px;
-
-  line-height:1.28;
-
-  font-weight:900;
-
-  margin-bottom:9px;
+  line-height:1.35;
+  margin-top:12px;
+  font-weight:850;
 }
 
 .newsDesc{
-  color:#8796a9;
-
+  color:#8290a2;
   font-size:12px;
-
-  line-height:1.5;
-
-  display:
-    -webkit-box;
-
-  -webkit-line-clamp:3;
-
-  -webkit-box-orient:vertical;
-
-  overflow:hidden;
+  line-height:1.55;
+  margin-top:9px;
 }
 
-.newsMeta{
+.newsBottom{
+  margin-top:auto;
+  padding-top:15px;
   display:flex;
-
   justify-content:space-between;
-
   gap:8px;
-
-  margin-top:13px;
-
-  color:#617084;
-
+  color:#667285;
   font-size:10px;
 }
 
-
-/* =========================================================
-   MEMES
-========================================================= */
-
-.memeSection{
-  margin-top:20px;
-}
-
-.memeGrid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-  gap:12px;
-}
-
-.memeCard{
-  min-height:190px;
-
-  border-radius:18px;
-
-  padding:16px;
-
-  position:relative;
-
-  overflow:hidden;
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:space-between;
-
-  background:
-    linear-gradient(
-      135deg,
-      #151c29,
-      #0d1119
-    );
-
-  border:
-    1px solid rgba(255,255,255,.08);
-}
-
-.memeEmoji{
-  font-size:44px;
-}
-
-.memeText{
-  font-size:18px;
-
-  font-weight:1000;
-
-  line-height:1.15;
-
-  letter-spacing:-.5px;
-}
-
-.memeSmall{
-  color:#758397;
-
-  font-size:10px;
-
-  margin-top:8px;
-}
-
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.sideCard{
-  background:#0d131d;
-
-  border:
-    1px solid rgba(255,255,255,.07);
-
-  border-radius:18px;
-
-  padding:16px;
-
-  margin-bottom:12px;
-}
-
-.sideTitle{
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  margin-bottom:13px;
-}
-
-.sideTitle h3{
-  margin:0;
-
-  font-size:16px;
-}
-
-.sideTitle span{
-  color:#35e0a0;
-
-  font-size:10px;
-
+.read{
+  color:#32e6a1;
   font-weight:900;
 }
 
-.trend{
-  display:flex;
-
-  gap:10px;
-
-  padding:
-    11px
-    0;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.06);
-}
-
-.trend:last-child{
-  border-bottom:0;
-}
-
-.trendNum{
-  color:#35e0a0;
-
-  font-size:18px;
-
-  font-weight:1000;
-
-  width:24px;
-}
-
-.trendText{
-  font-size:12px;
-
-  line-height:1.35;
-
-  font-weight:800;
-}
-
-.trendMeta{
-  color:#657388;
-
-  font-size:9px;
-
-  margin-top:4px;
-}
-
-
-/* =========================================================
-   CATEGORY BOX
-========================================================= */
-
-.categoryGrid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:7px;
-}
-
-.category{
-  border:0;
-
-  padding:10px;
-
-  border-radius:10px;
-
-  background:#141c28;
-
-  color:#a9b6c7;
-
-  font-size:11px;
-
-  font-weight:800;
-}
-
-.category:hover{
-  background:#1b2838;
-}
-
-
-/* =========================================================
-   LOADING
-========================================================= */
-
 .loading{
-  grid-column:
-    1 / -1;
-
-  padding:35px;
-
-  text-align:center;
-
-  color:#718096;
+  min-height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:#7d899a;
+  gap:12px;
 }
 
 .spinner{
   width:28px;
   height:28px;
-
-  border:
-    3px solid #ffffff10;
-
-  border-top-color:#35e0a0;
-
   border-radius:50%;
-
-  animation:
-    spin .8s linear infinite;
-
-  margin:
-    0
-    auto
-    10px;
+  border:3px solid #202b38;
+  border-top-color:#32e6a1;
+  animation:spin .8s linear infinite;
 }
 
 @keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+  to{transform:rotate(360deg)}
 }
-
-
-/* =========================================================
-   EMPTY
-========================================================= */
 
 .empty{
-  grid-column:
-    1 / -1;
-
+  grid-column:1/-1;
   padding:35px;
-
   text-align:center;
-
-  color:#718096;
+  color:#7c899a;
+  background:#0c131d;
+  border:1px solid #1b2634;
+  border-radius:18px;
 }
 
+.birthday{
+  display:none;
+  margin-top:22px;
+  border:1px solid #ef668d;
+  border-radius:22px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 25%),
+    linear-gradient(135deg,#381323,#241126,#101624);
+}
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.birthday.show{
+  display:block;
+  animation:bday .6s ease;
+}
 
-footer{
-  margin-top:40px;
+@keyframes bday{
+  from{
+    opacity:0;
+    transform:translateY(-15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-  padding:
-    30px
-    18px
-    100px;
-
-  border-top:
-    1px solid rgba(255,255,255,.06);
-
+.birthdayContent{
+  padding:30px 22px;
   text-align:center;
-
-  color:#59687b;
-
-  font-size:11px;
-
-  line-height:1.7;
 }
 
-
-/* =========================================================
-   MOBILE NAV
-========================================================= */
-
-.mobileNav{
-  display:none;
+.birthdayEmoji{
+  font-size:35px;
+  margin-bottom:8px;
 }
 
+.birthday h2{
+  font-size:clamp(25px,6vw,42px);
+  color:#fff;
+}
 
-/* =========================================================
-   TOAST
-========================================================= */
+.birthday p{
+  color:#d5aebe;
+  margin-top:8px;
+  font-size:13px;
+}
 
-#toast{
-  position:fixed;
+.memeGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
 
-  z-index:300;
+.meme{
+  min-height:180px;
+  border-radius:20px;
+  border:1px solid #202b39;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(50,230,161,.12),transparent 25%),
+    #0c131d;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
 
-  left:50%;
-  bottom:85px;
+.memeEmoji{
+  font-size:32px;
+}
 
-  transform:
-    translateX(-50%);
-
-  display:none;
-
-  padding:
-    10px
-    15px;
-
-  border-radius:11px;
-
-  background:#f4fbff;
-
-  color:#07111f;
-
-  font-size:11px;
-
+.memeText{
+  font-size:18px;
+  line-height:1.25;
   font-weight:900;
-
-  max-width:90%;
-
-  text-align:center;
 }
 
+.memeSmall{
+  color:#758294;
+  font-size:10px;
+  margin-top:12px;
+}
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+.lowerGrid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.panel{
+  background:#0c131d;
+  border:1px solid #1b2634;
+  border-radius:18px;
+  padding:17px;
+}
+
+.panelTitle{
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.trendItem{
+  display:flex;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid #18212c;
+}
+
+.trendItem:last-child{
+  border-bottom:0;
+}
+
+.rank{
+  color:#32e6a1;
+  font-weight:900;
+  width:25px;
+}
+
+.trendText{
+  font-size:12px;
+  line-height:1.4;
+}
+
+.exploreGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.explore{
+  padding:10px;
+  background:#111a26;
+  border:1px solid #182330;
+  color:#b8c1cd;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.explore:hover{
+  color:#32e6a1;
+  border-color:#32e6a1;
+}
+
+.about{
+  margin-top:14px;
+  background:#0c131d;
+  border:1px solid #1b2634;
+  border-radius:18px;
+  padding:20px;
+}
+
+.about h3{
+  font-size:15px;
+}
+
+.about p{
+  color:#7d8999;
+  font-size:11px;
+  line-height:1.6;
+  margin-top:8px;
+}
+
+.footer{
+  margin-top:35px;
+  border-top:1px solid #151e28;
+  padding:32px 18px 90px;
+  text-align:center;
+  color:#596678;
+  font-size:10px;
+  line-height:1.8;
+}
+
+.bottomNav{
+  display:none;
+}
 
 @media(max-width:850px){
-
-  .main{
-    grid-template-columns:1fr;
+  .newsGrid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .sidebar{
-    display:grid;
-
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-
-    gap:12px;
+  .memeGrid{
+    grid-template-columns:repeat(2,1fr);
   }
-
-  .sideCard{
-    margin:0;
-  }
-
 }
 
-@media(max-width:620px){
-
-  .header{
-    height:60px;
-
-    padding:
-      0
-      11px;
-
-    gap:8px;
+@media(max-width:600px){
+  .headerInner{
+    padding:12px 16px;
+    gap:9px;
   }
 
   .logo{
-    font-size:21px;
+    font-size:19px;
   }
 
   .live{
-    display:none;
+    font-size:8px;
+    padding:5px 7px;
   }
 
-  .search{
-    width:150px;
+  .searchBox{
+    width:42vw;
   }
 
-  .search input{
-    padding:
-      9px
-      30px
-      9px
-      10px;
-
-    font-size:12px;
+  .searchBox input{
+    padding:9px 30px 9px 10px;
+    font-size:11px;
   }
 
-  .topNav{
-    padding:
-      9px
-      11px;
+  .container{
+    width:calc(100% - 32px);
   }
 
   .hero{
-    margin:
-      12px
-      11px;
-
-    padding:23px 18px;
-
-    border-radius:20px;
+    margin-top:18px;
+    min-height:260px;
+    padding:30px 20px;
   }
 
   .hero h1{
-    letter-spacing:-2px;
+    font-size:44px;
+    letter-spacing:-3px;
   }
 
-  .birthday{
-    margin:
-      12px
-      11px
-      0;
-  }
-
-  .main{
-    padding:
-      0
-      11px;
+  .hero p{
+    font-size:13px;
   }
 
   .newsGrid,
-  .memeGrid{
+  .memeGrid,
+  .lowerGrid{
     grid-template-columns:1fr;
   }
 
-  .newsImage{
-    height:180px;
+  .newsCard{
+    min-height:175px;
   }
 
-  .sidebar{
-    display:block;
+  .birthdayContent{
+    padding:25px 16px;
   }
 
-  .sideCard{
-    margin-bottom:12px;
-  }
-
-  .mobileNav{
-    position:fixed;
-
+  .bottomNav{
     display:flex;
-
+    position:fixed;
+    z-index:60;
     bottom:0;
     left:0;
     right:0;
-
-    height:67px;
-
-    z-index:200;
-
-    background:
-      rgba(7,10,16,.96);
-
-    border-top:
-      1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:
-      blur(15px);
+    height:58px;
+    background:rgba(7,11,16,.96);
+    border-top:1px solid #1b2530;
+    align-items:center;
+    justify-content:space-around;
   }
 
-  .mobileNav button{
-    flex:1;
-
-    border:0;
-
-    background:none;
-
-    color:#728095;
-
+  .bottomNav a{
     font-size:10px;
+    color:#778395;
+    text-align:center;
   }
 
-  .mobileNav b{
+  .bottomNav a span{
     display:block;
-
-    font-size:20px;
-
-    margin-bottom:3px;
+    font-size:18px;
+    margin-bottom:1px;
   }
 
-  .mobileNav button.active{
-    color:#35e0a0;
+  .bottomNav a:hover{
+    color:#32e6a1;
   }
-
-  footer{
-    padding-bottom:95px;
-  }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-<div class="app">
-
-
-<!-- =======================================================
-     HEADER
-======================================================= -->
-
 <header class="header">
+  <div class="headerInner">
 
-  <div class="logo">
-    two<span>4</span>nine
-  </div>
-
-  <div class="live">
-    <span class="liveDot"></span>
-    LIVE WORLD
-  </div>
-
-  <div class="search">
-
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="Search news..."
-      oninput="searchNews()"
-    >
-
-    <span>⌕</span>
-
-  </div>
-
-</header>
-
-
-<!-- =======================================================
-     CATEGORY NAV
-======================================================= -->
-
-<div class="topNav">
-
-  <button
-    class="active"
-    onclick="setCategory('All',this)"
-  >
-    🌍 All
-  </button>
-
-  <button
-    onclick="setCategory('World',this)"
-  >
-    🌐 World
-  </button>
-
-  <button
-    onclick="setCategory('Technology',this)"
-  >
-    💻 Tech
-  </button>
-
-  <button
-    onclick="setCategory('Business',this)"
-  >
-    💼 Business
-  </button>
-
-  <button
-    onclick="setCategory('Sports',this)"
-  >
-    ⚽ Sports
-  </button>
-
-  <button
-    onclick="setCategory('Entertainment',this)"
-  >
-    🎬 Entertainment
-  </button>
-
-  <button
-    onclick="setCategory('Science',this)"
-  >
-    🔬 Science
-  </button>
-
-  <button
-    onclick="setCategory('Health',this)"
-  >
-    🧬 Health
-  </button>
-
-</div>
-
-
-<!-- =======================================================
-     BIRTHDAY
-======================================================= -->
-
-<section
-  id="birthday"
-  class="birthday"
->
-
-  <div class="birthdayContent">
-
-    <div class="birthdayEmoji">
-      🎂 🎉 ❤️
+    <div class="logo">
+      two<span>4</span>nine
     </div>
 
-    <h2>
-      Happy Birthday Betu ❤️
-    </h2>
+    <div class="live">
+      <span class="liveDot"></span>
+      LIVE WORLD
+    </div>
 
-    <p>
-      Wishing you a beautiful day filled with happiness,
-      smiles and lots of love.
-    </p>
+    <div class="searchBox">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search news..."
+        autocomplete="off"
+      >
+      <span class="searchIcon">⌕</span>
+    </div>
 
   </div>
 
-</section>
+  <nav class="categories">
+    <div class="categoryInner">
 
+      <button class="cat active" data-category="All">🌍 All</button>
+      <button class="cat" data-category="World">🌎 World</button>
+      <button class="cat" data-category="Technology">💻 Tech</button>
+      <button class="cat" data-category="Business">💼 Business</button>
+      <button class="cat" data-category="Sports">⚽ Sports</button>
+      <button class="cat" data-category="Entertainment">🎬 Entertainment</button>
+      <button class="cat" data-category="Science">🔬 Science</button>
+      <button class="cat" data-category="Health">🧬 Health</button>
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+    </div>
+  </nav>
+</header>
 
-<section class="hero">
+<main class="container">
 
-  <div class="heroGlow"></div>
+  <section class="hero">
 
-  <div class="heroContent">
-
-    <div class="eyebrow">
-      Independent World Feed
+    <div class="heroTag">
+      INDEPENDENT WORLD FEED
     </div>
 
     <h1>
@@ -1197,365 +650,630 @@ footer{
     </h1>
 
     <p>
-      International headlines, technology, business,
-      sports and the internet's funniest moments —
-      refreshed automatically.
+      International headlines, technology, business, sports
+      and the internet's funniest moments — refreshed automatically.
     </p>
 
-  </div>
+    <div class="status" id="status">
+      Connecting to world news...
+    </div>
 
-</section>
+  </section>
 
+  <!-- BIRTHDAY -->
+  <section id="birthday" class="birthday">
 
-<!-- =======================================================
-     MAIN
-======================================================= -->
+    <div class="birthdayContent">
 
-<main class="main">
+      <div class="birthdayEmoji">
+        🎂 🎉 ❤️
+      </div>
 
+      <h2>
+        Happy Birthday Betu ❤️
+      </h2>
 
-<!-- =======================================================
-     LEFT
-======================================================= -->
+      <p>
+        Wishing you a beautiful day filled with happiness,
+        smiles and lots of love.
+      </p>
 
-<section>
+    </div>
+
+  </section>
 
 
   <!-- NEWS -->
 
   <div class="sectionHead">
 
-    <h2>
+    <div class="sectionTitle">
       📰 Latest World News
-    </h2>
+    </div>
 
-    <span id="updated">
+    <div class="sectionMeta" id="lastUpdated">
       Loading...
-    </span>
-
-  </div>
-
-
-  <div
-    id="newsGrid"
-    class="newsGrid"
-  >
-
-    <div class="loading">
-
-      <div class="spinner"></div>
-
-      Loading international news...
-
     </div>
 
   </div>
+
+  <section id="newsGrid" class="newsGrid">
+
+    <div class="loading">
+      <div class="spinner"></div>
+      <div>Loading international news...</div>
+    </div>
+
+  </section>
 
 
   <!-- MEMES -->
 
-  <div class="memeSection">
+  <div class="sectionHead">
 
-    <div class="sectionHead">
-
-      <h2>
-        😂 Internet Memes
-      </h2>
-
-      <span>
-        Auto generated
-      </span>
-
+    <div class="sectionTitle">
+      😂 Internet Memes
     </div>
 
-
-    <div
-      id="memeGrid"
-      class="memeGrid"
-    ></div>
+    <div class="sectionMeta">
+      Auto generated
+    </div>
 
   </div>
 
-
-</section>
-
-
-<!-- =======================================================
-     SIDEBAR
-======================================================= -->
-
-<aside class="sidebar">
+  <section id="memeGrid" class="memeGrid"></section>
 
 
-  <!-- TRENDING -->
+  <!-- TRENDING + EXPLORE -->
 
-  <div class="sideCard">
+  <section class="lowerGrid">
 
-    <div class="sideTitle">
+    <div class="panel">
 
-      <h3>
+      <div class="panelTitle">
         🔥 Trending
-      </h3>
+      </div>
 
-      <span>
-        TODAY
-      </span>
-
-    </div>
-
-
-    <div id="trending">
-
-      <div class="trend">
-
-        <div class="trendNum">
-          01
-        </div>
-
-        <div>
+      <div id="trending">
+        <div class="trendItem">
+          <div class="rank">01</div>
           <div class="trendText">
             Loading trending stories...
           </div>
         </div>
+      </div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <div class="panelTitle">
+        Explore
+      </div>
+
+      <div class="exploreGrid">
+
+        <button class="explore" data-category="World">
+          🌎 World
+        </button>
+
+        <button class="explore" data-category="Technology">
+          💻 Technology
+        </button>
+
+        <button class="explore" data-category="Business">
+          💼 Business
+        </button>
+
+        <button class="explore" data-category="Sports">
+          ⚽ Sports
+        </button>
+
+        <button class="explore" data-category="Entertainment">
+          🎬 Entertainment
+        </button>
+
+        <button class="explore" data-category="Science">
+          🔬 Science
+        </button>
 
       </div>
 
     </div>
 
-  </div>
+  </section>
 
 
-  <!-- CATEGORIES -->
+  <section class="about">
 
-  <div class="sideCard">
+    <h3>
+      ✨ two4nine
+    </h3>
 
-    <div class="sideTitle">
-
-      <h3>
-        Explore
-      </h3>
-
-    </div>
-
-
-    <div class="categoryGrid">
-
-      <button
-        class="category"
-        onclick="setCategoryByName('World')"
-      >
-        🌍 World
-      </button>
-
-      <button
-        class="category"
-        onclick="setCategoryByName('Technology')"
-      >
-        💻 Technology
-      </button>
-
-      <button
-        class="category"
-        onclick="setCategoryByName('Business')"
-      >
-        💼 Business
-      </button>
-
-      <button
-        class="category"
-        onclick="setCategoryByName('Sports')"
-      >
-        ⚽ Sports
-      </button>
-
-      <button
-        class="category"
-        onclick="setCategoryByName('Entertainment')"
-      >
-        🎬 Entertainment
-      </button>
-
-      <button
-        class="category"
-        onclick="setCategoryByName('Science')"
-      >
-        🔬 Science
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- QUICK INFO -->
-
-  <div class="sideCard">
-
-    <div class="sideTitle">
-
-      <h3>
-        ✨ two4nine
-      </h3>
-
-    </div>
-
-    <p
-      class="notice"
-      style="
-        color:#8290a3;
-        font-size:11px;
-        line-height:1.6;
-      "
-    >
-      A lightweight international news
-      and meme hub. News is loaded from
-      public RSS feeds when available.
+    <p>
+      A lightweight international news and meme hub.
+      News is loaded from public RSS feeds when available.
+      Stories open on their original publisher website.
     </p>
 
-  </div>
-
-
-</aside>
+  </section>
 
 </main>
 
 
-<!-- =======================================================
-     FOOTER
-======================================================= -->
+<footer class="footer">
 
-<footer>
-
-  <b>
+  <div>
     two4nine
-  </b>
+  </div>
+
+  <div>
+    World News • Memes • Trends
+  </div>
 
   <br>
 
-  World News • Memes • Trends
-
-  <br><br>
-
-  Headlines shown on this demo are
-  provided through public news feeds.
-  Always check the original publisher
-  before relying on a story.
+  <div>
+    Headlines are provided through public news feeds.
+    Always check the original publisher before relying on a story.
+  </div>
 
 </footer>
 
 
-<!-- =======================================================
-     MOBILE NAV
-======================================================= -->
+<nav class="bottomNav">
 
-<nav class="mobileNav">
-
-  <button
-    class="active"
-    onclick="goHome()"
-  >
-    <b>⌂</b>
+  <a href="#">
+    <span>⌂</span>
     Home
-  </button>
+  </a>
 
-  <button
-    onclick="focusSearch()"
-  >
-    <b>⌕</b>
-    Search
-  </button>
+  <a href="#newsGrid">
+    <span>📰</span>
+    News
+  </a>
 
-  <button
-    onclick="scrollMemes()"
-  >
-    <b>😂</b>
+  <a href="#memeGrid">
+    <span>😂</span>
     Memes
-  </button>
+  </a>
 
-  <button
-    onclick="refreshNews()"
-  >
-    <b>↻</b>
-    Refresh
-  </button>
+  <a href="#trending">
+    <span>🔥</span>
+    Trends
+  </a>
 
 </nav>
 
 
-<div id="toast"></div>
-
-
 <script>
 
-/* =========================================================
-   SETTINGS
-========================================================= */
+/* =====================================================
+   two4nine NEWS ENGINE
+   ===================================================== */
 
-const REFRESH_MINUTES = 10;
+const NEWS_CATEGORIES = {
 
-
-/*
-  Public RSS-to-JSON endpoint.
-
-  Different feeds are tried automatically.
-*/
-
-const RSS_PROXY =
-  "https://api.rss2json.com/v1/api.json?rss_url=";
-
-
-/* =========================================================
-   NEWS SOURCES
-========================================================= */
-
-const FEEDS = {
-
-  World:[
-    "https://feeds.bbci.co.uk/news/world/rss.xml",
-    "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+  World: [
+    "world",
+    "international"
   ],
 
-  Technology:[
-    "https://feeds.bbci.co.uk/news/technology/rss.xml",
-    "https://www.theverge.com/rss/index.xml"
+  Technology: [
+    "technology",
+    "artificial intelligence"
   ],
 
-  Business:[
-    "https://feeds.bbci.co.uk/news/business/rss.xml",
-    "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml"
+  Business: [
+    "business",
+    "economy"
   ],
 
-  Sports:[
-    "https://feeds.bbci.co.uk/sport/rss.xml"
+  Sports: [
+    "sports"
   ],
 
-  Entertainment:[
-    "https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
+  Entertainment: [
+    "entertainment",
+    "movies music"
   ],
 
-  Science:[
-    "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+  Science: [
+    "science",
+    "space"
   ],
 
-  Health:[
-    "https://feeds.bbci.co.uk/news/health/rss.xml"
+  Health: [
+    "health",
+    "medicine"
   ]
 
 };
 
 
-/* =========================================================
+/*
+  Google News RSS feeds.
+  These are public RSS feeds and do not require
+  an API key.
+*/
+
+function googleNewsURL(query){
+
+  return (
+    "https://news.google.com/rss/search?" +
+    "q=" +
+    encodeURIComponent(query) +
+    "&hl=en-US&gl=US&ceid=US:en"
+  );
+
+}
+
+
+/*
+  Multiple conversion methods.
+  If one fails, another one is tried.
+*/
+
+function rss2jsonURL(feed){
+
+  return (
+    "https://api.rss2json.com/v1/api.json?rss_url=" +
+    encodeURIComponent(feed)
+  );
+
+}
+
+
+function allOriginsURL(feed){
+
+  return (
+    "https://api.allorigins.win/raw?url=" +
+    encodeURIComponent(feed)
+  );
+
+}
+
+
+function corsProxyURL(feed){
+
+  return (
+    "https://corsproxy.io/?" +
+    encodeURIComponent(feed)
+  );
+
+}
+
+
+/* =====================================================
    FALLBACK NEWS
-========================================================= */
+   ===================================================== */
 
 const FALLBACK_NEWS = [
 
   {
-    title:
-      "Global technology continues to reshape everyday life",
+    title:"Global technology trends continue to reshape everyday life",
+    description:"Technology, artificial intelligence and digital services remain major global topics.",
+    category:"Technology",
+    source:"two4nine",
+    link:"https://news.google.com/"
+  },
 
-    description:
-      "New developments across AI, software, devices and digital services are attracting worldwide attention.",
+  {
+    title:"Markets and businesses watch major economic developments",
+    description:"Businesses around the world continue to monitor economic and market conditions.",
+    category:"Business",
+    source:"two4nine",
+    link:"https://news.google.com/"
+  },
 
-    category:
-      "Technology"
+  {
+    title:"Scientists continue research across space and Earth",
+    description:"New research and discoveries continue to attract global attention.",
+    category:"Science",
+    source:"two4nine",
+    link:"https://news.google.com/"
+  },
+
+  {
+    title:"Sports fans follow major competitions around the world",
+    description:"International sports events continue to generate major online interest.",
+    category:"Sports",
+    source:"two4nine",
+    link:"https://news.google.com/"
+  },
+
+  {
+    title:"Entertainment remains one of the internet's biggest conversations",
+    description:"Movies, music, celebrities and streaming continue to dominate online trends.",
+    category:"Entertainment",
+    source:"two4nine",
+    link:"https://news.google.com/"
+  },
+
+  {
+    title:"Health and science stories remain important worldwide",
+    description:"Researchers and health organisations continue sharing new developments.",
+    category:"Health",
+    source:"two4nine",
+    link:"https://news.google.com/"
+  }
+
+];
+
+
+/* =====================================================
+   HELPERS
+   ===================================================== */
+
+function cleanText(text){
+
+  if(!text) return "";
+
+  const div=document.createElement("div");
+
+  div.innerHTML=text;
+
+  return (
+    div.textContent ||
+    div.innerText ||
+    ""
+  )
+  .replace(/\s+/g," ")
+  .trim();
+
+}
+
+
+function shorten(text,length=145){
+
+  text=cleanText(text);
+
+  if(text.length<=length){
+    return text;
+  }
+
+  return text.slice(0,length).trim()+"...";
+
+}
+
+
+function formatDate(date){
+
+  if(!date){
+    return "Today";
+  }
+
+  const d=new Date(date);
+
+  if(isNaN(d.getTime())){
+    return "Today";
+  }
+
+  return d.toLocaleDateString(
+    "en-IN",
+    {
+      day:"numeric",
+      month:"short"
+    }
+  );
+
+}
+
+
+/* =====================================================
+   RSS2JSON
+   ===================================================== */
+
+async function fetchRSS2JSON(feed){
+
+  const response=await fetch(
+    rss2jsonURL(feed),
+    {
+      method:"GET",
+      cache:"no-store"
+    }
+  );
+
+  if(!response.ok){
+    throw new Error("RSS2JSON HTTP "+response.status);
+  }
+
+  const data=await response.json();
+
+  if(
+    !data ||
+    !Array.isArray(data.items) ||
+    data.items.length===0
+  ){
+    throw new Error("No RSS items");
+  }
+
+  return data.items.map(item => ({
+
+    title:cleanText(item.title),
+
+    description:cleanText(
+      item.description ||
+      item.content ||
+      ""
+    ),
+
+    link:item.link || "https://news.google.com/",
+
+    pubDate:item.pubDate || "",
+
+    source:
+      data.feed &&
+      data.feed.title
+        ? cleanText(data.feed.title)
+        : "News"
+
+  }));
+
+}
+
+
+/* =====================================================
+   XML RSS
+   ===================================================== */
+
+async function fetchXMLRSS(feed,proxy){
+
+  const response=await fetch(
+    proxy(feed),
+    {
+      method:"GET",
+      cache:"no-store"
+    }
+  );
+
+  if(!response.ok){
+    throw new Error("RSS HTTP "+response.status);
+  }
+
+  const xml=await response.text();
+
+  if(!xml || xml.length<100){
+    throw new Error("Empty RSS");
+  }
+
+  const parser=new DOMParser();
+
+  const doc=parser.parseFromString(
+    xml,
+    "text/xml"
+  );
+
+  const items=[
+    ...doc.querySelectorAll("item")
+  ];
+
+  if(!items.length){
+    throw new Error("No RSS items");
+  }
+
+  return items.map(item => ({
+
+    title:cleanText(
+      item.querySelector("title")?.textContent
+    ),
+
+    description:cleanText(
+      item.querySelector("description")?.textContent
+    ),
+
+    link:
+      item.querySelector("link")?.textContent ||
+      "https://news.google.com/",
+
+    pubDate:
+      item.querySelector("pubDate")?.textContent ||
+      "",
+
+    source:
+      cleanText(
+        item.querySelector("source")?.textContent
+      ) || "News"
+
+  }));
+
+}
+
+
+/* =====================================================
+   LOAD ONE FEED
+   ===================================================== */
+
+async function loadOneFeed(feed){
+
+  /*
+    Method 1:
+    RSS2JSON
+  */
+
+  try{
+
+    const data=await fetchRSS2JSON(feed);
+
+    if(data.length){
+      return data;
+    }
+
+  }catch(error){
+
+    console.log(
+      "RSS2JSON failed:",
+      feed
+    );
+
+  }
+
+
+  /*
+    Method 2:
+    AllOrigins
+  */
+
+  try{
+
+    const data=await fetchXMLRSS(
+      feed,
+      allOriginsURL
+    );
+
+    if(data.length){
+      return data;
+    }
+
+  }catch(error){
+
+    console.log(
+      "AllOrigins failed:",
+      feed
+    );
+
+  }
+
+
+  /*
+    Method 3:
+    CorsProxy
+  */
+
+  try{
+
+    const data=await fetchXMLRSS(
+      feed,
+      corsProxyURL
+    );
+
+    if(data.length){
+      return data;
+    }
+
+  }catch(error){
+
+    console.log(
+      "CorsProxy failed:",
+      feed
+    );
+
+  }
+
+
+  return [];
+
+}
+
+
+/* =====================================================
+   LOAD CATEGORY
+   ===================================================== */
+
+async function loadCategory(category){
+
+  const queries=
+    NEWS_CATEGORIES[category] || [
+      "world news"
+  
