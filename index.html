@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#07111f">
-<title>two4nine</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>two4nine Color Play</title>
 
 <style>
 *{box-sizing:border-box}
@@ -12,1807 +11,336 @@ body{
 margin:0;
 background:#07111f;
 color:#fff;
-font-family:Arial,Helvetica,sans-serif
+font-family:Arial,sans-serif
 }
-button,input,textarea{font:inherit}
-button{cursor:pointer;border:0}
-.hidden{display:none!important}
-
-.top{
-position:sticky;
-top:0;
-z-index:20;
-height:64px;
-background:#091827f7;
-border-bottom:1px solid #ffffff15;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 12px
-}
-
-.brand{
-font-size:23px;
-font-weight:900;
-display:flex;
-align-items:center;
-gap:2px
-}
-
-.puri{
-width:25px;
-height:25px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:radial-gradient(circle at 35% 30%,#ffe69a,#eaa72b 55%,#a9650d);
-border:3px solid #f7c95a;
-color:#168447
-}
-
-.topBtns{
-display:flex;
-gap:7px
-}
-
-.topBtn{
-padding:9px 12px;
-border-radius:20px;
-background:#17283d;
-color:#fff;
-font-weight:700
-}
-
-.createTop{
-background:#18b879
-}
-
-.iconBtn{
-width:40px;
-height:40px;
-border-radius:50%;
-background:#17283d;
-color:#fff;
-font-size:18px
-}
-
-.wrap{
-max-width:720px;
+.app{
+max-width:700px;
 margin:auto;
 padding-bottom:85px
 }
-
-.search{
-margin:12px;
-background:#102238;
-border:1px solid #ffffff12;
-border-radius:15px;
-padding:12px 14px
-}
-
-.search input{
-width:100%;
-background:none;
-border:0;
-outline:0;
-color:#fff;
-font-size:16px
-}
-
-.stories{
-display:flex;
-gap:13px;
-overflow-x:auto;
-padding:7px 14px 16px;
-scrollbar-width:none
-}
-
-.stories::-webkit-scrollbar{
-display:none
-}
-
-.story{
-min-width:62px;
-text-align:center;
-font-size:11px;
-color:#b9c8d8
-}
-
-.avatar{
-width:54px;
-height:54px;
-border-radius:50%;
-margin:auto auto 5px;
+header{
+height:64px;
+background:#0b1a2b;
 display:flex;
 align-items:center;
-justify-content:center;
-font-weight:900;
-border:2px solid #27d994;
-background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8)
+justify-content:space-between;
+padding:0 15px;
+position:sticky;
+top:0;
+z-index:5;
+border-bottom:1px solid #ffffff18
 }
-
-.your .avatar{
-background:#102238;
-border:2px dashed #27d994;
-font-size:22px
+.logo{
+font-size:24px;
+font-weight:900
 }
-
-.card{
-margin:9px 12px;
-background:#0d1d30;
-border:1px solid #ffffff10;
+.logo i{
+color:#20df91;
+font-style:normal
+}
+.bal{
+background:#172a40;
+padding:9px 13px;
 border-radius:18px;
-overflow:hidden
-}
-
-.head{
-display:flex;
-align-items:center;
-gap:10px;
-padding:13px
-}
-
-.head .avatar{
-width:42px;
-height:42px;
-margin:0;
-font-size:13px
-}
-
-.meta{
-flex:1
-}
-
-.name{
+color:#ffd76a;
 font-weight:800
 }
-
-.time{
-font-size:11px;
-color:#7890a8
+.hero,.card{
+margin:13px;
+background:#0d1d30;
+border:1px solid #ffffff12;
+border-radius:20px;
+padding:17px
 }
-
-.body{
-padding:0 14px 15px;
-line-height:1.5;
-white-space:pre-wrap
+.hero{
+background:linear-gradient(135deg,#142a47,#21163e)
 }
-
-.actions{
-display:flex;
-border-top:1px solid #ffffff0d
+h1{
+margin:0 0 6px
 }
-
-.actions button{
-flex:1;
-background:none;
-color:#a9bbcd;
-padding:12px 4px
+.muted{
+color:#9db1c5
 }
-
-.composer{
-padding:14px
+.timer{
+text-align:center;
+font-size:32px;
+font-weight:900;
+color:#35e5a0;
+margin-top:14px
 }
-
-.composer textarea{
-width:100%;
-min-height:85px;
-resize:none;
-background:#081522;
-border:1px solid #ffffff14;
-border-radius:14px;
-padding:12px;
-color:#fff;
-outline:0
-}
-
 .row{
 display:flex;
-gap:8px;
+justify-content:space-between;
 align-items:center
 }
-
-.primary{
-background:#18b879;
-color:#00140d;
-padding:10px 16px;
-border-radius:12px;
-font-weight:800
+.colors{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:15px
 }
-
-.news{
-background:linear-gradient(135deg,#122b48,#10213a);
-padding:15px
+.color{
+padding:18px 5px;
+border-radius:15px;
+color:#fff;
+font-weight:900
 }
-
-.tag{
-display:inline-block;
-padding:4px 8px;
-border-radius:10px;
-background:#18b87922;
-color:#39e3a0;
-font-size:11px;
-font-weight:800
+.red{
+background:#e94455
 }
-
-.news h3{
-margin:9px 0 6px;
-font-size:18px
+.green{
+background:#18b879
 }
-
-.news p{
-margin:0;
-color:#b4c3d3;
-font-size:13px
+.violet{
+background:#7954e8
 }
-
-.reel{
-min-height:150px;
-padding:20px;
+.selected{
+outline:3px solid white;
+outline-offset:2px
+}
+.color small{
+display:block;
+margin-top:4px;
+opacity:.8
+}
+.amounts{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-top:14px
+}
+.amount{
+background:#172a40;
+color:#fff;
+padding:9px 13px;
+border-radius:11px
+}
+.amount.active{
+background:#35d995;
+color:#00150d;
+font-weight:900
+}
+.play{
+width:100%;
+margin-top:14px;
+padding:14px;
+background:#35d995;
+color:#00150d;
+border-radius:13px;
+font-weight:900;
+font-size:17px
+}
+.history{
+display:flex;
+gap:8px;
+overflow:auto;
+margin-top:12px
+}
+.dot{
+min-width:38px;
+height:38px;
+border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-text-align:center;
-background:linear-gradient(135deg,#151d3c,#25163d)
+font-weight:900
 }
-
-.reel strong{
-font-size:30px
+.r{
+background:#e94455
 }
-
-.bottom{
+.g{
+background:#18b879
+}
+.v{
+background:#7954e8
+}
+table{
+width:100%;
+border-collapse:collapse
+}
+td,th{
+padding:9px 4px;
+border-bottom:1px solid #ffffff10;
+text-align:left;
+font-size:13px
+}
+.win{
+color:#35e5a0
+}
+.lose{
+color:#ff6875
+}
+nav{
 position:fixed;
 bottom:0;
 left:0;
 right:0;
-z-index:30;
-height:67px;
+height:68px;
 background:#091827f7;
-border-top:1px solid #ffffff14;
-display:flex
+border-top:1px solid #ffffff15;
+display:flex;
+z-index:9
 }
-
-.bottom button{
+nav button{
 flex:1;
 background:none;
-color:#93a9bf;
+color:#9db1c5;
 font-size:12px
 }
-
-.bottom button b{
+nav b{
 display:block;
 font-size:21px;
-margin-bottom:2px
+margin-bottom:3px
 }
-
-.bottom .active{
-color:#35e4a0
+nav .on{
+color:#35e5a0
 }
-
 .modal{
 position:fixed;
 inset:0;
-z-index:50;
 background:#000b;
-display:flex;
+display:none;
 align-items:center;
 justify-content:center;
-padding:18px
+padding:18px;
+z-index:20
 }
-
-.modalBox{
-width:min(430px,100%);
+.modal.show{
+display:flex
+}
+.box{
+max-width:420px;
+width:100%;
 background:#0d1d30;
-border:1px solid #ffffff18;
-border-radius:22px;
-padding:20px;
-box-shadow:0 20px 70px #0009
+border-radius:20px;
+padding:20px
 }
-
-.modalBox h2{
-margin-top:0;
-font-size:30px
-}
-
 .close{
 float:right;
 background:none;
-color:#9fb1c4;
-font-size:28px
+color:#9db1c5;
+font-size:26px
 }
-
-.field{
-width:100%;
-padding:14px;
-margin:6px 0;
-background:#071522;
-border:1px solid #ffffff14;
-border-radius:14px;
-color:#fff;
-outline:0
+.note{
+font-size:12px;
+color:#91a6bb;
+line-height:1.5
 }
-
-.switch{
-text-align:center;
-color:#9fb1c4;
-font-size:13px;
-margin-top:14px
-}
-
-.switch button{
-background:none;
-color:#35e4a0
-}
-
-.profileBox{
-text-align:center
-}
-
-.bigAvatar{
-width:85px;
-height:85px;
-border-radius:50%;
-margin:8px auto 12px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8);
-font-size:30px;
-font-weight:900
-}
-
-.empty{
-text-align:center;
-padding:28px;
-color:#8195aa
-}
-
-.toast{
+#toast{
 position:fixed;
+bottom:82px;
 left:50%;
-bottom:80px;
 transform:translateX(-50%);
 background:#f4fbff;
-color:#06111e;
+color:#07111f;
 padding:11px 16px;
-border-radius:13px;
-z-index:100;
-font-weight:700;
-box-shadow:0 8px 30px #0008
+border-radius:12px;
+font-weight:800;
+display:none;
+z-index:30
 }
 </style>
 </head>
 
 <body>
 
-<header class="top">
+<div class="app">
 
-<div class="brand">
-<span>tw</span>
-<span class="puri">●</span>
-<span>4nine</span>
+<header>
+
+<div class="logo">
+two<i>4</i>nine
 </div>
 
-<div id="accountArea" class="topBtns">
-
-<button class="topBtn" onclick="openAuth('login')">
-Login
-</button>
-
-<button class="topBtn createTop" onclick="openAuth('signup')">
-Create Account
-</button>
-
+<div class="bal">
+🪙 <span id="balance">1000</span>
 </div>
 
 </header>
 
 
-<main class="wrap">
+<section class="hero">
 
-<div class="search">
+<h1>🎨 Color Play</h1>
 
-<input
-id="searchInput"
-placeholder="🔎 Search news, people, posts..."
-oninput="searchSite(this.value)">
-
+<div class="muted">
+Free virtual-coin color prediction demo.
 </div>
 
-
-<div id="searchResults"></div>
-
-
-<!-- STORIES -->
-
-<section class="stories" id="stories"></section>
-
-
-<!-- POST BOX -->
-
-<section class="card composer">
-
-<div class="row" style="margin-bottom:10px">
-
-<div class="avatar" id="composerAvatar">
-?
-</div>
-
-<div class="meta">
-
-<div class="name" id="composerName">
-Welcome to two4nine
-</div>
-
-<div class="time">
-Different generations. One place. ❤️
-</div>
-
-</div>
-
-</div>
-
-
-<textarea
-id="postText"
-placeholder="What's happening?">
-</textarea>
-
-
-<div
-class="row"
-style="justify-content:flex-end;margin-top:8px">
-
-<button
-class="primary"
-onclick="addPost()">
-Post
-</button>
-
+<div class="timer" id="timer">
+00:30
 </div>
 
 </section>
 
 
-<!-- FEED -->
-
-<div id="feed"></div>
-
-
-<!-- REELS -->
-
 <section class="card">
 
-<div class="head">
+<div class="row">
 
-<div class="avatar">
-🎬
-</div>
+<b>
+Round <span id="round">1001</span>
+</b>
 
-<div class="meta">
-
-<div class="name">
-Reels
-</div>
-
-<div class="time">
-Short, fun & interesting
-</div>
-
-</div>
-
-</div>
-
-
-<div class="reel">
-
-<div>
-
-<strong>▶ Reels</strong>
-
-<br><br>
-
-<span style="color:#9bb0c5">
-Short videos will appear here.
+<span class="muted">
+Virtual only
 </span>
 
 </div>
 
+
+<div class="history" id="history">
+
+<div class="dot r">R</div>
+<div class="dot g">G</div>
+<div class="dot v">V</div>
+<div class="dot g">G</div>
+
 </div>
 
-</section>
 
-</main>
-
-
-<!-- BOTTOM NAV -->
-
-<nav class="bottom">
+<div class="colors">
 
 <button
-class="active"
-onclick="home()">
-
-<b>⌂</b>
-Home
-
+class="color red"
+onclick="pick('Red',2,this)">
+RED
+<small>2×</small>
 </button>
-
-
-<button onclick="focusSearch()">
-
-<b>⌕</b>
-Search
-
-</button>
-
-
-<button onclick="addPost()">
-
-<b>＋</b>
-Post
-
-</button>
-
-
-<button onclick="toast('Reels coming soon 🎬')">
-
-<b>▶</b>
-Reels
-
-</button>
-
-
-<button onclick="notifications()">
-
-<b>♡</b>
-Notifications
-
-</button>
-
-</nav>
-
-
-<!-- LOGIN / SIGNUP -->
-
-<div id="authModal" class="modal hidden">
-
-<div class="modalBox">
 
 <button
-class="close"
-onclick="closeModal('authModal')">
-×
+class="color green"
+onclick="pick('Green',2,this)">
+GREEN
+<small>2×</small>
 </button>
-
-<h2 id="authTitle">
-Login
-</h2>
-
-
-<input
-id="authUsername"
-class="field"
-placeholder="Choose username"
-style="display:none">
-
-
-<input
-id="authEmail"
-class="field"
-type="email"
-placeholder="Email">
-
-
-<input
-id="authPassword"
-class="field"
-type="password"
-placeholder="Password">
-
 
 <button
-id="authButton"
-class="primary"
-style="width:100%;margin-top:10px"
-onclick="doAuth()">
-
-Login
-
-</button>
-
-
-<div
-id="authSwitch"
-class="switch">
-
-New here?
-
-<button onclick="switchAuth()">
-Create Account
+class="color violet"
+onclick="pick('Violet',5,this)">
+VIOLET
+<small>5×</small>
 </button>
 
 </div>
 
-</div>
 
-</div>
-
-
-<!-- PROFILE -->
-
-<div id="profileModal" class="modal hidden">
-
-<div class="modalBox profileBox">
+<div class="amounts">
 
 <button
-class="close"
-onclick="closeModal('profileModal')">
-×
+class="amount active"
+onclick="setAmount(10,this)">
+10
 </button>
-
-
-<div
-class="bigAvatar"
-id="profileAvatar">
-?
-</div>
-
-
-<h2 id="profileName">
-Profile
-</h2>
-
-
-<p
-id="profileEmail"
-style="color:#8fa5ba">
-</p>
-
 
 <button
-class="primary"
-onclick="logout()"
-style="width:100%">
-
-Logout
-
+class="amount"
+onclick="setAmount(50,this)">
+50
 </button>
-
-</div>
-
-</div>
-
-
-<!-- MESSAGES -->
-
-<div id="messageModal" class="modal hidden">
-
-<div class="modalBox">
 
 <button
-class="close"
-onclick="closeModal('messageModal')">
-×
-</button>
-
-
-<h2>
-💬 Messages
-</h2>
-
-
-<input
-id="msgTo"
-class="field"
-placeholder="Username">
-
-
-<textarea
-id="msgText"
-class="field"
-placeholder="Private message..."
-style="min-height:100px">
-</textarea>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="sendMessage()">
-
-Send
-
-</button>
-
-
-<div
-id="msgStatus"
-class="empty">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- NOTIFICATIONS -->
-
-<div id="noticeModal" class="modal hidden">
-
-<div class="modalBox">
-
-<button
-class="close"
-onclick="closeModal('noticeModal')">
-×
-</button>
-
-
-<h2>
-♡ Notifications
-</h2>
-
-
-<div class="empty">
-No new notifications yet.
-</div>
-
-</div>
-
-</div>
-
-
-<div id="toast" class="toast hidden"></div>
-
-
-<!-- FIREBASE -->
-
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-
-
-<script>
-
-/* =========================
-   FIREBASE CONFIG
-========================= */
-
-const firebaseConfig={
-
-apiKey:
-"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
-
-authDomain:
-"two4nine-7a29d.firebaseapp.com",
-
-projectId:
-"two4nine-7a29d",
-
-storageBucket:
-"two4nine-7a29d.firebasestorage.app",
-
-messagingSenderId:
-"573418811789",
-
-appId:
-"1:573418811789:web:cad8463d4cba5e8a990dc4",
-
-measurementId:
-"G-V2X4YK8NFG"
-
-};
-
-
-firebase.initializeApp(firebaseConfig);
-
-const auth=firebase.auth();
-
-const db=firebase.firestore();
-
-let currentUser=null;
-
-let profile=null;
-
-let authMode="login";
-
-let posts=[];
-
-let news=[];
-
-
-/* =========================
-   HELPERS
-========================= */
-
-function esc(x){
-
-return String(x||"").replace(
-/[&<>"']/g,
-function(m){
-
-return {
-
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
-
-}[m];
-
-});
-
-}
-
-
-function initials(name){
-
-return (name||"?")
-.trim()
-.split(/\s+/)
-.slice(0,2)
-.map(x=>x[0])
-.join("")
-.toUpperCase()||"?";
-
-}
-
-
-function ago(date){
-
-let d=
-date?.toDate
-?date.toDate()
-:new Date(date||Date.now());
-
-let m=
-Math.floor(
-(Date.now()-d.getTime())/60000
-);
-
-if(m<1)return"just now";
-
-if(m<60)return m+"m";
-
-let h=Math.floor(m/60);
-
-if(h<24)return h+"h";
-
-return Math.floor(h/24)+"d";
-
-}
-
-
-function toast(text){
-
-let t=
-document.getElementById("toast");
-
-t.textContent=text;
-
-t.classList.remove("hidden");
-
-clearTimeout(window.toastTimer);
-
-window.toastTimer=setTimeout(
-function(){
-
-t.classList.add("hidden");
-
-},
-2500
-);
-
-}
-
-
-function closeModal(id){
-
-document
-.getElementById(id)
-.classList.add("hidden");
-
-}
-
-
-/* =========================
-   AUTH UI
-========================= */
-
-function openAuth(mode){
-
-authMode=mode;
-
-document
-.getElementById("authModal")
-.classList.remove("hidden");
-
-updateAuth();
-
-}
-
-
-function switchAuth(){
-
-authMode=
-authMode==="login"
-?"signup"
-:"login";
-
-updateAuth();
-
-}
-
-
-function updateAuth(){
-
-let signup=
-authMode==="signup";
-
-document
-.getElementById("authTitle")
-.textContent=
-signup
-?"Create Account"
-:"Login";
-
-
-document
-.getElementById("authButton")
-.textContent=
-signup
-?"Create Account"
-:"Login";
-
-
-document
-.getElementById("authUsername")
-.style.display=
-signup
-?"block"
-:"none";
-
-
-document
-.getElementById("authSwitch")
-.innerHTML=
-signup
-?
-'Already have an account? <button onclick="switchAuth()">Login</button>'
-:
-'New here? <button onclick="switchAuth()">Create Account</button>';
-
-}
-
-
-/* =========================
-   LOGIN / SIGNUP
-========================= */
-
-async function doAuth(){
-
-let email=
-document
-.getElementById("authEmail")
-.value.trim();
-
-let password=
-document
-.getElementById("authPassword")
-.value;
-
-let username=
-document
-.getElementById("authUsername")
-.value.trim()
-.replace(/^@/,"");
-
-
-if(!email||!password){
-
-toast("Email and password required");
-
-return;
-
-}
-
-
-try{
-
-/* LOGIN */
-
-if(authMode==="login"){
-
-await auth.signInWithEmailAndPassword(
-email,
-password
-);
-
-closeModal("authModal");
-
-toast("Welcome back ❤️");
-
-return;
-
-}
-
-
-/* SIGNUP */
-
-if(username.length<3){
-
-toast("Username must be 3+ characters");
-
-return;
-
-}
-
-
-/* Check username */
-
-let check=
-await db
-.collection("users")
-.where("username","==",username)
-.limit(1)
-.get();
-
-
-if(!check.empty){
-
-toast("Username already taken");
-
-return;
-
-}
-
-
-/* Firebase account */
-
-let result=
-await auth
-.createUserWithEmailAndPassword(
-email,
-password
-);
-
-
-/* User profile */
-
-await db
-.collection("users")
-.doc(result.user.uid)
-.set({
-
-uid:result.user.uid,
-
-username:username,
-
-email:email,
-
-createdAt:
-firebase.firestore.FieldValue.serverTimestamp()
-
-});
-
-
-closeModal("authModal");
-
-toast("Account created 🎉");
-
-
-}catch(e){
-
-console.error(e);
-
-showFirebaseError(e);
-
-}
-
-}
-
-
-function showFirebaseError(e){
-
-let c=e?.code||"";
-
-if(c.includes("email-already"))
-return toast("Email already registered");
-
-if(c.includes("invalid-email"))
-return toast("Invalid email");
-
-if(c.includes("weak-password"))
-return toast("Password too weak");
-
-if(c.includes("wrong-password"))
-return toast("Wrong password");
-
-if(c.includes("invalid-credential"))
-return toast("Wrong email or password");
-
-if(c.includes("permission-denied"))
-return toast("Firestore permission denied");
-
-toast(e?.message||"Firebase error");
-
-}
-
-
-/* =========================
-   AUTH STATE
-========================= */
-
-auth.onAuthStateChanged(
-async function(user){
-
-currentUser=user;
-
-if(user){
-
-try{
-
-let snap=
-await db
-.collection("users")
-.doc(user.uid)
-.get();
-
-if(snap.exists){
-
-profile=snap.data();
-
-}else{
-
-profile={
-username:user.email.split("@")[0],
-email:user.email
-};
-
-}
-
-}catch(e){
-
-profile={
-username:user.email.split("@")[0],
-email:user.email
-};
-
-}
-
-}else{
-
-profile=null;
-
-}
-
-renderAccount();
-
-renderStories();
-
-loadPosts();
-
-});
-
-
-/* =========================
-   ACCOUNT
-========================= */
-
-function renderAccount(){
-
-let box=
-document.getElementById("accountArea");
-
-
-if(!currentUser){
-
-box.innerHTML=
-
-'<button class="topBtn" onclick="openAuth(\'login\')">Login</button>'+
-
-'<button class="topBtn createTop" onclick="openAuth(\'signup\')">Create Account</button>';
-
-document
-.getElementById("composerName")
-.textContent=
-"Welcome to two4nine";
-
-document
-.getElementById("composerAvatar")
-.textContent="?";
-
-return;
-
-}
-
-
-let name=
-profile?.username||"User";
-
-
-box.innerHTML=
-
-'<button class="iconBtn" onclick="openMessages()">💬</button>'+
-
-'<button class="topBtn" onclick="openProfile()">👤 '+
-esc(name)+
-'</button>';
-
-
-document
-.getElementById("composerName")
-.textContent="@"+name;
-
-
-document
-.getElementById("composerAvatar")
-.textContent=
-initials(name);
-
-}
-
-
-function openProfile(){
-
-if(!currentUser){
-
-openAuth("login");
-
-return;
-
-}
-
-
-document
-.getElementById("profileAvatar")
-.textContent=
-initials(profile?.username);
-
-
-document
-.getElementById("profileName")
-.textContent=
-"@"+(profile?.username||"User");
-
-
-document
-.getElementById("profileEmail")
-.textContent=
-currentUser.email;
-
-
-document
-.getElementById("profileModal")
-.classList.remove("hidden");
-
-}
-
-
-async function logout(){
-
-await auth.signOut();
-
-closeModal("profileModal");
-
-toast("Logged out");
-
-}
-
-
-/* =========================
-   POST
-========================= */
-
-async function addPost(){
-
-if(!currentUser){
-
-openAuth("login");
-
-return;
-
-}
-
-
-let text=
-document
-.getElementById("postText")
-.value.trim();
-
-
-if(!text){
-
-toast("Write something first");
-
-return;
-
-}
-
-
-try{
-
-await db
-.collection("posts")
-.add({
-
-uid:currentUser.uid,
-
-username:
-profile?.username||"User",
-
-text:text,
-
-type:"post",
-
-createdAt:
-firebase.firestore.FieldValue
-.serverTimestamp()
-
-});
-
-
-document
-.getElementById("postText")
-.value="";
-
-toast("Posted ❤️");
-
-loadPosts();
-
-}catch(e){
-
-showFirebaseError(e);
-
-}
-
-}
-
-
-/* =========================
-   STORY
-========================= */
-
-async function addStory(){
-
-if(!currentUser){
-
-openAuth("login");
-
-return;
-
-}
-
-
-let text=
-document
-.getElementById("postText")
-.value.trim();
-
-
-if(!text){
-
-toast("Write your story first");
-
-return;
-
-}
-
-
-try{
-
-await db
-.collection("posts")
-.add({
-
-uid:currentUser.uid,
-
-username:
-profile?.username||"User",
-
-text:text,
-
-type:"story",
-
-createdAt:
-firebase.firestore.FieldValue
-.serverTimestamp()
-
-});
-
-
-document
-.getElementById("postText")
-.value="";
-
-toast("Story added ✨");
-
-loadPosts();
-
-}catch(e){
-
-showFirebaseError(e);
-
-}
-
-}
-
-
-/* =========================
-   STORIES ROW
-========================= */
-
-function renderStories(){
-
-let list=
-posts
-.filter(x=>x.type==="story")
-.slice(0,10);
-
-
-let html=
-
-'<div class="story your" onclick="addStory()">'+
-
-'<div class="avatar">＋</div>'+
-
-'<div>Your Story</div>'+
-
-'</div>';
-
-
-if(profile?.username){
-
-html+=
-
-'<div class="story">'+
-
-'<div class="avatar">'+
-initials(profile.username)+
-'</div>'+
-
-'<div>@'+
-esc(profile.username)+
-'</div>'+
-
-'</div>';
-
-}
-
-
-let used=[];
-
-
-list.forEach(function(s){
-
-if(used.includes(s.username))
-return;
-
-used.push(s.username);
-
-
-html+=
-
-'<div class="story" onclick="toast(\'Story by '+
-
-esc(s.username)+
-
-'\')">'+
-
-'<div class="avatar">'+
-initials(s.username)+
-'</div>'+
-
-'<div>'+
-esc(s.username)+
-'</div>'+
-
-'</div>';
-
-});
-
-
-let defaultUsers=[
-"Rahul",
-"Priya",
-"Aman",
-"Neha",
-"Simran",
-"Rohan"
-];
-
-
-defaultUsers.forEach(function(n){
-
-if(
-!used.includes(n)&&
-n!==profile?.username
-){
-
-html+=
-
-'<div class="story">'+
-
-'<div class="avatar">'+
-n[0]+
-'</div>'+
-
-'<div>'+
-n+
-'</div>'+
-
-'</div>';
-
-}
-
-});
-
-
-html+=
-
-'<div class="story">'+
-
-'<div class="avatar">•••</div>'+
-
-'<div>More</div>'+
-
-'</div>';
-
-
-document
-.getElementById("stories")
-.innerHTML=html;
-
-}
-
-
-/* =========================
-   LOAD POSTS
-========================= */
-
-async function loadPosts(){
-
-try{
-
-let snap=
-await db
-.collection("posts")
-.get();
-
-
-posts=
-snap.docs
-.map(function(d){
-
-return{
-id:d.id,
-...d.data()
-};
-
-})
-.sort(function(a,b){
-
-return millis(b.createdAt)-
-millis(a.createdAt);
-
-});
-
-
-renderFeed();
-
-renderStories();
-
-}catch(e){
-
-console.error(e);
-
-document
-.getElementById("feed")
-.innerHTML=
-'<div class="empty">Could not load posts.</div>';
-
-}
-
-}
-
-
-function millis(x){
-
-if(x?.toDate)
-return x.toDate().getTime();
-
-if(x?.seconds)
-return x.seconds*1000;
-
-return 0;
-
-}
-
-
-/* =========================
-   FEED
-========================= */
-
-function renderFeed(){
-
-let feed=
-document.getElementById("feed");
-
-
-let normal=
-posts.filter(x=>x.type!=="story");
-
-
-let html="";
-
-
-if(!normal.length){
-
-html+=
-'<div class="empty">No posts yet. Be the first ❤️</div>';
-
-}
-
-
-normal.forEach(function(p){
-
-let n=
-esc(p.username||"User");
-
-
-html+=`
-
-<article class="card">
-
-<div class="head">
-
-<div class="avatar">
-${initials(n)}
-</div>
-
-<div class="meta">
-
-<div class="name">
-@${n}
-</div>
-
-<div class="time">
-${ago(p.createdAt)}
-</div>
-
-</div>
-
-</div>
-
-
-<div class="body">
-${esc(p.text)}
-</div>
-
-
-<div class="actions">
-
-<button onclick="like('${p.id}')">
-♡ <span id="likes-${p.id}">0</span>
-</button>
-
-<button onclick="comment()">
-💬 Comment
-</button>
-
-<button onclick="share('${esc(p.text)}')">
-↗ Share
-</button>
-
-</div>
-
-</article>
-
-`;
-
-});
-
-
-feed.innerHTML=html;
-
-}
-
-
-/* =========================
-   LIKE
-========================= */
-
-function like(id){
-
-let key=
-"two4nine_like_"+id;
-
-
-let n=
-Number(
-localStorage.getItem(key)||0
-)+1;
-
-
-localStorage.setItem(key,n);
-
-
-let x=
-document
-.getElementById("likes-"+id);
-
-
-if(x)
-x.textContent=n;
-
-}
-
-
-/* =========================
-   COMMENT
-========================= */
-
-function comment(){
-
-if(!currentUser){
-
-openAuth("login");
-
-return;
-
-}
-
-
-let text=
-prompt("Write comment:");
-
-
-if(text?.trim())
-toast("Comment added 💬");
-
-}
-
-
-/* =========================
-   SHARE
-========================= */
-
-async function share(text){
-
-try{
-
-await navigator.clipboard.writeText(text);
-
-toast("Copied 📋");
-
-}catch(e){
-
-toast(text.slice(0,40));
-
-}
-
-}
-
-
-/* =========================
-   NEWS
-========================= */
-
-async function loadNews(){
-
-let queries=[
-
-["World","world"],
-
-["War & Conflict","war conflict"],
-
-["Sports","sports"],
-
-["AI & Technology","AI technology"],
-
-["Business","business"
+class="amount"
+onclick="setAmount(100,this)">
+100
+</
