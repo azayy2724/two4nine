@@ -2,1509 +2,1560 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>two4nine - Color Play</title>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+  name="theme-color"
+  content="#080b12"
+>
+
+<title>two4nine • World News & Memes</title>
 
 <style>
-*{box-sizing:border-box}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  background:#07111f;
-  color:#fff;
-  font-family:Arial,sans-serif;
+  background:#070a10;
+  color:#f5f7fb;
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
-button,input{font:inherit}
+button,
+input{
+  font:inherit;
+}
 
-button{cursor:pointer}
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
 
 .app{
-  max-width:700px;
+  max-width:1180px;
   margin:auto;
-  padding-bottom:85px;
+  min-height:100vh;
 }
 
-/* HEADER */
-header{
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
   position:sticky;
   top:0;
-  z-index:10;
-  height:64px;
-  padding:8px 12px;
-  background:#0b1a2b;
-  border-bottom:1px solid #ffffff15;
+  z-index:100;
+
+  height:68px;
+
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:16px;
+
+  padding:0 18px;
+
+  background:
+    rgba(7,10,16,.94);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:
+    blur(16px);
 }
 
 .logo{
-  font-size:24px;
-  font-weight:900;
+  font-size:26px;
+  font-weight:1000;
+  letter-spacing:-1.5px;
   white-space:nowrap;
 }
 
 .logo span{
-  color:#35d995;
+  color:#35e0a0;
 }
 
-.account{
+.live{
   display:flex;
   align-items:center;
-  gap:7px;
-  margin-left:auto;
-  min-width:0;
-}
+  gap:6px;
 
-.avatar{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:#263d58;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  flex-shrink:0;
-}
-
-.account-text{
-  min-width:0;
-}
-
-.account-text b,
-.account-text small{
-  display:block;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.account-text b{font-size:12px}
-.account-text small{
-  color:#91a6bb;
-  font-size:9px;
-}
-
-.wallet{
-  background:#172b43;
-  color:#ffd766;
-  padding:9px 10px;
-  border-radius:15px;
-  font-weight:900;
-  white-space:nowrap;
-  font-size:13px;
-}
-
-/* CARDS */
-.card{
-  margin:12px;
-  padding:16px;
-  background:#0d1d30;
-  border:1px solid #ffffff12;
-  border-radius:20px;
-}
-
-.hero{
-  background:linear-gradient(135deg,#142c4b,#24153e);
-}
-
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-h1,h2,h3,p{margin-top:0}
-
-.muted{
-  color:#91a6bb;
-}
-
-.pill{
   padding:6px 9px;
+
   border-radius:20px;
-  background:#ffffff0b;
-  color:#91a6bb;
+
+  background:#ff314a15;
+  color:#ff6476;
+
   font-size:10px;
-  white-space:nowrap;
-}
-
-.timer{
-  text-align:center;
-  font-size:38px;
   font-weight:900;
-  color:#35d995;
-  margin-top:14px;
 }
 
-/* HISTORY */
-.history{
-  display:flex;
-  gap:7px;
-  overflow-x:auto;
-  padding:12px 0;
-}
+.liveDot{
+  width:7px;
+  height:7px;
 
-.dot{
-  width:36px;
-  height:36px;
-  min-width:36px;
   border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-weight:900;
+
+  background:#ff4056;
+
+  box-shadow:
+    0 0 10px #ff4056;
 }
 
-.redDot{background:#e94455}
-.greenDot{background:#18b879}
-.violetDot{background:#7954e8}
+.search{
+  margin-left:auto;
 
-/* GAME */
-.colors{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
-}
+  width:min(300px,42vw);
 
-.color{
-  border:0;
-  color:white;
-  border-radius:14px;
-  padding:17px 5px;
-  font-weight:900;
-}
-
-.color small{
-  display:block;
-  opacity:.8;
-  margin-top:5px;
-}
-
-.red{background:#e94455}
-.green{background:#18b879}
-.violet{background:#7954e8}
-
-.selected{
-  outline:3px solid white;
-  outline-offset:2px;
-}
-
-.amounts{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-
-.amount{
-  border:0;
-  background:#172b43;
-  color:white;
-  padding:9px 14px;
-  border-radius:10px;
-  font-weight:800;
-}
-
-.amount.active{
-  background:#35d995;
-  color:#00150d;
-}
-
-.playBtn,
-.primary{
-  width:100%;
-  border:0;
-  background:#35d995;
-  color:#00150d;
-  padding:14px;
-  margin-top:13px;
-  border-radius:13px;
-  font-weight:900;
-}
-
-.playBtn:disabled,
-.primary:disabled{
-  opacity:.45;
-}
-
-.secondary{
-  border:1px solid #ffffff18;
-  background:#172b43;
-  color:white;
-  border-radius:11px;
-  padding:10px 13px;
-  font-weight:800;
-}
-
-.full{
-  width:100%;
-}
-
-/* TABLE */
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-th,td{
-  padding:9px 3px;
-  text-align:left;
-  border-bottom:1px solid #ffffff0e;
-  font-size:12px;
-}
-
-th{
-  color:#91a6bb;
-}
-
-.win{color:#35d995}
-.loss{color:#ff6977}
-
-/* NAV */
-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:68px;
-  z-index:20;
-  display:flex;
-  background:#091827f5;
-  border-top:1px solid #ffffff15;
-  backdrop-filter:blur(10px);
-}
-
-nav button{
-  flex:1;
-  background:none;
-  border:0;
-  color:#91a6bb;
-  font-size:11px;
-}
-
-nav b{
-  display:block;
-  font-size:20px;
-  margin-bottom:3px;
-}
-
-nav .active{
-  color:#35d995;
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:50;
-  background:#000c;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:14px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modalBox{
-  width:100%;
-  max-width:430px;
-  max-height:90vh;
-  overflow:auto;
-  background:#0d1d30;
-  border:1px solid #ffffff18;
-  border-radius:22px;
-  padding:20px;
   position:relative;
 }
 
-.close{
+.search input{
+  width:100%;
+
+  padding:
+    10px
+    38px
+    10px
+    14px;
+
+  border:
+    1px solid rgba(255,255,255,.09);
+
+  border-radius:13px;
+
+  outline:none;
+
+  background:#101722;
+
+  color:white;
+}
+
+.search span{
   position:absolute;
   right:12px;
   top:9px;
-  background:none;
+
+  color:#78879b;
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
+
+.topNav{
+  display:flex;
+  gap:8px;
+
+  padding:
+    12px 18px;
+
+  overflow:auto;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.05);
+}
+
+.topNav button{
   border:0;
-  color:#91a6bb;
-  font-size:29px;
-}
 
-/* AUTH */
-.tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:4px;
-  background:#071522;
-  padding:4px;
-  border-radius:12px;
-  margin:14px 0;
-}
+  background:#101722;
 
-.tabs button{
-  border:0;
-  background:transparent;
-  color:#91a6bb;
-  padding:10px;
-  border-radius:9px;
-  font-weight:900;
-}
+  color:#9ba9bb;
 
-.tabs button.active{
-  background:#35d995;
-  color:#00150d;
-}
+  padding:
+    9px 14px;
 
-.field{
-  margin-top:12px;
-}
+  border-radius:10px;
 
-.field label{
-  display:block;
-  color:#91a6bb;
+  white-space:nowrap;
+
   font-size:12px;
-  margin-bottom:6px;
-}
-
-.field input{
-  width:100%;
-  background:#071522;
-  color:white;
-  border:1px solid #ffffff18;
-  border-radius:12px;
-  padding:13px;
-  outline:none;
-}
-
-.field input:focus{
-  border-color:#35d995;
-}
-
-.passwordWrap{
-  position:relative;
-}
-
-.passwordWrap input{
-  padding-right:60px;
-}
-
-.showPassword{
-  position:absolute;
-  right:6px;
-  top:6px;
-  border:0;
-  background:#172b43;
-  color:white;
-  border-radius:8px;
-  padding:7px;
-  font-size:11px;
-}
-
-.status{
-  min-height:18px;
-  margin-top:12px;
-  font-size:12px;
-  line-height:1.4;
-}
-
-.error{color:#ff6977}
-.success{color:#35d995}
-
-.link{
-  border:0;
-  background:none;
-  color:#35d995;
-  padding:0;
   font-weight:800;
 }
 
-.center{
+.topNav button.active{
+  background:#35e0a0;
+  color:#03130d;
+}
+
+
+/* =========================================================
+   BIRTHDAY
+========================================================= */
+
+.birthday{
+  display:none;
+
+  margin:16px 18px 0;
+
+  padding:22px;
+
+  border-radius:22px;
+
+  position:relative;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      120deg,
+      #26143e,
+      #132c43,
+      #341327
+    );
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.3);
+
   text-align:center;
 }
 
-.profileLine{
-  padding:11px 0;
-  border-bottom:1px solid #ffffff0e;
-}
-
-.profileLine b,
-.profileLine span{
+.birthday.show{
   display:block;
 }
 
-.profileLine span{
-  color:#91a6bb;
+.birthday:before{
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  background:#35e0a022;
+
+  left:-70px;
+  top:-80px;
+}
+
+.birthday:after{
+  content:"";
+
+  position:absolute;
+
+  width:160px;
+  height:160px;
+
+  border-radius:50%;
+
+  background:#ff5c8d18;
+
+  right:-60px;
+  bottom:-80px;
+}
+
+.birthdayContent{
+  position:relative;
+  z-index:2;
+}
+
+.birthdayEmoji{
+  font-size:35px;
+}
+
+.birthday h2{
+  margin:
+    7px
+    0
+    5px;
+
+  font-size:
+    clamp(
+      25px,
+      6vw,
+      42px
+    );
+
+  letter-spacing:-1px;
+}
+
+.birthday p{
+  margin:0;
+
+  color:#cbd6e4;
+
   font-size:13px;
-  margin-top:3px;
-  word-break:break-word;
 }
 
-.notice{
-  color:#91a6bb;
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  margin:18px;
+
+  padding:
+    clamp(22px,5vw,42px);
+
+  border-radius:25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #101d2e,
+      #151326
+    );
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  position:relative;
+  overflow:hidden;
+}
+
+.heroGlow{
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  border-radius:50%;
+
+  background:#35e0a014;
+
+  right:-100px;
+  top:-130px;
+
+  filter:blur(10px);
+}
+
+.heroContent{
+  position:relative;
+  z-index:2;
+
+  max-width:720px;
+}
+
+.eyebrow{
+  color:#35e0a0;
+
+  text-transform:uppercase;
+
+  letter-spacing:2px;
+
+  font-size:10px;
+
+  font-weight:1000;
+}
+
+.hero h1{
+  font-size:
+    clamp(
+      30px,
+      7vw,
+      58px
+    );
+
+  line-height:.98;
+
+  letter-spacing:-3px;
+
+  margin:
+    10px
+    0
+    14px;
+}
+
+.hero p{
+  color:#aab8c9;
+
+  line-height:1.6;
+
+  max-width:650px;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.main{
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    330px;
+
+  gap:16px;
+
+  padding:
+    0 18px;
+}
+
+
+/* =========================================================
+   SECTION HEAD
+========================================================= */
+
+.sectionHead{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  gap:10px;
+
+  margin:
+    5px
+    0
+    12px;
+}
+
+.sectionHead h2{
+  margin:0;
+
+  font-size:20px;
+
+  letter-spacing:-.6px;
+}
+
+.sectionHead span{
+  color:#718096;
+
   font-size:11px;
-  line-height:1.5;
 }
 
-/* TOAST */
-#toast{
-  display:none;
-  position:fixed;
-  z-index:100;
-  left:50%;
-  bottom:80px;
-  transform:translateX(-50%);
-  background:#f4fbff;
-  color:#07111f;
-  padding:10px 15px;
-  border-radius:11px;
-  font-size:12px;
+
+/* =========================================================
+   NEWS GRID
+========================================================= */
+
+.newsGrid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:12px;
+}
+
+.newsCard{
+  background:#0d131d;
+
+  border:
+    1px solid rgba(255,255,255,.07);
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  transition:
+    transform .18s,
+    border-color .18s;
+}
+
+.newsCard:hover{
+  transform:translateY(-2px);
+
+  border-color:
+    rgba(53,224,160,.35);
+}
+
+.newsImage{
+  height:150px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #17263a,
+      #111722
+    );
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:40px;
+
+  position:relative;
+}
+
+.newsImage .tag{
+  position:absolute;
+
+  left:10px;
+  top:10px;
+
+  padding:5px 8px;
+
+  border-radius:7px;
+
+  background:#000b;
+
+  color:#fff;
+
+  font-size:9px;
+
   font-weight:900;
+}
+
+.newsBody{
+  padding:14px;
+}
+
+.newsTitle{
+  font-size:16px;
+
+  line-height:1.28;
+
+  font-weight:900;
+
+  margin-bottom:9px;
+}
+
+.newsDesc{
+  color:#8796a9;
+
+  font-size:12px;
+
+  line-height:1.5;
+
+  display:
+    -webkit-box;
+
+  -webkit-line-clamp:3;
+
+  -webkit-box-orient:vertical;
+
+  overflow:hidden;
+}
+
+.newsMeta{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:8px;
+
+  margin-top:13px;
+
+  color:#617084;
+
+  font-size:10px;
+}
+
+
+/* =========================================================
+   MEMES
+========================================================= */
+
+.memeSection{
+  margin-top:20px;
+}
+
+.memeGrid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:12px;
+}
+
+.memeCard{
+  min-height:190px;
+
+  border-radius:18px;
+
+  padding:16px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
+
+  background:
+    linear-gradient(
+      135deg,
+      #151c29,
+      #0d1119
+    );
+
+  border:
+    1px solid rgba(255,255,255,.08);
+}
+
+.memeEmoji{
+  font-size:44px;
+}
+
+.memeText{
+  font-size:18px;
+
+  font-weight:1000;
+
+  line-height:1.15;
+
+  letter-spacing:-.5px;
+}
+
+.memeSmall{
+  color:#758397;
+
+  font-size:10px;
+
+  margin-top:8px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sideCard{
+  background:#0d131d;
+
+  border:
+    1px solid rgba(255,255,255,.07);
+
+  border-radius:18px;
+
+  padding:16px;
+
+  margin-bottom:12px;
+}
+
+.sideTitle{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:13px;
+}
+
+.sideTitle h3{
+  margin:0;
+
+  font-size:16px;
+}
+
+.sideTitle span{
+  color:#35e0a0;
+
+  font-size:10px;
+
+  font-weight:900;
+}
+
+.trend{
+  display:flex;
+
+  gap:10px;
+
+  padding:
+    11px
+    0;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.06);
+}
+
+.trend:last-child{
+  border-bottom:0;
+}
+
+.trendNum{
+  color:#35e0a0;
+
+  font-size:18px;
+
+  font-weight:1000;
+
+  width:24px;
+}
+
+.trendText{
+  font-size:12px;
+
+  line-height:1.35;
+
+  font-weight:800;
+}
+
+.trendMeta{
+  color:#657388;
+
+  font-size:9px;
+
+  margin-top:4px;
+}
+
+
+/* =========================================================
+   CATEGORY BOX
+========================================================= */
+
+.categoryGrid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:7px;
+}
+
+.category{
+  border:0;
+
+  padding:10px;
+
+  border-radius:10px;
+
+  background:#141c28;
+
+  color:#a9b6c7;
+
+  font-size:11px;
+
+  font-weight:800;
+}
+
+.category:hover{
+  background:#1b2838;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+  grid-column:
+    1 / -1;
+
+  padding:35px;
+
+  text-align:center;
+
+  color:#718096;
+}
+
+.spinner{
+  width:28px;
+  height:28px;
+
+  border:
+    3px solid #ffffff10;
+
+  border-top-color:#35e0a0;
+
+  border-radius:50%;
+
+  animation:
+    spin .8s linear infinite;
+
+  margin:
+    0
+    auto
+    10px;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+  grid-column:
+    1 / -1;
+
+  padding:35px;
+
+  text-align:center;
+
+  color:#718096;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  margin-top:40px;
+
+  padding:
+    30px
+    18px
+    100px;
+
+  border-top:
+    1px solid rgba(255,255,255,.06);
+
+  text-align:center;
+
+  color:#59687b;
+
+  font-size:11px;
+
+  line-height:1.7;
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+.mobileNav{
+  display:none;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+#toast{
+  position:fixed;
+
+  z-index:300;
+
+  left:50%;
+  bottom:85px;
+
+  transform:
+    translateX(-50%);
+
+  display:none;
+
+  padding:
+    10px
+    15px;
+
+  border-radius:11px;
+
+  background:#f4fbff;
+
+  color:#07111f;
+
+  font-size:11px;
+
+  font-weight:900;
+
   max-width:90%;
+
   text-align:center;
 }
 
-/* MOBILE */
-@media(max-width:420px){
 
-  .logo{font-size:21px}
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-  .account-text{
+@media(max-width:850px){
+
+  .main{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    display:grid;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:12px;
+  }
+
+  .sideCard{
+    margin:0;
+  }
+
+}
+
+@media(max-width:620px){
+
+  .header{
+    height:60px;
+
+    padding:
+      0
+      11px;
+
+    gap:8px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .live{
     display:none;
   }
 
-  .wallet{
+  .search{
+    width:150px;
+  }
+
+  .search input{
+    padding:
+      9px
+      30px
+      9px
+      10px;
+
     font-size:12px;
-    padding:8px;
   }
 
-  .card{
-    margin:9px;
-    padding:14px;
+  .topNav{
+    padding:
+      9px
+      11px;
   }
 
-  .timer{
-    font-size:34px;
+  .hero{
+    margin:
+      12px
+      11px;
+
+    padding:23px 18px;
+
+    border-radius:20px;
   }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .birthday{
+    margin:
+      12px
+      11px
+      0;
+  }
+
+  .main{
+    padding:
+      0
+      11px;
+  }
+
+  .newsGrid,
+  .memeGrid{
+    grid-template-columns:1fr;
+  }
+
+  .newsImage{
+    height:180px;
+  }
+
+  .sidebar{
+    display:block;
+  }
+
+  .sideCard{
+    margin-bottom:12px;
+  }
+
+  .mobileNav{
+    position:fixed;
+
+    display:flex;
+
+    bottom:0;
+    left:0;
+    right:0;
+
+    height:67px;
+
+    z-index:200;
+
+    background:
+      rgba(7,10,16,.96);
+
+    border-top:
+      1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:
+      blur(15px);
+  }
+
+  .mobileNav button{
+    flex:1;
+
+    border:0;
+
+    background:none;
+
+    color:#728095;
+
+    font-size:10px;
+  }
+
+  .mobileNav b{
+    display:block;
+
+    font-size:20px;
+
+    margin-bottom:3px;
+  }
+
+  .mobileNav button.active{
+    color:#35e0a0;
+  }
+
+  footer{
+    padding-bottom:95px;
+  }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
-<!-- HEADER -->
-<header>
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="header">
 
   <div class="logo">
     two<span>4</span>nine
   </div>
 
-  <div class="account" id="accountArea">
-    <div class="avatar">G</div>
-    <div class="account-text">
-      <b>Guest</b>
-      <small>Demo mode</small>
-    </div>
+  <div class="live">
+    <span class="liveDot"></span>
+    LIVE WORLD
   </div>
 
-  <div class="wallet">
-    🪙 <span id="balance">1,000</span>
+  <div class="search">
+
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search news..."
+      oninput="searchNews()"
+    >
+
+    <span>⌕</span>
+
   </div>
 
 </header>
 
 
-<!-- HERO -->
-<section class="card hero">
+<!-- =======================================================
+     CATEGORY NAV
+======================================================= -->
 
-  <div class="row">
-
-    <div>
-      <h1>🎨 Color Play</h1>
-      <div class="muted">
-        Virtual coin prediction demo
-      </div>
-    </div>
-
-    <span class="pill">
-      DEMO
-    </span>
-
-  </div>
-
-  <div class="timer" id="timer">
-    00:30
-  </div>
-
-</section>
-
-
-<!-- GAME -->
-<section class="card">
-
-  <div class="row">
-    <b>
-      Round #<span id="round">1001</span>
-    </b>
-
-    <span class="muted">
-      30 seconds
-    </span>
-  </div>
-
-
-  <div class="history" id="history">
-
-    <div class="dot redDot">R</div>
-    <div class="dot greenDot">G</div>
-    <div class="dot violetDot">V</div>
-    <div class="dot greenDot">G</div>
-
-  </div>
-
-
-  <div class="colors">
-
-    <button
-      class="color red"
-      onclick="selectColor('Red',2,this)"
-    >
-      RED
-      <small>2×</small>
-    </button>
-
-    <button
-      class="color green"
-      onclick="selectColor('Green',2,this)"
-    >
-      GREEN
-      <small>2×</small>
-    </button>
-
-    <button
-      class="color violet"
-      onclick="selectColor('Violet',5,this)"
-    >
-      VIOLET
-      <small>5×</small>
-    </button>
-
-  </div>
-
-
-  <div class="amounts">
-
-    <button class="amount active"
-      onclick="selectAmount(10,this)">
-      10
-    </button>
-
-    <button class="amount"
-      onclick="selectAmount(50,this)">
-      50
-    </button>
-
-    <button class="amount"
-      onclick="selectAmount(100,this)">
-      100
-    </button>
-
-    <button class="amount"
-      onclick="selectAmount(200,this)">
-      200
-    </button>
-
-  </div>
-
+<div class="topNav">
 
   <button
-    id="playBtn"
-    class="playBtn"
-    onclick="startRound()"
+    class="active"
+    onclick="setCategory('All',this)"
   >
-    PLAY ROUND
+    🌍 All
   </button>
 
-
-  <p class="notice" style="margin:12px 0 0">
-    This website uses virtual coins only.
-    Coins have no real-money value and cannot be cashed out.
-  </p>
-
-</section>
-
-
-<!-- HISTORY -->
-<section class="card">
-
-  <div class="row">
-
-    <h3>📊 My Plays</h3>
-
-    <span class="pill" id="playCount">
-      0 plays
-    </span>
-
-  </div>
-
-
-  <table>
-
-    <thead>
-      <tr>
-        <th>Round</th>
-        <th>Pick</th>
-        <th>Amount</th>
-        <th>Result</th>
-      </tr>
-    </thead>
-
-    <tbody id="plays"></tbody>
-
-  </table>
-
-
-  <div
-    id="emptyPlays"
-    class="muted"
-    style="font-size:12px;margin-top:12px"
+  <button
+    onclick="setCategory('World',this)"
   >
-    No plays yet.
-  </div>
+    🌐 World
+  </button>
 
-</section>
-
-
-<!-- LEADERBOARD -->
-<section class="card">
-
-  <h3>🏆 Leaderboard</h3>
-
-  <table>
-
-    <tr>
-      <td>1</td>
-      <td>Rahul</td>
-      <td>2,450</td>
-    </tr>
-
-    <tr>
-      <td>2</td>
-      <td>Priya</td>
-      <td>2,120</td>
-    </tr>
-
-    <tr>
-      <td>3</td>
-      <td>Aman</td>
-      <td>1,890</td>
-    </tr>
-
-    <tr>
-      <td>4</td>
-      <td>You</td>
-      <td id="leaderBalance">1,000</td>
-    </tr>
-
-  </table>
-
-</section>
-
-
-<!-- ACCOUNT -->
-<section class="card">
-
-  <div class="row">
-
-    <h3>👤 Account</h3>
-
-    <button
-      class="secondary"
-      onclick="openProfile()"
-    >
-      Open
-    </button>
-
-  </div>
-
-  <div
-    id="accountMessage"
-    class="muted"
-    style="font-size:13px"
+  <button
+    onclick="setCategory('Technology',this)"
   >
-    Guest mode is active.
-  </div>
+    💻 Tech
+  </button>
 
-</section>
+  <button
+    onclick="setCategory('Business',this)"
+  >
+    💼 Business
+  </button>
+
+  <button
+    onclick="setCategory('Sports',this)"
+  >
+    ⚽ Sports
+  </button>
+
+  <button
+    onclick="setCategory('Entertainment',this)"
+  >
+    🎬 Entertainment
+  </button>
+
+  <button
+    onclick="setCategory('Science',this)"
+  >
+    🔬 Science
+  </button>
+
+  <button
+    onclick="setCategory('Health',this)"
+  >
+    🧬 Health
+  </button>
 
 </div>
 
 
-<!-- BOTTOM NAV -->
-<nav>
+<!-- =======================================================
+     BIRTHDAY
+======================================================= -->
+
+<section
+  id="birthday"
+  class="birthday"
+>
+
+  <div class="birthdayContent">
+
+    <div class="birthdayEmoji">
+      🎂 🎉 ❤️
+    </div>
+
+    <h2>
+      Happy Birthday Betu ❤️
+    </h2>
+
+    <p>
+      Wishing you a beautiful day filled with happiness,
+      smiles and lots of love.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+  <div class="heroGlow"></div>
+
+  <div class="heroContent">
+
+    <div class="eyebrow">
+      Independent World Feed
+    </div>
+
+    <h1>
+      The world,<br>
+      in one place.
+    </h1>
+
+    <p>
+      International headlines, technology, business,
+      sports and the internet's funniest moments —
+      refreshed automatically.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
+<main class="main">
+
+
+<!-- =======================================================
+     LEFT
+======================================================= -->
+
+<section>
+
+
+  <!-- NEWS -->
+
+  <div class="sectionHead">
+
+    <h2>
+      📰 Latest World News
+    </h2>
+
+    <span id="updated">
+      Loading...
+    </span>
+
+  </div>
+
+
+  <div
+    id="newsGrid"
+    class="newsGrid"
+  >
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading international news...
+
+    </div>
+
+  </div>
+
+
+  <!-- MEMES -->
+
+  <div class="memeSection">
+
+    <div class="sectionHead">
+
+      <h2>
+        😂 Internet Memes
+      </h2>
+
+      <span>
+        Auto generated
+      </span>
+
+    </div>
+
+
+    <div
+      id="memeGrid"
+      class="memeGrid"
+    ></div>
+
+  </div>
+
+
+</section>
+
+
+<!-- =======================================================
+     SIDEBAR
+======================================================= -->
+
+<aside class="sidebar">
+
+
+  <!-- TRENDING -->
+
+  <div class="sideCard">
+
+    <div class="sideTitle">
+
+      <h3>
+        🔥 Trending
+      </h3>
+
+      <span>
+        TODAY
+      </span>
+
+    </div>
+
+
+    <div id="trending">
+
+      <div class="trend">
+
+        <div class="trendNum">
+          01
+        </div>
+
+        <div>
+          <div class="trendText">
+            Loading trending stories...
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CATEGORIES -->
+
+  <div class="sideCard">
+
+    <div class="sideTitle">
+
+      <h3>
+        Explore
+      </h3>
+
+    </div>
+
+
+    <div class="categoryGrid">
+
+      <button
+        class="category"
+        onclick="setCategoryByName('World')"
+      >
+        🌍 World
+      </button>
+
+      <button
+        class="category"
+        onclick="setCategoryByName('Technology')"
+      >
+        💻 Technology
+      </button>
+
+      <button
+        class="category"
+        onclick="setCategoryByName('Business')"
+      >
+        💼 Business
+      </button>
+
+      <button
+        class="category"
+        onclick="setCategoryByName('Sports')"
+      >
+        ⚽ Sports
+      </button>
+
+      <button
+        class="category"
+        onclick="setCategoryByName('Entertainment')"
+      >
+        🎬 Entertainment
+      </button>
+
+      <button
+        class="category"
+        onclick="setCategoryByName('Science')"
+      >
+        🔬 Science
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- QUICK INFO -->
+
+  <div class="sideCard">
+
+    <div class="sideTitle">
+
+      <h3>
+        ✨ two4nine
+      </h3>
+
+    </div>
+
+    <p
+      class="notice"
+      style="
+        color:#8290a3;
+        font-size:11px;
+        line-height:1.6;
+      "
+    >
+      A lightweight international news
+      and meme hub. News is loaded from
+      public RSS feeds when available.
+    </p>
+
+  </div>
+
+
+</aside>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+  <b>
+    two4nine
+  </b>
+
+  <br>
+
+  World News • Memes • Trends
+
+  <br><br>
+
+  Headlines shown on this demo are
+  provided through public news feeds.
+  Always check the original publisher
+  before relying on a story.
+
+</footer>
+
+
+<!-- =======================================================
+     MOBILE NAV
+======================================================= -->
+
+<nav class="mobileNav">
 
   <button
     class="active"
-    onclick="goTop()"
+    onclick="goHome()"
   >
     <b>⌂</b>
     Home
   </button>
 
   <button
-    onclick="scrollHistory()"
+    onclick="focusSearch()"
   >
-    <b>◷</b>
-    History
+    <b>⌕</b>
+    Search
   </button>
 
   <button
-    onclick="openRules()"
+    onclick="scrollMemes()"
   >
-    <b>?</b>
-    Rules
+    <b>😂</b>
+    Memes
   </button>
 
   <button
-    onclick="openProfile()"
+    onclick="refreshNews()"
   >
-    <b>👤</b>
-    Profile
+    <b>↻</b>
+    Refresh
   </button>
 
 </nav>
 
 
-<!-- AUTH MODAL -->
-<div
-  class="modal"
-  id="authModal"
->
-
-  <div class="modalBox">
-
-    <button
-      class="close"
-      onclick="closeModal('authModal')"
-    >
-      ×
-    </button>
-
-
-    <h2 id="authTitle">
-      Login
-    </h2>
-
-
-    <div class="tabs">
-
-      <button
-        id="loginTab"
-        class="active"
-        onclick="changeAuthMode('login')"
-      >
-        Login
-      </button>
-
-      <button
-        id="signupTab"
-        onclick="changeAuthMode('signup')"
-      >
-        Create Account
-      </button>
-
-    </div>
-
-
-    <!-- USERNAME -->
-    <div
-      class="field"
-      id="usernameBox"
-      style="display:none"
-    >
-
-      <label>
-        Username
-      </label>
-
-      <input
-        id="username"
-        type="text"
-        maxlength="20"
-        autocomplete="username"
-        placeholder="Choose username"
-      >
-
-    </div>
-
-
-    <!-- EMAIL -->
-    <div class="field">
-
-      <label>
-        Email address
-      </label>
-
-      <input
-        id="email"
-        type="email"
-        inputmode="email"
-        autocomplete="email"
-        placeholder="you@example.com"
-      >
-
-    </div>
-
-
-    <!-- PASSWORD -->
-    <div class="field">
-
-      <label>
-        Password
-      </label>
-
-      <div class="passwordWrap">
-
-        <input
-          id="password"
-          type="password"
-          minlength="6"
-          autocomplete="current-password"
-          placeholder="Minimum 6 characters"
-        >
-
-        <button
-          type="button"
-          class="showPassword"
-          onclick="togglePassword()"
-        >
-          Show
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <!-- CONFIRM -->
-    <div
-      class="field"
-      id="confirmBox"
-      style="display:none"
-    >
-
-      <label>
-        Confirm password
-      </label>
-
-      <input
-        id="confirmPassword"
-        type="password"
-        minlength="6"
-        autocomplete="new-password"
-        placeholder="Enter password again"
-      >
-
-    </div>
-
-
-    <button
-      id="authButton"
-      class="primary"
-      onclick="submitAuth()"
-    >
-      LOGIN
-    </button>
-
-
-    <div
-      id="forgotBox"
-      class="center"
-      style="margin-top:12px"
-    >
-
-      <button
-        class="link"
-        onclick="forgotPassword()"
-      >
-        Forgot password?
-      </button>
-
-    </div>
-
-
-    <div
-      id="switchText"
-      class="center"
-      style="margin-top:14px;font-size:12px;color:#91a6bb"
-    >
-      New here?
-
-      <button
-        class="link"
-        onclick="changeAuthMode('signup')"
-      >
-        Create an account
-      </button>
-
-    </div>
-
-
-    <div
-      id="authStatus"
-      class="status"
-    ></div>
-
-  </div>
-
-</div>
-
-
-<!-- PROFILE MODAL -->
-<div
-  class="modal"
-  id="profileModal"
->
-
-  <div class="modalBox">
-
-    <button
-      class="close"
-      onclick="closeModal('profileModal')"
-    >
-      ×
-    </button>
-
-
-    <h2>👤 My Profile</h2>
-
-
-    <div id="profileDetails"></div>
-
-
-    <button
-      id="profileButton"
-      class="primary"
-    >
-      LOGIN / CREATE ACCOUNT
-    </button>
-
-
-    <button
-      class="secondary full"
-      style="margin-top:10px"
-      onclick="closeModal('profileModal')"
-    >
-      CLOSE
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- RULES MODAL -->
-<div
-  class="modal"
-  id="rulesModal"
->
-
-  <div class="modalBox">
-
-    <button
-      class="close"
-      onclick="closeModal('rulesModal')"
-    >
-      ×
-    </button>
-
-
-    <h2>📖 Rules</h2>
-
-    <p>1. Select Red, Green or Violet.</p>
-
-    <p>2. Select your virtual coin amount.</p>
-
-    <p>3. Start the 30-second demo round.</p>
-
-    <p>4. A random demo result is generated.</p>
-
-    <p>
-      Matching results give virtual coins
-      according to the displayed multiplier.
-    </p>
-
-    <p class="notice">
-      This is a virtual-coin demonstration.
-      There are no real-money deposits,
-      withdrawals or cash payouts.
-    </p>
-
-  </div>
-
-</div>
-
-
 <div id="toast"></div>
-
-
-<!-- FIREBASE -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 
 <script>
 
-/* ============================
-   FIREBASE CONFIG
-============================ */
+/* =========================================================
+   SETTINGS
+========================================================= */
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
-  authDomain: "two4nine-7a29d.firebaseapp.com",
-  projectId: "two4nine-7a29d",
-  storageBucket: "two4nine-7a29d.firebasestorage.app",
-  messagingSenderId: "573418811789",
-  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
-  measurementId: "G-V2X4YK8NFG"
+const REFRESH_MINUTES = 10;
+
+
+/*
+  Public RSS-to-JSON endpoint.
+
+  Different feeds are tried automatically.
+*/
+
+const RSS_PROXY =
+  "https://api.rss2json.com/v1/api.json?rss_url=";
+
+
+/* =========================================================
+   NEWS SOURCES
+========================================================= */
+
+const FEEDS = {
+
+  World:[
+    "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+  ],
+
+  Technology:[
+    "https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "https://www.theverge.com/rss/index.xml"
+  ],
+
+  Business:[
+    "https://feeds.bbci.co.uk/news/business/rss.xml",
+    "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml"
+  ],
+
+  Sports:[
+    "https://feeds.bbci.co.uk/sport/rss.xml"
+  ],
+
+  Entertainment:[
+    "https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
+  ],
+
+  Science:[
+    "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+  ],
+
+  Health:[
+    "https://feeds.bbci.co.uk/news/health/rss.xml"
+  ]
+
 };
 
 
-/* ============================
-   FIREBASE INIT
-============================ */
+/* =========================================================
+   FALLBACK NEWS
+========================================================= */
 
-let auth = null;
-let db = null;
+const FALLBACK_NEWS = [
 
-try{
+  {
+    title:
+      "Global technology continues to reshape everyday life",
 
-  firebase.initializeApp(firebaseConfig);
+    description:
+      "New developments across AI, software, devices and digital services are attracting worldwide attention.",
 
-  auth = firebase.auth();
-
-  db = firebase.firestore();
-
-}catch(error){
-
-  console.error(error);
-
-}
-
-
-/* ============================
-   VARIABLES
-============================ */
-
-let currentUser = null;
-
-let guest = true;
-
-let balance = 1000;
-
-let selectedColor = "";
-
-let multiplier = 2;
-
-let selectedAmount = 10;
-
-let roundNumber = 1001;
-
-let roundRunning = false;
-
-let seconds = 30;
-
-let timer = null;
-
-let authMode = "login";
-
-
-/* ============================
-   HELPERS
-============================ */
-
-function $(id){
-  return document.getElementById(id);
-}
-
-
-function showToast(message){
-
-  const toast = $("toast");
-
-  toast.textContent = message;
-
-  toast.style.display = "block";
-
-  clearTimeout(window.toastTimeout);
-
-  window.toastTimeout =
-    setTimeout(
-      function(){
-        toast.style.display = "none";
-      },
-      2500
-    );
-
-}
-
-
-function escapeHTML(value){
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-function storageName(name){
-
-  return "two4nine_" +
-    (currentUser ? currentUser.uid : "guest") +
-    "_" +
-    name;
-
-}
-
-
-/* ============================
-   WALLET
-============================ */
-
-function updateWallet(){
-
-  $("balance").textContent =
-    Number(balance).toLocaleString();
-
-  $("leaderBalance").textContent =
-    Number(balance).toLocaleString();
-
-  localStorage.setItem(
-    storageName("balance"),
-    String(balance)
-  );
-
-}
-
-
-/* ============================
-   LOAD LOCAL
-============================ */
-
-function loadLocal(){
-
-  const savedBalance =
-    Number(
-      localStorage.getItem(
-        storageName("balance")
-      )
-    );
-
-
-  if(
-    Number.isFinite(savedBalance) &&
-    savedBalance >= 0
-  ){
-
-    balance = savedBalance;
-
-  }else{
-
-    balance = 1000;
-
-  }
-
-
-  const savedRound =
-    Number(
-      localStorage.getItem(
-        storageName("round")
-      )
-    );
-
-
-  if(
-    Number.isFinite(savedRound) &&
-    savedRound >= 1001
-  ){
-
-    roundNumber = savedRound;
-
-  }else{
-
-    roundNumber = 1001;
-
-  }
-
-
-  $("round").textContent =
-    roundNumber;
-
-
-  updateWallet();
-
-  renderPlays();
-
-}
-
-
-/* ============================
-   SELECT COLOR
-============================ */
-
-function selectColor(
-  color,
-  mult,
-  element
-){
-
-  if(roundRunning){
-
-    return;
-
-  }
-
-
-  selectedColor = color;
-
-  multiplier = mult;
-
-
-  document
-    .querySelectorAll(".color")
-    .forEach(
-      function(button){
-
-        button.classList.remove(
-          "selected"
-        );
-
-      }
-    );
-
-
-  element.classList.add(
-    "selected"
-  );
-
-
-  showToast(
-    color + " selected"
-  );
-
-}
-
-
-/* ============================
-   SELECT AMOUNT
-============================ */
-
-function selectAmount(
-  amount,
-  element
-){
-
-  if(roundRunning){
-
-    return;
-
-  }
-
-
-  selectedAmount = amount;
-
-
-  document
-    .querySelectorAll(".amount")
-    .forEach(
-      function(button){
-
-        button.classList.remove(
-          "active"
-        );
-
-      }
-    );
-
-
-  element.classList.add(
-    "active"
-  );
-
-}
-
-
-/* ============================
-   START ROUND
-============================ */
-
-function startRound(){
-
-  if(roundRunning){
-
-    return;
-
-  }
-
-
-  if(!selectedColor){
-
-    showToast(
-      "Pehle color select karo."
-    );
-
-    return;
-
-  }
-
-
-  if(selectedAmount > balance){
-
-    showToast(
-      "Not enough virtual coins."
-    );
-
-    return;
-
-  }
-
-
-  balance -= selectedAmount;
-
-  updateWallet();
-
-
-  roundRunning = true;
-
-  seconds = 30;
-
-  $("playBtn").disabled = true;
-
-  $("timer").textContent =
-    "00:30";
-
-
-  clearInterval(timer);
-
-
-  timer =
-    setInterval(
-      function(){
-
-        seconds--;
-
-
-        $("timer").textContent =
-          "00:" +
-          String(seconds).padStart(
-            2,
-            "0"
-          );
-
-
-        if(seconds <= 0){
-
-          clearInterval(timer);
-
-          finishRound();
-
-        }
-
-      },
-      1000
-    );
-
-}
-
-
-/* ============================
-   FINISH ROUND
-============================ */
-
-function finishRound(){
-
-  const colors = [
-    "Red",
-    "Green",
-    "Violet"
-  ];
-
-
-  const result =
-    colors[
-      Math.floor(
-        Math.random() *
-        colors.length
-      )
-    ];
-
-
-  const won =
-    result === selectedColor;
-
-
-  const payout =
-    won
-      ? selectedAmount * multiplier
-      : 0;
-
-
-  if(won){
-
-    balance += payout;
-
-  }
-
-
-  updateWallet();
-
-
-  savePlay({
-
-    round:roundNumber,
-
-    pick:selectedColor,
-
-    amount:selectedAmount,
-
-    result:result,
-
-    won:won,
-
-    payout:payout,
-
-    time:Date.now()
-
-  });
-
-
-  let dotClass = "violetDot";
-
-  if(result === "Red"){
-    dotClass = "redDot";
-  }
-
-  if(result === "Green"){
-    dotClass = "greenDot";
-  }
-
-
-  $("history").insertAdjacentHTML(
-    "afterbegin",
-    `
-      <div class="dot ${dotClass}">
-        ${result.charAt(0)}
-      </div>
-    `
-  );
-
-
-  roundN
+    category:
+      "Technology"
