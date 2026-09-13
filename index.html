@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b12">
-<meta name="description" content="two4nine — world news, technology, business, sports, entertainment and memes.">
-
-<title>two4nine — World News</title>
+<meta name="theme-color" content="#070a0f">
+<meta name="description" content="two4nine - latest world news, India, technology, business, sports and entertainment">
+<title>two4nine - Hot News</title>
 
 <style>
 *{
@@ -20,15 +19,19 @@ html{
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070a10;
+  background:#070a0f;
   color:#f5f7fb;
-  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.4;
 }
 
 button,
 input{
-  font:inherit;
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 a{
@@ -36,73 +39,115 @@ a{
   text-decoration:none;
 }
 
+/* HEADER */
+
 .header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(7,10,16,.94);
+  background:rgba(7,10,15,.97);
   backdrop-filter:blur(16px);
-  border-bottom:1px solid #202632;
+  border-bottom:1px solid #232a35;
 }
 
-.header-inner{
+.headerTop{
   max-width:1150px;
   margin:auto;
-  padding:14px 16px;
+  padding:13px 15px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:12px;
+  gap:13px;
 }
 
 .logo{
-  font-size:25px;
+  font-size:24px;
   font-weight:900;
   letter-spacing:-1px;
+  white-space:nowrap;
 }
 
 .logo span{
-  color:#7c5cff;
+  color:#8064ff;
 }
 
 .live{
   display:flex;
   align-items:center;
   gap:6px;
-  font-size:11px;
-  font-weight:800;
-  color:#7dffb2;
-  letter-spacing:.5px;
+  color:#72ff9f;
+  font-size:10px;
+  font-weight:900;
+  white-space:nowrap;
 }
 
-.dot{
+.liveDot{
   width:7px;
   height:7px;
   border-radius:50%;
-  background:#31ff79;
-  box-shadow:0 0 12px #31ff79;
+  background:#36ff78;
+  box-shadow:0 0 10px #36ff78;
 }
 
-.search{
-  width:210px;
-  background:#111620;
-  border:1px solid #29303c;
+/* SEARCH */
+
+.searchBox{
+  margin-left:auto;
+  width:270px;
+  position:relative;
+}
+
+.searchInput{
+  width:100%;
+  height:42px;
+  padding:0 70px 0 14px;
+  border:1px solid #2c3441;
   border-radius:12px;
-  color:white;
-  padding:10px 12px;
   outline:none;
+  background:#111620;
+  color:#fff;
+  font-size:13px;
 }
 
-.search:focus{
-  border-color:#7c5cff;
+.searchInput:focus{
+  border-color:#8064ff;
+  box-shadow:0 0 0 2px rgba(128,100,255,.12);
 }
+
+.searchInput::placeholder{
+  color:#707989;
+}
+
+.searchButtons{
+  position:absolute;
+  right:5px;
+  top:5px;
+  height:32px;
+  display:flex;
+  gap:3px;
+}
+
+.searchButtons button{
+  border:0;
+  border-radius:8px;
+  background:#202633;
+  color:#aeb6c4;
+  min-width:30px;
+  padding:0 7px;
+}
+
+.searchButtons button:hover{
+  background:#8064ff;
+  color:white;
+}
+
+/* CATEGORIES */
 
 .categories{
   max-width:1150px;
   margin:auto;
-  padding:10px 14px;
+  padding:0 14px 11px;
   display:flex;
-  gap:8px;
+  gap:7px;
   overflow-x:auto;
   scrollbar-width:none;
 }
@@ -111,461 +156,655 @@ a{
   display:none;
 }
 
-.cat{
+.category{
   flex:0 0 auto;
-  border:1px solid #2a303c;
-  background:#111620;
-  color:#aeb5c2;
+  padding:8px 12px;
   border-radius:999px;
-  padding:8px 13px;
-  cursor:pointer;
-  font-size:13px;
-  font-weight:700;
+  border:1px solid #2a313d;
+  background:#111620;
+  color:#aeb6c4;
+  font-size:12px;
+  font-weight:800;
 }
 
-.cat:hover,
-.cat.active{
-  background:#7c5cff;
+.category.active{
+  background:#8064ff;
+  border-color:#8064ff;
   color:white;
-  border-color:#7c5cff;
 }
+
+/* MAIN */
 
 main{
   max-width:1150px;
   margin:auto;
-  padding:20px 16px 90px;
+  padding:16px 15px 90px;
 }
 
+/* HERO */
+
 .hero{
-  min-height:290px;
-  border:1px solid #242b37;
-  border-radius:24px;
-  padding:28px;
-  margin-bottom:20px;
+  min-height:275px;
+  border:1px solid #29313e;
+  border-radius:23px;
+  padding:25px;
   background:
-    radial-gradient(circle at 80% 20%,rgba(124,92,255,.35),transparent 35%),
-    radial-gradient(circle at 15% 80%,rgba(0,214,255,.16),transparent 30%),
-    linear-gradient(145deg,#101521,#090c13);
+    radial-gradient(circle at 85% 15%,rgba(128,100,255,.35),transparent 34%),
+    radial-gradient(circle at 10% 85%,rgba(0,210,255,.13),transparent 28%),
+    linear-gradient(135deg,#111722,#090c12);
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
 
-.hero small{
-  color:#8d96a7;
-  font-weight:800;
-  letter-spacing:1px;
-  margin-bottom:10px;
+.heroSmall{
+  color:#858e9d;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
 }
 
 .hero h1{
-  font-size:clamp(38px,7vw,72px);
-  line-height:.95;
-  max-width:750px;
+  font-size:clamp(42px,8vw,72px);
+  line-height:.94;
   letter-spacing:-4px;
 }
 
 .hero h1 span{
-  color:#8b70ff;
+  color:#8064ff;
 }
 
 .hero p{
+  max-width:680px;
+  color:#a9b1bf;
+  font-size:14px;
   margin-top:16px;
-  max-width:650px;
-  color:#aab2c0;
-  line-height:1.6;
 }
 
-.hero-actions{
+.heroButtons{
   display:flex;
-  gap:10px;
-  margin-top:22px;
+  gap:9px;
+  margin-top:20px;
   flex-wrap:wrap;
 }
 
-.btn{
-  border:0;
-  background:#7c5cff;
-  color:white;
-  border-radius:12px;
-  padding:11px 16px;
+.primaryButton,
+.secondaryButton{
+  border-radius:11px;
+  padding:11px 15px;
   font-weight:800;
-  cursor:pointer;
+  font-size:13px;
 }
 
-.btn.secondary{
-  background:#171c26;
-  border:1px solid #2a303c;
+.primaryButton{
+  background:#8064ff;
+  border:1px solid #8064ff;
+  color:white;
 }
+
+.secondaryButton{
+  background:#171d27;
+  border:1px solid #2b3340;
+  color:#d8dde6;
+}
+
+/* BIRTHDAY */
 
 .birthday{
   display:none;
-  margin-bottom:20px;
-  padding:20px;
-  border-radius:20px;
-  border:1px solid #5e49d8;
-  background:
-    radial-gradient(circle at 10% 20%,rgba(255,255,255,.12),transparent 25%),
-    linear-gradient(135deg,#241b52,#11182d);
+  margin-top:15px;
   text-align:center;
+  padding:20px;
+  border-radius:19px;
+  border:1px solid #5c48d8;
+  background:linear-gradient(135deg,#261d53,#10172c);
 }
 
 .birthday.show{
   display:block;
 }
 
-.birthday .emoji{
+.birthdayEmoji{
   font-size:34px;
 }
 
 .birthday h2{
-  margin-top:5px;
+  margin-top:4px;
+  font-size:21px;
 }
 
 .birthday p{
-  margin-top:7px;
-  color:#c4c9d5;
+  color:#b8c0ce;
+  margin-top:5px;
+  font-size:13px;
 }
 
-.section-head{
+/* SECTION */
+
+.section{
+  margin-top:29px;
+}
+
+.sectionHead{
   display:flex;
-  align-items:end;
+  align-items:flex-end;
   justify-content:space-between;
-  gap:15px;
-  margin:30px 0 14px;
+  margin-bottom:13px;
 }
 
-.section-head h2{
-  font-size:24px;
+.sectionHead h2{
+  font-size:23px;
 }
 
-.section-head span{
-  color:#777f8e;
-  font-size:12px;
+.sectionHead small{
+  color:#747e8e;
+  font-size:11px;
 }
 
-.status{
-  color:#8992a1;
-  padding:20px 0;
+/* HOT */
+
+.hotGrid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:12px;
 }
 
-.news-grid{
+.hotCard{
+  position:relative;
+  overflow:hidden;
+  min-height:215px;
+  border-radius:18px;
+  border:1px solid #2b323e;
+  background:#111620;
+}
+
+.hotCard:first-child{
+  min-height:300px;
+}
+
+.hotBackground{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 75% 20%,rgba(255,72,82,.25),transparent 32%),
+    radial-gradient(circle at 20% 80%,rgba(128,100,255,.18),transparent 35%),
+    linear-gradient(135deg,#1b212c,#090c12);
+}
+
+.hotContent{
+  position:absolute;
+  inset:0;
+  padding:17px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:linear-gradient(transparent 20%,rgba(5,7,11,.96));
+}
+
+.hotBadge{
+  align-self:flex-start;
+  margin-bottom:auto;
+  background:#ff4050;
+  color:white;
+  border-radius:6px;
+  padding:5px 8px;
+  font-size:9px;
+  font-weight:900;
+}
+
+.hotContent h3{
+  font-size:17px;
+  line-height:1.3;
+}
+
+.hotCard:first-child h3{
+  font-size:23px;
+}
+
+.hotMeta{
+  margin-top:8px;
+  color:#8b95a5;
+  font-size:10px;
+}
+
+/* NEWS */
+
+.newsGrid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:13px;
 }
 
-.card{
-  background:#0e131c;
-  border:1px solid #242b37;
-  border-radius:18px;
+.newsCard{
   overflow:hidden;
+  border:1px solid #252d39;
+  border-radius:17px;
+  background:#0e131b;
   transition:.2s;
 }
 
-.card:hover{
+.newsCard:hover{
   transform:translateY(-3px);
-  border-color:#5144a5;
+  border-color:#5b49bd;
 }
 
-.thumb{
-  height:175px;
-  background:
-    radial-gradient(circle at 70% 20%,rgba(124,92,255,.45),transparent 30%),
-    linear-gradient(135deg,#151b27,#090c12);
+.newsImage{
+  height:145px;
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
+  background:
+    radial-gradient(circle at 75% 20%,rgba(128,100,255,.3),transparent 32%),
+    linear-gradient(135deg,#171d27,#090c12);
 }
 
-.thumb img{
+.newsImage img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.thumb .fallback{
-  font-size:42px;
+.imageFallback{
+  font-size:38px;
 }
 
-.card-body{
-  padding:15px;
+.newsBody{
+  padding:14px;
 }
 
-.tag{
-  display:inline-block;
-  color:#9e8cff;
-  font-size:11px;
+.newsTag{
+  color:#927eff;
+  font-size:10px;
   font-weight:900;
   text-transform:uppercase;
-  margin-bottom:8px;
+  margin-bottom:7px;
 }
 
-.card h3{
-  font-size:17px;
-  line-height:1.3;
-}
-
-.card p{
-  margin-top:9px;
-  color:#929aa9;
-  font-size:13px;
-  line-height:1.45;
-}
-
-.meta{
-  margin-top:13px;
-  color:#656e7e;
-  font-size:11px;
-}
-
-.trend-list{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.trend{
-  border:1px solid #252c38;
-  background:#0e131c;
-  border-radius:16px;
-  padding:16px;
-  min-height:100px;
-}
-
-.trend strong{
-  display:block;
-  font-size:12px;
-  color:#7c5cff;
-  margin-bottom:8px;
-}
-
-.trend span{
-  color:#dce0e7;
-  font-size:14px;
+.newsTitle{
+  font-size:16px;
   line-height:1.35;
 }
 
-.meme-grid{
+.newsDescription{
+  color:#8d96a5;
+  font-size:12px;
+  line-height:1.45;
+  margin-top:7px;
+}
+
+.newsMeta{
+  color:#626b7a;
+  font-size:10px;
+  margin-top:10px;
+}
+
+/* TRENDS */
+
+.trendGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.trendCard{
+  min-height:105px;
+  padding:15px;
+  border-radius:15px;
+  border:1px solid #252d39;
+  background:#0f141d;
+}
+
+.trendRank{
+  color:#8064ff;
+  font-size:11px;
+  font-weight:900;
+}
+
+.trendCard p{
+  margin-top:7px;
+  color:#d9dee6;
+  font-size:13px;
+  line-height:1.4;
+}
+
+/* MEMES */
+
+.memeGrid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:13px;
 }
 
 .meme{
-  min-height:190px;
+  min-height:180px;
+  padding:19px;
   border-radius:18px;
-  padding:22px;
+  border:1px solid #29313d;
+  background:linear-gradient(135deg,#171e2b,#0e1219);
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  border:1px solid #303746;
-  background:linear-gradient(135deg,#1c2230,#10141d);
 }
 
 .meme:nth-child(2){
-  background:linear-gradient(135deg,#251d38,#10141d);
+  background:linear-gradient(135deg,#211a31,#0e1219);
 }
 
 .meme:nth-child(3){
-  background:linear-gradient(135deg,#142b2a,#10141d);
+  background:linear-gradient(135deg,#102827,#0e1219);
 }
 
 .meme:nth-child(4){
-  background:linear-gradient(135deg,#302416,#10141d);
+  background:linear-gradient(135deg,#2b2115,#0e1219);
 }
 
-.meme .big{
-  font-size:45px;
+.meme:nth-child(5){
+  background:linear-gradient(135deg,#211727,#0e1219);
+}
+
+.meme:nth-child(6){
+  background:linear-gradient(135deg,#17202d,#0e1219);
+}
+
+.memeIcon{
+  font-size:40px;
 }
 
 .meme h3{
-  font-size:19px;
-  line-height:1.25;
+  font-size:16px;
 }
 
 .meme p{
-  color:#8f98a7;
-  font-size:12px;
-  margin-top:6px;
+  color:#838d9d;
+  font-size:11px;
+  margin-top:5px;
 }
 
+/* EMPTY */
+
 .empty{
-  border:1px dashed #313846;
-  padding:30px;
+  grid-column:1/-1;
   text-align:center;
-  border-radius:18px;
-  color:#737c8c;
+  padding:28px 15px;
+  border:1px dashed #303845;
+  border-radius:16px;
+  color:#77808f;
 }
+
+.empty strong{
+  display:block;
+  color:#c4cad3;
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+/* FOOTER */
 
 .footer{
   text-align:center;
-  color:#596272;
-  font-size:12px;
-  margin-top:45px;
-  padding-bottom:20px;
+  color:#555e6c;
+  font-size:10px;
+  margin-top:40px;
 }
 
-.bottom{
+/* BOTTOM */
+
+.bottomNav{
   position:fixed;
-  bottom:0;
   left:0;
   right:0;
-  z-index:1000;
-  display:flex;
-  justify-content:center;
-  background:rgba(7,10,16,.96);
-  border-top:1px solid #202632;
-  padding:9px 8px;
+  bottom:0;
+  z-index:999;
+  background:rgba(7,10,15,.98);
+  border-top:1px solid #222934;
 }
 
-.bottom-inner{
-  width:100%;
+.bottomInner{
   max-width:500px;
+  margin:auto;
   display:flex;
   justify-content:space-around;
+  padding:8px 5px;
 }
 
-.bottom button{
+.bottomButton{
   background:none;
   border:0;
-  color:#858e9d;
-  cursor:pointer;
-  font-size:11px;
+  color:#7d8694;
+  font-size:10px;
   font-weight:800;
-  padding:4px 12px;
+  padding:2px 12px;
 }
 
-.bottom button:hover{
+.bottomButton:hover{
   color:white;
 }
 
+/* MOBILE */
+
 @media(max-width:850px){
-  .news-grid{
+
+  .hotGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hotCard:first-child{
+    grid-column:1/-1;
+  }
+
+  .newsGrid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .trend-list{
+  .trendGrid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .meme-grid{
+  .memeGrid{
     grid-template-columns:repeat(2,1fr);
   }
+
 }
 
 @media(max-width:650px){
-  .header-inner{
+
+  .headerTop{
     flex-wrap:wrap;
   }
 
-  .logo{
-    font-size:23px;
-  }
-
   .live{
-    order:3;
+    margin-left:auto;
   }
 
-  .search{
+  .searchBox{
     width:100%;
-    order:4;
+    margin-left:0;
   }
 
   main{
-    padding:15px 12px 85px;
+    padding:14px 12px 85px;
   }
 
   .hero{
     padding:22px;
-    min-height:300px;
-    border-radius:20px;
+    min-height:275px;
   }
 
   .hero h1{
-    font-size:46px;
-    letter-spacing:-3px;
+    font-size:47px;
   }
 
-  .news-grid,
-  .meme-grid{
-    grid-template-columns:1fr;
-  }
-
-  .trend-list{
+  .hotGrid{
     grid-template-columns:1fr 1fr;
   }
 
-  .thumb{
-    height:200px;
+  .hotCard{
+    min-height:190px;
   }
+
+  .hotCard:first-child{
+    min-height:250px;
+  }
+
+  .hotCard:first-child h3{
+    font-size:20px;
+  }
+
+  .newsGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .memeGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .meme{
+    min-height:175px;
+    padding:16px;
+  }
+
+}
+
+@media(max-width:430px){
+
+  .newsGrid{
+    grid-template-columns:1fr;
+  }
+
+  .hotCard:first-child{
+    grid-column:1/-1;
+  }
+
 }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="header">
-  <div class="header-inner">
+
+  <div class="headerTop">
 
     <div class="logo">
       two<span>4</span>nine
     </div>
 
     <div class="live">
-      <span class="dot"></span>
+      <i class="liveDot"></i>
       LIVE WORLD
     </div>
 
-    <input
-      id="search"
-      class="search"
-      type="search"
-      placeholder="Search news..."
-    >
+    <div class="searchBox">
+
+      <input
+        id="searchInput"
+        class="searchInput"
+        type="search"
+        autocomplete="off"
+        placeholder="Search news..."
+        aria-label="Search news"
+      >
+
+      <div class="searchButtons">
+
+        <button
+          id="clearSearch"
+          type="button"
+          title="Clear"
+        >×</button>
+
+        <button
+          id="searchButton"
+          type="button"
+          title="Search"
+        >🔎</button>
+
+      </div>
+
+    </div>
 
   </div>
+
 
   <div class="categories">
 
-    <button class="cat active" data-category="All">All</button>
-    <button class="cat" data-category="World">World</button>
-    <button class="cat" data-category="Technology">Tech</button>
-    <button class="cat" data-category="Business">Business</button>
-    <button class="cat" data-category="Sports">Sports</button>
-    <button class="cat" data-category="Entertainment">Entertainment</button>
-    <button class="cat" data-category="Science">Science</button>
-    <button class="cat" data-category="Health">Health</button>
+    <button class="category active" data-category="All">
+      All
+    </button>
+
+    <button class="category" data-category="World">
+      🌍 World
+    </button>
+
+    <button class="category" data-category="India">
+      🇮🇳 India
+    </button>
+
+    <button class="category" data-category="Technology">
+      🤖 Tech
+    </button>
+
+    <button class="category" data-category="Business">
+      💰 Business
+    </button>
+
+    <button class="category" data-category="Sports">
+      ⚽ Sports
+    </button>
+
+    <button class="category" data-category="Entertainment">
+      🎬 Entertainment
+    </button>
+
+    <button class="category" data-category="Science">
+      🔬 Science
+    </button>
+
+    <button class="category" data-category="Health">
+      🏥 Health
+    </button>
 
   </div>
+
 </header>
 
 
 <main>
 
-  <section class="hero" id="home">
+  <section class="hero">
 
-    <small>TWO4NINE / WORLD DESK</small>
+    <div class="heroSmall">
+      TWO4NINE / GLOBAL NEWS DESK
+    </div>
 
     <h1>
-      The world,<br>
-      <span>in one place.</span>
+      What's<br>
+      <span>happening now.</span>
     </h1>
 
     <p>
-      Latest international headlines, technology, business, sports,
-      entertainment, science and health — updated automatically.
+      Latest world headlines, India, technology, business,
+      markets, sports and entertainment in one place.
     </p>
 
-    <div class="hero-actions">
+    <div class="heroButtons">
 
-      <button class="btn" onclick="loadNews()">
-        ↻ Refresh News
+      <button
+        class="primaryButton"
+        id="refreshButton"
+        type="button"
+      >
+        🔄 Refresh News
       </button>
 
-      <button class="btn secondary" onclick="openGoogleNews()">
-        Open Live News
+      <button
+        class="secondaryButton"
+        id="liveButton"
+        type="button"
+      >
+        🔴 Live Search
       </button>
 
     </div>
@@ -573,36 +812,51 @@ main{
   </section>
 
 
-  <section class="birthday" id="birthday">
+  <section
+    id="birthday"
+    class="birthday"
+  >
 
-    <div class="emoji">🎂🎉✨</div>
+    <div class="birthdayEmoji">
+      🎂🎉✨
+    </div>
 
-    <h2>Happy Birthday from two4nine!</h2>
+    <h2>
+      Happy Birthday from two4nine!
+    </h2>
 
     <p>
-      Today is your special day. Have an amazing one! ❤️
+      Wishing you an amazing day ❤️
     </p>
 
   </section>
 
 
-  <section id="news">
+  <!-- HOT NEWS -->
 
-    <div class="section-head">
+  <section class="section">
+
+    <div class="sectionHead">
 
       <div>
-        <h2>Latest News</h2>
-        <span id="updated">Connecting to world news...</span>
+        <h2>🔥 Hot Now</h2>
+        <small>Top stories right now</small>
       </div>
 
-      <span id="count"></span>
+      <small id="hotStatus">
+        Loading...
+      </small>
 
     </div>
 
-    <div id="newsGrid" class="news-grid">
+    <div
+      id="hotGrid"
+      class="hotGrid"
+    >
 
-      <div class="status">
-        Loading international news...
+      <div class="empty">
+        <strong>Loading hot news...</strong>
+        Please wait.
       </div>
 
     </div>
@@ -610,22 +864,37 @@ main{
   </section>
 
 
-  <section id="trends">
+  <!-- LATEST NEWS -->
 
-    <div class="section-head">
+  <section
+    class="section"
+    id="news"
+  >
+
+    <div class="sectionHead">
 
       <div>
-        <h2>Trending</h2>
-        <span>From the latest headlines</span>
+        <h2>📰 Latest News</h2>
+
+        <small id="updateText">
+          Connecting to news...
+        </small>
+
       </div>
+
+      <small id="storyCount"></small>
 
     </div>
 
-    <div id="trendList" class="trend-list">
 
-      <div class="trend">
-        <strong>#01</strong>
-        <span>Loading trends...</span>
+    <div
+      id="newsGrid"
+      class="newsGrid"
+    >
+
+      <div class="empty">
+        <strong>Loading latest news...</strong>
+        Please wait.
       </div>
 
     </div>
@@ -633,29 +902,66 @@ main{
   </section>
 
 
-  <section id="memes">
+  <!-- TRENDING -->
 
-    <div class="section-head">
+  <section
+    class="section"
+    id="trends"
+  >
+
+    <div class="sectionHead">
+
+      <div>
+        <h2>📈 Trending</h2>
+        <small>Popular recent headlines</small>
+      </div>
+
+    </div>
+
+
+    <div
+      id="trendGrid"
+      class="trendGrid"
+    >
+
+      <div class="empty">
+        Loading trends...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MEMES -->
+
+  <section
+    class="section"
+    id="memes"
+  >
+
+    <div class="sectionHead">
 
       <div>
         <h2>😂 Meme Zone</h2>
-        <span>Fresh meme-style cards</span>
+        <small>News needs some humour</small>
       </div>
 
     </div>
 
-    <div class="meme-grid">
+
+    <div class="memeGrid">
 
       <div class="meme">
-        <div class="big">🌍</div>
+        <div class="memeIcon">🌍</div>
         <div>
-          <h3>Me checking world news at 2 AM</h3>
-          <p>Sleep was never an option.</p>
+          <h3>World news at 2 AM</h3>
+          <p>Sleep? Never heard of it.</p>
         </div>
       </div>
 
       <div class="meme">
-        <div class="big">📱</div>
+        <div class="memeIcon">📱</div>
         <div>
           <h3>“Just one quick scroll”</h3>
           <p>Two hours later...</p>
@@ -663,34 +969,34 @@ main{
       </div>
 
       <div class="meme">
-        <div class="big">🤖</div>
+        <div class="memeIcon">🤖</div>
         <div>
           <h3>AI is changing everything</h3>
-          <p>Meanwhile, I'm still looking for Wi-Fi.</p>
+          <p>Me: still looking for Wi-Fi.</p>
         </div>
       </div>
 
       <div class="meme">
-        <div class="big">☕</div>
+        <div class="memeIcon">☕</div>
         <div>
           <h3>News + coffee = survival</h3>
-          <p>International edition.</p>
+          <p>The real morning update.</p>
         </div>
       </div>
 
       <div class="meme">
-        <div class="big">😂</div>
+        <div class="memeIcon">😂</div>
         <div>
-          <h3>Breaking News:</h3>
+          <h3>Breaking News!</h3>
           <p>You opened two4nine again.</p>
         </div>
       </div>
 
       <div class="meme">
-        <div class="big">🔥</div>
+        <div class="memeIcon">🔥</div>
         <div>
           <h3>Timeline after midnight</h3>
-          <p>Absolutely no one is sleeping.</p>
+          <p>Nobody is sleeping.</p>
         </div>
       </div>
 
@@ -700,23 +1006,47 @@ main{
 
 
   <div class="footer">
-    © 2026 two4nine · News links belong to their original publishers.
+    © 2026 two4nine · News belongs to original publishers.
   </div>
 
 </main>
 
 
-<nav class="bottom">
+<nav class="bottomNav">
 
-  <div class="bottom-inner">
+  <div class="bottomInner">
 
-    <button onclick="go('home')">⌂<br>Home</button>
+    <button
+      class="bottomButton"
+      type="button"
+      onclick="goTop()"
+    >
+      ⌂<br>Home
+    </button>
 
-    <button onclick="go('news')">📰<br>News</button>
+    <button
+      class="bottomButton"
+      type="button"
+      onclick="goTo('news')"
+    >
+      📰<br>News
+    </button>
 
-    <button onclick="go('memes')">😂<br>Memes</button>
+    <button
+      class="bottomButton"
+      type="button"
+      onclick="goTo('memes')"
+    >
+      😂<br>Memes
+    </button>
 
-    <button onclick="go('trends')">📈<br>Trends</button>
+    <button
+      class="bottomButton"
+      type="button"
+      onclick="goTo('trends')"
+    >
+      📈<br>Trends
+    </button>
 
   </div>
 
@@ -725,39 +1055,106 @@ main{
 
 <script>
 
+/* =====================================================
+   SETTINGS
+===================================================== */
+
 const RSS_API =
   "https://api.rss2json.com/v1/api.json?rss_url=";
 
 
+/* =====================================================
+   NEWS FEEDS
+===================================================== */
+
 const feeds = {
 
   World:
-    "https://news.google.com/rss/search?q=world+OR+international+news&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=world+international+news+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
+
+  India:
+    "https://news.google.com/rss/search?q=India+news+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen",
 
   Technology:
-    "https://news.google.com/rss/search?q=technology+OR+artificial+intelligence&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=technology+AI+artificial+intelligence+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
 
   Business:
-    "https://news.google.com/rss/search?q=business+OR+economy+OR+markets&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=business+economy+markets+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
 
   Sports:
-    "https://news.google.com/rss/search?q=sports+OR+football+OR+cricket&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=sports+football+cricket+when%3A1d+-stream+-streaming+-livestream+-broadcast&hl=en-US&gl=US&ceid=US%3Aen",
 
   Entertainment:
-    "https://news.google.com/rss/search?q=entertainment+OR+movies+OR+music&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=entertainment+movies+music+when%3A2d&hl=en-US&gl=US&ceid=US%3Aen",
 
   Science:
-    "https://news.google.com/rss/search?q=science+OR+space+OR+research&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=science+space+research+when%3A2d&hl=en-US&gl=US&ceid=US%3Aen",
 
   Health:
-    "https://news.google.com/rss/search?q=health+OR+medicine+OR+medical&hl=en-IN&gl=IN&ceid=IN:en"
+    "https://news.google.com/rss/search?q=health+medicine+medical+when%3A2d&hl=en-US&gl=US&ceid=US%3Aen"
 
 };
 
 
+/* =====================================================
+   BAD / SPAM WORDS
+===================================================== */
+
+const blockedWords = [
+
+  "loughborough",
+  "free stream",
+  "free streaming",
+  "live stream",
+  "livestream",
+  "watch live",
+  "stream live",
+  "live broadcast",
+  "football game live",
+  "game live",
+  "tv channel",
+  "on tv",
+  "free today",
+  "watch online",
+  "hd stream",
+  "streaming free",
+  "buffstreams",
+  "methstreams",
+  "vipbox",
+  "crackstreams",
+  "streameast"
+
+];
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
 let allNews = [];
 
 let currentCategory = "All";
+
+
+/* =====================================================
+   TEXT HELPERS
+===================================================== */
+
+function cleanText(text){
+
+  const div =
+    document.createElement("div");
+
+  div.innerHTML =
+    text || "";
+
+  return (
+    div.textContent ||
+    div.innerText ||
+    ""
+  ).trim();
+
+}
 
 
 function escapeHTML(text){
@@ -772,494 +1169,154 @@ function escapeHTML(text){
 }
 
 
-function cleanText(text){
+function timeAgo(dateText){
 
-  const div = document.createElement("div");
+  const date =
+    new Date(dateText);
 
-  div.innerHTML = text || "";
-
-  return div.textContent || div.innerText || "";
-
-}
-
-
-function timeAgo(dateString){
-
-  const date = new Date(dateString);
-
-  if(isNaN(date.getTime())){
+  if(
+    isNaN(
+      date.getTime()
+    )
+  ){
     return "Latest";
   }
 
   const seconds =
-    Math.floor((Date.now() - date.getTime()) / 1000);
+    Math.floor(
+      (Date.now() - date.getTime()) /
+      1000
+    );
 
   if(seconds < 60){
     return "Just now";
   }
 
-  const minutes = Math.floor(seconds / 60);
+  const minutes =
+    Math.floor(seconds / 60);
 
   if(minutes < 60){
     return minutes + " min ago";
   }
 
-  const hours = Math.floor(minutes / 60);
+  const hours =
+    Math.floor(minutes / 60);
 
   if(hours < 24){
     return hours + " hr ago";
   }
 
-  const days = Math.floor(hours / 24);
+  const days =
+    Math.floor(hours / 24);
 
-  return days + " day" + (days === 1 ? "" : "s") + " ago";
+  return (
+    days +
+    " day" +
+    (days === 1 ? "" : "s") +
+    " ago"
+  );
 
 }
 
 
-async function fetchFeed(category,url){
+/* =====================================================
+   SPAM CHECK
+===================================================== */
+
+function isBlocked(item){
+
+  const text =
+    (
+      (item.title || "") +
+      " " +
+      (item.description || "")
+    ).toLowerCase();
+
+  for(
+    let i = 0;
+    i < blockedWords.length;
+    i++
+  ){
+
+    if(
+      text.includes(
+        blockedWords[i]
+      )
+    ){
+      return true;
+    }
+
+  }
+
+  return false;
+
+}
+
+
+/* =====================================================
+   FETCH ONE FEED
+===================================================== */
+
+async function fetchFeed(
+  category,
+  feedUrl
+){
 
   try{
 
-    const controller = new AbortController();
+    const controller =
+      new AbortController();
 
-    const timer = setTimeout(
-      () => controller.abort(),
-      15000
-    );
+    const timeout =
+      setTimeout(
+        function(){
+          controller.abort();
+        },
+        15000
+      );
 
-    const response = await fetch(
-      RSS_API + encodeURIComponent(url) +
-      "&t=" + Date.now(),
-      {
-        signal:controller.signal,
-        cache:"no-store"
-      }
-    );
 
-    clearTimeout(timer);
+    const response =
+      await fetch(
+        RSS_API +
+        encodeURIComponent(feedUrl) +
+        "&t=" +
+        Date.now(),
+        {
+          method:"GET",
+          cache:"no-store",
+          signal:controller.signal
+        }
+      );
+
+
+    clearTimeout(timeout);
+
 
     if(!response.ok){
-      throw new Error("Feed request failed");
+      throw new Error(
+        "Feed request failed"
+      );
     }
 
-    const data = await response.json();
 
-    if(!data.items){
+    const data =
+      await response.json();
+
+
+    if(
+      !data ||
+      !Array.isArray(data.items)
+    ){
       return [];
     }
 
-    return data.items.slice(0,12).map(item => {
 
-      const image =
-        item.thumbnail ||
-        item.enclosure?.link ||
-        "";
+    return data.items
+      .slice(0,20)
+      .map(
+        function(item){
 
-      return {
+          return {
 
-        category:category,
-
-        title:cleanText(item.title),
-
-        description:
-          cleanText(item.description).slice(0,180),
-
-        link:item.link,
-
-        image:image,
-
-        date:item.pubDate,
-
-        source:
-          item.author ||
-          data.feed?.title ||
-          "News"
-
-      };
-
-    });
-
-  }catch(error){
-
-    console.log(category,error);
-
-    return [];
-
-  }
-
-}
-
-
-async function loadNews(){
-
-  const grid =
-    document.getElementById("newsGrid");
-
-  const updated =
-    document.getElementById("updated");
-
-  grid.innerHTML =
-    '<div class="status">Loading latest world news...</div>';
-
-  updated.textContent =
-    "Fetching live headlines...";
-
-  allNews = [];
-
-  const categories =
-    Object.keys(feeds);
-
-  const results =
-    await Promise.all(
-      categories.map(category =>
-        fetchFeed(category,feeds[category])
-      )
-    );
-
-  results.forEach(items => {
-
-    allNews.push(...items);
-
-  });
-
-
-  const unique = [];
-
-  const seen = new Set();
-
-  allNews.forEach(item => {
-
-    const key =
-      item.link || item.title;
-
-    if(!seen.has(key)){
-
-      seen.add(key);
-
-      unique.push(item);
-
-    }
-
-  });
-
-
-  allNews = unique.sort(
-    (a,b) =>
-      new Date(b.date) -
-      new Date(a.date)
-  );
-
-
-  if(allNews.length === 0){
-
-    grid.innerHTML = `
-      <div class="empty">
-        <h3>News temporarily unavailable</h3>
-        <p style="margin-top:8px">
-          Tap “Refresh News” and try again.
-        </p>
-      </div>
-    `;
-
-    updated.textContent =
-      "Feed unavailable";
-
-    return;
-
-  }
-
-
-  updated.textContent =
-    "Updated " +
-    new Date().toLocaleTimeString(
-      [],
-      {
-        hour:"2-digit",
-        minute:"2-digit"
-      }
-    );
-
-  renderNews();
-
-  renderTrends();
-
-}
-
-
-function renderNews(){
-
-  const grid =
-    document.getElementById("newsGrid");
-
-  const search =
-    document.getElementById("search")
-      .value
-      .trim()
-      .toLowerCase();
-
-
-  let filtered =
-    allNews.filter(item => {
-
-      const categoryMatch =
-        currentCategory === "All" ||
-        item.category === currentCategory;
-
-      const searchMatch =
-        !search ||
-        item.title.toLowerCase().includes(search) ||
-        item.description.toLowerCase().includes(search);
-
-      return categoryMatch && searchMatch;
-
-    });
-
-
-  document.getElementById("count").textContent =
-    filtered.length + " stories";
-
-
-  if(filtered.length === 0){
-
-    grid.innerHTML = `
-      <div class="empty">
-        No stories found.
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  grid.innerHTML =
-    filtered.slice(0,30).map(item => {
-
-      const safeTitle =
-        escapeHTML(item.title);
-
-      const safeDescription =
-        escapeHTML(item.description);
-
-      const safeCategory =
-        escapeHTML(item.category);
-
-      const safeSource =
-        escapeHTML(item.source);
-
-
-      const imageHTML =
-        item.image
-        ?
-        `<img
-          src="${escapeHTML(item.image)}"
-          alt=""
-          loading="lazy"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
-        >
-        <div class="fallback" style="display:none">
-          📰
-        </div>`
-        :
-        `<div class="fallback">📰</div>`;
-
-
-      return `
-
-        <article class="card">
-
-          <a
-            href="${escapeHTML(item.link)}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <div class="thumb">
-              ${imageHTML}
-            </div>
-
-            <div class="card-body">
-
-              <div class="tag">
-                ${safeCategory}
-              </div>
-
-              <h3>
-                ${safeTitle}
-              </h3>
-
-              <p>
-                ${safeDescription}
-              </p>
-
-              <div class="meta">
-                ${safeSource} · ${timeAgo(item.date)}
-              </div>
-
-            </div>
-
-          </a>
-
-        </article>
-
-      `;
-
-    }).join("");
-
-}
-
-
-function renderTrends(){
-
-  const trendList =
-    document.getElementById("trendList");
-
-
-  const items =
-    allNews.slice(0,8);
-
-
-  if(items.length === 0){
-
-    trendList.innerHTML =
-      '<div class="empty">No trends yet.</div>';
-
-    return;
-
-  }
-
-
-  trendList.innerHTML =
-    items.slice(0,8).map(
-      (item,index) => `
-
-        <div class="trend">
-
-          <strong>
-            #${String(index + 1).padStart(2,"0")}
-          </strong>
-
-          <span>
-            ${escapeHTML(item.title)}
-          </span>
-
-        </div>
-
-      `
-    ).join("");
-
-}
-
-
-document.querySelectorAll(".cat")
-.forEach(button => {
-
-  button.addEventListener("click",() => {
-
-    document.querySelectorAll(".cat")
-      .forEach(b => b.classList.remove("active"));
-
-    button.classList.add("active");
-
-    currentCategory =
-      button.dataset.category;
-
-    renderNews();
-
-    document.getElementById("news")
-      .scrollIntoView({
-        behavior:"smooth"
-      });
-
-  });
-
-});
-
-
-document.getElementById("search")
-.addEventListener("input",() => {
-
-  renderNews();
-
-});
-
-
-function openGoogleNews(){
-
-  const query =
-    currentCategory === "All"
-    ? "world international news"
-    : currentCategory + " news";
-
-  const url =
-    "https://news.google.com/search?q=" +
-    encodeURIComponent(query);
-
-  window.open(
-    url,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
-}
-
-
-function go(id){
-
-  document.getElementById(id)
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-}
-
-
-function indiaDate(){
-
-  return new Date(
-    new Date().toLocaleString(
-      "en-US",
-      {
-        timeZone:"Asia/Kolkata"
-      }
-    )
-  );
-
-}
-
-
-function checkBirthday(){
-
-  const now =
-    indiaDate();
-
-  const isBirthday =
-    now.getMonth() === 8 &&
-    now.getDate() === 24;
-
-  document
-    .getElementById("birthday")
-    .classList
-    .toggle(
-      "show",
-      isBirthday
-    );
-
-}
-
-
-checkBirthday();
-
-setInterval(
-  checkBirthday,
-  60000
-);
-
-
-loadNews();
-
-</script>
-
-</body>
-          </html>
+           
