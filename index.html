@@ -2,602 +2,725 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>two4nine</title>
 
 <style>
 *{box-sizing:border-box}
 
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#07101f;
- color:#fff;
+margin:0;
+font-family:Arial,sans-serif;
+background:#07101f;
+color:#fff;
 }
 
 button{font:inherit;cursor:pointer}
 
 .top{
- height:76px;
- background:#050b16;
- display:flex;
- align-items:center;
- justify-content:space-between;
- padding:0 14px;
- position:sticky;
- top:0;
- z-index:20;
- border-bottom:1px solid #26344d;
+height:74px;
+background:#050b16;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 14px;
+position:sticky;
+top:0;
+z-index:20;
+border-bottom:1px solid #26344d;
 }
 
 .logo{
- display:flex;
- align-items:center;
- color:#fff;
- font-size:30px;
- font-weight:900;
- letter-spacing:-2px;
+display:flex;
+align-items:center;
+color:#fff;
+font-size:29px;
+font-weight:900;
+letter-spacing:-2px;
 }
 
 .golgappa{
- width:35px;
- height:35px;
- border-radius:50%;
- margin:0 3px;
- background:radial-gradient(circle at 35% 28%,#ffe8a5,#efa92f 55%,#a95c0c);
- position:relative;
- box-shadow:inset 0 2px 5px #fff8;
+width:34px;
+height:34px;
+border-radius:50%;
+margin:0 3px;
+background:radial-gradient(circle at 35% 28%,#ffe8a5,#efa92f 55%,#a95c0c);
+position:relative;
+box-shadow:inset 0 2px 5px #fff8;
 }
 
 .golgappa:after{
- content:"";
- position:absolute;
- width:18px;
- height:10px;
- left:8px;
- top:12px;
- border-radius:50%;
- background:#23733b;
+content:"";
+position:absolute;
+width:18px;
+height:10px;
+left:8px;
+top:12px;
+border-radius:50%;
+background:#23733b;
 }
 
 .topRight{
- display:flex;
- align-items:center;
- gap:7px;
+display:flex;
+align-items:center;
+gap:6px;
 }
 
-.profileBtn,.msgBtn,.logoutBtn{
- border:1px solid #34425e;
- background:#111b2d;
- color:#fff;
- border-radius:13px;
- padding:9px 11px;
+.topBtn{
+border:1px solid #34425e;
+background:#111b2d;
+color:white;
+border-radius:12px;
+padding:9px 11px;
+}
+
+.createBtn{
+background:#ff315c;
+border-color:#ff315c;
 }
 
 .profileBtn{
- display:flex;
- align-items:center;
- gap:7px;
- max-width:145px;
+border:1px solid #34425e;
+background:#111b2d;
+color:white;
+border-radius:12px;
+padding:9px 11px;
 }
 
 .profileName{
- overflow:hidden;
- white-space:nowrap;
- text-overflow:ellipsis;
-}
-
-.logoutBtn{
- color:#fff;
-}
-
-.search{
- width:min(700px,92%);
- margin:18px auto;
-}
-
-.search input{
- width:100%;
- padding:15px 18px;
- border-radius:30px;
- border:1px solid #30405d;
- background:#111b2d;
- color:white;
- outline:none;
- font-size:16px;
-}
-
-.container{
- width:min(700px,94%);
- margin:auto;
- padding-bottom:20px;
-}
-
-.sectionTitle{
- font-size:25px;
- font-weight:800;
- margin:22px 0 13px;
-}
-
-.stories{
- display:flex;
- gap:16px;
- overflow-x:auto;
- padding:5px 4px 14px;
-}
-
-.story{
- min-width:70px;
- text-align:center;
- font-size:13px;
-}
-
-.storyCircle{
- width:61px;
- height:61px;
- border-radius:50%;
- margin:auto auto 7px;
- display:flex;
- align-items:center;
- justify-content:center;
- background:linear-gradient(135deg,#ff315c,#a63dff,#318cff);
- border:3px solid #07101f;
- box-shadow:0 0 0 2px #ff315c;
- font-size:22px;
-}
-
-.card{
- background:#111b2d;
- border:1px solid #263753;
- border-radius:20px;
- padding:17px;
- margin:14px 0;
-}
-
-.user{
- display:flex;
- align-items:center;
- gap:10px;
-}
-
-.userIcon{
- width:43px;
- height:43px;
- border-radius:50%;
- display:flex;
- align-items:center;
- justify-content:center;
- background:linear-gradient(135deg,#ff315c,#735cff);
- font-size:20px;
-}
-
-.small{
- color:#93a2ba;
- font-size:12px;
-}
-
-.postTitle{
- font-size:21px;
- font-weight:800;
- margin:14px 0 8px;
-}
-
-.postText{
- color:#d9e1ef;
- line-height:1.55;
- white-space:pre-wrap;
-}
-
-.actions{
- display:flex;
- gap:7px;
- flex-wrap:wrap;
- margin-top:15px;
-}
-
-.action{
- border:0;
- border-radius:11px;
- background:#1a2840;
- color:#dce6f5;
- padding:9px 12px;
-}
-
-.newsCard{
- cursor:pointer;
-}
-
-.newsSource{
- color:#ff6684;
- font-size:12px;
- font-weight:bold;
-}
-
-.newsTitle{
- font-size:19px;
- font-weight:800;
- line-height:1.3;
- margin:7px 0;
-}
-
-.newsDesc{
- color:#b9c6d9;
- line-height:1.45;
- font-size:14px;
-}
-
-.bottom{
- position:sticky;
- bottom:0;
- z-index:30;
- display:flex;
- justify-content:space-around;
- background:#050b16ee;
- backdrop-filter:blur(14px);
- border-top:1px solid #26344d;
- padding:8px 3px 9px;
-}
-
-.nav{
- background:none;
- border:0;
- color:#b8c4d8;
- display:flex;
- flex-direction:column;
- align-items:center;
- gap:3px;
- font-size:12px;
-}
-
-.plusCircle{
- width:42px;
- height:42px;
- border-radius:14px;
- background:#ff315c;
- color:#fff;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:27px;
-}
-
-.modal{
- position:fixed;
- inset:0;
- z-index:100;
- background:#000b;
- display:flex;
- align-items:center;
- justify-content:center;
- padding:18px;
+font-weight:bold;
 }
 
 .hidden{display:none!important}
 
-.box{
- width:min(430px,100%);
- max-height:90vh;
- overflow:auto;
- background:#101a2c;
- border:1px solid #344564;
- border-radius:23px;
- padding:23px;
- box-shadow:0 20px 70px #000;
+.search{
+width:min(700px,92%);
+margin:17px auto;
 }
 
-.box h2{
- margin:0 0 8px;
- font-size:28px;
+.search input{
+width:100%;
+padding:14px 18px;
+border-radius:30px;
+border:1px solid #30405d;
+background:#111b2d;
+color:#fff;
+outline:none;
+font-size:16px;
 }
 
-.close{
- float:right;
- background:none;
- border:0;
- color:#bbb;
- font-size:28px;
+.container{
+width:min(700px,94%);
+margin:auto;
+padding-bottom:25px;
 }
 
-.box input,.box textarea{
- width:100%;
- padding:14px;
- margin:7px 0;
- border-radius:13px;
- border:1px solid #344564;
- background:#07101f;
- color:white;
- outline:none;
- font-size:15px;
+.sectionTitle{
+font-size:23px;
+font-weight:800;
+margin:21px 0 12px;
 }
 
-.box textarea{
- min-height:130px;
- resize:vertical;
+.stories{
+display:flex;
+gap:15px;
+overflow-x:auto;
+padding:5px 3px 15px;
 }
 
-.full{
- width:100%;
- border:0;
- border-radius:13px;
- padding:14px;
- background:#ff315c;
- color:white;
- font-weight:800;
- margin-top:9px;
+.story{
+min-width:70px;
+text-align:center;
+font-size:12px;
 }
 
-.status{
- text-align:center;
- min-height:20px;
- margin-top:9px;
- color:#ff8ca5;
+.storyCircle{
+width:60px;
+height:60px;
+border-radius:50%;
+margin:auto auto 6px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#ff315c,#8b45ff,#159cff);
+border:3px solid #07101f;
+box-shadow:0 0 0 2px #ff315c;
+font-size:21px;
+font-weight:bold;
 }
 
-.switch{
- text-align:center;
- color:#aebbd0;
- margin-top:15px;
+.card{
+background:#111b2d;
+border:1px solid #263753;
+border-radius:19px;
+padding:16px;
+margin:13px 0;
 }
 
-.switch span{
- color:#ff6684;
- cursor:pointer;
+.user{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.userIcon{
+width:43px;
+height:43px;
+border-radius:50%;
+background:linear-gradient(135deg,#ff315c,#704cff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+font-size:18px;
+}
+
+.small{
+font-size:12px;
+color:#91a0b8;
+}
+
+.postText{
+margin-top:13px;
+color:#dce4f1;
+line-height:1.55;
+white-space:pre-wrap;
+}
+
+.actions{
+display:flex;
+gap:7px;
+margin-top:14px;
+flex-wrap:wrap;
+}
+
+.action{
+border:0;
+border-radius:10px;
+padding:9px 12px;
+background:#1b2941;
+color:#dce6f5;
+}
+
+.newsSource{
+color:#ff6684;
+font-size:12px;
+font-weight:bold;
+}
+
+.newsTitle{
+font-size:19px;
+font-weight:800;
+line-height:1.35;
+margin:7px 0;
+}
+
+.newsDesc{
+color:#bac7d9;
+font-size:14px;
+line-height:1.45;
 }
 
 .empty{
- text-align:center;
- color:#93a2ba;
- padding:20px;
+text-align:center;
+color:#91a0b8;
+padding:20px;
+}
+
+.bottom{
+position:sticky;
+bottom:0;
+z-index:30;
+display:flex;
+justify-content:space-around;
+background:#050b16ee;
+backdrop-filter:blur(12px);
+border-top:1px solid #26344d;
+padding:8px 3px;
+}
+
+.nav{
+background:none;
+border:0;
+color:#bdc8da;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:3px;
+font-size:12px;
+}
+
+.plusCircle{
+width:42px;
+height:42px;
+border-radius:13px;
+background:#ff315c;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+color:#fff;
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:#000b;
+z-index:100;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:17px;
+}
+
+.box{
+width:min(430px,100%);
+max-height:90vh;
+overflow:auto;
+background:#101a2c;
+border:1px solid #344564;
+border-radius:22px;
+padding:22px;
+box-shadow:0 20px 70px #000;
+}
+
+.box h2{
+margin:0 0 8px;
+font-size:27px;
+}
+
+.close{
+float:right;
+background:none;
+border:0;
+color:#bbb;
+font-size:27px;
+}
+
+.box input,
+.box textarea{
+width:100%;
+padding:14px;
+margin:7px 0;
+border-radius:12px;
+border:1px solid #344564;
+background:#07101f;
+color:white;
+outline:none;
+font-size:15px;
+}
+
+.box textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.full{
+width:100%;
+padding:14px;
+margin-top:8px;
+border:0;
+border-radius:12px;
+background:#ff315c;
+color:#fff;
+font-weight:bold;
+}
+
+.status{
+text-align:center;
+min-height:20px;
+margin-top:9px;
+color:#ff8da5;
+font-size:14px;
+}
+
+.switch{
+text-align:center;
+margin-top:14px;
+color:#aebbd0;
+}
+
+.switch span{
+color:#ff6684;
+cursor:pointer;
+}
+
+.hint{
+font-size:12px;
+color:#8493ab;
+margin-bottom:5px;
+}
+
+.storyView{
+text-align:center;
+padding:15px;
+font-size:18px;
+line-height:1.5;
 }
 
 @media(max-width:500px){
- .logo{font-size:25px}
- .golgappa{width:32px;height:32px}
- .msgBtn{font-size:0;padding:10px}
- .msgBtn:first-letter{font-size:18px}
- .profileBtn{padding:8px}
- .profileName{max-width:75px}
- .logoutBtn{font-size:12px;padding:9px}
+.logo{font-size:24px}
+.golgappa{width:31px;height:31px}
+.top{padding:0 9px}
+.topBtn{padding:8px 9px;font-size:12px}
+.profileBtn{padding:8px;font-size:12px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- TOP -->
+
 <header class="top">
 
- <div class="logo">
-   tw<span class="golgappa"></span>4nine
- </div>
+<div class="logo">
+tw<span class="golgappa"></span>4nine
+</div>
 
- <div class="topRight">
+<div class="topRight">
 
-   <button class="profileBtn hidden" id="profileBtn">
-     👤 <span class="profileName" id="profileName"></span>
-   </button>
+<button class="topBtn" id="loginBtn">
+Login
+</button>
 
-   <button class="msgBtn hidden" id="messageBtn">💬</button>
+<button class="topBtn createBtn" id="createBtn">
+Create Account
+</button>
 
-   <button class="logoutBtn hidden" id="logoutBtn">Logout</button>
+<button class="profileBtn hidden" id="profileBtn">
+👤 <span class="profileName" id="profileName"></span>
+</button>
 
-   <button class="profileBtn" id="loginBtn">Login</button>
+<button class="topBtn hidden" id="messageBtn">
+💬
+</button>
 
-   <button class="logoutBtn" id="signupBtn"
-     style="background:#ff315c;border-color:#ff315c">
-     Create
-   </button>
+<button class="topBtn hidden" id="logoutBtn">
+Logout
+</button>
 
- </div>
+</div>
+
 </header>
 
 
+<!-- SEARCH -->
+
 <div class="search">
- <input id="searchInput"
-   placeholder="🔎 Search news, people, reels...">
+
+<input id="searchInput"
+placeholder="🔎 Search news, people, posts...">
+
 </div>
 
 
 <main class="container">
 
- <div class="sectionTitle">Stories</div>
 
- <div class="stories" id="storiesList">
+<!-- STORIES -->
 
-   <div class="story" id="yourStory">
-     <div class="storyCircle">＋</div>
-     <div>Your Story</div>
-   </div>
+<div class="sectionTitle">
+Stories
+</div>
 
-   <div class="story">
-     <div class="storyCircle">R</div>
-     <div>Rahul</div>
-   </div>
+<div class="stories" id="storiesList">
 
-   <div class="story">
-     <div class="storyCircle">P</div>
-     <div>Priya</div>
-   </div>
+<div class="story" id="yourStory">
 
-   <div class="story">
-     <div class="storyCircle">A</div>
-     <div>Aman</div>
-   </div>
+<div class="storyCircle">＋</div>
 
-   <div class="story">
-     <div class="storyCircle">N</div>
-     <div>Neha</div>
-   </div>
+<div>Your Story</div>
 
-   <div class="story">
-     <div class="storyCircle">S</div>
-     <div>Simran</div>
-   </div>
+</div>
 
- </div>
+<div class="story">
+<div class="storyCircle">R</div>
+<div>Rahul</div>
+</div>
 
+<div class="story">
+<div class="storyCircle">P</div>
+<div>Priya</div>
+</div>
 
- <div class="sectionTitle">Latest News</div>
+<div class="story">
+<div class="storyCircle">A</div>
+<div>Aman</div>
+</div>
 
- <div id="newsList">
-   <div class="empty">📰 Loading latest news...</div>
- </div>
+<div class="story">
+<div class="storyCircle">N</div>
+<div>Neha</div>
+</div>
 
+<div class="story">
+<div class="storyCircle">S</div>
+<div>Simran</div>
+</div>
 
- <div class="sectionTitle">Community Posts</div>
-
- <div id="postsList">
-   <div class="empty">Loading posts...</div>
- </div>
+</div>
 
 
- <div class="sectionTitle">😂 Memes</div>
+<!-- NEWS -->
 
- <div class="card">
-   <div class="postTitle">
-     When you open the news for 2 minutes...
-   </div>
+<div class="sectionTitle">
+📰 Latest News
+</div>
 
-   <div class="postText">
-2 minutes later:
+<div id="newsList">
+
+<div class="empty">
+Loading latest news...
+</div>
+
+</div>
+
+
+<!-- POSTS -->
+
+<div class="sectionTitle">
+Community Posts
+</div>
+
+<div id="postsList">
+
+<div class="empty">
+Abhi koi post nahi hai.<br>
+Pehla post tum karo ❤️
+</div>
+
+</div>
+
+
+<!-- MEMES -->
+
+<div class="sectionTitle">
+😂 Memes
+</div>
+
+<div class="card">
+
+<div class="postText">
+When you open the news for 2 minutes...
+
 “Bas ek aur news dekh leta hoon.” 😂
-   </div>
+</div>
 
-   <div class="actions">
-     <button class="action" data-action="Like">❤️ Like</button>
-     <button class="action" data-action="Comment">💬 Comment</button>
-   </div>
- </div>
+<div class="actions">
+
+<button class="action loginRequired">
+❤️ Like
+</button>
+
+<button class="action loginRequired">
+💬 Comment
+</button>
+
+</div>
+
+</div>
 
 
- <div class="sectionTitle">🎬 Reels</div>
+<!-- REELS -->
 
- <div class="card">
-   <div class="postTitle">Short videos coming soon.</div>
+<div class="sectionTitle">
+🎬 Reels
+</div>
 
-   <div class="postText">
-Funny, informative aur useful short videos —
+<div class="card">
+
+<div class="postText">
+Short videos coming soon.
+
+Funny, informative aur useful videos —
 all in one place.
-   </div>
- </div>
+</div>
+
+</div>
+
 
 </main>
 
 
+<!-- BOTTOM -->
+
 <nav class="bottom">
 
- <button class="nav">🏠<span>Home</span></button>
+<button class="nav">
+🏠
+<span>Home</span>
+</button>
 
- <button class="nav" id="bottomSearch">
-   🔎<span>Search</span>
- </button>
+<button class="nav" id="searchBtn">
+🔎
+<span>Search</span>
+</button>
 
- <button class="nav" id="postBtn">
-   <div class="plusCircle">＋</div>
-   <span>Post</span>
- </button>
+<button class="nav" id="postBtn">
+<div class="plusCircle">＋</div>
+<span>Post</span>
+</button>
 
- <button class="nav">🎬<span>Reels</span></button>
+<button class="nav">
+🎬
+<span>Reels</span>
+</button>
 
- <button class="nav" id="notificationBtn">
-   🔔<span>Notifications</span>
- </button>
+<button class="nav" id="notificationBtn">
+🔔
+<span>Notifications</span>
+</button>
 
 </nav>
 
 
-<!-- AUTH -->
+<!-- ACCOUNT MODAL -->
 
 <div class="modal hidden" id="authModal">
 
- <div class="box">
+<div class="box">
 
-   <button class="close" id="closeAuth">×</button>
+<button class="close" id="closeAuth">×</button>
 
-   <h2 id="authTitle">Create Account</h2>
+<h2 id="authTitle">
+Create Account
+</h2>
 
-   <p id="authSubtitle">Join two4nine ❤️</p>
+<p id="authSubtitle">
+Choose your username ❤️
+</p>
 
-   <input id="nameInput"
-     placeholder="Your name">
 
-   <input id="emailInput"
-     type="email"
-     placeholder="Email address">
+<div id="usernameArea">
 
-   <input id="passwordInput"
-     type="password"
-     placeholder="Password">
+<input
+id="usernameInput"
+placeholder="Username e.g. kavya24"
+maxlength="20">
 
-   <input id="confirmInput"
-     type="password"
-     placeholder="Confirm password">
-
-   <button class="full" id="authSubmit">
-     Create Account
-   </button>
-
-   <div class="status" id="authStatus"></div>
-
-   <div class="switch">
-     <span id="switchAuth">Already have an account? Login</span>
-   </div>
-
- </div>
+<div class="hint">
+3–20 characters • letters, numbers and _
+</div>
 
 </div>
 
 
-<!-- STORY -->
+<input
+id="emailInput"
+type="email"
+placeholder="Email address">
+
+
+<input
+id="passwordInput"
+type="password"
+placeholder="Password">
+
+
+<input
+id="confirmInput"
+type="password"
+placeholder="Confirm password">
+
+
+<button class="full" id="authSubmit">
+Create Account
+</button>
+
+
+<div class="status" id="authStatus"></div>
+
+
+<div class="switch">
+
+<span id="switchAuth">
+Already have an account? Login
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- STORY MODAL -->
 
 <div class="modal hidden" id="storyModal">
 
- <div class="box">
+<div class="box">
 
-   <button class="close" id="closeStory">×</button>
+<button class="close" id="closeStory">×</button>
 
-   <h2>📸 Your Story</h2>
+<h2>📸 Your Story</h2>
 
-   <p>Share something with everyone.</p>
+<textarea
+id="storyText"
+placeholder="What's happening?">
+</textarea>
 
-   <textarea id="storyText"
-     placeholder="What's happening?"></textarea>
+<button class="full" id="storySubmit">
+Share Story
+</button>
 
-   <button class="full" id="storySubmit">
-     Share Story
-   </button>
+<div class="status" id="storyStatus"></div>
 
-   <div class="status" id="storyStatus"></div>
-
- </div>
+</div>
 
 </div>
 
 
-<!-- POST -->
+<!-- POST MODAL -->
 
 <div class="modal hidden" id="postModal">
 
- <div class="box">
+<div class="box">
 
-   <button class="close" id="closePost">×</button>
+<button class="close" id="closePost">×</button>
 
-   <h2>✍️ Create Post</h2>
+<h2>✍️ Create Post</h2>
 
-   <p>Share something with the two4nine community.</p>
+<textarea
+id="postText"
+placeholder="Write something...">
+</textarea>
 
-   <textarea id="postText"
-     placeholder="Write your post..."></textarea>
+<button class="full" id="postSubmit">
+Publish Post
+</button>
 
-   <button class="full" id="postSubmit">
-     Publish Post
-   </button>
-
-   <div class="status" id="postStatus"></div>
-
- </div>
+<div class="status" id="postStatus"></div>
 
 </div>
 
+</div>
+
+
+<!-- STORY VIEW -->
+
+<div class="modal hidden" id="storyViewModal">
+
+<div class="box">
+
+<button class="close" id="closeStoryView">×</button>
+
+<div class="storyView">
+
+<div id="storyViewName"></div>
+
+<hr>
+
+<div id="storyViewText"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
@@ -606,548 +729,778 @@ all in one place.
 
 <script>
 
-/* =========================
-   FIREBASE
-========================= */
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
 
 const firebaseConfig = {
- apiKey:"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
- authDomain:"two4nine-7a29d.firebaseapp.com",
- projectId:"two4nine-7a29d",
- storageBucket:"two4nine-7a29d.firebasestorage.app",
- messagingSenderId:"573418811789",
- appId:"1:573418811789:web:cad8463d4cba5e8a990dc4",
- measurementId:"G-V2X4YK8NFG"
+
+apiKey:"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+
+authDomain:"two4nine-7a29d.firebaseapp.com",
+
+projectId:"two4nine-7a29d",
+
+storageBucket:"two4nine-7a29d.firebasestorage.app",
+
+messagingSenderId:"573418811789",
+
+appId:"1:573418811789:web:cad8463d4cba5e8a990dc4",
+
+measurementId:"G-V2X4YK8NFG"
+
 };
+
 
 firebase.initializeApp(firebaseConfig);
 
 const auth=firebase.auth();
+
 const db=firebase.firestore();
 
 
-/* =========================
-   ELEMENTS
-========================= */
+/* =========================================
+   MODALS
+========================================= */
 
-const authModal=document.getElementById("authModal");
-const storyModal=document.getElementById("storyModal");
-const postModal=document.getElementById("postModal");
+const authModal=
+document.getElementById("authModal");
+
+const storyModal=
+document.getElementById("storyModal");
+
+const postModal=
+document.getElementById("postModal");
+
+const storyViewModal=
+document.getElementById("storyViewModal");
 
 let authMode="signup";
 
 
-/* =========================
-   AUTH MODAL
-========================= */
+/* =========================================
+   AUTH OPEN
+========================================= */
 
 function openAuth(mode){
 
- authMode=mode;
+authMode=mode;
 
- authModal.classList.remove("hidden");
+authModal.classList.remove("hidden");
 
- document.getElementById("authStatus").textContent="";
+document.getElementById("authStatus").textContent="";
 
- document.getElementById("nameInput").value="";
- document.getElementById("emailInput").value="";
- document.getElementById("passwordInput").value="";
- document.getElementById("confirmInput").value="";
+document.getElementById("usernameInput").value="";
+document.getElementById("emailInput").value="";
+document.getElementById("passwordInput").value="";
+document.getElementById("confirmInput").value="";
 
- if(mode==="signup"){
 
-   document.getElementById("authTitle").textContent="Create Account";
+if(mode==="signup"){
 
-   document.getElementById("authSubtitle").textContent=
-     "Join two4nine ❤️";
+document.getElementById("authTitle")
+.textContent="Create Account";
 
-   document.getElementById("authSubmit").textContent=
-     "Create Account";
+document.getElementById("authSubtitle")
+.textContent="Choose your username ❤️";
 
-   document.getElementById("nameInput").style.display="block";
-   document.getElementById("confirmInput").style.display="block";
+document.getElementById("usernameArea")
+.style.display="block";
 
-   document.getElementById("switchAuth").textContent=
-     "Already have an account? Login";
+document.getElementById("confirmInput")
+.style.display="block";
 
- }else{
+document.getElementById("authSubmit")
+.textContent="Create Account";
 
-   document.getElementById("authTitle").textContent="Login";
+document.getElementById("switchAuth")
+.textContent=
+"Already have an account? Login";
 
-   document.getElementById("authSubtitle").textContent=
-     "Welcome back ❤️";
+}else{
 
-   document.getElementById("authSubmit").textContent="Login";
+document.getElementById("authTitle")
+.textContent="Login";
 
-   document.getElementById("nameInput").style.display="none";
-   document.getElementById("confirmInput").style.display="none";
+document.getElementById("authSubtitle")
+.textContent=
+"Welcome back ❤️";
 
-   document.getElementById("switchAuth").textContent=
-     "New to two4nine? Create Account";
- }
+document.getElementById("usernameArea")
+.style.display="none";
+
+document.getElementById("confirmInput")
+.style.display="none";
+
+document.getElementById("authSubmit")
+.textContent="Login";
+
+document.getElementById("switchAuth")
+.textContent=
+"New to two4nine? Create Account";
+
+}
+
 }
 
 
+/* =========================================
+   AUTH BUTTONS
+========================================= */
+
 document.getElementById("loginBtn")
-.addEventListener("click",()=>{
- openAuth("login");
-});
+.onclick=()=>{
+openAuth("login");
+};
 
 
-document.getElementById("signupBtn")
-.addEventListener("click",()=>{
- openAuth("signup");
-});
+document.getElementById("createBtn")
+.onclick=()=>{
+openAuth("signup");
+};
 
 
 document.getElementById("closeAuth")
-.addEventListener("click",()=>{
- authModal.classList.add("hidden");
-});
+.onclick=()=>{
+authModal.classList.add("hidden");
+};
 
 
 document.getElementById("switchAuth")
-.addEventListener("click",()=>{
- openAuth(authMode==="signup"?"login":"signup");
-});
+.onclick=()=>{
+openAuth(
+authMode==="signup"
+?"login"
+:"signup"
+);
+};
 
 
-/* =========================
-   AUTH SUBMIT
-========================= */
+/* =========================================
+   CREATE / LOGIN
+========================================= */
 
 document.getElementById("authSubmit")
-.addEventListener("click",async()=>{
+.onclick=async()=>{
 
- const name=document.getElementById("nameInput").value.trim();
+const username=
+document.getElementById("usernameInput")
+.value.trim()
+.toLowerCase();
 
- const email=document.getElementById("emailInput").value.trim();
+const email=
+document.getElementById("emailInput")
+.value.trim();
 
- const password=document.getElementById("passwordInput").value;
+const password=
+document.getElementById("passwordInput").value;
 
- const confirm=document.getElementById("confirmInput").value;
+const confirm=
+document.getElementById("confirmInput").value;
 
- const status=document.getElementById("authStatus");
+const status=
+document.getElementById("authStatus");
 
- status.style.color="#ff8ca5";
-
- if(!email || !password){
-
-   status.textContent="Email aur password bharo.";
-   return;
- }
-
-
- if(authMode==="signup"){
-
-   if(!name){
-
-     status.textContent="Apna naam bharo.";
-     return;
-   }
-
-   if(password.length<6){
-
-     status.textContent=
-       "Password kam se kam 6 characters ka ho.";
-
-     return;
-   }
-
-   if(password!==confirm){
-
-     status.textContent=
-       "Passwords match nahi kar rahe.";
-
-     return;
-   }
-
-   try{
-
-     const result=
-       await auth.createUserWithEmailAndPassword(
-         email,
-         password
-       );
-
-     await db.collection("users")
-       .doc(result.user.uid)
-       .set({
-         uid:result.user.uid,
-         name:name,
-         email:email,
-         createdAt:firebase.firestore.FieldValue.serverTimestamp()
-       });
-
-     await result.user.updateProfile({
-       displayName:name
-     });
-
-     status.style.color="#62e879";
-     status.textContent=
-       "Account created ❤️";
-
-     setTimeout(()=>{
-       authModal.classList.add("hidden");
-     },900);
-
-   }catch(error){
-
-     status.textContent=getError(error);
-   }
+status.textContent="";
 
 
- }else{
+/* LOGIN */
 
-   try{
+if(authMode==="login"){
 
-     await auth.signInWithEmailAndPassword(
-       email,
-       password
-     );
+if(!email || !password){
 
-     status.style.color="#62e879";
-     status.textContent="Login successful ❤️";
+status.textContent=
+"Email aur password bharo.";
 
-     setTimeout(()=>{
-       authModal.classList.add("hidden");
-     },700);
+return;
+}
 
-   }catch(error){
+try{
 
-     status.textContent=getError(error);
-   }
+await auth.signInWithEmailAndPassword(
+email,
+password
+);
 
- }
+status.style.color="#64e879";
 
-});
+status.textContent=
+"Login successful ❤️";
 
+setTimeout(()=>{
+authModal.classList.add("hidden");
+},700);
 
-function getError(error){
+}catch(error){
 
- if(error.code==="auth/email-already-in-use")
-   return "Ye email already registered hai.";
+status.style.color="#ff8da5";
 
- if(error.code==="auth/invalid-email")
-   return "Email sahi nahi hai.";
+status.textContent=
+firebaseError(error);
 
- if(error.code==="auth/weak-password")
-   return "Password bahut weak hai.";
+}
 
- if(error.code==="auth/invalid-credential")
-   return "Email ya password galat hai.";
+return;
 
- if(error.code==="auth/user-not-found")
-   return "Account nahi mila.";
-
- if(error.code==="auth/wrong-password")
-   return "Password galat hai.";
-
- return "Error: "+error.message;
 }
 
 
-/* =========================
+/* SIGNUP */
+
+if(!username){
+
+status.textContent=
+"Username choose karo.";
+
+return;
+}
+
+
+if(!/^[a-z0-9_]{3,20}$/.test(username)){
+
+status.textContent=
+"Username 3–20 characters ka ho.";
+
+return;
+}
+
+
+if(!email || !password){
+
+status.textContent=
+"Email aur password bharo.";
+
+return;
+}
+
+
+if(password.length<6){
+
+status.textContent=
+"Password minimum 6 characters ka ho.";
+
+return;
+}
+
+
+if(password!==confirm){
+
+status.textContent=
+"Passwords match nahi kar rahe.";
+
+return;
+}
+
+
+try{
+
+/* CHECK USERNAME */
+
+const usernameDoc=
+await db.collection("usernames")
+.doc(username)
+.get();
+
+
+if(usernameDoc.exists){
+
+status.textContent=
+"Ye username already taken hai.";
+
+return;
+}
+
+
+/* CREATE ACCOUNT */
+
+const result=
+await auth.createUserWithEmailAndPassword(
+email,
+password
+);
+
+
+const uid=result.user.uid;
+
+
+/* USER PROFILE */
+
+await db.collection("users")
+.doc(uid)
+.set({
+
+uid:uid,
+
+username:username,
+
+email:email,
+
+createdAt:
+firebase.firestore.FieldValue.serverTimestamp()
+
+});
+
+
+/* RESERVE USERNAME */
+
+await db.collection("usernames")
+.doc(username)
+.set({
+
+uid:uid
+
+});
+
+
+/* FIREBASE DISPLAY NAME */
+
+await result.user.updateProfile({
+
+displayName:username
+
+});
+
+
+status.style.color="#64e879";
+
+status.textContent=
+"Account created ❤️";
+
+
+setTimeout(()=>{
+authModal.classList.add("hidden");
+},900);
+
+
+}catch(error){
+
+status.style.color="#ff8da5";
+
+status.textContent=
+firebaseError(error);
+
+}
+
+};
+
+
+/* =========================================
+   FIREBASE ERRORS
+========================================= */
+
+function firebaseError(error){
+
+if(error.code==="auth/email-already-in-use")
+return "Ye email already registered hai.";
+
+if(error.code==="auth/invalid-email")
+return "Email sahi nahi hai.";
+
+if(error.code==="auth/weak-password")
+return "Password weak hai.";
+
+if(error.code==="auth/invalid-credential")
+return "Email ya password galat hai.";
+
+if(error.code==="auth/user-not-found")
+return "Account nahi mila.";
+
+if(error.code==="auth/wrong-password")
+return "Password galat hai.";
+
+return "Error: "+error.message;
+
+}
+
+
+/* =========================================
    AUTH STATE
-========================= */
+========================================= */
 
 auth.onAuthStateChanged(async(user)=>{
 
- const loginBtn=document.getElementById("loginBtn");
- const signupBtn=document.getElementById("signupBtn");
+const loginBtn=
+document.getElementById("loginBtn");
 
- const profileBtn=document.getElementById("profileBtn");
- const messageBtn=document.getElementById("messageBtn");
- const logoutBtn=document.getElementById("logoutBtn");
+const createBtn=
+document.getElementById("createBtn");
 
- if(user){
+const profileBtn=
+document.getElementById("profileBtn");
 
-   let name=user.displayName;
+const messageBtn=
+document.getElementById("messageBtn");
 
-   try{
+const logoutBtn=
+document.getElementById("logoutBtn");
 
-     const doc=
-       await db.collection("users")
-       .doc(user.uid)
-       .get();
 
-     if(doc.exists && doc.data().name){
-       name=doc.data().name;
-     }
+if(user){
 
-   }catch(e){}
+let username=user.displayName;
 
-   if(!name){
-     name="User";
-   }
 
-   document.getElementById("profileName")
-     .textContent=name;
+try{
 
-   loginBtn.classList.add("hidden");
-   signupBtn.classList.add("hidden");
+const doc=
+await db.collection("users")
+.doc(user.uid)
+.get();
 
-   profileBtn.classList.remove("hidden");
-   messageBtn.classList.remove("hidden");
-   logoutBtn.classList.remove("hidden");
+if(doc.exists){
 
- }else{
+username=
+doc.data().username ||
+username;
 
-   loginBtn.classList.remove("hidden");
-   signupBtn.classList.remove("hidden");
+}
 
-   profileBtn.classList.add("hidden");
-   messageBtn.classList.add("hidden");
-   logoutBtn.classList.add("hidden");
- }
+}catch(e){}
 
- loadPosts();
- loadStories();
- loadNews();
+
+username=username || "user";
+
+
+document.getElementById("profileName")
+.textContent="@"+username;
+
+
+/* PUBLIC LOGIN BUTTONS HIDE */
+
+loginBtn.classList.add("hidden");
+
+createBtn.classList.add("hidden");
+
+
+/* USER CONTROLS SHOW */
+
+profileBtn.classList.remove("hidden");
+
+messageBtn.classList.remove("hidden");
+
+logoutBtn.classList.remove("hidden");
+
+
+}else{
+
+loginBtn.classList.remove("hidden");
+
+createBtn.classList.remove("hidden");
+
+profileBtn.classList.add("hidden");
+
+messageBtn.classList.add("hidden");
+
+logoutBtn.classList.add("hidden");
+
+}
+
+loadPosts();
+
+loadStories();
+
+loadNews();
+
 });
 
 
-/* =========================
+/* =========================================
    LOGOUT
-========================= */
+========================================= */
 
 document.getElementById("logoutBtn")
-.addEventListener("click",async()=>{
+.onclick=async()=>{
 
- await auth.signOut();
+await auth.signOut();
 
- location.reload();
-});
+};
 
 
-/* =========================
-   STORY
-========================= */
+/* =========================================
+   STORY CREATE
+========================================= */
 
 document.getElementById("yourStory")
-.addEventListener("click",()=>{
+.onclick=()=>{
 
- if(!auth.currentUser){
+if(!auth.currentUser){
 
-   openAuth("login");
-   return;
- }
+openAuth("login");
 
- storyModal.classList.remove("hidden");
+return;
 
- document.getElementById("storyText").value="";
- document.getElementById("storyStatus").textContent="";
-});
+}
+
+storyModal.classList.remove("hidden");
+
+document.getElementById("storyText")
+.value="";
+
+document.getElementById("storyStatus")
+.textContent="";
+
+};
 
 
 document.getElementById("closeStory")
-.addEventListener("click",()=>{
- storyModal.classList.add("hidden");
-});
+.onclick=()=>{
+
+storyModal.classList.add("hidden");
+
+};
 
 
 document.getElementById("storySubmit")
-.addEventListener("click",async()=>{
+.onclick=async()=>{
 
- const text=
-   document.getElementById("storyText").value.trim();
+const text=
+document.getElementById("storyText")
+.value.trim();
 
- const status=
-   document.getElementById("storyStatus");
+const status=
+document.getElementById("storyStatus");
 
- if(!text){
-
-   status.textContent="Story likho.";
-   return;
- }
-
- const user=auth.currentUser;
-
- if(!user){
-
-   storyModal.classList.add("hidden");
-   openAuth("login");
-   return;
- }
-
- try{
-
-   let name=user.displayName || "User";
-
-   const userDoc=
-     await db.collection("users")
-     .doc(user.uid)
-     .get();
-
-   if(userDoc.exists && userDoc.data().name){
-     name=userDoc.data().name;
-   }
-
-   await db.collection("stories").add({
-
-     uid:user.uid,
-     name:name,
-     text:text,
-     createdAt:firebase.firestore.FieldValue.serverTimestamp()
-
-   });
-
-   status.style.color="#62e879";
-   status.textContent="Story shared ❤️";
-
-   document.getElementById("storyText").value="";
-
-   setTimeout(()=>{
-     storyModal.classList.add("hidden");
-     loadStories();
-   },700);
-
- }catch(error){
-
-   status.textContent=
-     "Story save nahi hui: "+error.message;
- }
-
-});
+const user=auth.currentUser;
 
 
-/* =========================
-   LOAD STORIES
-========================= */
+if(!text){
 
-async function loadStories(){
+status.textContent=
+"Story likho.";
 
- const list=document.getElementById("storiesList");
-
- try{
-
-   const snapshot=
-     await db.collection("stories")
-     .orderBy("createdAt","desc")
-     .limit(20)
-     .get();
-
-   document.querySelectorAll(".userStory")
-     .forEach(x=>x.remove());
-
-   snapshot.forEach(doc=>{
-
-     const data=doc.data();
-
-     const name=data.name || "User";
-
-     const letter=
-       name.charAt(0).toUpperCase();
-
-     const div=document.createElement("div");
-
-     div.className="story userStory";
-
-     div.innerHTML=`
-       <div class="storyCircle">${letter}</div>
-       <div>${escapeHtml(name)}</div>
-     `;
-
-     div.addEventListener("click",()=>{
-
-       alert(
-         name+"\n\n"+(data.text || "")
-       );
-
-     });
-
-     list.appendChild(div);
-
-   });
-
- }catch(error){
-
-   console.log("Stories:",error.message);
- }
+return;
 
 }
 
 
-/* =========================
-   POST MODAL
-========================= */
+if(!user){
+
+storyModal.classList.add("hidden");
+
+openAuth("login");
+
+return;
+
+}
+
+
+try{
+
+const userDoc=
+await db.collection("users")
+.doc(user.uid)
+.get();
+
+const username=
+userDoc.exists
+?
+(userDoc.data().username || "user")
+:
+"user";
+
+
+await db.collection("stories")
+.add({
+
+uid:user.uid,
+
+username:username,
+
+text:text,
+
+createdAt:
+firebase.firestore.FieldValue.serverTimestamp()
+
+});
+
+
+status.style.color="#64e879";
+
+status.textContent=
+"Story shared ❤️";
+
+
+setTimeout(()=>{
+
+storyModal.classList.add("hidden");
+
+loadStories();
+
+},700);
+
+
+}catch(error){
+
+status.style.color="#ff8da5";
+
+status.textContent=
+"Story save nahi hui.";
+
+}
+
+};
+
+
+/* =========================================
+   LOAD STORIES
+========================================= */
+
+async function loadStories(){
+
+const list=
+document.getElementById("storiesList");
+
+
+try{
+
+const snapshot=
+await db.collection("stories")
+.orderBy("createdAt","desc")
+.limit(20)
+.get();
+
+
+document.querySelectorAll(".userStory")
+.forEach(x=>x.remove());
+
+
+snapshot.forEach(doc=>{
+
+const data=doc.data();
+
+const username=
+data.username || "user";
+
+const letter=
+username.charAt(0).toUpperCase();
+
+
+const story=
+document.createElement("div");
+
+story.className="story userStory";
+
+
+story.innerHTML=`
+
+<div class="storyCircle">
+${escapeHtml(letter)}
+</div>
+
+<div>
+@${escapeHtml(username)}
+</div>
+
+`;
+
+
+story.onclick=()=>{
+
+document.getElementById("storyViewName")
+.textContent="@"+username;
+
+document.getElementById("storyViewText")
+.textContent=data.text || "";
+
+storyViewModal.classList.remove("hidden");
+
+};
+
+
+list.appendChild(story);
+
+});
+
+}catch(error){
+
+console.log(
+"Stories error:",
+error.message
+);
+
+}
+
+}
+
+
+document.getElementById("closeStoryView")
+.onclick=()=>{
+
+storyViewModal.classList.add("hidden");
+
+};
+
+
+/* =========================================
+   POST CREATE
+========================================= */
 
 document.getElementById("postBtn")
-.addEventListener("click",()=>{
+.onclick=()=>{
 
- if(!auth.currentUser){
+if(!auth.currentUser){
 
-   openAuth("login");
-   return;
- }
+openAuth("login");
 
- postModal.classList.remove("hidden");
+return;
 
- document.getElementById("postText").value="";
- document.getElementById("postStatus").textContent="";
-});
+}
+
+postModal.classList.remove("hidden");
+
+document.getElementById("postText")
+.value="";
+
+document.getElementById("postStatus")
+.textContent="";
+
+};
 
 
 document.getElementById("closePost")
-.addEventListener("click",()=>{
- postModal.classList.add("hidden");
-});
+.onclick=()=>{
 
+postModal.classList.add("hidden");
 
-/* =========================
-   CREATE POST
-========================= */
+};
+
 
 document.getElementById("postSubmit")
-.addEventListener("click",async()=>{
+.onclick=async()=>{
 
- const text=
-   document.getElementById("postText").value.trim();
+const text=
+document.getElementById("postText")
+.value.trim();
 
- const status=
-   document.getElementById("postStatus");
+const status=
+document.getElementById("postStatus");
 
- if(!text){
+const user=auth.currentUser;
 
-   status.textContent="Post mein kuch likho.";
-   return;
- }
 
- const user=auth.currentUser;
+if(!text){
 
- if(!user){
+status.textContent=
+"Post mein kuch likho.";
 
-   postModal.classList.add("hidden");
-   openAuth("login");
-   return;
- }
+return;
 
- try{
+}
 
-   let name=user.displayName || "User";
 
-   const userDoc=
-     await db.collection("users")
-     .doc(user.uid)
-     .get();
+if(!user){
 
-   if(userDoc.exists && userDoc.data().name){
-     name=userDoc.data().name;
-   }
+postModal.classList.add("hidden");
 
-   await db.collection("posts").add({
+openAuth("login");
 
-     uid:user.uid,
-     name:name,
-     text:text,
-     createdAt:firebase.firestore.FieldValue.serverTimestamp()
+return;
 
-   });
+}
 
-   status.style.color="#62e879";
-   status.textContent="Post published ❤️";
 
-   document.getElementById("postText").value="";
+try{
 
-   setTimeout(()=>{
-     postModal.class
+const userDoc=
+await db.collec
