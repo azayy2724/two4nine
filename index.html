@@ -3,358 +3,245 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>two4nine Color Play</title>
+<title>two4nine — Color Play</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  background:#07111f;
-  color:#fff;
-  font-family:Arial,sans-serif;
-}
-
-.app{
-  max-width:700px;
-  margin:auto;
-  padding-bottom:90px;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{margin:0;background:#06101d;color:#fff;font-family:Arial,sans-serif}
+button,input{font-family:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+.app{max-width:720px;margin:auto;padding-bottom:90px}
 
 header{
-  height:64px;
-  background:#0b1a2b;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 15px;
-  position:sticky;
-  top:0;
-  z-index:5;
-  border-bottom:1px solid #ffffff18;
+height:65px;background:#0a192a;border-bottom:1px solid #ffffff14;
+display:flex;align-items:center;justify-content:space-between;
+padding:0 15px;position:sticky;top:0;z-index:50
 }
+.logo{font-size:25px;font-weight:900}
+.logo span{color:#35e5a0}
+.header-right{display:flex;align-items:center;gap:8px}
+.balance{background:#172b43;color:#ffd76a;border-radius:20px;padding:9px 13px;font-weight:900}
+.user-mini{width:38px;height:38px;border:0;border-radius:50%;background:#35d995;color:#00150d;font-weight:900}
 
-.logo{
-  font-size:25px;
-  font-weight:900;
-}
-
-.logo i{
-  color:#20df91;
-  font-style:normal;
-}
-
-.bal{
-  background:#172a40;
-  padding:9px 14px;
-  border-radius:20px;
-  color:#ffd76a;
-  font-weight:800;
-}
-
-.hero,
 .card{
-  margin:13px;
-  background:#0d1d30;
-  border:1px solid #ffffff12;
-  border-radius:20px;
-  padding:17px;
+margin:14px;padding:18px;background:#0c1c2e;
+border:1px solid #ffffff12;border-radius:20px
 }
-
 .hero{
-  background:linear-gradient(135deg,#142a47,#21163e);
-  text-align:center;
+margin:14px;padding:22px 18px;border-radius:22px;text-align:center;
+background:linear-gradient(135deg,#102946,#29163d);
+border:1px solid #ffffff12
 }
+.hero h1{font-size:29px;margin-bottom:7px}
+.muted{color:#91a7ba;font-size:13px}
+.timer{margin-top:16px;font-size:40px;font-weight:900;color:#35e5a0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
 
-.hero h1{
-  font-size:28px;
-  margin-bottom:7px;
-}
+.colors{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.color{border:0;color:#fff;border-radius:16px;padding:19px 5px;font-weight:900}
+.color small{display:block;margin-top:5px;opacity:.8}
+.red{background:#e74758}.green{background:#18b979}.violet{background:#7955e7}
+.selected{outline:3px solid white;outline-offset:2px}
 
-.muted{
-  color:#9db1c5;
-}
-
-.timer{
-  font-size:38px;
-  font-weight:900;
-  color:#35e5a0;
-  margin-top:15px;
-}
-
-.row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.colors{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:17px;
-}
-
-.color{
-  border:0;
-  padding:19px 5px;
-  border-radius:16px;
-  color:#fff;
-  font-weight:900;
-  font-size:15px;
-  cursor:pointer;
-}
-
-.red{
-  background:#e94455;
-}
-
-.green{
-  background:#18b879;
-}
-
-.violet{
-  background:#7954e8;
-}
-
-.selected{
-  outline:3px solid white;
-  outline-offset:2px;
-}
-
-.color small{
-  display:block;
-  margin-top:5px;
-  opacity:.8;
-}
-
-.amounts{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:15px;
-}
-
-.amount{
-  border:0;
-  background:#172a40;
-  color:#fff;
-  padding:10px 15px;
-  border-radius:11px;
-  cursor:pointer;
-}
-
-.amount.active{
-  background:#35d995;
-  color:#00150d;
-  font-weight:900;
-}
+.amounts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.amount{border:0;border-radius:11px;padding:10px 16px;background:#172b43;color:#fff;font-weight:800}
+.amount.active{background:#35d995;color:#00150d}
 
 .play{
-  width:100%;
-  margin-top:15px;
-  padding:15px;
-  border:0;
-  background:#35d995;
-  color:#00150d;
-  border-radius:13px;
-  font-weight:900;
-  font-size:17px;
-  cursor:pointer;
+width:100%;border:0;margin-top:15px;padding:15px;border-radius:14px;
+background:#35d995;color:#00150d;font-size:17px;font-weight:900
 }
+.play:disabled{opacity:.5}
 
-.play:active,
-.color:active,
-.amount:active{
-  transform:scale(.98);
-}
+.history{display:flex;gap:8px;overflow:auto;margin-top:12px}
+.dot{min-width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
+.dot.r{background:#e74758}.dot.g{background:#18b979}.dot.v{background:#7955e7}
 
-.history{
-  display:flex;
-  gap:8px;
-  overflow:auto;
-  margin-top:13px;
-  padding-bottom:3px;
-}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px 5px;text-align:left;border-bottom:1px solid #ffffff0d;font-size:13px}
+th{color:#91a7ba}
+.win{color:#35e5a0;font-weight:900}.lose{color:#ff6675;font-weight:900}
 
-.dot{
-  min-width:39px;
-  height:39px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
+.auth-screen{
+min-height:100vh;display:flex;align-items:center;justify-content:center;
+padding:20px;background:linear-gradient(135deg,#06101d,#1a1430)
 }
+.auth-box{
+width:100%;max-width:430px;background:#0c1c2e;border:1px solid #ffffff15;
+border-radius:24px;padding:24px;box-shadow:0 20px 70px #0007
+}
+.auth-logo{text-align:center;font-size:32px;font-weight:900}
+.auth-logo span{color:#35e5a0}
+.auth-sub{text-align:center;color:#91a7ba;font-size:13px;margin:6px 0 22px}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#071525;padding:5px;border-radius:12px;margin-bottom:18px}
+.auth-tab{border:0;background:transparent;color:#91a7ba;padding:11px;border-radius:9px;font-weight:800}
+.auth-tab.active{background:#35d995;color:#00150d}
+.field{margin-bottom:13px}
+.field label{display:block;color:#b8c7d4;font-size:13px;margin-bottom:6px}
+.field input{
+width:100%;border:1px solid #ffffff16;background:#071525;color:#fff;
+border-radius:12px;padding:13px;outline:none
+}
+.field input:focus{border-color:#35d995}
+.auth-btn,.guest-btn{
+width:100%;border:0;padding:14px;border-radius:12px;font-weight:900;font-size:16px
+}
+.auth-btn{background:#35d995;color:#00150d}
+.guest-btn{margin-top:9px;background:#172b43;color:#fff}
+.auth-message{text-align:center;min-height:20px;margin-top:12px;font-size:13px}
+.error{color:#ff6978}.success{color:#35e5a0}
 
-.r{
-  background:#e94455;
+.profile-head{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+.avatar{
+width:58px;height:58px;border-radius:50%;background:#35d995;color:#00150d;
+display:flex;align-items:center;justify-content:center;font-weight:900;font-size:21px
 }
+.profile-name{font-size:20px;font-weight:900}
+.profile-email{color:#91a7ba;font-size:12px;margin-top:4px;word-break:break-all}
+.profile-actions{display:grid;gap:9px}
+.secondary-btn,.logout-btn{
+width:100%;border-radius:12px;padding:13px;font-weight:800
+}
+.secondary-btn{border:1px solid #ffffff15;background:#172b43;color:#fff}
+.logout-btn{border:0;background:#e74758;color:#fff;font-weight:900}
 
-.g{
-  background:#18b879;
-}
-
-.v{
-  background:#7954e8;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:10px;
-}
-
-td,
-th{
-  padding:10px 4px;
-  border-bottom:1px solid #ffffff10;
-  text-align:left;
-  font-size:13px;
-}
-
-.win{
-  color:#35e5a0;
-  font-weight:800;
-}
-
-.lose{
-  color:#ff6875;
-  font-weight:800;
-}
-
-.rules-list{
-  margin-top:12px;
-  padding-left:20px;
-}
-
-.rules-list li{
-  margin-bottom:9px;
-  color:#d5e0ea;
-}
+.wallet-big{font-size:31px;font-weight:900;color:#ffd76a;margin:8px 0 15px}
+.wallet-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.wallet-btn{border:0;padding:13px;border-radius:12px;background:#35d995;color:#00150d;font-weight:900}
+.wallet-btn.alt{background:#172b43;color:#fff}
 
 nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:68px;
-  background:#091827f7;
-  border-top:1px solid #ffffff15;
-  display:flex;
-  z-index:9;
+position:fixed;left:0;right:0;bottom:0;height:70px;background:#091827f7;
+border-top:1px solid #ffffff15;display:flex;z-index:60
 }
-
-nav button{
-  flex:1;
-  background:none;
-  border:0;
-  color:#9db1c5;
-  font-size:12px;
-  cursor:pointer;
-}
-
-nav b{
-  display:block;
-  font-size:21px;
-  margin-bottom:3px;
-}
-
-nav .on{
-  color:#35e5a0;
-}
+nav button{flex:1;border:0;background:transparent;color:#91a7ba;font-size:11px}
+nav button b{display:block;font-size:21px;margin-bottom:3px}
+nav button.active{color:#35e5a0}
 
 .modal{
-  position:fixed;
-  inset:0;
-  background:#000b;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  z-index:20;
+position:fixed;inset:0;background:#000b;display:none;align-items:center;
+justify-content:center;padding:18px;z-index:100
 }
-
-.modal.show{
-  display:flex;
+.modal.show{display:flex}
+.modal-box{
+width:100%;max-width:430px;background:#0c1c2e;border-radius:21px;
+padding:20px;border:1px solid #ffffff14;max-height:85vh;overflow:auto
 }
-
-.box{
-  max-width:420px;
-  width:100%;
-  background:#0d1d30;
-  border-radius:20px;
-  padding:20px;
-}
-
-.box h2{
-  margin-bottom:12px;
-}
-
-.close{
-  float:right;
-  background:none;
-  border:0;
-  color:#9db1c5;
-  font-size:28px;
-  cursor:pointer;
-}
-
-.note{
-  font-size:12px;
-  color:#91a6bb;
-  line-height:1.5;
-  margin-top:12px;
-}
+.close{float:right;border:0;background:transparent;color:#91a7ba;font-size:28px}
+.rules{padding-left:20px;margin-top:12px}
+.rules li{margin-bottom:10px;color:#d4dfe8}
 
 #toast{
-  position:fixed;
-  bottom:82px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#f4fbff;
-  color:#07111f;
-  padding:11px 16px;
-  border-radius:12px;
-  font-weight:800;
-  display:none;
-  z-index:30;
-  white-space:nowrap;
+position:fixed;left:50%;bottom:83px;transform:translateX(-50%);
+background:#f3faff;color:#07111f;padding:11px 16px;border-radius:12px;
+font-weight:800;display:none;z-index:200;max-width:90%;text-align:center
+}
+
+.notice{
+padding:12px;border-radius:12px;background:#172b43;color:#aebdca;
+font-size:12px;line-height:1.5;margin-top:12px
+}
+
+@media(max-width:430px){
+.hero h1{font-size:25px}.timer{font-size:34px}.card{padding:15px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<!-- AUTH -->
+
+<section class="auth-screen" id="authScreen">
+
+<div class="auth-box">
+
+<div class="auth-logo">two<span>4</span>nine</div>
+<div class="auth-sub">Color Play • Virtual Coins</div>
+
+<div class="auth-tabs">
+<button class="auth-tab active" id="loginTab" onclick="showLogin()">Login</button>
+<button class="auth-tab" id="signupTab" onclick="showSignup()">Create Account</button>
+</div>
+
+<div id="loginForm">
+
+<div class="field">
+<label>Email</label>
+<input id="loginEmail" type="email" placeholder="Email">
+</div>
+
+<div class="field">
+<label>Password</label>
+<input id="loginPassword" type="password" placeholder="Password">
+</div>
+
+<button class="auth-btn" onclick="loginUser()">LOGIN</button>
+
+</div>
+
+<div id="signupForm" class="hidden">
+
+<div class="field">
+<label>Username</label>
+<input id="signupUsername" maxlength="20" placeholder="Choose username">
+</div>
+
+<div class="field">
+<label>Email</label>
+<input id="signupEmail" type="email" placeholder="Email">
+</div>
+
+<div class="field">
+<label>Password</label>
+<input id="signupPassword" type="password" placeholder="Minimum 6 characters">
+</div>
+
+<button class="auth-btn" onclick="createAccount()">CREATE ACCOUNT</button>
+
+</div>
+
+<button class="guest-btn" onclick="continueGuest()">CONTINUE AS GUEST</button>
+
+<div class="auth-message" id="authMessage"></div>
+
+<div class="notice">
+Virtual coins only. No real-money deposits, withdrawals or cash betting.
+</div>
+
+</div>
+</section>
+
+
+<!-- APP -->
+
+<div class="app hidden" id="mainApp">
 
 <header>
 
-<div class="logo">
-two<i>4</i>nine
-</div>
+<div class="logo">two<span>4</span>nine</div>
 
-<div class="bal">
-🪙 <span id="balance">1000</span>
-</div>
+<div class="header-right">
 
+<div class="balance">🪙 <span id="balance">1000</span></div>
+
+<button class="user-mini" id="miniAvatar" onclick="openProfile()">?</button>
+
+</div>
 </header>
 
+
+<!-- HOME -->
+
+<main id="homePage">
 
 <section class="hero">
 
 <h1>🎨 Color Play</h1>
+<p>Free virtual-coin color prediction demo</p>
 
-<p class="muted">
-Free virtual-coin color prediction demo
-</p>
-
-<div class="timer" id="timer">
-00:30
-</div>
+<div class="timer" id="timer">00:30</div>
 
 </section>
 
@@ -362,106 +249,58 @@ Free virtual-coin color prediction demo
 <section class="card">
 
 <div class="row">
-
-<b>
-Round <span id="round">1001</span>
-</b>
-
-<span class="muted">
-Virtual only
-</span>
-
+<b>Round <span id="round">1001</span></b>
+<span class="muted">Virtual only</span>
 </div>
 
-
 <div class="history" id="history">
-
 <div class="dot r">R</div>
 <div class="dot g">G</div>
 <div class="dot v">V</div>
 <div class="dot g">G</div>
-
 </div>
-
 
 <div class="colors">
 
-<button
-class="color red"
-onclick="pick('Red',2,this)">
-RED
-<small>2×</small>
+<button class="color red" onclick="pickColor('Red',2,this)">
+RED<small>2×</small>
 </button>
 
-<button
-class="color green"
-onclick="pick('Green',2,this)">
-GREEN
-<small>2×</small>
+<button class="color green" onclick="pickColor('Green',2,this)">
+GREEN<small>2×</small>
 </button>
 
-<button
-class="color violet"
-onclick="pick('Violet',5,this)">
-VIOLET
-<small>5×</small>
+<button class="color violet" onclick="pickColor('Violet',5,this)">
+VIOLET<small>5×</small>
 </button>
 
 </div>
-
 
 <div class="amounts">
 
-<button
-class="amount active"
-onclick="setAmount(10,this)">
-10
-</button>
-
-<button
-class="amount"
-onclick="setAmount(50,this)">
-50
-</button>
-
-<button
-class="amount"
-onclick="setAmount(100,this)">
-100
-</button>
-
-<button
-class="amount"
-onclick="setAmount(200,this)">
-200
-</button>
+<button class="amount active" onclick="setAmount(10,this)">10</button>
+<button class="amount" onclick="setAmount(50,this)">50</button>
+<button class="amount" onclick="setAmount(100,this)">100</button>
+<button class="amount" onclick="setAmount(200,this)">200</button>
 
 </div>
 
-
-<button
-class="play"
-onclick="play()">
+<button class="play" id="playButton" onclick="playRound()">
 PLAY ROUND
 </button>
 
-
-<p class="note">
+<div class="notice">
 Demo only. Coins have no cash value.
-No deposits, withdrawals, or real-money betting.
-</p>
+</div>
 
 </section>
 
 
 <section class="card">
 
-<h3>
-📊 My Recent Plays
-</h3>
+<h3>📊 My Recent Plays</h3>
 
 <table>
-
 <thead>
 <tr>
 <th>Round</th>
@@ -472,411 +311,688 @@ No deposits, withdrawals, or real-money betting.
 </thead>
 
 <tbody id="plays"></tbody>
-
 </table>
+
+<p class="muted" id="noPlays" style="text-align:center;margin-top:12px">
+No plays yet.
+</p>
 
 </section>
 
 
 <section class="card">
 
-<h3>
-🏆 Leaderboard
-</h3>
+<h3>🏆 Leaderboard</h3>
 
 <table>
 
-<tr>
-<td>1</td>
-<td>Rahul</td>
-<td>2,450</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Priya</td>
-<td>2,120</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Aman</td>
-<td>1,890</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>You</td>
-<td id="lead">1,000</td>
-</tr>
+<tr><td>1</td><td>Rahul</td><td>2,450</td></tr>
+<tr><td>2</td><td>Priya</td><td>2,120</td></tr>
+<tr><td>3</td><td>Aman</td><td>1,890</td></tr>
+<tr><td>4</td><td>You</td><td id="lead">1,000</td></tr>
 
 </table>
 
 </section>
 
+</main>
+
+
+<!-- WALLET -->
+
+<section id="walletPage" class="hidden">
+
+<section class="card">
+
+<h2>🪙 Virtual Wallet</h2>
+
+<div class="wallet-big">
+🪙 <span id="walletBalance">1000</span>
 </div>
 
+<div class="wallet-actions">
+
+<button class="wallet-btn" onclick="demoDeposit()">
+＋ Demo Add Coins
+</button>
+
+<button class="wallet-btn alt" onclick="demoWithdraw()">
+↗ Demo Withdraw
+</button>
+
+</div>
+
+<div class="notice">
+Deposit aur withdrawal buttons sirf demonstration ke liye hain.
+Koi actual payment, bank transfer ya cash transaction nahi hota.
+</div>
+
+</section>
+
+
+<section class="card">
+
+<h3>🏦 Bank Details — Demo</h3>
+
+<div class="field">
+<label>Account Holder</label>
+<input id="bankName" placeholder="Demo account holder">
+</div>
+
+<div class="field">
+<label>Account Number</label>
+<input id="bankNumber" placeholder="Demo account number">
+</div>
+
+<div class="field">
+<label>IFSC</label>
+<input id="bankIfsc" placeholder="Demo IFSC">
+</div>
+
+<button class="wallet-btn" style="width:100%" onclick="saveDemoBank()">
+SAVE DEMO DETAILS
+</button>
+
+<div class="notice">
+Ye details sirf local demo interface mein hain.
+Actual bank verification ya transfer nahi hota.
+</div>
+
+</section>
+
+
+<section class="card">
+
+<h3>📜 Transactions</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Type</th>
+<th>Coins</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody id="transactions"></tbody>
+
+</table>
+
+</section>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profilePage" class="hidden">
+
+<section class="card">
+
+<div class="profile-head">
+
+<div class="avatar" id="profileAvatar">?</div>
+
+<div>
+<div class="profile-name" id="profileName">Guest</div>
+<div class="profile-email" id="profileEmail">Guest account</div>
+</div>
+
+</div>
+
+<div class="profile-actions">
+
+<button class="secondary-btn" onclick="openRules()">
+📜 Game Rules
+</button>
+
+<button class="secondary-btn" onclick="resetGuest()">
+🔄 Reset Demo Coins
+</button>
+
+<button class="logout-btn" onclick="logoutUser()" id="logoutButton">
+LOGOUT
+</button>
+
+</div>
+
+</section>
+
+
+<section class="card">
+
+<h3>🪙 My Balance</h3>
+
+<div class="wallet-big">
+🪙 <span id="profileBalance">1000</span>
+</div>
+
+<div class="notice">
+Virtual coins have no real-world cash value.
+</div>
+
+</section>
+
+</section>
+
+
+<!-- NAV -->
 
 <nav>
 
-<button
-class="on"
-onclick="topPage()">
-
-<b>⌂</b>
-Home
-
+<button id="homeNav" class="active" onclick="showHome()">
+<b>⌂</b>Home
 </button>
 
-
-<button
-onclick="showHistory()">
-
-<b>◷</b>
-History
-
+<button id="walletNav" onclick="showWallet()">
+<b>🪙</b>Wallet
 </button>
 
-
-<button
-onclick="rules()">
-
-<b>?</b>
-Rules
-
+<button onclick="openRules()">
+<b>?</b>Rules
 </button>
 
-
-<button
-onclick="profile()">
-
-<b>👤</b>
-Profile
-
+<button id="profileNav" onclick="openProfile()">
+<b>👤</b>Profile
 </button>
 
 </nav>
 
+</div>
 
-<div
-class="modal"
-id="modal">
 
-<div class="box">
+<!-- RULES -->
 
-<button
-class="close"
-onclick="closeRules()">
-×
-</button>
+<div class="modal" id="rulesModal">
 
-<h2>
-How it works
-</h2>
+<div class="modal-box">
 
-<ul class="rules-list">
+<button class="close" onclick="closeRules()">×</button>
 
-<li>Choose Red, Green or Violet.</li>
+<h2>🎨 How it works</h2>
 
-<li>Select a virtual coin amount.</li>
+<ul class="rules">
 
-<li>Play the current 30-second round.</li>
+<li>Red, Green aur Violet mein se color choose karo.</li>
 
-<li>The demo randomly selects a result.</li>
+<li>Virtual coin amount select karo.</li>
 
-<li>Correct picks add virtual coins.</li>
+<li>30-second demo round start karo.</li>
 
-<li>Coins have no real-world cash value.</li>
+<li>Demo randomly result generate karta hai.</li>
+
+<li>Correct prediction par virtual coins add hote hain.</li>
+
+<li>Virtual coins ko cash mein convert nahi kiya ja sakta.</li>
 
 </ul>
 
-<p class="note">
-This website is a free virtual-coin demo.
-No deposits, withdrawals or real-money betting.
-</p>
-
+<div class="notice">
+No real-money betting, deposits, withdrawals or cash payouts.
 </div>
 
+</div>
 </div>
 
 
 <div id="toast"></div>
 
 
+<!-- FIREBASE -->
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+
 <script>
 
-let bal = 1000;
+const firebaseConfig={
+apiKey:"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+authDomain:"two4nine-7a29d.firebaseapp.com",
+projectId:"two4nine-7a29d",
+storageBucket:"two4nine-7a29d.firebasestorage.app",
+messagingSenderId:"573418811789",
+appId:"1:573418811789:web:cad8463d4cba5e8a990dc4",
+measurementId:"G-V2X4YK8NFG"
+};
 
-let chosen = "";
+firebase.initializeApp(firebaseConfig);
 
-let mult = 2;
-
-let amt = 10;
-
-let roundNo = 1001;
-
-let busy = false;
-
-let t = 30;
-
-
-function toast(message){
-
-  const e = document.getElementById("toast");
-
-  e.textContent = message;
-
-  e.style.display = "block";
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(function(){
-
-    e.style.display = "none";
-
-  },2000);
-
-}
+const auth=firebase.auth();
+const db=firebase.firestore();
 
 
-function pick(color,multiplier,element){
+let currentUser=null;
+let guestMode=false;
 
-  chosen = color;
+let balance=1000;
+let selectedColor="";
+let multiplier=2;
+let selectedAmount=10;
+let roundNumber=1001;
 
-  mult = multiplier;
+let roundRunning=false;
+let countdown=30;
+let timerInterval=null;
 
-  document
-    .querySelectorAll(".color")
-    .forEach(function(button){
+let playHistory=[];
+let transactions=[];
 
-      button.classList.remove("selected");
 
-    });
+/* AUTH */
 
-  element.classList.add("selected");
+function showLogin(){
 
-  toast(color + " selected");
+document.getElementById("loginForm").classList.remove("hidden");
+document.getElementById("signupForm").classList.add("hidden");
+
+document.getElementById("loginTab").classList.add("active");
+document.getElementById("signupTab").classList.remove("active");
+
+setAuthMessage("");
 
 }
 
 
-function setAmount(number,element){
+function showSignup(){
 
-  amt = number;
+document.getElementById("loginForm").classList.add("hidden");
+document.getElementById("signupForm").classList.remove("hidden");
 
-  document
-    .querySelectorAll(".amount")
-    .forEach(function(button){
+document.getElementById("loginTab").classList.remove("active");
+document.getElementById("signupTab").classList.add("active");
 
-      button.classList.remove("active");
-
-    });
-
-  element.classList.add("active");
+setAuthMessage("");
 
 }
 
 
-function updateBalance(){
+function setAuthMessage(text,type=""){
 
-  document.getElementById("balance").textContent =
-    bal.toLocaleString();
+const box=document.getElementById("authMessage");
 
-  document.getElementById("lead").textContent =
-    bal.toLocaleString();
-
-}
-
-
-function play(){
-
-  if(busy){
-
-    toast("Round already running");
-
-    return;
-
-  }
-
-  if(!chosen){
-
-    toast("Choose a color first");
-
-    return;
-
-  }
-
-  if(amt > bal){
-
-    toast("Not enough virtual coins");
-
-    return;
-
-  }
-
-  bal -= amt;
-
-  updateBalance();
-
-  busy = true;
-
-  t = 30;
-
-  document.getElementById("timer").textContent = "00:30";
-
-  const interval = setInterval(function(){
-
-    t--;
-
-    document.getElementById("timer").textContent =
-      "00:" + String(t).padStart(2,"0");
-
-    if(t <= 0){
-
-      clearInterval(interval);
-
-      finish();
-
-      busy = false;
-
-    }
-
-  },1000);
+box.textContent=text;
+box.className="auth-message "+type;
 
 }
 
 
-function finish(){
+/* CREATE ACCOUNT */
 
-  const colors = [
-    "Red",
-    "Green",
-    "Violet"
-  ];
+async function createAccount(){
 
-  const result =
-    colors[
-      Math.floor(Math.random() * colors.length)
-    ];
+const username=document.getElementById("signupUsername").value.trim();
+const email=document.getElementById("signupEmail").value.trim();
+const password=document.getElementById("signupPassword").value;
 
-  const win =
-    result === chosen;
+if(username.length<3){
 
-  if(win){
+setAuthMessage("Username kam se kam 3 characters ka hona chahiye.","error");
+return;
 
-    bal += amt * mult;
+}
 
-  }
+if(!email){
 
-  updateBalance();
+setAuthMessage("Email enter karo.","error");
+return;
 
+}
 
-  const row = `
-    <tr>
-      <td>${roundNo}</td>
-      <td>${chosen}</td>
-      <td>${amt}</td>
-      <td class="${win ? "win" : "lose"}">
-        ${win ? "+" + (amt * mult) : "-" + amt}
-      </td>
-    </tr>
-  `;
+if(password.length<6){
 
-  document
-    .getElementById("plays")
-    .insertAdjacentHTML("afterbegin",row);
+setAuthMessage("Password kam se kam 6 characters ka rakho.","error");
+return;
 
+}
 
-  const historyClass =
-    result === "Red"
-      ? "r"
-      : result === "Green"
-        ? "g"
-        : "v";
+setAuthMessage("Account create ho raha hai...");
 
+try{
 
-  const historyItem = `
-    <div class="dot ${historyClass}">
-      ${result[0]}
-    </div>
-  `;
+const result=await auth.createUserWithEmailAndPassword(email,password);
 
-  document
-    .getElementById("history")
-    .insertAdjacentHTML(
-      "afterbegin",
-      historyItem
-    );
+const user=result.user;
 
+await user.updateProfile({
+displayName:username
+});
 
-  toast(
-    "Result: " +
-    result +
-    (win
-      ? " • You won!"
-      : " • Try again")
-  );
+await db.collection("users").doc(user.uid).set({
 
+uid:user.uid,
+username:username,
+email:email,
+coins:1000,
+createdAt:firebase.firestore.FieldValue.serverTimestamp()
 
-  roundNo++;
+});
 
-  document.getElementById("round").textContent =
-    roundNo;
+currentUser=user;
+guestMode=false;
+balance=1000;
 
-  document.getElementById("timer").textContent =
-    "00:30";
+playHistory=[];
+transactions=[];
+
+saveLocalData();
+updateUI();
+showApp();
+
+toast("Account created!");
+
+}catch(error){
+
+console.error(error);
+setAuthMessage(errorMessage(error),"error");
+
+}
 
 }
 
 
-function rules(){
+/* LOGIN */
 
-  document
-    .getElementById("modal")
-    .classList.add("show");
+async function loginUser(){
+
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
+
+if(!email||!password){
+
+setAuthMessage("Email aur password enter karo.","error");
+return;
+
+}
+
+setAuthMessage("Login ho raha hai...");
+
+try{
+
+const result=await auth.signInWithEmailAndPassword(email,password);
+
+currentUser=result.user;
+guestMode=false;
+
+await loadFirebaseUser();
+
+showApp();
+updateUI();
+
+toast("Welcome back!");
+
+}catch(error){
+
+console.error(error);
+setAuthMessage(errorMessage(error),"error");
+
+}
 
 }
 
 
-function closeRules(){
+/* FIREBASE DATA */
 
-  document
-    .getElementById("modal")
-    .classList.remove("show");
+async function loadFirebaseUser(){
+
+if(!currentUser)return;
+
+const ref=db.collection("users").doc(currentUser.uid);
+const snap=await ref.get();
+
+if(snap.exists){
+
+const data=snap.data();
+
+balance=Number(data.coins||1000);
+
+}else{
+
+balance=1000;
+
+await ref.set({
+uid:currentUser.uid,
+username:currentUser.displayName||"Player",
+email:currentUser.email||"",
+coins:1000
+});
+
+}
+
+loadLocalData();
 
 }
 
 
-function showHistory(){
+async function saveFirebaseCoins(){
 
-  document
-    .querySelector("#plays")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+if(!currentUser)return;
 
-  toast("Recent plays shown below");
+try{
+
+await db.collection("users")
+.doc(currentUser.uid)
+.update({
+coins:balance
+});
+
+}catch(error){
+
+console.error(error);
+
+}
 
 }
 
 
-function profile(){
+/* GUEST */
 
-  toast("Profile coming soon");
+function continueGuest(){
+
+guestMode=true;
+currentUser=null;
+
+loadLocalData();
+
+showApp();
+updateUI();
+
+toast("Guest mode started");
 
 }
 
 
-function topPage(){
+function resetGuest(){
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+if(!guestMode){
+
+toast("Login account ka balance yahan reset nahi hoga.");
+return;
 
 }
 
-</script>
+balance=1000;
+playHistory=[];
+transactions=[];
 
-</body>
-</html>
+saveLocalData();
+updateUI();
+
+toast("Demo reset!");
+
+}
+
+
+/* LOCAL DATA */
+
+function dataKey(name){
+
+if(currentUser){
+
+return "two4nine_"+name+"_"+currentUser.uid;
+
+}
+
+return "two4nine_guest_"+name;
+
+}
+
+
+function loadLocalData(){
+
+const b=localStorage.getItem(dataKey("balance"));
+
+if(!currentUser&&b){
+
+balance=Number(b);
+
+}
+
+const h=localStorage.getItem(dataKey("history"));
+
+playHistory=h?JSON.parse(h):[];
+
+const t=localStorage.getItem(dataKey("transactions"));
+
+transactions=t?JSON.parse(t):[];
+
+renderHistory();
+renderTransactions();
+
+}
+
+
+function saveLocalData(){
+
+localStorage.setItem(
+dataKey("balance"),
+String(balance)
+);
+
+localStorage.setItem(
+dataKey("history"),
+JSON.stringify(playHistory.slice(0,30))
+);
+
+localStorage.setItem(
+dataKey("transactions"),
+JSON.stringify(transactions.slice(0,50))
+);
+
+}
+
+
+/* UI */
+
+function showApp(){
+
+document.getElementById("authScreen").classList.add("hidden");
+document.getElementById("mainApp").classList.remove("hidden");
+
+}
+
+
+function updateUI(){
+
+const value=balance.toLocaleString();
+
+document.getElementById("balance").textContent=value;
+document.getElementById("walletBalance").textContent=value;
+document.getElementById("profileBalance").textContent=value;
+document.getElementById("lead").textContent=value;
+
+updateProfile();
+
+renderHistory();
+renderTransactions();
+
+}
+
+
+function updateProfile(){
+
+let name="Guest";
+let email="Guest account";
+
+if(currentUser){
+
+name=currentUser.displayName||"Player";
+email=currentUser.email||"";
+
+}
+
+document.getElementById("profileName").textContent=name;
+document.getElementById("profileEmail").textContent=email;
+
+const letter=name.charAt(0).toUpperCase()||"?";
+
+document.getElementById("profileAvatar").textContent=letter;
+document.getElementById("miniAvatar").textContent=letter;
+
+document.getElementById("logoutButton").textContent=
+guestMode?"EXIT GUEST MODE":"LOGOUT";
+
+}
+
+
+/* COLOR */
+
+function pickColor(color,mult,element){
+
+selectedColor=color;
+multiplier=mult;
+
+document.querySelectorAll(".color").forEach(function(x){
+x.classList.remove("selected");
+});
+
+element.classList.add("selected");
+
+toast(color+" selected");
+
+}
+
+
+function setAmount(amount,element){
+
+selectedAmount=amount;
+
+document.querySelectorAll(".amount").forEach(function(x){
+x.classList.remove("active");
+});
+
+element.classList.add("active");
+
+}
+
+
+/* GAME */
+
+function playRound(){
+
+if(roundRunning){
+
+toast("Round already running");
+return;
+
+}
+
+if(!selectedColor){
+
+toast("Pehle color choose karo");
+return;
+
+}
+
+if(selectedAmount>balance){
+
+toast("Not enough virtual coins");
+return;
+
+}
+
+balance-=selectedAmount;
+
+addTransa
