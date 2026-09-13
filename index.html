@@ -3,1286 +3,781 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>two4nine</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box}
 body{
-  background:
-    radial-gradient(circle at 10% 0%,#263b78 0%,transparent 28%),
-    radial-gradient(circle at 90% 10%,#51236e 0%,transparent 25%),
-    #070b18;
-  color:#fff;
+  margin:0;
   font-family:Arial,sans-serif;
-  padding-bottom:85px;
+  background:#07101f;
+  color:white;
 }
+button{font:inherit;cursor:pointer}
 
-button{
-  font-family:inherit;
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
-}
-
-/* TOP */
-
-.topbar{
+.top{
+  height:72px;
+  background:#050b16;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
   position:sticky;
   top:0;
-  z-index:50;
-  height:70px;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  padding:0 12px;
-  background:rgba(8,12,27,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #26345a;
-}
-
-.newsTop{
-  font-size:15px;
-  font-weight:800;
+  z-index:20;
+  border-bottom:1px solid #1d2940;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:900;
-  background:linear-gradient(90deg,#7c5cff,#00d9ff,#ff4fd8);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.topRight{
   display:flex;
-  justify-content:flex-end;
-  gap:6px;
   align-items:center;
+  gap:2px;
+  font-size:30px;
+  font-weight:900;
+  color:white;
+  letter-spacing:-2px;
 }
 
+.golgappa{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 28%,#ffe6a3,#e9a62e 55%,#a95c0c);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 2px;
+  box-shadow:inset 0 2px 5px #fff8;
+  position:relative;
+}
+.golgappa:after{
+  content:"";
+  width:17px;
+  height:10px;
+  border-radius:50%;
+  background:#26733b;
+  box-shadow:0 2px 0 #174e29;
+}
+
+.topBtns{
+  display:flex;
+  gap:7px;
+}
 .topBtn{
-  border:1px solid #46557d;
-  background:#18213a;
-  color:#fff;
+  border:1px solid #34425e;
+  background:#111b2d;
+  color:white;
+  padding:9px 12px;
   border-radius:12px;
-  padding:9px 10px;
-  font-size:11px;
-  font-weight:800;
 }
-
 .createTop{
-  background:linear-gradient(135deg,#7c5cff,#ff4fd8);
-  border:0;
-}
-
-/* SEARCH */
-
-.searchWrap{
-  padding:14px 13px 5px;
+  background:#ff315c;
+  border-color:#ff315c;
 }
 
 .search{
+  margin:18px auto;
+  width:min(700px,92%);
+}
+.search input{
   width:100%;
-  padding:14px 16px;
-  border-radius:16px;
-  border:1px solid #344568;
-  background:#101a31;
-  color:#fff;
-  font-size:14px;
+  padding:14px 18px;
+  border:1px solid #293750;
+  background:#111b2d;
+  border-radius:30px;
+  color:white;
   outline:none;
 }
 
-.search:focus{
-  border-color:#8b6cff;
-  box-shadow:0 0 0 3px rgba(124,92,255,.15);
-}
-
-/* STORIES */
-
-.section{
-  padding:15px 13px;
-}
-
-.title{
-  font-size:17px;
-  font-weight:900;
-  margin-bottom:12px;
+.container{
+  width:min(700px,94%);
+  margin:auto;
 }
 
 .stories{
   display:flex;
-  gap:14px;
+  gap:15px;
   overflow-x:auto;
-  scrollbar-width:none;
+  padding:10px 2px 20px;
 }
-
-.stories::-webkit-scrollbar{
-  display:none;
-}
-
 .story{
-  flex:0 0 65px;
+  min-width:68px;
   text-align:center;
+  font-size:12px;
 }
-
-.storyCircle{
-  width:61px;
-  height:61px;
+.avatar{
+  width:58px;
+  height:58px;
   border-radius:50%;
-  margin:auto;
+  margin:auto auto 6px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:900;
-  font-size:20px;
-  background:linear-gradient(135deg,#182b54,#39205d);
-  border:3px solid #806aff;
-  box-shadow:0 0 15px rgba(124,92,255,.2);
-}
-
-.your{
-  border-color:#00dcff;
-  background:linear-gradient(135deg,#102f50,#52205e);
-}
-
-.storyName{
-  font-size:10px;
-  color:#b8c4df;
-  margin-top:6px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-/* FEED */
-
-.feed{
-  max-width:650px;
-  margin:auto;
-  padding:10px 12px;
+  background:linear-gradient(135deg,#ff315c,#8d4cff,#18c8ff);
+  border:3px solid #07101f;
+  box-shadow:0 0 0 2px #ff315c;
 }
 
 .card{
-  background:linear-gradient(145deg,#101b34,#0d1428);
-  border:1px solid #2b3a60;
-  border-radius:20px;
-  overflow:hidden;
-  margin-bottom:15px;
-  box-shadow:0 8px 30px rgba(0,0,0,.2);
+  background:#101a2c;
+  border:1px solid #22304a;
+  border-radius:18px;
+  padding:16px;
+  margin:14px 0;
 }
-
-.head{
+.user{
   display:flex;
   align-items:center;
   gap:10px;
-  padding:14px;
 }
-
-.avatar{
+.userIcon{
   width:42px;
   height:42px;
   border-radius:50%;
+  background:linear-gradient(135deg,#18c8ff,#8d4cff);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:900;
-  background:linear-gradient(135deg,#596cff,#b449ff);
-  color:#fff;
-  flex-shrink:0;
 }
-
-.info{
-  flex:1;
+.title{
+  font-size:21px;
+  font-weight:800;
+  margin:12px 0 8px;
 }
-
-.name{
-  font-size:14px;
-  font-weight:900;
-}
-
-.time{
-  font-size:10px;
-  color:#8492b1;
-  margin-top:4px;
-}
-
-.body{
-  padding:0 14px 15px;
-}
-
 .text{
-  font-size:14px;
-  line-height:1.6;
-  color:#e0e7f7;
-}
-
-.newsImage{
-  height:130px;
-  border-radius:15px;
-  margin-bottom:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:45px;
-  background:linear-gradient(135deg,#253f91,#782d77);
-}
-
-.label{
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:8px;
-  font-size:10px;
-  font-weight:900;
-  color:#fff;
-  background:linear-gradient(135deg,#6047dd,#d13bc4);
-  margin-bottom:8px;
-}
-
-.newsTitle{
-  font-size:17px;
-  line-height:1.4;
-  font-weight:900;
-  margin-bottom:8px;
-}
-
-.desc{
-  color:#aab6cf;
-  font-size:12px;
+  color:#d8e0ef;
   line-height:1.5;
 }
-
 .actions{
   display:flex;
-  gap:7px;
-  padding:10px 14px;
-  border-top:1px solid #263552;
+  gap:8px;
+  margin-top:15px;
 }
-
 .action{
-  border:1px solid #354667;
-  background:#17223b;
-  color:#dce4f6;
-  padding:8px 10px;
-  border-radius:10px;
-  font-size:11px;
+  background:#18243a;
+  color:#dce6f7;
+  border:0;
+  border-radius:12px;
+  padding:9px 12px;
 }
 
-.action:hover{
-  background:#293a62;
+.sectionTitle{
+  font-size:20px;
+  font-weight:800;
+  margin:20px 0 8px;
 }
 
-/* REELS */
-
-#reelsSection{
-  max-width:650px;
-  margin:auto;
-  padding:15px 12px;
+.bottom{
+  position:sticky;
+  bottom:0;
+  background:#050b16ee;
+  backdrop-filter:blur(12px);
+  border-top:1px solid #1d2940;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 5px;
+  margin-top:30px;
 }
-
-.reel{
-  height:320px;
-  border-radius:20px;
+.nav{
+  background:none;
+  border:0;
+  color:#b9c5da;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  font-size:12px;
+}
+.nav.plus{
+  color:white;
+}
+.plusCircle{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:#ff315c;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  background:
-    linear-gradient(135deg,#20164e,#551c58,#122e57);
-  border:1px solid #554b88;
+  font-size:24px;
 }
-
-.reelIcon{
-  font-size:55px;
-  margin-bottom:12px;
-}
-
-/* BOTTOM */
-
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:72px;
-  z-index:60;
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
-  background:rgba(7,11,24,.97);
-  border-top:1px solid #293653;
-  backdrop-filter:blur(15px);
-}
-
-.nav{
-  border:0;
-  background:none;
-  color:#8390aa;
-  font-size:10px;
-  text-align:center;
-}
-
-.navIcon{
-  display:block;
-  font-size:21px;
-  margin-bottom:3px;
-}
-
-.nav.active{
-  color:#fff;
-}
-
-.post{
-  width:48px;
-  height:48px;
-  border:0;
-  border-radius:15px;
-  background:linear-gradient(135deg,#00d9ff,#7c5cff,#ff4fd8);
-  color:#fff;
-  font-size:27px;
-  font-weight:900;
-  box-shadow:0 5px 20px rgba(124,92,255,.35);
-}
-
-/* MODAL */
 
 .modal{
   position:fixed;
   inset:0;
-  z-index:100;
-  background:rgba(0,0,0,.72);
+  background:#000b;
   display:flex;
-  align-items:flex-end;
+  align-items:center;
   justify-content:center;
+  padding:18px;
+  z-index:100;
 }
+.hidden{display:none!important}
 
 .box{
-  width:100%;
-  max-width:600px;
-  max-height:90vh;
-  overflow:auto;
-  background:
-    radial-gradient(circle at 90% 0%,#392060 0%,transparent 30%),
-    #0d1529;
-  border:1px solid #35466b;
-  border-radius:24px 24px 0 0;
-  padding:20px;
+  width:min(400px,100%);
+  background:#101a2c;
+  border:1px solid #34425e;
+  border-radius:22px;
+  padding:24px;
+  box-shadow:0 20px 70px #000;
 }
-
-.modalHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
+.box h2{
+  margin-top:0;
 }
-
-.modalTitle{
-  font-size:21px;
-  font-weight:900;
-}
-
-.close{
-  width:36px;
-  height:36px;
-  border:0;
-  border-radius:11px;
-  background:#202d49;
-  color:#fff;
-  font-size:20px;
-}
-
-.input,
-.textarea{
+.box input{
   width:100%;
   padding:14px;
-  margin-bottom:11px;
-  border-radius:13px;
-  border:1px solid #35466a;
-  background:#101b31;
-  color:#fff;
+  margin:7px 0;
+  border-radius:12px;
+  border:1px solid #34425e;
+  background:#07101f;
+  color:white;
   outline:none;
 }
-
-.input:focus,
-.textarea:focus{
-  border-color:#9279ff;
-}
-
-.textarea{
-  min-height:120px;
-  resize:none;
-}
-
 .full{
   width:100%;
   padding:14px;
+  margin-top:10px;
   border:0;
-  border-radius:13px;
-  background:linear-gradient(135deg,#7158ff,#ff45d1);
-  color:#fff;
-  font-weight:900;
-  font-size:14px;
+  border-radius:12px;
+  background:#ff315c;
+  color:white;
+  font-weight:bold;
 }
-
+.close{
+  float:right;
+  background:none;
+  color:#aaa;
+  border:0;
+  font-size:24px;
+}
 .switch{
   text-align:center;
   margin-top:15px;
-  color:#9eabc4;
-  font-size:12px;
+  color:#aebbd0;
 }
-
-.link{
-  color:#fff;
-  text-decoration:underline;
-  font-weight:800;
+.switch span{
+  color:#ff5d7d;
+  cursor:pointer;
 }
-
-.error{
-  color:#ff8f9b;
-  font-size:12px;
-  margin-top:10px;
-  line-height:1.5;
-}
-
-/* TOAST */
-
-#toast{
-  position:fixed;
-  left:50%;
-  bottom:90px;
-  transform:translateX(-50%);
-  z-index:200;
-  background:#fff;
-  color:#101321;
-  padding:12px 16px;
-  border-radius:13px;
-  font-size:12px;
-  font-weight:800;
-  display:none;
-  max-width:90%;
+.status{
   text-align:center;
+  min-height:20px;
+  margin-top:8px;
+  color:#ff8fa5;
 }
 
-/* DESKTOP */
-
-@media(min-width:700px){
-  .feed,
-  #reelsSection{
-    padding-left:0;
-    padding-right:0;
-  }
+@media(max-width:500px){
+  .logo{font-size:25px}
+  .top{padding:0 10px}
+  .topBtn{padding:8px 9px;font-size:12px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-
-  <div class="newsTop">📰 News</div>
-
-  <div class="logo">two4nine</div>
-
-  <div class="topRight">
-
-    <button
-      class="topBtn"
-      id="loginTop"
-      onclick="openAuth('login')">
-      Login
-    </button>
-
-    <button
-      class="topBtn createTop"
-      id="createTop"
-      onclick="openAuth('signup')">
-      Create
-    </button>
-
-    <button
-      class="topBtn hidden"
-      id="messageTop"
-      onclick="openMessages()">
-      💬
-    </button>
-
-    <button
-      class="topBtn hidden"
-      id="profileTop"
-      onclick="logout()">
-      👤
-    </button>
-
+<!-- TOP -->
+<header class="top">
+  <div class="logo">
+    tw<span class="golgappa"></span>4nine
   </div>
 
+  <div class="topBtns">
+    <button class="topBtn" id="loginBtn">Login</button>
+    <button class="topBtn createTop" id="signupBtn">Create Account</button>
+  </div>
 </header>
 
-
-<div class="searchWrap">
-
-  <input
-    id="search"
-    class="search"
-    placeholder="Search people, news, topics..."
-    oninput="searchEverything()">
-
+<!-- SEARCH -->
+<div class="search">
+  <input id="searchInput" placeholder="🔎 Search news, people, reels...">
 </div>
 
+<main class="container">
 
-<section class="section">
-
-  <div class="title">Stories</div>
+  <!-- STORIES -->
+  <div class="sectionTitle">Stories</div>
 
   <div class="stories">
-
-    <div class="story" onclick="createStory()">
-      <div class="storyCircle your">＋</div>
-      <div class="storyName">Your Story</div>
+    <div class="story">
+      <div class="avatar">＋</div>
+      <div>Your Story</div>
     </div>
 
-    <div class="story" onclick="demoStory('Rahul')">
-      <div class="storyCircle">R</div>
-      <div class="storyName">Rahul</div>
-    </div>
-
-    <div class="story" onclick="demoStory('Priya')">
-      <div class="storyCircle">P</div>
-      <div class="storyName">Priya</div>
-    </div>
-
-    <div class="story" onclick="demoStory('Aman')">
-      <div class="storyCircle">A</div>
-      <div class="storyName">Aman</div>
-    </div>
-
-    <div class="story" onclick="demoStory('Neha')">
-      <div class="storyCircle">N</div>
-      <div class="storyName">Neha</div>
-    </div>
-
-    <div class="story" onclick="demoStory('Simran')">
-      <div class="storyCircle">S</div>
-      <div class="storyName">Simran</div>
-    </div>
-
+    <div class="story"><div class="avatar">R</div><div>Rahul</div></div>
+    <div class="story"><div class="avatar">P</div><div>Priya</div></div>
+    <div class="story"><div class="avatar">A</div><div>Aman</div></div>
+    <div class="story"><div class="avatar">N</div><div>Neha</div></div>
+    <div class="story"><div class="avatar">S</div><div>Simran</div></div>
+    <div class="story"><div class="avatar">R</div><div>Rohan</div></div>
   </div>
-
-</section>
-
-
-<main class="feed" id="feed">
-
-  <!-- WELCOME -->
-
-  <div class="card">
-
-    <div class="head">
-
-      <div class="avatar">2</div>
-
-      <div class="info">
-
-        <div class="name">two4nine</div>
-
-        <div class="time">Welcome</div>
-
-      </div>
-
-    </div>
-
-    <div class="body">
-
-      <div class="text">
-        <b>Different generations. One place. ❤️</b>
-        <br><br>
-        News, people, discussions, memes and
-        everything happening around you.
-      </div>
-
-    </div>
-
-    <div class="actions">
-
-      <button class="action" onclick="requireLogin('Like')">
-        ❤️ Like
-      </button>
-
-      <button class="action" onclick="requireLogin('Comment')">
-        💬 Comment
-      </button>
-
-      <button class="action" onclick="requireLogin('Share')">
-        ↗ Share
-      </button>
-
-    </div>
-
-  </div>
-
 
   <!-- NEWS -->
+  <div class="sectionTitle">Latest News</div>
 
-  <div class="title">🔥 Latest News</div>
-
-  <div id="newsFeed"></div>
-
-
-  <!-- POSTS -->
-
-  <div class="title">👥 Community</div>
-
-  <div id="userPosts"></div>
-
-
-  <!-- MEME -->
-
-  <div class="card">
-
-    <div class="head">
-
-      <div class="avatar">😂</div>
-
-      <div class="info">
-
-        <div class="name">Community Meme</div>
-
-        <div class="time">two4nine</div>
-
+  <article class="card">
+    <div class="user">
+      <div class="userIcon">📰</div>
+      <div>
+        <b>two4nine News</b><br>
+        <small>Today</small>
       </div>
-
     </div>
 
-    <div class="body">
+    <div class="title">
+      News that everyone can understand.
+    </div>
 
-      <div class="text">
-
-        Me: "Bas 5 minute social media dekhunga."
-        <br><br>
-        Also me after 1 hour: 😭😂
-
-      </div>
-
+    <div class="text">
+      Welcome to two4nine — different generations, one place.
+      Yahan important news simple language mein milegi.
     </div>
 
     <div class="actions">
+      <button class="action" data-login="Like">❤️ Like</button>
+      <button class="action" data-login="Comment">💬 Comment</button>
+      <button class="action" data-login="Share">↗️ Share</button>
+    </div>
+  </article>
 
-      <button class="action" onclick="requireLogin('Like')">
-        ❤️ Like
-      </button>
-
-      <button class="action" onclick="requireLogin('Comment')">
-        💬 Comment
-      </button>
-
+  <article class="card">
+    <div class="user">
+      <div class="userIcon">🌎</div>
+      <div>
+        <b>World Update</b><br>
+        <small>News</small>
+      </div>
     </div>
 
-  </div>
+    <div class="title">
+      Stay informed without the confusion.
+    </div>
+
+    <div class="text">
+      World, India, business, sports aur technology ki important updates
+      ek simple social feed mein.
+    </div>
+
+    <div class="actions">
+      <button class="action" data-login="Like">❤️ Like</button>
+      <button class="action" data-login="Comment">💬 Comment</button>
+      <button class="action" data-login="Share">↗️ Share</button>
+    </div>
+  </article>
+
+  <!-- MEME -->
+  <div class="sectionTitle">😂 Memes</div>
+
+  <article class="card">
+    <div class="title">When you open the news for 2 minutes...</div>
+    <div class="text">
+      2 minutes later: “Bas ek aur news dekh leta hoon.” 😂
+    </div>
+    <div class="actions">
+      <button class="action" data-login="Like">❤️ Like</button>
+      <button class="action" data-login="Comment">💬 Comment</button>
+    </div>
+  </article>
+
+  <!-- REELS -->
+  <div class="sectionTitle">🎬 Reels</div>
+
+  <article class="card">
+    <div class="title">Short videos coming soon.</div>
+    <div class="text">
+      Funny, informative aur useful short videos — all in one place.
+    </div>
+  </article>
 
 </main>
 
-
-<!-- REELS -->
-
-<section id="reelsSection" class="hidden">
-
-  <div class="title">🎬 Reels</div>
-
-  <div class="reel">
-
-    <div>
-
-      <div class="reelIcon">▶️</div>
-
-      <div class="newsTitle">
-        two4nine Reels
-      </div>
-
-      <div class="desc">
-        Short videos and fun content coming soon.
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- BOTTOM NAV -->
-
+<!-- BOTTOM -->
 <nav class="bottom">
-
-  <button class="nav active" onclick="home(this)">
-    <span class="navIcon">⌂</span>
-    Home
+  <button class="nav">🏠<span>Home</span></button>
+  <button class="nav">🔎<span>Search</span></button>
+  <button class="nav plus" id="postBtn">
+    <div class="plusCircle">＋</div>
+    <span>Post</span>
   </button>
-
-  <button class="nav" onclick="searchFocus(this)">
-    <span class="navIcon">⌕</span>
-    Search
-  </button>
-
-  <button class="post" onclick="openPost()">
-    +
-  </button>
-
-  <button class="nav" onclick="reels(this)">
-    <span class="navIcon">▶</span>
-    Reels
-  </button>
-
-  <button class="nav" onclick="notifications(this)">
-    <span class="navIcon">♡</span>
-    Notifications
-  </button>
-
+  <button class="nav">🎬<span>Reels</span></button>
+  <button class="nav" id="notificationBtn">🔔<span>Notifications</span></button>
 </nav>
 
-
-<!-- AUTH -->
-
-<div id="authModal" class="modal hidden">
-
+<!-- AUTH MODAL -->
+<div class="modal hidden" id="authModal">
   <div class="box">
 
-    <div class="modalHead">
+    <button class="close" id="closeAuth">×</button>
 
-      <div id="authTitle" class="modalTitle">
-        Create Account
-      </div>
+    <h2 id="authTitle">Create Account</h2>
 
-      <button
-        class="close"
-        onclick="closeModal('authModal')">
-        ×
-      </button>
+    <p id="authSubtitle">
+      Join two4nine ❤️
+    </p>
 
-    </div>
+    <input id="email" type="email" placeholder="Email address">
+
+    <input id="password" type="password" placeholder="Password">
 
     <input
-      id="name"
-      class="input"
-      placeholder="Your name">
-
-    <input
-      id="email"
-      class="input"
-      type="email"
-      placeholder="Email address">
-
-    <input
-      id="password"
-      class="input"
+      id="confirmPassword"
       type="password"
-      placeholder="Password">
+      placeholder="Confirm password"
+    >
 
-    <input
-      id="confirm"
-      class="input"
-      type="password"
-      placeholder="Confirm password">
-
-    <button
-      id="authButton"
-      class="full"
-      onclick="doAuth()">
+    <button class="full" id="authSubmit">
       Create Account
     </button>
 
-    <div id="authError" class="error"></div>
+    <div class="status" id="authStatus"></div>
 
     <div class="switch">
-
-      <span id="switchText">
-        Already have an account?
-      </span>
-
-      <span
-        class="link"
-        id="switchButton"
-        onclick="switchAuth()">
-        Login
-      </span>
-
+      <span id="switchText">Already have an account? Login</span>
     </div>
 
   </div>
-
 </div>
 
-
-<!-- POST -->
-
-<div id="postModal" class="modal hidden">
-
-  <div class="box">
-
-    <div class="modalHead">
-
-      <div class="modalTitle">
-        ✍️ Create Post
-      </div>
-
-      <button
-        class="close"
-        onclick="closeModal('postModal')">
-        ×
-      </button>
-
-    </div>
-
-    <textarea
-      id="postText"
-      class="textarea"
-      placeholder="What's on your mind?"></textarea>
-
-    <button
-      class="full"
-      onclick="publishPost()">
-      Publish Post
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- STORY -->
-
-<div id="storyModal" class="modal hidden">
-
-  <div class="box">
-
-    <div class="modalHead">
-
-      <div class="modalTitle">
-        📸 Create Story
-      </div>
-
-      <button
-        class="close"
-        onclick="closeModal('storyModal')">
-        ×
-      </button>
-
-    </div>
-
-    <textarea
-      id="storyText"
-      class="textarea"
-      placeholder="Write your story..."></textarea>
-
-    <button
-      class="full"
-      onclick="publishStory()">
-      Add Story
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- MESSAGE -->
-
-<div id="messageModal" class="modal hidden">
-
-  <div class="box">
-
-    <div class="modalHead">
-
-      <div class="modalTitle">
-        💬 Messages
-      </div>
-
-      <button
-        class="close"
-        onclick="closeModal('messageModal')">
-        ×
-      </button>
-
-    </div>
-
-    <div class="text">
-      Private messaging will be connected next. ❤️
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- NOTIFICATIONS -->
-
-<div id="notificationModal" class="modal hidden">
-
-  <div class="box">
-
-    <div class="modalHead">
-
-      <div class="modalTitle">
-        🔔 Notifications
-      </div>
-
-      <button
-        class="close"
-        onclick="closeModal('notificationModal')">
-        ×
-      </button>
-
-    </div>
-
-    <div class="text">
-      Welcome to two4nine! 🎉
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- STORY VIEW -->
-
-<div id="storyView" class="modal hidden">
-
-  <div class="box">
-
-    <div class="modalHead">
-
-      <div id="storyViewTitle" class="modalTitle">
-        Story
-      </div>
-
-      <button
-        class="close"
-        onclick="closeModal('storyView')">
-        ×
-      </button>
-
-    </div>
-
-    <div id="storyViewText" class="text"></div>
-
-  </div>
-
-</div>
-
-
-<div id="toast"></div>
-
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 
 <script>
-
 /* =========================
-   SIMPLE LOCAL ACCOUNT
+   FIREBASE
 ========================= */
 
-let authMode="signup";
+const firebaseConfig = {
+  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+  authDomain: "two4nine-7a29d.firebaseapp.com",
+  projectId: "two4nine-7a29d",
+  storageBucket: "two4nine-7a29d.firebasestorage.app",
+  messagingSenderId: "573418811789",
+  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
+  measurementId: "G-V2X4YK8NFG"
+};
 
-function getAccount(){
-  return JSON.parse(localStorage.getItem("two4nine_account") || "null");
-}
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-function getCurrentUser(){
-  return JSON.parse(localStorage.getItem("two4nine_current") || "null");
-}
+
+/* =========================
+   AUTH UI
+========================= */
+
+let authMode = "signup";
+
+const authModal = document.getElementById("authModal");
+const authTitle = document.getElementById("authTitle");
+const authSubtitle = document.getElementById("authSubtitle");
+const authSubmit = document.getElementById("authSubmit");
+const authStatus = document.getElementById("authStatus");
+const confirmPassword = document.getElementById("confirmPassword");
+const switchText = document.getElementById("switchText");
 
 function openAuth(mode){
 
-  authMode=mode;
+  authMode = mode;
 
-  document
-    .getElementById("authModal")
-    .classList.remove("hidden");
+  authModal.classList.remove("hidden");
 
-  updateAuthUI();
+  document.getElementById("email").value = "";
+  document.getElementById("password").value = "";
+  confirmPassword.value = "";
+  authStatus.textContent = "";
 
-}
+  if(mode === "signup"){
 
-function updateAuthUI(){
+    authTitle.textContent = "Create Account";
+    authSubtitle.textContent = "Join two4nine ❤️";
+    authSubmit.textContent = "Create Account";
+    confirmPassword.style.display = "block";
 
-  const title=document.getElementById("authTitle");
-  const button=document.getElementById("authButton");
-  const name=document.getElementById("name");
-  const confirm=document.getElementById("confirm");
-  const switchText=document.getElementById("switchText");
-  const switchButton=document.getElementById("switchButton");
-  const error=document.getElementById("authError");
-
-  error.textContent="";
-
-  if(authMode==="signup"){
-
-    title.textContent="Create Account";
-    button.textContent="Create Account";
-
-    name.classList.remove("hidden");
-    confirm.classList.remove("hidden");
-
-    switchText.textContent="Already have an account?";
-    switchButton.textContent="Login";
+    switchText.textContent =
+      "Already have an account? Login";
 
   }else{
 
-    title.textContent="Login";
-    button.textContent="Login";
+    authTitle.textContent = "Login";
+    authSubtitle.textContent = "Welcome back ❤️";
+    authSubmit.textContent = "Login";
+    confirmPassword.style.display = "none";
 
-    name.classList.add("hidden");
-    confirm.classList.add("hidden");
+    switchText.textContent =
+      "New to two4nine? Create Account";
+  }
+}
 
-    switchText.textContent="Don't have an account?";
-    switchButton.textContent="Create Account";
 
+document.getElementById("loginBtn").addEventListener("click",function(){
+  openAuth("login");
+});
+
+document.getElementById("signupBtn").addEventListener("click",function(){
+  openAuth("signup");
+});
+
+document.getElementById("closeAuth").addEventListener("click",function(){
+  authModal.classList.add("hidden");
+});
+
+authModal.addEventListener("click",function(e){
+  if(e.target === authModal){
+    authModal.classList.add("hidden");
+  }
+});
+
+switchText.addEventListener("click",function(){
+
+  if(authMode === "signup"){
+    openAuth("login");
+  }else{
+    openAuth("signup");
   }
 
-}
+});
 
-function switchAuth(){
 
-  authMode=
-    authMode==="login"
-    ?"signup"
-    :"login";
+/* =========================
+   CREATE / LOGIN
+========================= */
 
-  updateAuthUI();
+authSubmit.addEventListener("click",async function(){
 
-}
+  const email =
+    document.getElementById("email").value.trim();
 
-function doAuth(){
-
-  const name=
-    document.getElementById("name").value.trim();
-
-  const email=
-    document.getElementById("email").value.trim().toLowerCase();
-
-  const password=
+  const password =
     document.getElementById("password").value;
 
-  const confirm=
-    document.getElementById("confirm").value;
+  const confirm =
+    confirmPassword.value;
 
-  const error=
-    document.getElementById("authError");
+  authStatus.textContent = "";
 
-  error.textContent="";
+  if(!email || !password){
 
-  if(!email){
+    authStatus.textContent =
+      "Email aur password bharo.";
 
-    error.textContent="Email enter karo.";
     return;
-
   }
 
-  if(!email.includes("@")){
+  if(authMode === "signup"){
 
-    error.textContent="Valid email enter karo.";
-    return;
+    if(password.length < 6){
 
-  }
-
-  if(!password){
-
-    error.textContent="Password enter karo.";
-    return;
-
-  }
-
-  if(authMode==="signup"){
-
-    if(!name){
-
-      error.textContent="Apna name enter karo.";
-      return;
-
-    }
-
-    if(password.length<6){
-
-      error.textContent=
-        "Password minimum 6 characters ka rakho.";
+      authStatus.textContent =
+        "Password kam se kam 6 characters ka ho.";
 
       return;
-
     }
 
-    if(password!==confirm){
+    if(password !== confirm){
 
-      error.textContent=
-        "Dono passwords same hone chahiye.";
+      authStatus.textContent =
+        "Passwords match nahi kar rahe.";
 
       return;
-
     }
 
-    if(getAccount()){
+    try{
 
-      const old=getAccount();
+      await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
 
-      if(old.email===email){
+      authStatus.style.color = "#64e572";
+      authStatus.textContent =
+        "Account created successfully ❤️";
 
-        error.textContent=
-          "Is email ka account already hai. Login karo.";
+      setTimeout(function(){
+        authModal.classList.add("hidden");
+      },1000);
 
-        return;
+    }catch(error){
 
-      }
-
+      authStatus.textContent =
+        getFirebaseError(error);
     }
-
-    const account={
-      name:name,
-      email:email,
-      password:password
-    };
-
-    localStorage.setItem(
-      "two4nine_account",
-      JSON.stringify(account)
-    );
-
-    localStorage.setItem(
-      "two4nine_current",
-      JSON.stringify({
-        name:name,
-        email:email
-      })
-    );
-
-    closeModal("authModal");
-
-    updateAuthState();
-
-    toast("🎉 Account created successfully!");
 
   }else{
 
-    const account=getAccount();
+    try{
 
-    if(!account){
+      await auth.signInWithEmailAndPassword(
+        email,
+        password
+      );
 
-      error.textContent=
-        "Account nahi mila. Pehle Create Account karo.";
+      authStatus.style.color = "#64e572";
+      authStatus.textContent =
+        "Login successful ❤️";
 
-      return;
+      setTimeout(function(){
+        authModal.classList.add("hidden");
+      },700);
 
+    }catch(error){
+
+      authStatus.textContent =
+        getFirebaseError(error);
     }
-
-    if(
-      account.email!==email ||
-      account.password!==password
-    ){
-
-      error.textContent=
-        "Email ya password galat hai.";
-
-      return;
-
-    }
-
-    localStorage.setItem(
-      "two4nine_current",
-      JSON.stringify({
-        name:account.name,
-        email:account.email
-      })
-    );
-
-    closeModal("authModal");
-
-    updateAuthState();
-
-    toast("👋 Welcome back!");
 
   }
 
+});
+
+
+function getFirebaseError(error){
+
+  if(error.code === "auth/email-already-in-use")
+    return "Ye email already registered hai.";
+
+  if(error.code === "auth/invalid-email")
+    return "Email sahi nahi hai.";
+
+  if(error.code === "auth/weak-password")
+    return "Password bahut weak hai.";
+
+  if(error.code === "auth/invalid-credential")
+    return "Email ya password galat hai.";
+
+  if(error.code === "auth/user-not-found")
+    return "Account nahi mila.";
+
+  if(error.code === "auth/wrong-password")
+    return "Password galat hai.";
+
+  return "Account error: " + error.message;
 }
 
 
 /* =========================
-   AUTH STATE
+   LOGIN STATE
 ========================= */
 
-function updateAuthState(){
+auth.onAuthStateChanged(function(user){
 
-  const user=getCurrentUser();
+  const loginBtn =
+    document.getElementById("loginBtn");
 
-  const login=document.getElementById("loginTop");
-  const create=document.getElementById("createTop");
-  const message=document.getElementById("messageTop");
-  const profile=document.getElementById("profileTop");
+  const signupBtn =
+    document.getElementById("signupBtn");
 
   if(user){
 
-    login.classList.add("hidden");
-    create.classList.add("hidden");
+    loginBtn.textContent = "👤 " +
+      (user.email ? user.email.split("@")[0] : "Account");
 
-    message.classList.remove("hidden");
-    profile.classList.remove("hidden");
+    signupBtn.textContent = "Logout";
 
-    profile.textContent=
-      user.name ?
-      user.name.charAt(0).toUpperCase() :
-      "U";
+    signupBtn.classList.remove("createTop");
+
+    signupBtn.onclick = async function(){
+
+      await auth.signOut();
+
+      loginBtn.textContent = "Login";
+      signupBtn.textContent = "Create Account";
+      signupBtn.classList.add("createTop");
+
+      signupBtn.onclick = null;
+
+      location.reload();
+    };
 
   }else{
 
-    login.classList.remove("hidden");
-    create.classList.remove("hidden");
+    loginBtn.textContent = "Login";
+    signupBtn.textContent = "Create Account";
+    signupBtn.classList.add("createTop");
 
-    message.classList.add("hidden");
-    profile.classList.add("hidden");
-
-  }
-
-}
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-function logout(){
-
-  if(confirm("Logout karna hai?")){
-
-    localStorage.removeItem("two4nine_current");
-
-    updateAuthState();
-
-    toast("Logged out");
+    signupBtn.onclick = function(){
+      openAuth("signup");
+    };
 
   }
 
-}
+});
 
 
 /* =========================
-   NEWS
+   LOGIN REQUIRED ACTIONS
 ========================= */
 
-const newsData=[
+document.querySelectorAll("[data-login]").forEach(function(button){
 
-  {
-    cat:"🌍 World",
-    title:"World leaders discuss major global developments",
-    desc:"Important international developments and updates from around the world.",
-    icon:"🌍"
-  },
+  button.addEventListener("click",function(){
 
-  {
-    cat:"⚽ Sports",
-    title:"Sports world prepares for another action-packed day",
-    desc:"Latest matches, players, teams and major sports updates.",
-    icon:"⚽"
-  },
+    if(!auth.currentUser){
 
-  {
-    cat:"🤖 AI
+      openAuth("login");
+
+    }else{
+
+      alert(button.dataset.login +
+        " feature next version mein connect hoga.");
+
+    }
+
+  });
+
+});
+
+
+document.getElementById("postBtn").addEventListener("click",function(){
+
+  if(!auth.currentUser){
+
+    openAuth("login");
+
+  }else{
+
+    alert("Post creator next step mein add karenge ❤️");
+
+  }
+
+});
+
+
+document.getElementById("notificationBtn")
+.addEventListener("click",function(){
+
+  if(!auth.currentUser){
+
+    openAuth("login");
+
+  }else{
+
+    alert("Notifications next step mein add karenge 🔔");
+
+  }
+
+});
+
+
+/* =========================
+   SEARCH
+========================= */
+
+document.getElementById("searchInput")
+.addEventListener("keydown",function(e){
+
+  if(e.key === "Enter"){
+
+    const value = this.value.trim();
+
+    if(value){
+      alert("Search: " + value);
+    }
+
+  }
+
+});
+</script>
+
+</body>
+</html>
