@@ -11,77 +11,150 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
-  background:#070b14;color:#fff;
+  background:#070b14;
+  color:#fff;
   font-family:Arial,sans-serif;
   padding-bottom:75px
 }
-button{font-family:inherit;cursor:pointer}
-.hidden{display:none!important}
 
-/* TOP */
+button{
+  font-family:inherit;
+  cursor:pointer
+}
+
+.hidden{
+  display:none!important
+}
+
+/* TOP BAR */
 .topbar{
   height:62px;
-  position:sticky;top:0;z-index:20;
+  position:sticky;
+  top:0;
+  z-index:20;
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
   padding:0 12px;
-  background:rgba(7,11,20,.96);
+  background:rgba(7,11,20,.97);
   border-bottom:1px solid #202a3d
 }
-.newsTop{font-size:14px;font-weight:700}
-.logo{font-size:22px;font-weight:900}
-.topRight{
-  display:flex;justify-content:flex-end;
-  align-items:center;gap:7px
+
+.newsTop{
+  font-size:14px;
+  font-weight:700
 }
+
+.logo{
+  font-size:22px;
+  font-weight:900
+}
+
+.topRight{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:7px
+}
+
 .topBtn{
   padding:8px 9px;
   border-radius:10px;
   border:1px solid #33415b;
-  background:#121c2d;color:#fff;
-  font-size:11px;font-weight:700
+  background:#121c2d;
+  color:#fff;
+  font-size:11px;
+  font-weight:700
 }
-.createTop{background:#fff;color:#080b12;border-color:#fff}
-.msgBtn{font-size:12px;padding:8px}
+
+.createTop{
+  background:#fff;
+  color:#080b12;
+  border-color:#fff
+}
+
+.msgBtn{
+  font-size:12px;
+  padding:8px
+}
 
 /* SEARCH */
-.searchWrap{padding:12px 13px 5px}
+.searchWrap{
+  padding:12px 13px 5px
+}
+
 .search{
-  width:100%;padding:12px 14px;
+  width:100%;
+  padding:12px 14px;
   border-radius:13px;
   border:1px solid #26334b;
-  background:#101827;color:#fff;
+  background:#101827;
+  color:#fff;
   outline:none
 }
 
 /* STORIES */
-.section{padding:13px}
-.title{font-size:15px;font-weight:800;margin-bottom:10px}
-.stories{
-  display:flex;gap:13px;
-  overflow-x:auto;scrollbar-width:none
+.section{
+  padding:13px
 }
-.stories::-webkit-scrollbar{display:none}
-.story{flex:0 0 63px;text-align:center}
+
+.title{
+  font-size:15px;
+  font-weight:800;
+  margin-bottom:10px
+}
+
+.stories{
+  display:flex;
+  gap:13px;
+  overflow-x:auto;
+  scrollbar-width:none
+}
+
+.stories::-webkit-scrollbar{
+  display:none
+}
+
+.story{
+  flex:0 0 63px;
+  text-align:center
+}
+
 .storyCircle{
-  width:57px;height:57px;margin:auto;
+  width:57px;
+  height:57px;
+  margin:auto;
   border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background:#17243b;
   border:2px solid #6079a9;
   font-weight:800
 }
-.your{border-color:#fff}
+
+.your{
+  border-color:#fff
+}
+
 .storyName{
-  font-size:10px;color:#aeb9cc;
-  margin-top:5px;overflow:hidden;
-  text-overflow:ellipsis;white-space:nowrap
+  font-size:10px;
+  color:#aeb9cc;
+  margin-top:5px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
 }
 
 /* FEED */
-.feed{max-width:650px;margin:auto;padding:10px 12px}
+.feed{
+  max-width:650px;
+  margin:auto;
+  padding:10px 12px
+}
+
 .card{
   background:#0e1626;
   border:1px solid #202d43;
@@ -89,133 +162,272 @@ button{font-family:inherit;cursor:pointer}
   overflow:hidden;
   margin-bottom:14px
 }
+
 .head{
-  display:flex;align-items:center;
-  gap:10px;padding:13px
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px
 }
+
 .avatar{
-  width:38px;height:38px;border-radius:50%;
+  width:38px;
+  height:38px;
+  border-radius:50%;
   background:#354668;
-  display:flex;align-items:center;
-  justify-content:center;font-weight:800
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800
 }
-.info{flex:1}
-.name{font-size:14px;font-weight:800}
-.time{font-size:10px;color:#7e8ba1;margin-top:3px}
-.body{padding:0 13px 13px}
-.text{font-size:14px;line-height:1.55;color:#dce3ef}
+
+.info{
+  flex:1
+}
+
+.name{
+  font-size:14px;
+  font-weight:800
+}
+
+.time{
+  font-size:10px;
+  color:#7e8ba1;
+  margin-top:3px
+}
+
+.body{
+  padding:0 13px 13px
+}
+
+.text{
+  font-size:14px;
+  line-height:1.55;
+  color:#dce3ef
+}
+
 .label{
   display:inline-block;
-  background:#192843;color:#9eb5df;
-  padding:5px 8px;border-radius:7px;
-  font-size:10px;font-weight:800;
+  background:#192843;
+  color:#9eb5df;
+  padding:5px 8px;
+  border-radius:7px;
+  font-size:10px;
+  font-weight:800;
   margin-bottom:8px
 }
+
 .newsTitle{
-  font-size:17px;font-weight:800;
-  line-height:1.35;margin-bottom:8px
+  font-size:17px;
+  font-weight:800;
+  line-height:1.35;
+  margin-bottom:8px
 }
+
 .desc{
-  color:#9da9bc;font-size:13px;
+  color:#9da9bc;
+  font-size:13px;
   line-height:1.5
 }
+
 .actions{
-  display:flex;gap:7px;
+  display:flex;
+  gap:7px;
   padding:10px 13px;
   border-top:1px solid #1d283b
 }
+
 .action{
-  background:#121c2d;color:#cdd6e4;
+  background:#121c2d;
+  color:#cdd6e4;
   border:1px solid #29364d;
-  padding:8px 10px;border-radius:9px;
+  padding:8px 10px;
+  border-radius:9px;
   font-size:11px
 }
 
 /* REELS */
-#reelsSection{max-width:650px;margin:auto;padding:15px 12px}
-.reel{
-  height:300px;border-radius:18px;
-  background:#0e1626;border:1px solid #243149;
-  display:flex;align-items:center;
-  justify-content:center;text-align:center
+#reelsSection{
+  max-width:650px;
+  margin:auto;
+  padding:15px 12px
 }
-.reelIcon{font-size:45px;margin-bottom:10px}
+
+.reel{
+  height:300px;
+  border-radius:18px;
+  background:#0e1626;
+  border:1px solid #243149;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center
+}
+
+.reelIcon{
+  font-size:45px;
+  margin-bottom:10px
+}
 
 /* BOTTOM */
 .bottom{
-  position:fixed;bottom:0;left:0;right:0;
-  height:68px;z-index:30;
-  display:flex;align-items:center;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:68px;
+  z-index:30;
+  display:flex;
+  align-items:center;
   justify-content:space-around;
-  background:rgba(7,11,20,.98);
+  background:rgba(7,11,20,.99);
   border-top:1px solid #202b40
 }
+
 .nav{
-  background:none;color:#7f8ca2;
-  border:0;font-size:10px;text-align:center
+  background:none;
+  color:#7f8ca2;
+  border:0;
+  font-size:10px;
+  text-align:center
 }
-.navIcon{display:block;font-size:20px;margin-bottom:3px}
-.nav.active{color:#fff}
+
+.navIcon{
+  display:block;
+  font-size:20px;
+  margin-bottom:3px
+}
+
+.nav.active{
+  color:#fff
+}
+
 .post{
-  width:44px;height:44px;border-radius:13px;
-  background:#fff;color:#080b12;
-  font-size:25px;font-weight:800
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  background:#fff;
+  color:#080b12;
+  font-size:25px;
+  font-weight:800
 }
 
 /* MODAL */
 .modal{
-  position:fixed;inset:0;z-index:100;
-  background:rgba(0,0,0,.72);
-  display:flex;align-items:flex-end;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(0,0,0,.78);
+  display:flex;
+  align-items:flex-end;
   justify-content:center
 }
+
 .box{
-  width:100%;max-width:600px;
-  max-height:88vh;overflow:auto;
+  width:100%;
+  max-width:600px;
+  max-height:90vh;
+  overflow:auto;
   background:#0d1524;
   border:1px solid #293751;
   border-radius:22px 22px 0 0;
   padding:20px
 }
+
 .modalHead{
-  display:flex;justify-content:space-between;
-  align-items:center;margin-bottom:18px
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px
 }
-.modalTitle{font-size:20px;font-weight:800}
+
+.modalTitle{
+  font-size:20px;
+  font-weight:800
+}
+
 .close{
-  width:34px;height:34px;
-  border:0;border-radius:10px;
-  background:#1a263b;color:#fff;font-size:18px
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:10px;
+  background:#1a263b;
+  color:#fff;
+  font-size:18px
 }
-.input,.textarea{
-  width:100%;padding:13px;
+
+.input,
+.textarea{
+  width:100%;
+  padding:13px;
   margin-bottom:11px;
   border-radius:12px;
   border:1px solid #293751;
-  background:#101a2c;color:#fff;
-  outline:none
+  background:#101a2c;
+  color:#fff;
+  outline:none;
+  font-size:14px
 }
-.textarea{min-height:120px;resize:none}
+
+.textarea{
+  min-height:120px;
+  resize:none
+}
+
 .full{
-  width:100%;padding:14px;
-  border:0;border-radius:12px;
-  background:#fff;color:#080b12;
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  background:#fff;
+  color:#080b12;
   font-weight:800
 }
+
 .authSwitch{
-  text-align:center;margin-top:15px;
-  color:#9eabc0;font-size:12px
+  text-align:center;
+  margin-top:15px;
+  color:#9eabc0;
+  font-size:12px
 }
-.link{color:#fff;text-decoration:underline;cursor:pointer}
-.error{color:#ff9c9c;font-size:12px;margin-top:10px}
+
+.link{
+  color:#fff;
+  text-decoration:underline;
+  cursor:pointer
+}
+
+.error{
+  color:#ff9c9c;
+  font-size:12px;
+  margin-top:10px;
+  line-height:1.5
+}
+
+.success{
+  color:#9ff0b0;
+  font-size:12px;
+  margin-top:10px
+}
+
 .message{
   padding:14px 0;
   border-bottom:1px solid #202c40
 }
 
-/* DESKTOP */
+.smallNote{
+  color:#7f8ca2;
+  font-size:11px;
+  line-height:1.5;
+  margin-top:10px
+}
+
 @media(min-width:700px){
-  .feed,.reelsSection{padding-left:0;padding-right:0}
+  .feed,
+  #reelsSection{
+    padding-left:0;
+    padding-right:0
+  }
 }
 </style>
 </head>
@@ -237,27 +449,34 @@ button{font-family:inherit;cursor:pointer}
 
     <div class="topRight">
 
-      <button class="topBtn"
-              id="loginTop"
-              onclick="openAuth('login')">
+      <button
+        type="button"
+        class="topBtn"
+        id="loginTop"
+        onclick="openAuth('login')">
         Login
       </button>
 
-      <button class="topBtn createTop"
-              id="createTop"
-              onclick="openAuth('signup')">
+      <button
+        type="button"
+        class="topBtn createTop"
+        id="createTop"
+        onclick="openAuth('signup')">
         Create Account
       </button>
 
-      <button class="topBtn msgBtn hidden"
-              id="messageTop"
-              onclick="openMessages()">
+      <button
+        type="button"
+        class="topBtn msgBtn hidden"
+        id="messageTop"
+        onclick="openMessages()">
         💬
       </button>
 
-      <div class="avatar hidden"
-           id="profileTop"
-           onclick="logout()">
+      <div
+        class="avatar hidden"
+        id="profileTop"
+        onclick="logout()">
         ?
       </div>
 
@@ -285,8 +504,9 @@ button{font-family:inherit;cursor:pointer}
 
     <div class="stories" id="stories">
 
-      <div class="story"
-           onclick="requireLogin('Create a Story')">
+      <div
+        class="story"
+        onclick="createStory()">
 
         <div class="storyCircle your">＋</div>
 
@@ -294,34 +514,64 @@ button{font-family:inherit;cursor:pointer}
 
       </div>
 
-      <div class="story" onclick="demoStory('Rahul')">
+      <div
+        class="story"
+        onclick="demoStory('Rahul')">
+
         <div class="storyCircle">R</div>
+
         <div class="storyName">Rahul</div>
+
       </div>
 
-      <div class="story" onclick="demoStory('Priya')">
+      <div
+        class="story"
+        onclick="demoStory('Priya')">
+
         <div class="storyCircle">P</div>
+
         <div class="storyName">Priya</div>
+
       </div>
 
-      <div class="story" onclick="demoStory('Aman')">
+      <div
+        class="story"
+        onclick="demoStory('Aman')">
+
         <div class="storyCircle">A</div>
+
         <div class="storyName">Aman</div>
+
       </div>
 
-      <div class="story" onclick="demoStory('Neha')">
+      <div
+        class="story"
+        onclick="demoStory('Neha')">
+
         <div class="storyCircle">N</div>
+
         <div class="storyName">Neha</div>
+
       </div>
 
-      <div class="story" onclick="demoStory('Simran')">
+      <div
+        class="story"
+        onclick="demoStory('Simran')">
+
         <div class="storyCircle">S</div>
+
         <div class="storyName">Simran</div>
+
       </div>
 
-      <div class="story" onclick="demoStory('Rohan')">
+      <div
+        class="story"
+        onclick="demoStory('Rohan')">
+
         <div class="storyCircle">R</div>
+
         <div class="storyName">Rohan</div>
+
       </div>
 
     </div>
@@ -362,18 +612,24 @@ button{font-family:inherit;cursor:pointer}
 
       <div class="actions">
 
-        <button class="action"
-                onclick="requireLogin('Like this post')">
+        <button
+          type="button"
+          class="action"
+          onclick="requireLogin('Like this post')">
           ❤️ Like
         </button>
 
-        <button class="action"
-                onclick="requireLogin('Comment')">
+        <button
+          type="button"
+          class="action"
+          onclick="requireLogin('Comment')">
           💬 Comment
         </button>
 
-        <button class="action"
-                onclick="requireLogin('Share')">
+        <button
+          type="button"
+          class="action"
+          onclick="requireLogin('Share')">
           ↗ Share
         </button>
 
@@ -392,7 +648,7 @@ button{font-family:inherit;cursor:pointer}
     </div>
 
 
-    <!-- COMMUNITY POSTS -->
+    <!-- USER POSTS -->
     <div id="userPosts"></div>
 
 
@@ -425,13 +681,17 @@ button{font-family:inherit;cursor:pointer}
 
       <div class="actions">
 
-        <button class="action"
-                onclick="requireLogin('Like')">
+        <button
+          type="button"
+          class="action"
+          onclick="requireLogin('Like')">
           ❤️ Like
         </button>
 
-        <button class="action"
-                onclick="requireLogin('Comment')">
+        <button
+          type="button"
+          class="action"
+          onclick="requireLogin('Comment')">
           💬 Comment
         </button>
 
@@ -472,33 +732,53 @@ button{font-family:inherit;cursor:pointer}
   <!-- BOTTOM NAV -->
   <nav class="bottom">
 
-    <button class="nav active"
-            onclick="home(this)">
+    <button
+      type="button"
+      class="nav active"
+      onclick="home(this)">
+
       <span class="navIcon">⌂</span>
       Home
+
     </button>
 
-    <button class="nav"
-            onclick="searchFocus(this)">
+    <button
+      type="button"
+      class="nav"
+      onclick="searchFocus(this)">
+
       <span class="navIcon">⌕</span>
       Search
+
     </button>
 
-    <button class="post"
-            onclick="openPost()">
+    <button
+      type="button"
+      class="post"
+      onclick="openPost()">
+
       +
+
     </button>
 
-    <button class="nav"
-            onclick="reels(this)">
+    <button
+      type="button"
+      class="nav"
+      onclick="reels(this)">
+
       <span class="navIcon">▶</span>
       Reels
+
     </button>
 
-    <button class="nav"
-            onclick="notifications(this)">
+    <button
+      type="button"
+      class="nav"
+      onclick="notifications(this)">
+
       <span class="navIcon">♡</span>
       Notifications
+
     </button>
 
   </nav>
@@ -510,45 +790,74 @@ button{font-family:inherit;cursor:pointer}
      AUTH MODAL
 ========================= -->
 
-<div id="authModal" class="modal hidden">
+<div
+  id="authModal"
+  class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div id="authTitle" class="modalTitle">
+      <div
+        id="authTitle"
+        class="modalTitle">
         Login
       </div>
 
-      <button class="close"
-              onclick="closeModal('authModal')">
+      <button
+        type="button"
+        class="close"
+        onclick="closeModal('authModal')">
         ×
       </button>
 
     </div>
 
-    <input id="email"
-           class="input"
-           type="email"
-           placeholder="Email address">
 
-    <input id="password"
-           class="input"
-           type="password"
-           placeholder="Password">
+    <input
+      id="email"
+      class="input"
+      type="email"
+      autocomplete="email"
+      placeholder="Email address">
 
-    <input id="confirm"
-           class="input"
-           type="password"
-           placeholder="Confirm password">
 
-    <button id="authButton"
-            class="full"
-            onclick="doAuth()">
+    <input
+      id="password"
+      class="input"
+      type="password"
+      autocomplete="new-password"
+      placeholder="Password">
+
+
+    <input
+      id="confirm"
+      class="input hidden"
+      type="password"
+      autocomplete="new-password"
+      placeholder="Confirm password">
+
+
+    <button
+      type="button"
+      id="authButton"
+      class="full"
+      onclick="doAuth()">
       Login
     </button>
 
-    <div id="authError" class="error"></div>
+
+    <div
+      id="authError"
+      class="error">
+    </div>
+
+
+    <div
+      id="authSuccess"
+      class="success">
+    </div>
+
 
     <div class="authSwitch">
 
@@ -556,12 +865,20 @@ button{font-family:inherit;cursor:pointer}
         Don't have an account?
       </span>
 
-      <span class="link"
-            onclick="switchAuth()"
-            id="switchButton">
+      &nbsp;
+
+      <span
+        class="link"
+        onclick="switchAuth()"
+        id="switchButton">
         Create Account
       </span>
 
+    </div>
+
+
+    <div class="smallNote">
+      Your account is used for posts, stories, messages and other interactive features.
     </div>
 
   </div>
@@ -573,16 +890,22 @@ button{font-family:inherit;cursor:pointer}
      POST MODAL
 ========================= -->
 
-<div id="postModal" class="modal hidden">
+<div
+  id="postModal"
+  class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div class="modalTitle">Create Post</div>
+      <div class="modalTitle">
+        Create Post
+      </div>
 
-      <button class="close"
-              onclick="closeModal('postModal')">
+      <button
+        type="button"
+        class="close"
+        onclick="closeModal('postModal')">
         ×
       </button>
 
@@ -591,11 +914,12 @@ button{font-family:inherit;cursor:pointer}
     <textarea
       id="postText"
       class="textarea"
-      placeholder="What's on your mind?">
-    </textarea>
+      placeholder="What's on your mind?"></textarea>
 
-    <button class="full"
-            onclick="publishPost()">
+    <button
+      type="button"
+      class="full"
+      onclick="publishPost()">
       Publish Post
     </button>
 
@@ -608,16 +932,22 @@ button{font-family:inherit;cursor:pointer}
      STORY MODAL
 ========================= -->
 
-<div id="storyModal" class="modal hidden">
+<div
+  id="storyModal"
+  class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div class="modalTitle">Create Story</div>
+      <div class="modalTitle">
+        Create Story
+      </div>
 
-      <button class="close"
-              onclick="closeModal('storyModal')">
+      <button
+        type="button"
+        class="close"
+        onclick="closeModal('storyModal')">
         ×
       </button>
 
@@ -626,11 +956,12 @@ button{font-family:inherit;cursor:pointer}
     <textarea
       id="storyText"
       class="textarea"
-      placeholder="Write your story...">
-    </textarea>
+      placeholder="Write your story..."></textarea>
 
-    <button class="full"
-            onclick="publishStory()">
+    <button
+      type="button"
+      class="full"
+      onclick="publishStory()">
       Add Story
     </button>
 
@@ -643,16 +974,22 @@ button{font-family:inherit;cursor:pointer}
      MESSAGE MODAL
 ========================= -->
 
-<div id="messageModal" class="modal hidden">
+<div
+  id="messageModal"
+  class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div class="modalTitle">💬 Messages</div>
+      <div class="modalTitle">
+        💬 Messages
+      </div>
 
-      <button class="close"
-              onclick="closeModal('messageModal')">
+      <button
+        type="button"
+        class="close"
+        onclick="closeModal('messageModal')">
         ×
       </button>
 
@@ -663,7 +1000,7 @@ button{font-family:inherit;cursor:pointer}
       <b>Private Messages</b>
 
       <div class="desc">
-        Login required for private conversations.
+        Private conversations will appear here.
       </div>
 
     </div>
@@ -674,19 +1011,25 @@ button{font-family:inherit;cursor:pointer}
 
 
 <!-- =========================
-     NOTIFICATION MODAL
+     NOTIFICATIONS
 ========================= -->
 
-<div id="notificationModal" class="modal hidden">
+<div
+  id="notificationModal"
+  class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div class="modalTitle">♡ Notifications</div>
+      <div class="modalTitle">
+        ♡ Notifications
+      </div>
 
-      <button class="close"
-              onclick="closeModal('notificationModal')">
+      <button
+        type="button"
+        class="close"
+        onclick="closeModal('notificationModal')">
         ×
       </button>
 
@@ -711,26 +1054,32 @@ button{font-family:inherit;cursor:pointer}
      STORY VIEW
 ========================= -->
 
-<div id="storyView" class="modal hidden">
+<div
+  id="storyView"
+  class="modal hidden">
 
   <div class="box">
 
     <div class="modalHead">
 
-      <div id="storyViewTitle"
-           class="modalTitle">
+      <div
+        id="storyViewTitle"
+        class="modalTitle">
         Story
       </div>
 
-      <button class="close"
-              onclick="closeModal('storyView')">
+      <button
+        type="button"
+        class="close"
+        onclick="closeModal('storyView')">
         ×
       </button>
 
     </div>
 
-    <div id="storyViewText"
-         class="text">
+    <div
+      id="storyViewText"
+      class="text">
     </div>
 
   </div>
@@ -740,80 +1089,130 @@ button{font-family:inherit;cursor:pointer}
 
 <script>
 
-/* =========================
+/* ==========================================
    FIREBASE
-========================= */
+========================================== */
 
-const firebaseConfig={
-  apiKey:"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
-  authDomain:"two4nine-7a29d.firebaseapp.com",
-  projectId:"two4nine-7a29d",
-  storageBucket:"two4nine-7a29d.firebasestorage.app",
-  messagingSenderId:"573418811789",
-  appId:"1:573418811789:web:cad8463d4cba5e8a990dc4",
-  measurementId:"G-V2X4YK8NFG"
+const firebaseConfig = {
+  apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+  authDomain: "two4nine-7a29d.firebaseapp.com",
+  projectId: "two4nine-7a29d",
+  storageBucket: "two4nine-7a29d.firebasestorage.app",
+  messagingSenderId: "573418811789",
+  appId: "1:573418811789:web:cad8463d4cba5e8a990dc4",
+  measurementId: "G-V2X4YK8NFG"
 };
 
-firebase.initializeApp(firebaseConfig);
+let auth = null;
+let db = null;
 
-const auth=firebase.auth();
-const db=firebase.firestore();
+try {
+
+  firebase.initializeApp(firebaseConfig);
+
+  auth = firebase.auth();
+
+  db = firebase.firestore();
+
+} catch(error) {
+
+  console.error("Firebase initialization error:", error);
+
+}
 
 
-/* =========================
-   AUTH MODE
-========================= */
+/* ==========================================
+   AUTH
+========================================== */
 
-let authMode="login";
+let authMode = "login";
+
 
 function openAuth(mode){
 
-  authMode=mode;
+  authMode = mode || "login";
 
-  document
-    .getElementById("authModal")
-    .classList.remove("hidden");
+  const modal = document.getElementById("authModal");
+
+  if(!modal){
+    alert("Login interface load nahi hua.");
+    return;
+  }
+
+  modal.classList.remove("hidden");
+
+  document.body.style.overflow = "hidden";
 
   updateAuthUI();
 
 }
 
+
 function updateAuthUI(){
 
-  const title=document.getElementById("authTitle");
-  const button=document.getElementById("authButton");
-  const confirm=document.getElementById("confirm");
-  const switchText=document.getElementById("switchText");
-  const switchButton=document.getElementById("switchButton");
+  const title = document.getElementById("authTitle");
+  const button = document.getElementById("authButton");
+  const confirm = document.getElementById("confirm");
+  const switchText = document.getElementById("switchText");
+  const switchButton = document.getElementById("switchButton");
+  const error = document.getElementById("authError");
+  const success = document.getElementById("authSuccess");
 
-  document.getElementById("authError").textContent="";
+  if(error){
+    error.textContent = "";
+  }
 
-  if(authMode==="signup"){
+  if(success){
+    success.textContent = "";
+  }
 
-    title.textContent="Create Account";
-    button.textContent="Create Account";
+
+  if(authMode === "signup"){
+
+    title.textContent = "Create Account";
+
+    button.textContent = "Create Account";
+
     confirm.classList.remove("hidden");
 
-    switchText.textContent="Already have an account?";
-    switchButton.textContent="Login";
+    confirm.autocomplete = "new-password";
+
+    switchText.textContent =
+      "Already have an account?";
+
+    switchButton.textContent =
+      "Login";
 
   }else{
 
-    title.textContent="Login";
-    button.textContent="Login";
+    title.textContent = "Login";
+
+    button.textContent = "Login";
+
     confirm.classList.add("hidden");
 
-    switchText.textContent="Don't have an account?";
-    switchButton.textContent="Create Account";
+    switchText.textContent =
+      "Don't have an account?";
+
+    switchButton.textContent =
+      "Create Account";
 
   }
 
 }
 
+
 function switchAuth(){
 
-  authMode=
-    authMode==="login" ? "signup" : "login";
+  if(authMode === "login"){
+
+    authMode = "signup";
+
+  }else{
+
+    authMode = "login";
+
+  }
 
   updateAuthUI();
 
@@ -822,230 +1221,114 @@ function switchAuth(){
 
 function doAuth(){
 
-  const email=
-    document.getElementById("email").value.trim();
+  if(!auth){
 
-  const password=
-    document.getElementById("password").value;
-
-  const confirm=
-    document.getElementById("confirm").value;
-
-  const error=
-    document.getElementById("authError");
-
-  error.textContent="";
-
-  if(!email || !password){
-
-    error.textContent=
-      "Email aur password enter karo.";
+    document.getElementById("authError").textContent =
+      "Firebase load nahi hua. Page refresh karke dobara try karo.";
 
     return;
 
   }
 
-  if(authMode==="signup"){
 
-    if(password.length<6){
+  const email =
+    document.getElementById("email").value.trim();
 
-      error.textContent=
+  const password =
+    document.getElementById("password").value;
+
+  const confirm =
+    document.getElementById("confirm").value;
+
+  const error =
+    document.getElementById("authError");
+
+  const success =
+    document.getElementById("authSuccess");
+
+  const button =
+    document.getElementById("authButton");
+
+
+  error.textContent = "";
+
+  success.textContent = "";
+
+
+  if(!email){
+
+    error.textContent =
+      "Email address enter karo.";
+
+    return;
+
+  }
+
+
+  if(!password){
+
+    error.textContent =
+      "Password enter karo.";
+
+    return;
+
+  }
+
+
+  if(authMode === "signup"){
+
+    if(password.length < 6){
+
+      error.textContent =
         "Password minimum 6 characters ka hona chahiye.";
 
       return;
 
     }
 
-    if(password!==confirm){
 
-      error.textContent=
+    if(password !== confirm){
+
+      error.textContent =
         "Passwords match nahi kar rahe.";
 
       return;
 
     }
 
+
+    button.disabled = true;
+
+    button.textContent =
+      "Creating Account...";
+
+
     auth
-      .createUserWithEmailAndPassword(email,password)
+      .createUserWithEmailAndPassword(
+        email,
+        password
+      )
+
       .then(function(result){
+
+        const user = result.user;
 
         return db
           .collection("users")
-          .doc(result.user.uid)
+          .doc(user.uid)
           .set({
-            uid:result.user.uid,
-            email:email,
+
+            uid: user.uid,
+
+            email: user.email,
+
             createdAt:
               firebase.firestore.FieldValue.serverTimestamp()
-          });
 
-      })
-      .then(function(){
+          })
 
-        closeModal("authModal");
+          .catch(function(dbError){
 
-      })
-      .catch(function(e){
-
-        error.textContent=friendlyError(e);
-
-      });
-
-  }else{
-
-    auth
-      .signInWithEmailAndPassword(email,password)
-      .then(function(){
-
-        closeModal("authModal");
-
-      })
-      .catch(function(e){
-
-        error.textContent=friendlyError(e);
-
-      });
-
-  }
-
-}
-
-
-function friendlyError(e){
-
-  if(e.code==="auth/email-already-in-use")
-    return "Is email se account already bana hua hai.";
-
-  if(e.code==="auth/invalid-email")
-    return "Email address sahi nahi hai.";
-
-  if(e.code==="auth/invalid-credential")
-    return "Email ya password galat hai.";
-
-  if(e.code==="auth/weak-password")
-    return "Password weak hai.";
-
-  return e.message;
-
-}
-
-
-/* =========================
-   AUTH STATE
-========================= */
-
-auth.onAuthStateChanged(function(user){
-
-  const login=document.getElementById("loginTop");
-  const create=document.getElementById("createTop");
-  const message=document.getElementById("messageTop");
-  const profile=document.getElementById("profileTop");
-
-  if(user){
-
-    login.classList.add("hidden");
-    create.classList.add("hidden");
-
-    message.classList.remove("hidden");
-    profile.classList.remove("hidden");
-
-    profile.textContent=
-      user.email ?
-      user.email.charAt(0).toUpperCase() :
-      "U";
-
-  }else{
-
-    login.classList.remove("hidden");
-    create.classList.remove("hidden");
-
-    message.classList.add("hidden");
-    profile.classList.add("hidden");
-
-  }
-
-  loadPosts();
-  loadNews();
-
-});
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-function logout(){
-
-  if(confirm("Logout from two4nine?")){
-
-    auth.signOut();
-
-  }
-
-}
-
-
-/* =========================
-   NEWS
-========================= */
-
-async function loadNews(){
-
-  const box=document.getElementById("newsFeed");
-
-  box.innerHTML=
-    '<div style="text-align:center;padding:25px;color:#7f8ca2">Loading latest news...</div>';
-
-  const feeds=[
-    ["World","world news"],
-    ["War & Conflict","war conflict"],
-    ["Sports","sports"],
-    ["AI & Technology","AI technology"],
-    ["Business","business"]
-  ];
-
-  let news=[];
-
-  for(const f of feeds){
-
-    try{
-
-      const rss=
-        "https://news.google.com/rss/search?q="+
-        encodeURIComponent(f[1]+" when:1d")+
-        "&hl=en-IN&gl=IN&ceid=IN:en";
-
-      const api=
-        "https://api.rss2json.com/v1/api.json?rss_url="+
-        encodeURIComponent(rss);
-
-      const response=await fetch(api);
-      const data=await response.json();
-
-      if(data.items){
-
-        data.items.forEach(item=>{
-
-          news.push({
-            category:f[0],
-            title:item.title,
-            link:item.link,
-            description:item.description,
-            date:item.pubDate
-          });
-
-        });
-
-      }
-
-    }catch(e){
-
-      console.log(e);
-
-    }
-
-  }
-
-  const seen=new Set();
-
-  news
+            console.log(
+              "User profile save error:",
+ 
