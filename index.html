@@ -2,722 +2,513 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
 <title>two4nine</title>
 
 <style>
 *{box-sizing:border-box}
-
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#07101f;
-color:#fff;
+ margin:0;background:#07111f;color:#fff;
+ font-family:Arial,Helvetica,sans-serif;
 }
-
-button{font:inherit;cursor:pointer}
-
-.top{
-height:74px;
-background:#050b16;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 14px;
-position:sticky;
-top:0;
-z-index:20;
-border-bottom:1px solid #26344d;
-}
-
-.logo{
-display:flex;
-align-items:center;
-color:#fff;
-font-size:29px;
-font-weight:900;
-letter-spacing:-2px;
-}
-
-.golgappa{
-width:34px;
-height:34px;
-border-radius:50%;
-margin:0 3px;
-background:radial-gradient(circle at 35% 28%,#ffe8a5,#efa92f 55%,#a95c0c);
-position:relative;
-box-shadow:inset 0 2px 5px #fff8;
-}
-
-.golgappa:after{
-content:"";
-position:absolute;
-width:18px;
-height:10px;
-left:8px;
-top:12px;
-border-radius:50%;
-background:#23733b;
-}
-
-.topRight{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.topBtn{
-border:1px solid #34425e;
-background:#111b2d;
-color:white;
-border-radius:12px;
-padding:9px 11px;
-}
-
-.createBtn{
-background:#ff315c;
-border-color:#ff315c;
-}
-
-.profileBtn{
-border:1px solid #34425e;
-background:#111b2d;
-color:white;
-border-radius:12px;
-padding:9px 11px;
-}
-
-.profileName{
-font-weight:bold;
-}
-
+button,input,textarea{font:inherit}
+button{cursor:pointer;border:0}
 .hidden{display:none!important}
 
+.top{
+ position:sticky;top:0;z-index:20;height:64px;
+ background:#091827f2;backdrop-filter:blur(14px);
+ border-bottom:1px solid #ffffff14;
+ display:flex;align-items:center;justify-content:space-between;
+ padding:0 14px;
+}
+.brand{
+ font-size:23px;font-weight:900;letter-spacing:-1px;
+ display:flex;align-items:center;gap:2px
+}
+.puri{
+ width:24px;height:24px;border-radius:50%;
+ display:inline-flex;align-items:center;justify-content:center;
+ background:radial-gradient(circle at 35% 30%,#ffe69a,#eaa72b 58%,#a9650d);
+ color:#168447;border:3px solid #f7c95a;font-size:10px
+}
+
+.topBtns{display:flex;gap:7px}
+.topBtn{
+ padding:8px 12px;border-radius:20px;
+ background:#17283d;color:white;font-weight:700
+}
+.createTop{background:#18b879}
+.iconBtn{
+ background:#17283d;color:white;border-radius:50%;
+ width:38px;height:38px;font-size:18px
+}
+
+.wrap{
+ max-width:720px;margin:auto;padding-bottom:82px
+}
+
 .search{
-width:min(700px,92%);
-margin:17px auto;
+ margin:12px 14px;
+ background:#102238;border:1px solid #ffffff12;
+ border-radius:14px;padding:11px 14px
 }
-
 .search input{
-width:100%;
-padding:14px 18px;
-border-radius:30px;
-border:1px solid #30405d;
-background:#111b2d;
-color:#fff;
-outline:none;
-font-size:16px;
-}
-
-.container{
-width:min(700px,94%);
-margin:auto;
-padding-bottom:25px;
-}
-
-.sectionTitle{
-font-size:23px;
-font-weight:800;
-margin:21px 0 12px;
+ width:100%;background:none;border:0;outline:0;
+ color:white;font-size:15px
 }
 
 .stories{
-display:flex;
-gap:15px;
-overflow-x:auto;
-padding:5px 3px 15px;
+ display:flex;gap:13px;overflow-x:auto;
+ padding:7px 14px 15px;scrollbar-width:none
 }
+.stories::-webkit-scrollbar{display:none}
 
 .story{
-min-width:70px;
-text-align:center;
-font-size:12px;
+ min-width:62px;text-align:center;
+ font-size:11px;color:#b9c8d8
 }
-
-.storyCircle{
-width:60px;
-height:60px;
-border-radius:50%;
-margin:auto auto 6px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#ff315c,#8b45ff,#159cff);
-border:3px solid #07101f;
-box-shadow:0 0 0 2px #ff315c;
-font-size:21px;
-font-weight:bold;
+.avatar{
+ width:54px;height:54px;border-radius:50%;
+ margin:auto auto 5px;
+ display:flex;align-items:center;justify-content:center;
+ font-weight:900;color:white;
+ border:2px solid #27d994;
+ background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8)
+}
+.your .avatar{
+ border:2px dashed #27d994;
+ background:#102238;font-size:23px
 }
 
 .card{
-background:#111b2d;
-border:1px solid #263753;
-border-radius:19px;
-padding:16px;
-margin:13px 0;
+ margin:8px 12px;
+ background:#0d1d30;
+ border:1px solid #ffffff10;
+ border-radius:18px;
+ overflow:hidden
 }
 
-.user{
-display:flex;
-align-items:center;
-gap:10px;
+.head{
+ display:flex;align-items:center;gap:10px;
+ padding:13px
+}
+.head .avatar{
+ width:40px;height:40px;margin:0;
+ font-size:13px;border-width:1px
+}
+.meta{flex:1}
+.name{font-weight:800}
+.time{font-size:11px;color:#7890a8}
+
+.more{
+ background:none;color:#8da2b7;font-size:20px
 }
 
-.userIcon{
-width:43px;
-height:43px;
-border-radius:50%;
-background:linear-gradient(135deg,#ff315c,#704cff);
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-font-size:18px;
+.body{
+ padding:0 14px 14px;
+ line-height:1.5;
+ white-space:pre-wrap
 }
 
-.small{
-font-size:12px;
-color:#91a0b8;
+.news{
+ background:linear-gradient(135deg,#122b48,#10213a);
+ padding:15px
 }
-
-.postText{
-margin-top:13px;
-color:#dce4f1;
-line-height:1.55;
-white-space:pre-wrap;
+.tag{
+ display:inline-block;padding:4px 8px;
+ border-radius:10px;background:#18b87922;
+ color:#39e3a0;font-size:11px;font-weight:800
 }
+.news h3{margin:9px 0 6px;font-size:18px}
+.news p{margin:0;color:#b4c3d3;font-size:13px}
 
 .actions{
-display:flex;
-gap:7px;
-margin-top:14px;
-flex-wrap:wrap;
+ display:flex;border-top:1px solid #ffffff0d
+}
+.actions button{
+ flex:1;background:none;color:#a9bbcd;
+ padding:11px 5px
+}
+.actions button:hover{background:#ffffff06}
+
+.composer{padding:14px}
+.composer textarea{
+ width:100%;min-height:82px;resize:none;
+ background:#081522;border:1px solid #ffffff14;
+ border-radius:14px;padding:12px;
+ color:white;outline:none
 }
 
-.action{
-border:0;
-border-radius:10px;
-padding:9px 12px;
-background:#1b2941;
-color:#dce6f5;
+.row{
+ display:flex;gap:8px;align-items:center
+}
+.primary{
+ background:#18b879;color:#00140d;
+ padding:10px 16px;border-radius:12px;
+ font-weight:800
+}
+.secondary{
+ background:#17283d;color:white;
+ padding:10px 14px;border-radius:12px
 }
 
-.newsSource{
-color:#ff6684;
-font-size:12px;
-font-weight:bold;
+.reel{
+ background:#101d31;padding:18px;
+ min-height:150px;
+ display:flex;align-items:center;
+ justify-content:center;text-align:center
 }
-
-.newsTitle{
-font-size:19px;
-font-weight:800;
-line-height:1.35;
-margin:7px 0;
-}
-
-.newsDesc{
-color:#bac7d9;
-font-size:14px;
-line-height:1.45;
-}
-
-.empty{
-text-align:center;
-color:#91a0b8;
-padding:20px;
-}
+.reel strong{font-size:28px}
 
 .bottom{
-position:sticky;
-bottom:0;
-z-index:30;
-display:flex;
-justify-content:space-around;
-background:#050b16ee;
-backdrop-filter:blur(12px);
-border-top:1px solid #26344d;
-padding:8px 3px;
+ position:fixed;bottom:0;left:0;right:0;
+ z-index:30;height:66px;
+ background:#091827f5;
+ backdrop-filter:blur(16px);
+ border-top:1px solid #ffffff14;
+ display:flex;justify-content:center
 }
-
-.nav{
-background:none;
-border:0;
-color:#bdc8da;
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:3px;
-font-size:12px;
+.bottom button{
+ flex:1;max-width:145px;
+ background:none;color:#93a9bf;font-size:12px
 }
-
-.plusCircle{
-width:42px;
-height:42px;
-border-radius:13px;
-background:#ff315c;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:27px;
-color:#fff;
+.bottom button b{
+ display:block;font-size:20px;margin-bottom:2px
 }
+.bottom .active{color:#35e4a0}
 
 .modal{
-position:fixed;
-inset:0;
-background:#000b;
-z-index:100;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:17px;
+ position:fixed;inset:0;z-index:50;
+ background:#0009;
+ display:flex;align-items:center;
+ justify-content:center;padding:18px
 }
-
-.box{
-width:min(430px,100%);
-max-height:90vh;
-overflow:auto;
-background:#101a2c;
-border:1px solid #344564;
-border-radius:22px;
-padding:22px;
-box-shadow:0 20px 70px #000;
+.modalBox{
+ width:min(430px,100%);
+ background:#0d1d30;
+ border:1px solid #ffffff15;
+ border-radius:20px;padding:20px;
+ box-shadow:0 20px 70px #0008
 }
+.modalBox h2{margin-top:0}
 
-.box h2{
-margin:0 0 8px;
-font-size:27px;
+.field{
+ width:100%;padding:12px;margin:6px 0;
+ background:#071522;
+ border:1px solid #ffffff14;
+ border-radius:12px;color:white;outline:none
 }
 
 .close{
-float:right;
-background:none;
-border:0;
-color:#bbb;
-font-size:27px;
-}
-
-.box input,
-.box textarea{
-width:100%;
-padding:14px;
-margin:7px 0;
-border-radius:12px;
-border:1px solid #344564;
-background:#07101f;
-color:white;
-outline:none;
-font-size:15px;
-}
-
-.box textarea{
-min-height:120px;
-resize:vertical;
-}
-
-.full{
-width:100%;
-padding:14px;
-margin-top:8px;
-border:0;
-border-radius:12px;
-background:#ff315c;
-color:#fff;
-font-weight:bold;
-}
-
-.status{
-text-align:center;
-min-height:20px;
-margin-top:9px;
-color:#ff8da5;
-font-size:14px;
+ float:right;background:none;
+ color:#9fb1c4;font-size:22px
 }
 
 .switch{
-text-align:center;
-margin-top:14px;
-color:#aebbd0;
+ text-align:center;color:#9fb1c4;
+ font-size:13px;margin-top:12px
+}
+.switch button{
+ background:none;color:#35e4a0
 }
 
-.switch span{
-color:#ff6684;
-cursor:pointer;
+.profileBox{text-align:center}
+
+.bigAvatar{
+ width:82px;height:82px;border-radius:50%;
+ margin:8px auto 12px;
+ display:flex;align-items:center;
+ justify-content:center;
+ background:linear-gradient(135deg,#ff6b6b,#7c4dff,#13b9c8);
+ font-size:30px;font-weight:900
 }
 
-.hint{
-font-size:12px;
-color:#8493ab;
-margin-bottom:5px;
+.empty{
+ text-align:center;padding:28px;
+ color:#8195aa
 }
 
-.storyView{
-text-align:center;
-padding:15px;
-font-size:18px;
-line-height:1.5;
-}
-
-@media(max-width:500px){
-.logo{font-size:24px}
-.golgappa{width:31px;height:31px}
-.top{padding:0 9px}
-.topBtn{padding:8px 9px;font-size:12px}
-.profileBtn{padding:8px;font-size:12px}
+.toast{
+ position:fixed;left:50%;bottom:78px;
+ transform:translateX(-50%);
+ background:#f4fbff;color:#06111e;
+ padding:10px 15px;border-radius:12px;
+ z-index:80;font-weight:700;
+ box-shadow:0 8px 30px #0007
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP -->
-
 <header class="top">
 
-<div class="logo">
-tw<span class="golgappa"></span>4nine
+<div class="brand">
+ <span>tw</span>
+ <span class="puri">●</span>
+ <span>4nine</span>
 </div>
 
-<div class="topRight">
-
-<button class="topBtn" id="loginBtn">
-Login
-</button>
-
-<button class="topBtn createBtn" id="createBtn">
-Create Account
-</button>
-
-<button class="profileBtn hidden" id="profileBtn">
-👤 <span class="profileName" id="profileName"></span>
-</button>
-
-<button class="topBtn hidden" id="messageBtn">
-💬
-</button>
-
-<button class="topBtn hidden" id="logoutBtn">
-Logout
-</button>
-
+<div id="accountArea" class="topBtns">
+ <button class="topBtn" onclick="openAuth('login')">Login</button>
+ <button class="topBtn createTop" onclick="openAuth('signup')">
+ Create Account
+ </button>
 </div>
 
 </header>
 
 
-<!-- SEARCH -->
+<main class="wrap">
 
 <div class="search">
-
-<input id="searchInput"
-placeholder="🔎 Search news, people, posts...">
-
+<input
+ id="searchInput"
+ placeholder="🔎 Search news, people, posts..."
+ oninput="renderSearch(this.value)">
 </div>
 
 
-<main class="container">
+<section class="stories" id="stories"></section>
 
 
-<!-- STORIES -->
+<div id="searchResults"></div>
 
-<div class="sectionTitle">
-Stories
+
+<section class="card composer">
+
+<div class="row" style="margin-bottom:10px">
+
+<div class="avatar" id="composerAvatar">?</div>
+
+<div class="meta">
+<div class="name" id="composerName">
+Welcome to two4nine
 </div>
-
-<div class="stories" id="storiesList">
-
-<div class="story" id="yourStory">
-
-<div class="storyCircle">＋</div>
-
-<div>Your Story</div>
-
+<div class="time">
+Different generations. One place. ❤️
 </div>
-
-<div class="story">
-<div class="storyCircle">R</div>
-<div>Rahul</div>
-</div>
-
-<div class="story">
-<div class="storyCircle">P</div>
-<div>Priya</div>
-</div>
-
-<div class="story">
-<div class="storyCircle">A</div>
-<div>Aman</div>
-</div>
-
-<div class="story">
-<div class="storyCircle">N</div>
-<div>Neha</div>
-</div>
-
-<div class="story">
-<div class="storyCircle">S</div>
-<div>Simran</div>
 </div>
 
 </div>
 
 
-<!-- NEWS -->
-
-<div class="sectionTitle">
-📰 Latest News
-</div>
-
-<div id="newsList">
-
-<div class="empty">
-Loading latest news...
-</div>
-
-</div>
+<textarea
+ id="postText"
+ placeholder="What's happening?">
+</textarea>
 
 
-<!-- POSTS -->
+<div class="row" style="justify-content:flex-end;margin-top:8px">
 
-<div class="sectionTitle">
-Community Posts
-</div>
-
-<div id="postsList">
-
-<div class="empty">
-Abhi koi post nahi hai.<br>
-Pehla post tum karo ❤️
-</div>
-
-</div>
-
-
-<!-- MEMES -->
-
-<div class="sectionTitle">
-😂 Memes
-</div>
-
-<div class="card">
-
-<div class="postText">
-When you open the news for 2 minutes...
-
-“Bas ek aur news dekh leta hoon.” 😂
-</div>
-
-<div class="actions">
-
-<button class="action loginRequired">
-❤️ Like
+<button class="secondary" onclick="addStory()">
+＋ Story
 </button>
 
-<button class="action loginRequired">
-💬 Comment
+<button class="primary" onclick="addPost()">
+Post
 </button>
 
 </div>
 
+</section>
+
+
+<div id="feed"></div>
+
+
+<section class="card">
+
+<div class="head">
+
+<div class="avatar">🎬</div>
+
+<div class="meta">
+<div class="name">Reels</div>
+<div class="time">Short, fun & interesting</div>
 </div>
 
-
-<!-- REELS -->
-
-<div class="sectionTitle">
-🎬 Reels
 </div>
 
-<div class="card">
+<div class="reel">
 
-<div class="postText">
-Short videos coming soon.
-
-Funny, informative aur useful videos —
-all in one place.
+<div>
+<strong>▶ Reels</strong>
+<br>
+<span style="color:#9bb0c5">
+Your short videos will live here.
+</span>
 </div>
 
 </div>
 
+</section>
 
 </main>
 
 
-<!-- BOTTOM -->
-
 <nav class="bottom">
 
-<button class="nav">
-🏠
-<span>Home</span>
+<button class="active" onclick="scrollTopPage()">
+<b>⌂</b>Home
 </button>
 
-<button class="nav" id="searchBtn">
-🔎
-<span>Search</span>
+<button onclick="focusSearch()">
+<b>⌕</b>Search
 </button>
 
-<button class="nav" id="postBtn">
-<div class="plusCircle">＋</div>
-<span>Post</span>
+<button onclick="requireLogin(addPost)">
+<b>＋</b>Post
 </button>
 
-<button class="nav">
-🎬
-<span>Reels</span>
+<button onclick="toast('Reels section is below the feed 🎬')">
+<b>▶</b>Reels
 </button>
 
-<button class="nav" id="notificationBtn">
-🔔
-<span>Notifications</span>
+<button onclick="openNotifications()">
+<b>♡</b>Notifications
 </button>
 
 </nav>
 
 
-<!-- ACCOUNT MODAL -->
+<!-- LOGIN -->
 
-<div class="modal hidden" id="authModal">
+<div id="authModal" class="modal hidden">
 
-<div class="box">
+<div class="modalBox">
 
-<button class="close" id="closeAuth">×</button>
-
-<h2 id="authTitle">
-Create Account
-</h2>
-
-<p id="authSubtitle">
-Choose your username ❤️
-</p>
-
-
-<div id="usernameArea">
-
-<input
-id="usernameInput"
-placeholder="Username e.g. kavya24"
-maxlength="20">
-
-<div class="hint">
-3–20 characters • letters, numbers and _
-</div>
-
-</div>
-
-
-<input
-id="emailInput"
-type="email"
-placeholder="Email address">
-
-
-<input
-id="passwordInput"
-type="password"
-placeholder="Password">
-
-
-<input
-id="confirmInput"
-type="password"
-placeholder="Confirm password">
-
-
-<button class="full" id="authSubmit">
-Create Account
+<button class="close" onclick="closeModal('authModal')">
+×
 </button>
 
+<h2 id="authTitle">Login</h2>
 
-<div class="status" id="authStatus"></div>
+<input
+ class="field"
+ id="authUsername"
+ placeholder="Choose username"
+ autocomplete="username"
+ style="display:none">
 
+<input
+ class="field"
+ id="authEmail"
+ type="email"
+ placeholder="Email"
+ autocomplete="email">
 
-<div class="switch">
+<input
+ class="field"
+ id="authPassword"
+ type="password"
+ placeholder="Password"
+ autocomplete="current-password">
 
-<span id="switchAuth">
-Already have an account? Login
-</span>
+<button
+ class="primary"
+ style="width:100%;margin-top:8px"
+ onclick="doAuth()"
+ id="authButton">
+Login
+</button>
 
+<div class="switch" id="authSwitch">
+New here?
+<button onclick="switchAuth()">Create Account</button>
 </div>
 
 </div>
-
 </div>
 
 
-<!-- STORY MODAL -->
+<!-- PROFILE -->
 
-<div class="modal hidden" id="storyModal">
+<div id="profileModal" class="modal hidden">
 
-<div class="box">
+<div class="modalBox profileBox">
 
-<button class="close" id="closeStory">×</button>
+<button class="close" onclick="closeModal('profileModal')">
+×
+</button>
 
-<h2>📸 Your Story</h2>
+<div class="bigAvatar" id="profileAvatar">?</div>
+
+<h2 id="profileName">Profile</h2>
+
+<p id="profileEmail" style="color:#8fa5ba"></p>
+
+<button
+ class="secondary"
+ onclick="logout()"
+ style="width:100%;margin-top:8px">
+Logout
+</button>
+
+</div>
+</div>
+
+
+<!-- MESSAGES -->
+
+<div id="messageModal" class="modal hidden">
+
+<div class="modalBox">
+
+<button class="close" onclick="closeModal('messageModal')">
+×
+</button>
+
+<h2>💬 Messages</h2>
+
+<input
+ class="field"
+ id="msgTo"
+ placeholder="Send to username">
 
 <textarea
-id="storyText"
-placeholder="What's happening?">
+ class="field"
+ id="msgText"
+ placeholder="Write a private message..."
+ style="min-height:100px">
 </textarea>
 
-<button class="full" id="storySubmit">
-Share Story
+<button
+ class="primary"
+ style="width:100%"
+ onclick="sendMessage()">
+Send
 </button>
 
-<div class="status" id="storyStatus"></div>
+<div id="msgStatus" class="empty" style="padding:15px 0"></div>
 
 </div>
-
 </div>
 
 
-<!-- POST MODAL -->
+<!-- NOTIFICATIONS -->
 
-<div class="modal hidden" id="postModal">
+<div id="noticeModal" class="modal hidden">
 
-<div class="box">
+<div class="modalBox">
 
-<button class="close" id="closePost">×</button>
-
-<h2>✍️ Create Post</h2>
-
-<textarea
-id="postText"
-placeholder="Write something...">
-</textarea>
-
-<button class="full" id="postSubmit">
-Publish Post
+<button class="close" onclick="closeModal('noticeModal')">
+×
 </button>
 
-<div class="status" id="postStatus"></div>
+<h2>♡ Notifications</h2>
 
+<div id="noticeList" class="empty">
+No new notifications.
 </div>
 
 </div>
-
-
-<!-- STORY VIEW -->
-
-<div class="modal hidden" id="storyViewModal">
-
-<div class="box">
-
-<button class="close" id="closeStoryView">×</button>
-
-<div class="storyView">
-
-<div id="storyViewName"></div>
-
-<hr>
-
-<div id="storyViewText"></div>
-
 </div>
 
-</div>
 
-</div>
+<div id="toast" class="toast hidden"></div>
 
 
 <!-- FIREBASE -->
@@ -729,312 +520,482 @@ Publish Post
 
 <script>
 
-/* =========================================
-   FIREBASE CONFIG
-========================================= */
-
 const firebaseConfig = {
 
-apiKey:"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
+apiKey:
+"AIzaSyAYS5fr01fGoQ6RGUnojdoQKZBwmgrLVYU",
 
-authDomain:"two4nine-7a29d.firebaseapp.com",
+authDomain:
+"two4nine-7a29d.firebaseapp.com",
 
-projectId:"two4nine-7a29d",
+projectId:
+"two4nine-7a29d",
 
-storageBucket:"two4nine-7a29d.firebasestorage.app",
+storageBucket:
+"two4nine-7a29d.firebasestorage.app",
 
-messagingSenderId:"573418811789",
+messagingSenderId:
+"573418811789",
 
-appId:"1:573418811789:web:cad8463d4cba5e8a990dc4",
+appId:
+"1:573418811789:web:cad8463d4cba5e8a990dc4",
 
-measurementId:"G-V2X4YK8NFG"
+measurementId:
+"G-V2X4YK8NFG"
 
 };
 
 
 firebase.initializeApp(firebaseConfig);
 
-const auth=firebase.auth();
+const auth = firebase.auth();
+const db = firebase.firestore();
 
-const db=firebase.firestore();
-
-
-/* =========================================
-   MODALS
-========================================= */
-
-const authModal=
-document.getElementById("authModal");
-
-const storyModal=
-document.getElementById("storyModal");
-
-const postModal=
-document.getElementById("postModal");
-
-const storyViewModal=
-document.getElementById("storyViewModal");
-
-let authMode="signup";
+let currentUser = null;
+let currentProfile = null;
+let authMode = "login";
+let allPosts = [];
+let newsItems = [];
 
 
-/* =========================================
-   AUTH OPEN
-========================================= */
+function esc(s){
+
+return String(s ?? "").replace(/[&<>"']/g,m=>({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+
+}[m]));
+
+}
+
+
+function initials(n){
+
+return (n || "?")
+.trim()
+.split(/\s+/)
+.slice(0,2)
+.map(x=>x[0])
+.join("")
+.toUpperCase() || "?";
+
+}
+
+
+function timeAgo(ts){
+
+const d =
+ts?.toDate
+? ts.toDate()
+: new Date(ts || Date.now());
+
+const m =
+Math.floor((Date.now()-d)/60000);
+
+if(m<1)return "just now";
+
+if(m<60)return m+"m";
+
+const h=Math.floor(m/60);
+
+if(h<24)return h+"h";
+
+return Math.floor(h/24)+"d";
+
+}
+
+
+function toast(t){
+
+const x=document.getElementById("toast");
+
+x.textContent=t;
+
+x.classList.remove("hidden");
+
+clearTimeout(window.toastTimer);
+
+window.toastTimer=setTimeout(()=>{
+
+x.classList.add("hidden");
+
+},2200);
+
+}
+
+
+function closeModal(id){
+
+document.getElementById(id)
+.classList.add("hidden");
+
+}
+
+
+function requireLogin(fn){
+
+if(!currentUser){
+
+openAuth("login");
+
+toast("Login required");
+
+return;
+
+}
+
+fn();
+
+}
+
 
 function openAuth(mode){
 
 authMode=mode;
 
-authModal.classList.remove("hidden");
+document.getElementById("authModal")
+.classList.remove("hidden");
 
-document.getElementById("authStatus").textContent="";
-
-document.getElementById("usernameInput").value="";
-document.getElementById("emailInput").value="";
-document.getElementById("passwordInput").value="";
-document.getElementById("confirmInput").value="";
-
-
-if(mode==="signup"){
-
-document.getElementById("authTitle")
-.textContent="Create Account";
-
-document.getElementById("authSubtitle")
-.textContent="Choose your username ❤️";
-
-document.getElementById("usernameArea")
-.style.display="block";
-
-document.getElementById("confirmInput")
-.style.display="block";
-
-document.getElementById("authSubmit")
-.textContent="Create Account";
-
-document.getElementById("switchAuth")
-.textContent=
-"Already have an account? Login";
-
-}else{
-
-document.getElementById("authTitle")
-.textContent="Login";
-
-document.getElementById("authSubtitle")
-.textContent=
-"Welcome back ❤️";
-
-document.getElementById("usernameArea")
-.style.display="none";
-
-document.getElementById("confirmInput")
-.style.display="none";
-
-document.getElementById("authSubmit")
-.textContent="Login";
-
-document.getElementById("switchAuth")
-.textContent=
-"New to two4nine? Create Account";
-
-}
+updateAuthUI();
 
 }
 
 
-/* =========================================
-   AUTH BUTTONS
-========================================= */
+function switchAuth(){
 
-document.getElementById("loginBtn")
-.onclick=()=>{
-openAuth("login");
-};
+authMode =
+authMode==="login"
+? "signup"
+: "login";
 
+updateAuthUI();
 
-document.getElementById("createBtn")
-.onclick=()=>{
-openAuth("signup");
-};
+}
 
 
-document.getElementById("closeAuth")
-.onclick=()=>{
-authModal.classList.add("hidden");
-};
+function updateAuthUI(){
+
+const signup=authMode==="signup";
+
+document.getElementById("authTitle")
+.textContent =
+signup
+? "Create Account"
+: "Login";
+
+document.getElementById("authButton")
+.textContent =
+signup
+? "Create Account"
+: "Login";
+
+document.getElementById("authUsername")
+.style.display =
+signup
+? "block"
+: "none";
+
+document.getElementById("authSwitch")
+.innerHTML =
+signup
+?
+'Already have an account? <button onclick="switchAuth()">Login</button>'
+:
+'New here? <button onclick="switchAuth()">Create Account</button>';
+
+}
 
 
-document.getElementById("switchAuth")
-.onclick=()=>{
-openAuth(
-authMode==="signup"
-?"login"
-:"signup"
-);
-};
+async function doAuth(){
 
-
-/* =========================================
-   CREATE / LOGIN
-========================================= */
-
-document.getElementById("authSubmit")
-.onclick=async()=>{
-
-const username=
-document.getElementById("usernameInput")
-.value.trim()
-.toLowerCase();
-
-const email=
-document.getElementById("emailInput")
+const email =
+document.getElementById("authEmail")
 .value.trim();
 
-const password=
-document.getElementById("passwordInput").value;
+const pass =
+document.getElementById("authPassword")
+.value;
 
-const confirm=
-document.getElementById("confirmInput").value;
+const username =
+document.getElementById("authUsername")
+.value.trim()
+.replace(/^@/,"");
 
-const status=
-document.getElementById("authStatus");
+if(!email || !pass){
 
-status.textContent="";
+toast("Email and password required");
+
+return;
+
+}
 
 
-/* LOGIN */
+try{
 
 if(authMode==="login"){
 
-if(!email || !password){
-
-status.textContent=
-"Email aur password bharo.";
-
-return;
-}
-
-try{
-
 await auth.signInWithEmailAndPassword(
 email,
-password
+pass
 );
 
-status.style.color="#64e879";
+closeModal("authModal");
 
-status.textContent=
-"Login successful ❤️";
-
-setTimeout(()=>{
-authModal.classList.add("hidden");
-},700);
-
-}catch(error){
-
-status.style.color="#ff8da5";
-
-status.textContent=
-firebaseError(error);
+toast("Welcome back ❤️");
 
 }
+
+else{
+
+if(username.length<3){
+
+toast("Username must be 3+ characters");
 
 return;
 
 }
 
 
-/* SIGNUP */
-
-if(!username){
-
-status.textContent=
-"Username choose karo.";
-
-return;
-}
-
-
-if(!/^[a-z0-9_]{3,20}$/.test(username)){
-
-status.textContent=
-"Username 3–20 characters ka ho.";
-
-return;
-}
-
-
-if(!email || !password){
-
-status.textContent=
-"Email aur password bharo.";
-
-return;
-}
-
-
-if(password.length<6){
-
-status.textContent=
-"Password minimum 6 characters ka ho.";
-
-return;
-}
-
-
-if(password!==confirm){
-
-status.textContent=
-"Passwords match nahi kar rahe.";
-
-return;
-}
-
-
-try{
-
-/* CHECK USERNAME */
-
-const usernameDoc=
-await db.collection("usernames")
-.doc(username)
+const dup =
+await db
+.collection("users")
+.where("username","==",username)
+.limit(1)
 .get();
 
 
-if(usernameDoc.exists){
+if(!dup.empty){
 
-status.textContent=
-"Ye username already taken hai.";
+toast("Username already taken");
 
 return;
+
 }
 
 
-/* CREATE ACCOUNT */
-
-const result=
+const cred =
 await auth.createUserWithEmailAndPassword(
 email,
-password
+pass
 );
 
 
-const uid=result.user.uid;
-
-
-/* USER PROFILE */
-
-await db.collection("users")
-.doc(uid)
+await db
+.collection("users")
+.doc(cred.user.uid)
 .set({
 
-uid:uid,
-
+uid:cred.user.uid,
 username:username,
-
 email:email,
+createdAt:
+firebase.firestore.FieldValue.serverTimestamp()
+
+});
+
+
+closeModal("authModal");
+
+toast("Account created 🎉");
+
+}
+
+}catch(e){
+
+console.error(e);
+
+toast(firebaseError(e));
+
+}
+
+}
+
+
+function firebaseError(e){
+
+const c=e?.code||"";
+
+if(c.includes("email-already"))
+return "Email already registered";
+
+if(c.includes("wrong-password") ||
+c.includes("invalid-credential"))
+return "Wrong email or password";
+
+if(c.includes("weak-password"))
+return "Password should be stronger";
+
+if(c.includes("network"))
+return "Network problem";
+
+return e?.message || "Something went wrong";
+
+}
+
+
+async function loadProfile(){
+
+if(!currentUser){
+
+currentProfile=null;
+
+return;
+
+}
+
+
+const d =
+await db
+.collection("users")
+.doc(currentUser.uid)
+.get();
+
+
+currentProfile =
+d.exists
+? d.data()
+: {
+username:
+currentUser.email.split("@")[0]
+};
+
+}
+
+
+auth.onAuthStateChanged(async u=>{
+
+currentUser=u;
+
+await loadProfile();
+
+renderAccount();
+
+renderStories();
+
+loadPosts();
+
+});
+
+
+function renderAccount(){
+
+const a =
+document.getElementById("accountArea");
+
+
+if(!currentUser){
+
+a.innerHTML =
+
+'<button class="topBtn" onclick="openAuth(\'login\')">Login</button>' +
+
+'<button class="topBtn createTop" onclick="openAuth(\'signup\')">Create Account</button>';
+
+document.getElementById("composerName")
+.textContent="Welcome to two4nine";
+
+document.getElementById("composerAvatar")
+.textContent="?";
+
+}
+
+else{
+
+const n =
+currentProfile?.username || "User";
+
+a.innerHTML =
+
+'<button class="iconBtn" onclick="openMessages()">💬</button>' +
+
+'<button class="topBtn" onclick="openProfile()">👤 ' +
+
+esc(n) +
+
+'</button>';
+
+document.getElementById("composerName")
+.textContent="@"+n;
+
+document.getElementById("composerAvatar")
+.textContent=initials(n);
+
+}
+
+}
+
+
+function openProfile(){
+
+document.getElementById("profileName")
+.textContent="@"+
+(currentProfile?.username || "User");
+
+document.getElementById("profileEmail")
+.textContent=currentUser?.email || "";
+
+document.getElementById("profileAvatar")
+.textContent=
+initials(currentProfile?.username);
+
+document.getElementById("profileModal")
+.classList.remove("hidden");
+
+}
+
+
+async function logout(){
+
+await auth.signOut();
+
+closeModal("profileModal");
+
+toast("Logged out");
+
+}
+
+
+async function addPost(){
+
+if(!currentUser){
+
+openAuth("login");
+
+return;
+
+}
+
+
+const text =
+document.getElementById("postText")
+.value.trim();
+
+
+if(!text){
+
+toast("Write something first");
+
+return;
+
+}
+
+
+try{
+
+await db.collection("posts").add({
+
+uid:currentUser.uid,
+
+username:
+currentProfile?.username || "User",
+
+text:text,
+
+type:"post",
 
 createdAt:
 firebase.firestore.FieldValue.serverTimestamp()
@@ -1042,189 +1003,25 @@ firebase.firestore.FieldValue.serverTimestamp()
 });
 
 
-/* RESERVE USERNAME */
+document.getElementById("postText")
+.value="";
 
-await db.collection("usernames")
-.doc(username)
-.set({
-
-uid:uid
-
-});
-
-
-/* FIREBASE DISPLAY NAME */
-
-await result.user.updateProfile({
-
-displayName:username
-
-});
-
-
-status.style.color="#64e879";
-
-status.textContent=
-"Account created ❤️";
-
-
-setTimeout(()=>{
-authModal.classList.add("hidden");
-},900);
-
-
-}catch(error){
-
-status.style.color="#ff8da5";
-
-status.textContent=
-firebaseError(error);
-
-}
-
-};
-
-
-/* =========================================
-   FIREBASE ERRORS
-========================================= */
-
-function firebaseError(error){
-
-if(error.code==="auth/email-already-in-use")
-return "Ye email already registered hai.";
-
-if(error.code==="auth/invalid-email")
-return "Email sahi nahi hai.";
-
-if(error.code==="auth/weak-password")
-return "Password weak hai.";
-
-if(error.code==="auth/invalid-credential")
-return "Email ya password galat hai.";
-
-if(error.code==="auth/user-not-found")
-return "Account nahi mila.";
-
-if(error.code==="auth/wrong-password")
-return "Password galat hai.";
-
-return "Error: "+error.message;
-
-}
-
-
-/* =========================================
-   AUTH STATE
-========================================= */
-
-auth.onAuthStateChanged(async(user)=>{
-
-const loginBtn=
-document.getElementById("loginBtn");
-
-const createBtn=
-document.getElementById("createBtn");
-
-const profileBtn=
-document.getElementById("profileBtn");
-
-const messageBtn=
-document.getElementById("messageBtn");
-
-const logoutBtn=
-document.getElementById("logoutBtn");
-
-
-if(user){
-
-let username=user.displayName;
-
-
-try{
-
-const doc=
-await db.collection("users")
-.doc(user.uid)
-.get();
-
-if(doc.exists){
-
-username=
-doc.data().username ||
-username;
-
-}
-
-}catch(e){}
-
-
-username=username || "user";
-
-
-document.getElementById("profileName")
-.textContent="@"+username;
-
-
-/* PUBLIC LOGIN BUTTONS HIDE */
-
-loginBtn.classList.add("hidden");
-
-createBtn.classList.add("hidden");
-
-
-/* USER CONTROLS SHOW */
-
-profileBtn.classList.remove("hidden");
-
-messageBtn.classList.remove("hidden");
-
-logoutBtn.classList.remove("hidden");
-
-
-}else{
-
-loginBtn.classList.remove("hidden");
-
-createBtn.classList.remove("hidden");
-
-profileBtn.classList.add("hidden");
-
-messageBtn.classList.add("hidden");
-
-logoutBtn.classList.add("hidden");
-
-}
+toast("Posted ❤️");
 
 loadPosts();
 
-loadStories();
+}catch(e){
 
-loadNews();
+toast(firebaseError(e));
 
-});
+}
 
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-document.getElementById("logoutBtn")
-.onclick=async()=>{
-
-await auth.signOut();
-
-};
+}
 
 
-/* =========================================
-   STORY CREATE
-========================================= */
+async function addStory(){
 
-document.getElementById("yourStory")
-.onclick=()=>{
-
-if(!auth.currentUser){
+if(!currentUser){
 
 openAuth("login");
 
@@ -1232,53 +1029,15 @@ return;
 
 }
 
-storyModal.classList.remove("hidden");
 
-document.getElementById("storyText")
-.value="";
-
-document.getElementById("storyStatus")
-.textContent="";
-
-};
-
-
-document.getElementById("closeStory")
-.onclick=()=>{
-
-storyModal.classList.add("hidden");
-
-};
-
-
-document.getElementById("storySubmit")
-.onclick=async()=>{
-
-const text=
-document.getElementById("storyText")
+const text =
+document.getElementById("postText")
 .value.trim();
-
-const status=
-document.getElementById("storyStatus");
-
-const user=auth.currentUser;
 
 
 if(!text){
 
-status.textContent=
-"Story likho.";
-
-return;
-
-}
-
-
-if(!user){
-
-storyModal.classList.add("hidden");
-
-openAuth("login");
+toast("Write your story first");
 
 return;
 
@@ -1287,25 +1046,674 @@ return;
 
 try{
 
-const userDoc=
-await db.collection("users")
-.doc(user.uid)
+await db.collection("posts").add({
+
+uid:currentUser.uid,
+
+username:
+currentProfile?.username || "User",
+
+text:text,
+
+type:"story",
+
+createdAt:
+firebase.firestore.FieldValue.serverTimestamp()
+
+});
+
+
+document.getElementById("postText")
+.value="";
+
+toast("Story added ✨");
+
+renderStories();
+
+loadPosts();
+
+}catch(e){
+
+toast(firebaseError(e));
+
+}
+
+}
+
+
+async function loadPosts(){
+
+try{
+
+const snap =
+await db
+.collection("posts")
 .get();
 
-const username=
-userDoc.exists
+allPosts =
+snap.docs
+.map(d=>({
+
+id:d.id,
+...d.data()
+
+}))
+.sort((a,b)=>
+getMillis(b.createdAt) -
+getMillis(a.createdAt)
+);
+
+renderFeed();
+
+renderStories();
+
+}catch(e){
+
+console.error(e);
+
+document.getElementById("feed")
+.innerHTML =
+'<div class="empty">Could not load posts. Check Firestore rules.</div>';
+
+}
+
+}
+
+
+function getMillis(x){
+
+if(x?.toDate)
+return x.toDate().getTime();
+
+if(x?.seconds)
+return x.seconds*1000;
+
+return 0;
+
+}
+
+
+function renderFeed(){
+
+const feed =
+document.getElementById("feed");
+
+const posts =
+allPosts.filter(p=>p.type!=="story");
+
+let out="";
+
+
+if(!posts.length){
+
+out +=
+'<div class="empty">No posts yet. Be the first one! ❤️</div>';
+
+}
+
+
+posts.forEach(p=>{
+
+const n=esc(p.username||"User");
+
+out += `
+
+<article class="card">
+
+<div class="head">
+
+<div class="avatar">
+${esc(initials(n))}
+</div>
+
+<div class="meta">
+
+<div class="name">
+@${n}
+</div>
+
+<div class="time">
+${timeAgo(p.createdAt)}
+</div>
+
+</div>
+
+<button
+class="more"
+onclick="sharePost('${esc((p.text||"").replace(/'/g,""))}')">
+⋯
+</button>
+
+</div>
+
+
+<div class="body">
+${esc(p.text||"")}
+</div>
+
+
+<div class="actions">
+
+<button onclick="likePost('${p.id}')">
+♡ <span id="like-${p.id}">
+${likes(p.id)}
+</span>
+</button>
+
+<button onclick="commentPost('${p.id}')">
+💬 Comment
+</button>
+
+<button onclick="sharePost('${esc((p.text||"").replace(/'/g,""))}')">
+↗ Share
+</button>
+
+</div>
+
+</article>
+
+`;
+
+});
+
+
+feed.innerHTML=out;
+
+}
+
+
+function likes(id){
+
+return Number(
+localStorage.getItem("like_"+id)||0
+);
+
+}
+
+
+function likePost(id){
+
+const key="like_"+id;
+
+const n=likes(id)+1;
+
+localStorage.setItem(key,n);
+
+const x =
+document.getElementById("like-"+id);
+
+if(x)x.textContent=n;
+
+}
+
+
+function commentPost(id){
+
+const text=prompt("Comment:");
+
+if(text?.trim())
+toast("Comment added 💬");
+
+}
+
+
+async function sharePost(text){
+
+try{
+
+await navigator.clipboard.writeText(text);
+
+toast("Post copied 📋");
+
+}catch(e){
+
+toast(text.slice(0,50));
+
+}
+
+}
+
+
+function renderStories(){
+
+const stories =
+allPosts
+.filter(p=>p.type==="story")
+.slice(0,12);
+
+let html =
+
+'<div class="story your" onclick="requireLogin(addStory)">' +
+
+'<div class="avatar">＋</div>' +
+
+'<div>Your Story</div>' +
+
+'</div>';
+
+
+if(currentProfile?.username){
+
+html += `
+
+<div class="story">
+
+<div class="avatar">
+${initials(currentProfile.username)}
+</div>
+
+<div>
+@${esc(currentProfile.username)}
+</div>
+
+</div>
+
+`;
+
+}
+
+
+const used=new Set();
+
+
+stories.forEach(s=>{
+
+if(used.has(s.username))return;
+
+used.add(s.username);
+
+html += `
+
+<div
+class="story"
+onclick="toast('${esc(s.text||"Story").replace(/'/g,"")}')">
+
+<div class="avatar">
+${initials(s.username)}
+</div>
+
+<div>
+${esc(s.username)}
+</div>
+
+</div>
+
+`;
+
+});
+
+
+[
+"Rahul",
+"Priya",
+"Aman",
+"Neha",
+"Simran",
+"Rohan"
+].forEach(n=>{
+
+if(
+!used.has(n) &&
+n!==currentProfile?.username
+){
+
+html += `
+
+<div class="story">
+
+<div class="avatar">
+${n[0]}
+</div>
+
+<div>${n}</div>
+
+</div>
+
+`;
+
+}
+
+});
+
+
+html += `
+
+<div class="story">
+
+<div class="avatar">•••</div>
+
+<div>More</div>
+
+</div>
+
+`;
+
+document.getElementById("stories")
+.innerHTML=html;
+
+}
+
+
+async function loadNews(){
+
+try{
+
+const cats=[
+
+["World","world"],
+
+["War & Conflict","war conflict"],
+
+["Sports","sports"],
+
+["AI & Technology","AI technology"],
+
+["Business","business"]
+
+];
+
+
+const results=[];
+
+
+for(const [cat,q] of cats){
+
+const url =
+
+"https://api.rss2json.com/v1/api.json?rss_url=" +
+
+encodeURIComponent(
+
+"https://news.google.com/rss/search?q="+
+q+
+"&hl=en-IN&gl=IN&ceid=IN:en"
+
+);
+
+
+const r=await fetch(url);
+
+const j=await r.json();
+
+
+(j.items||[])
+.slice(0,5)
+.forEach(x=>{
+
+results.push({
+
+cat:cat,
+
+title:x.title,
+
+link:x.link,
+
+date:new Date(
+x.pubDate || Date.now()
+)
+
+});
+
+});
+
+}
+
+
+results.sort(
+(a,b)=>b.date-a.date
+);
+
+newsItems=results.slice(0,10);
+
+renderNews();
+
+}catch(e){
+
+console.error(e);
+
+newsItems=[
+
+{
+cat:"World",
+title:"Latest world news and major international updates.",
+date:new Date()
+},
+
+{
+cat:"AI & Technology",
+title:"AI and technology continue to change everyday life.",
+date:new Date()
+},
+
+{
+cat:"Sports",
+title:"Latest sports stories and major sporting updates.",
+date:new Date()
+},
+
+{
+cat:"Business",
+title:"Business and market developments from around the world.",
+date:new Date()
+}
+
+];
+
+renderNews();
+
+}
+
+}
+
+
+function renderNews(){
+
+const feed =
+document.getElementById("feed");
+
+let news =
+
+'<div style="padding:10px 12px 2px;font-weight:900;font-size:18px">📰 Latest News</div>';
+
+
+newsItems.forEach(n=>{
+
+news += `
+
+<article class="card">
+
+<div class="news">
+
+<span class="tag">
+${esc(n.cat)}
+</span>
+
+<h3>
+${esc(n.title)}
+</h3>
+
+<p>
+${timeAgo(n.date)} · News
+</p>
+
+</div>
+
+<div class="actions">
+
+<button onclick="openNews()">
+Read
+</button>
+
+<button onclick="sharePost('${esc(n.title).replace(/'/g,"")}')">
+↗ Share
+</button>
+
+</div>
+
+</article>
+
+`;
+
+});
+
+
+feed.innerHTML =
+news + feed.innerHTML;
+
+}
+
+
+function openNews(){
+
+toast("Opening latest news");
+
+}
+
+
+function renderSearch(q){
+
+const box =
+document.getElementById("searchResults");
+
+q=q.trim().toLowerCase();
+
+
+if(!q){
+
+box.innerHTML="";
+
+return;
+
+}
+
+
+const p =
+allPosts
+.filter(x=>
+(x.username+" "+x.text)
+.toLowerCase()
+.includes(q)
+)
+.slice(0,8);
+
+
+box.innerHTML =
+
+'<div style="padding:8px 14px;font-weight:800">Search results</div>' +
+
+(
+
+!p.length
+
 ?
-(userDoc.data().username || "user")
+
+'<div class="empty">No matching posts.</div>'
+
 :
-"user";
+
+p.map(x=>`
+
+<div class="card">
+
+<div class="head">
+
+<div class="avatar">
+${initials(x.username)}
+</div>
+
+<div>
+
+<b>@${esc(x.username)}</b>
+
+<div class="time">
+${esc(x.text)}
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+`).join("")
+
+);
+
+}
 
 
-await db.collection("stories")
-.add({
+function focusSearch(){
 
-uid:user.uid,
+document
+.getElementById("searchInput")
+.focus();
 
-username:username,
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function scrollTopPage(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function openMessages(){
+
+if(!currentUser){
+
+openAuth("login");
+
+return;
+
+}
+
+document
+.getElementById("messageModal")
+.classList.remove("hidden");
+
+}
+
+
+async function sendMessage(){
+
+const to =
+document.getElementById("msgTo")
+.value.trim()
+.replace(/^@/,"");
+
+const text =
+document.getElementById("msgText")
+.value.trim();
+
+
+if(!to || !text){
+
+toast("Username and message required");
+
+return;
+
+}
+
+
+try{
+
+await db.collection("messages").add({
+
+uid:currentUser.uid,
+
+from:
+currentProfile?.username || "User",
+
+to:to,
 
 text:text,
 
@@ -1315,183 +1723,26 @@ firebase.firestore.FieldValue.serverTimestamp()
 });
 
 
-status.style.color="#64e879";
-
-status.textContent=
-"Story shared ❤️";
-
-
-setTimeout(()=>{
-
-storyModal.classList.add("hidden");
-
-loadStories();
-
-},700);
-
-
-}catch(error){
-
-status.style.color="#ff8da5";
-
-status.textContent=
-"Story save nahi hui.";
-
-}
-
-};
-
-
-/* =========================================
-   LOAD STORIES
-========================================= */
-
-async function loadStories(){
-
-const list=
-document.getElementById("storiesList");
-
-
-try{
-
-const snapshot=
-await db.collection("stories")
-.orderBy("createdAt","desc")
-.limit(20)
-.get();
-
-
-document.querySelectorAll(".userStory")
-.forEach(x=>x.remove());
-
-
-snapshot.forEach(doc=>{
-
-const data=doc.data();
-
-const username=
-data.username || "user";
-
-const letter=
-username.charAt(0).toUpperCase();
-
-
-const story=
-document.createElement("div");
-
-story.className="story userStory";
-
-
-story.innerHTML=`
-
-<div class="storyCircle">
-${escapeHtml(letter)}
-</div>
-
-<div>
-@${escapeHtml(username)}
-</div>
-
-`;
-
-
-story.onclick=()=>{
-
-document.getElementById("storyViewName")
-.textContent="@"+username;
-
-document.getElementById("storyViewText")
-.textContent=data.text || "";
-
-storyViewModal.classList.remove("hidden");
-
-};
-
-
-list.appendChild(story);
-
-});
-
-}catch(error){
-
-console.log(
-"Stories error:",
-error.message
-);
-
-}
-
-}
-
-
-document.getElementById("closeStoryView")
-.onclick=()=>{
-
-storyViewModal.classList.add("hidden");
-
-};
-
-
-/* =========================================
-   POST CREATE
-========================================= */
-
-document.getElementById("postBtn")
-.onclick=()=>{
-
-if(!auth.currentUser){
-
-openAuth("login");
-
-return;
-
-}
-
-postModal.classList.remove("hidden");
-
-document.getElementById("postText")
+document.getElementById("msgText")
 .value="";
 
-document.getElementById("postStatus")
-.textContent="";
+document.getElementById("msgStatus")
+.textContent="Message sent ✓";
 
-};
+toast("Message sent 💬");
 
+}catch(e){
 
-document.getElementById("closePost")
-.onclick=()=>{
+toast(firebaseError(e));
 
-postModal.classList.add("hidden");
-
-};
-
-
-document.getElementById("postSubmit")
-.onclick=async()=>{
-
-const text=
-document.getElementById("postText")
-.value.trim();
-
-const status=
-document.getElementById("postStatus");
-
-const user=auth.currentUser;
-
-
-if(!text){
-
-status.textContent=
-"Post mein kuch likho.";
-
-return;
+}
 
 }
 
 
-if(!user){
+function openNotifications(){
 
-postModal.classList.add("hidden");
+if(!currentUser){
 
 openAuth("login");
 
@@ -1500,7 +1751,21 @@ return;
 }
 
 
-try{
+document.getElementById("noticeList")
+.textContent=
+"No new notifications yet.";
 
-const userDoc=
-await db.collec
+document.getElementById("noticeModal")
+.classList.remove("hidden");
+
+}
+
+
+loadNews();
+
+setInterval(loadNews,300000);
+
+</script>
+
+</body>
+</html>
