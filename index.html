@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>two4nine</title>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
@@ -10,134 +11,175 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 
 <style>
-*{box-sizing:border-box}
-body{
+*{
+  box-sizing:border-box;
+}
+
+html,body{
   margin:0;
+  padding:0;
   background:#080b12;
   color:#fff;
-  font-family:Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
 }
-button,input,textarea{font:inherit}
-button{cursor:pointer}
 
-.top{
-  height:62px;
+body{
+  min-height:100vh;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:64px;
   background:#0d111a;
-  border-bottom:1px solid #202633;
+  border-bottom:1px solid #222a38;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 14px;
-  position:sticky;
-  top:0;
-  z-index:20;
+  padding:0 12px;
+}
+
+.newsLabel{
+  font-size:14px;
+  font-weight:700;
+  white-space:nowrap;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:800;
-  letter-spacing:.5px;
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:.4px;
 }
 
-.topLeft{
+.topActions{
   display:flex;
   align-items:center;
-  gap:8px;
-  font-size:15px;
+  gap:6px;
+}
+
+.topButton{
+  border:1px solid #303949;
+  background:#151b27;
+  color:#fff;
+  border-radius:20px;
+  padding:8px 11px;
+  font-size:12px;
   font-weight:700;
 }
 
-.topRight{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.loginButton{
+  background:#635bff;
+  border-color:#635bff;
 }
 
-.iconBtn{
-  background:#151b27;
-  border:1px solid #283040;
-  color:white;
-  border-radius:20px;
-  padding:8px 12px;
-}
-
-.profile{
-  width:36px;
-  height:36px;
+.profileButton{
+  display:none;
+  width:38px;
+  height:38px;
   border-radius:50%;
-  background:linear-gradient(135deg,#604cff,#ff4e9b);
-  display:flex;
+  border:0;
+  color:#fff;
+  font-weight:800;
+  background:linear-gradient(135deg,#625bff,#ff4f9a);
   align-items:center;
   justify-content:center;
-  font-weight:bold;
 }
 
-.container{
-  max-width:620px;
+.page{
+  max-width:650px;
   margin:auto;
   padding-bottom:90px;
 }
 
-.search{
-  padding:12px 14px;
+.searchArea{
+  padding:12px;
 }
 
-.search input{
+.searchInput{
   width:100%;
-  padding:12px 16px;
-  border-radius:25px;
-  border:1px solid #293140;
   background:#151b25;
-  color:white;
+  border:1px solid #2b3444;
+  color:#fff;
+  border-radius:25px;
+  padding:12px 17px;
   outline:none;
+}
+
+.searchInput::placeholder{
+  color:#778296;
+}
+
+/* STORIES */
+
+.storiesWrapper{
+  padding:4px 0 14px;
 }
 
 .stories{
   display:flex;
-  gap:14px;
+  gap:13px;
   overflow-x:auto;
-  padding:8px 14px 16px;
+  padding:0 13px;
   scrollbar-width:none;
 }
 
-.stories::-webkit-scrollbar{display:none}
+.stories::-webkit-scrollbar{
+  display:none;
+}
 
 .story{
-  min-width:64px;
+  flex:0 0 65px;
   text-align:center;
   font-size:11px;
-  color:#c7ccd6;
+  color:#c5ccda;
 }
 
 .storyCircle{
   width:58px;
   height:58px;
-  margin:auto auto 5px;
-  border-radius:50%;
+  margin:0 auto 5px;
   padding:2px;
-  background:linear-gradient(135deg,#ff006e,#ff8a00,#7b61ff);
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff006e,#ff8a00,#695cff);
 }
 
 .storyInner{
   width:100%;
   height:100%;
   border-radius:50%;
-  background:#171d29;
+  background:#151b27;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:21px;
-  font-weight:bold;
+  font-size:20px;
+  font-weight:800;
 }
 
-.story.add .storyCircle{
-  background:#263040;
+.addStory .storyCircle{
+  background:#31394a;
 }
 
-.story.add .storyInner{
-  background:#111722;
+.addStory .storyInner{
   font-size:27px;
 }
+
+#realStories{
+  display:flex;
+  gap:13px;
+}
+
+/* FEED */
 
 .feed{
   padding:0 10px;
@@ -145,13 +187,13 @@ button{cursor:pointer}
 
 .card{
   background:#10151f;
-  border:1px solid #202938;
+  border:1px solid #222b39;
   border-radius:15px;
-  margin:10px 0;
   overflow:hidden;
+  margin:10px 0;
 }
 
-.cardHead{
+.cardHeader{
   display:flex;
   align-items:center;
   gap:10px;
@@ -159,208 +201,204 @@ button{cursor:pointer}
 }
 
 .avatar{
-  width:40px;
-  height:40px;
+  width:41px;
+  height:41px;
+  flex:0 0 41px;
   border-radius:50%;
   background:linear-gradient(135deg,#536dfe,#ec407a);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:bold;
+  font-weight:800;
 }
 
 .userName{
-  font-weight:700;
+  font-size:14px;
+  font-weight:800;
 }
 
-.small{
-  font-size:12px;
-  color:#8e98aa;
+.time{
+  color:#7f8a9e;
+  font-size:11px;
   margin-top:3px;
 }
 
 .cardBody{
-  padding:0 14px 14px;
+  padding:0 14px 15px;
   line-height:1.5;
+  font-size:14px;
 }
 
-.newsBox{
-  padding:15px;
+.newsCard{
   background:#151d2b;
+  padding:15px;
 }
 
 .newsTitle{
   font-size:17px;
-  font-weight:700;
-  line-height:1.35;
+  line-height:1.4;
+  font-weight:800;
 }
 
 .newsSource{
-  color:#8f9bad;
-  font-size:12px;
   margin-top:8px;
+  color:#8995a9;
+  font-size:11px;
 }
 
 .actions{
   display:flex;
+  border-top:1px solid #222b39;
+  padding:7px 10px;
   gap:8px;
-  padding:10px 13px;
-  border-top:1px solid #202938;
 }
 
-.action{
+.actionButton{
   background:none;
+  color:#aeb8c8;
   border:0;
-  color:#c7cfdb;
-  padding:5px;
+  padding:6px;
+  font-size:12px;
 }
 
-.section{
+/* REELS */
+
+#reelsSection{
   display:none;
-  padding:15px;
+  padding:12px;
 }
 
-.section.active{display:block}
+.reelsTitle{
+  font-size:22px;
+  margin:8px 0 15px;
+}
 
-.reel{
-  background:#10151f;
-  border:1px solid #202938;
-  border-radius:15px;
+.reelCard{
   min-height:300px;
-  margin-bottom:12px;
+  border:1px solid #252e3d;
+  border-radius:17px;
+  background:linear-gradient(145deg,#111827,#241328);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:26px;
   text-align:center;
+  margin-bottom:14px;
 }
 
-.bottom{
+.reelEmoji{
+  font-size:45px;
+}
+
+.reelText{
+  margin-top:12px;
+  color:#aab4c4;
+  font-size:14px;
+}
+
+/* BOTTOM */
+
+.bottomNav{
   position:fixed;
   bottom:0;
   left:0;
   right:0;
-  height:66px;
+  height:67px;
   background:#0d111a;
-  border-top:1px solid #252c38;
+  border-top:1px solid #252e3b;
+  z-index:120;
   display:flex;
-  justify-content:space-around;
   align-items:center;
-  z-index:30;
+  justify-content:space-around;
 }
 
-.nav{
-  color:#8e98aa;
-  background:none;
+.navButton{
   border:0;
-  text-align:center;
-  font-size:11px;
+  background:none;
+  color:#7e899c;
+  font-size:10px;
+  min-width:55px;
 }
 
-.nav span{
+.navIcon{
   display:block;
   font-size:21px;
-  margin-bottom:2px;
+  line-height:25px;
 }
 
-.nav.active{color:white}
+.navButton.active{
+  color:#fff;
+}
+
+/* MODAL */
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.75);
+  background:rgba(0,0,0,.78);
   display:none;
   align-items:flex-end;
   justify-content:center;
-  z-index:50;
+  z-index:300;
 }
 
-.modal.show{display:flex}
+.modal.show{
+  display:flex;
+}
 
 .sheet{
   width:100%;
-  max-width:620px;
-  max-height:85vh;
+  max-width:650px;
+  max-height:88vh;
   overflow:auto;
   background:#10151f;
-  border:1px solid #293140;
+  border:1px solid #2a3342;
   border-radius:22px 22px 0 0;
   padding:20px;
 }
 
-.close{
+.closeButton{
   float:right;
-  background:#202938;
-  color:white;
-  border:0;
-  border-radius:50%;
   width:34px;
   height:34px;
+  border-radius:50%;
+  border:0;
+  background:#242d3b;
+  color:#fff;
+  font-size:20px;
 }
 
-.sheet h2{margin-top:5px}
+.sheetTitle{
+  margin:4px 0 8px;
+  font-size:22px;
+}
+
+.subText{
+  color:#8994a7;
+  font-size:12px;
+  margin-bottom:15px;
+}
 
 textarea{
   width:100%;
   min-height:120px;
-  background:#080d15;
-  color:white;
-  border:1px solid #303949;
-  border-radius:12px;
-  padding:12px;
   resize:none;
+  background:#080d15;
+  border:1px solid #303a4b;
+  color:#fff;
+  border-radius:12px;
+  padding:13px;
   outline:none;
 }
 
 .primary{
   width:100%;
   border:0;
+  background:#635bff;
+  color:#fff;
   border-radius:12px;
   padding:13px;
   margin-top:10px;
-  background:#635bff;
-  color:white;
-  font-weight:700;
-}
-
-.chat{
-  padding:14px;
-  border-bottom:1px solid #242c38;
-}
-
-.chatName{
-  font-weight:700;
-}
-
-.notice{
-  background:#151d2b;
-  border:1px solid #283244;
-  padding:12px;
-  border-radius:12px;
-  margin:8px 0;
-}
-
-.storyView{
-  min-height:400px;
-  background:linear-gradient(145deg,#1b2140,#641b48);
-  border-radius:18px;
-  padding:30px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.storyText{
-  font-size:28px;
-  font-weight:700;
-  line-height:1.35;
-}
-
-.empty{
-  text-align:center;
-  color:#8993a5;
-  padding:30px 10px;
+  font-weight:800;
 }
 
 .authInput{
@@ -368,242 +406,743 @@ textarea{
   padding:13px;
   margin:6px 0;
   background:#080d15;
-  color:white;
-  border:1px solid #303949;
-  border-radius:10px;
+  border:1px solid #303a4b;
+  color:#fff;
+  border-radius:11px;
   outline:none;
 }
 
-.linkBtn{
-  background:none;
+.secondary{
+  width:100%;
+  border:1px solid #303a4b;
+  background:#151b27;
+  color:#fff;
+  border-radius:12px;
+  padding:12px;
+  margin-top:8px;
+  font-weight:700;
+}
+
+.authMessage{
+  margin-top:12px;
+  color:#ff9b9b;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.authSwitch{
+  text-align:center;
+  color:#9ca7b9;
+  font-size:12px;
+  margin-top:15px;
+}
+
+.authSwitch button{
   border:0;
-  color:#8d8aff;
-  padding:12px 0;
+  background:none;
+  color:#8f88ff;
+  font-weight:700;
+}
+
+.chatItem{
+  padding:14px 4px;
+  border-bottom:1px solid #252e3a;
+}
+
+.chatName{
+  font-weight:800;
+}
+
+.chatPreview{
+  margin-top:4px;
+  color:#8b96a8;
+  font-size:12px;
+}
+
+.notification{
+  padding:13px;
+  background:#151d2a;
+  border:1px solid #293445;
+  border-radius:12px;
+  margin:8px 0;
+  font-size:13px;
+}
+
+.storyViewer{
+  min-height:420px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#20164d,#631e4e);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:35px;
+  text-align:center;
+}
+
+.storyViewerText{
+  font-size:28px;
+  font-weight:900;
+  line-height:1.4;
+}
+
+.empty{
+  text-align:center;
+  padding:30px 10px;
+  color:#818c9e;
 }
 
 .loading{
   text-align:center;
-  color:#8e98aa;
-  padding:20px;
+  color:#8994a7;
+  padding:25px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+@media(max-width:420px){
+
+  .newsLabel{
+    font-size:12px;
+  }
+
+  .logo{
+    font-size:19px;
+  }
+
+  .topButton{
+    padding:7px 9px;
+  }
+
+  .profileButton{
+    width:35px;
+    height:35px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="top">
-  <div class="topLeft">📰 News</div>
+<!-- TOP BAR -->
 
-  <div class="logo">two4nine</div>
+<header class="topbar">
 
-  <div class="topRight">
-    <button class="iconBtn" onclick="openMessages()">💬</button>
-    <div class="profile" id="profileBtn" onclick="openAuth()">?</div>
+  <div class="newsLabel">
+    📰 News
   </div>
+
+  <div class="logo">
+    two4nine
+  </div>
+
+  <div class="topActions">
+
+    <button
+      class="topButton"
+      onclick="openMessages()"
+    >
+      💬
+    </button>
+
+    <button
+      id="loginButton"
+      class="topButton loginButton"
+      onclick="openLogin()"
+    >
+      Login
+    </button>
+
+    <button
+      id="signupButton"
+      class="topButton"
+      onclick="openSignup()"
+    >
+      Create account
+    </button>
+
+    <button
+      id="profileButton"
+      class="profileButton"
+      onclick="profileAction()"
+    >
+      ?
+    </button>
+
+  </div>
+
 </header>
 
-<main class="container">
 
-  <div class="search">
+<div class="page">
+
+  <!-- SEARCH -->
+
+  <div class="searchArea">
+
     <input
       id="searchInput"
+      class="searchInput"
       type="search"
       placeholder="Search news, people, topics..."
-      oninput="searchFeed()"
+      oninput="searchEverything()"
     >
+
   </div>
+
 
   <!-- STORIES -->
-  <div class="stories" id="stories">
 
-    <div class="story add" onclick="openStoryCreator()">
-      <div class="storyCircle">
-        <div class="storyInner">＋</div>
+  <div class="storiesWrapper">
+
+    <div class="stories">
+
+      <div
+        class="story addStory"
+        onclick="openStoryCreator()"
+      >
+
+        <div class="storyCircle">
+          <div class="storyInner">＋</div>
+        </div>
+
+        Your Story
+
       </div>
-      Your Story
-    </div>
 
-    <div class="story">
-      <div class="storyCircle"><div class="storyInner">R</div></div>
-      Rahul
-    </div>
 
-    <div class="story">
-      <div class="storyCircle"><div class="storyInner">P</div></div>
-      Priya
-    </div>
+      <div
+        class="story"
+        onclick="demoStory('Rahul','Aaj ka din mast tha! 😎')"
+      >
 
-    <div class="story">
-      <div class="storyCircle"><div class="storyInner">A</div></div>
-      Aman
-    </div>
+        <div class="storyCircle">
+          <div class="storyInner">R</div>
+        </div>
 
-    <div class="story">
-      <div class="storyCircle"><div class="storyInner">N</div></div>
-      Neha
-    </div>
+        Rahul
 
-    <div class="story">
-      <div class="storyCircle"><div class="storyInner">S</div></div>
-      Simran
-    </div>
+      </div>
 
-    <div class="story">
-      <div class="storyCircle"><div class="storyInner">R</div></div>
-      Rohan
-    </div>
 
-    <div id="realStories"></div>
+      <div
+        class="story"
+        onclick="demoStory('Priya','Good morning everyone ❤️')"
+      >
+
+        <div class="storyCircle">
+          <div class="storyInner">P</div>
+        </div>
+
+        Priya
+
+      </div>
+
+
+      <div
+        class="story"
+        onclick="demoStory('Aman','Weekend plans? 🔥')"
+      >
+
+        <div class="storyCircle">
+          <div class="storyInner">A</div>
+        </div>
+
+        Aman
+
+      </div>
+
+
+      <div
+        class="story"
+        onclick="demoStory('Neha','Life is beautiful ✨')"
+      >
+
+        <div class="storyCircle">
+          <div class="storyInner">N</div>
+        </div>
+
+        Neha
+
+      </div>
+
+
+      <div
+        class="story"
+        onclick="demoStory('Simran','Have a great day! 🌸')"
+      >
+
+        <div class="storyCircle">
+          <div class="storyInner">S</div>
+        </div>
+
+        Simran
+
+      </div>
+
+
+      <div
+        class="story"
+        onclick="demoStory('Rohan','Let’s go! 🚀')"
+      >
+
+        <div class="storyCircle">
+          <div class="storyInner">R</div>
+        </div>
+
+        Rohan
+
+      </div>
+
+
+      <div id="realStories"></div>
+
+    </div>
 
   </div>
 
-  <!-- HOME FEED -->
+
+  <!-- HOME -->
+
   <section id="homeSection">
 
-    <div class="feed" id="feed">
+    <div
+      id="feed"
+      class="feed"
+    >
+
+      <!-- WELCOME POST -->
 
       <article class="card searchable">
-        <div class="cardHead">
-          <div class="avatar">Y</div>
-          <div>
-            <div class="userName">You</div>
-            <div class="small">Just now</div>
+
+        <div class="cardHeader">
+
+          <div class="avatar">
+            2
           </div>
+
+          <div>
+
+            <div class="userName">
+              two4nine
+            </div>
+
+            <div class="time">
+              Welcome
+            </div>
+
+          </div>
+
         </div>
 
         <div class="cardBody">
-          Welcome to <b>two4nine</b> ❤️<br>
-          Different Generations. One Place.
+
+          <b>Different Generations. One Place. ❤️</b>
+
+          <br><br>
+
+          News, people, memes, stories and conversations —
+          all in one place.
+
         </div>
 
         <div class="actions">
-          <button class="action">❤️ Like</button>
-          <button class="action">💬 Comment</button>
-          <button class="action">↗ Share</button>
+
+          <button class="actionButton">
+            ❤️ Like
+          </button>
+
+          <button class="actionButton">
+            💬 Comment
+          </button>
+
+          <button class="actionButton">
+            ↗ Share
+          </button>
+
         </div>
+
       </article>
 
+
+      <!-- DEMO NEWS -->
+
       <article class="card searchable">
-        <div class="cardHead">
-          <div class="avatar">📰</div>
-          <div>
-            <div class="userName">two4nine News</div>
-            <div class="small">Latest headlines</div>
+
+        <div class="cardHeader">
+
+          <div class="avatar">
+            📰
           </div>
+
+          <div>
+
+            <div class="userName">
+              two4nine News
+            </div>
+
+            <div class="time">
+              Latest
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="newsBox">
-          <div class="newsTitle">
+        <div class="newsCard">
+
+          <div
+            id="demoNewsTitle"
+            class="newsTitle"
+          >
             Loading latest news...
           </div>
-          <div class="newsSource">Google News</div>
+
+          <div class="newsSource">
+            Google News
+          </div>
+
         </div>
 
         <div class="actions">
-          <button class="action">❤️ Like</button>
-          <button class="action">💬 Comment</button>
-          <button class="action">↗ Share</button>
+
+          <button
+            id="demoNewsLink"
+            class="actionButton"
+          >
+            📰 Read
+          </button>
+
+          <button class="actionButton">
+            ❤️ Like
+          </button>
+
+          <button class="actionButton">
+            ↗ Share
+          </button>
+
         </div>
+
       </article>
 
+
+      <!-- MEME -->
+
       <article class="card searchable">
-        <div class="cardHead">
-          <div class="avatar">😂</div>
-          <div>
-            <div class="userName">two4nine Memes</div>
-            <div class="small">Community</div>
+
+        <div class="cardHeader">
+
+          <div class="avatar">
+            😂
           </div>
+
+          <div>
+
+            <div class="userName">
+              two4nine Memes
+            </div>
+
+            <div class="time">
+              Community
+            </div>
+
+          </div>
+
         </div>
 
         <div class="cardBody">
-          When you open your phone for 5 minutes...<br><br>
-          <b>2 hours later: 😭😂</b>
+
+          When you open your phone for 5 minutes...
+
+          <br><br>
+
+          <b>
+            2 hours later: 😭😂
+          </b>
+
         </div>
 
         <div class="actions">
-          <button class="action">❤️ Like</button>
-          <button class="action">💬 Comment</button>
-          <button class="action">↗ Share</button>
+
+          <button class="actionButton">
+            ❤️ Like
+          </button>
+
+          <button class="actionButton">
+            💬 Comment
+          </button>
+
+          <button class="actionButton">
+            ↗ Share
+          </button>
+
         </div>
+
       </article>
 
+
+      <!-- FIRESTORE POSTS WILL APPEAR HERE -->
+
+      <div id="communityPosts"></div>
+
+      <div
+        id="newsFeed"
+        class="feed"
+      ></div>
+
     </div>
 
-    <div id="newsFeed" class="feed"></div>
-
   </section>
+
 
   <!-- REELS -->
-  <section id="reelsSection" class="section">
 
-    <h2>🎬 Reels</h2>
+  <section id="reelsSection">
 
-    <div class="reel">
-      <div>
-        <div>🎥</div>
-        <div style="font-size:16px;margin-top:12px">
-          Reels are coming soon
-        </div>
-      </div>
+    <div class="reelsTitle">
+      🎬 Reels
     </div>
 
-    <div class="reel">
+
+    <div class="reelCard">
+
       <div>
-        <div>🔥</div>
-        <div style="font-size:16px;margin-top:12px">
-          Short videos from the community
+
+        <div class="reelEmoji">
+          🎥
         </div>
+
+        <div class="reelText">
+          Reels are coming soon
+        </div>
+
       </div>
+
+    </div>
+
+
+    <div class="reelCard">
+
+      <div>
+
+        <div class="reelEmoji">
+          🔥
+        </div>
+
+        <div class="reelText">
+          Short videos from the two4nine community
+        </div>
+
+      </div>
+
     </div>
 
   </section>
 
-</main>
+</div>
 
 
 <!-- BOTTOM NAV -->
-<nav class="bottom">
 
-  <button class="nav active" id="navHome" onclick="showHome()">
-    <span>⌂</span>
+<nav class="bottomNav">
+
+  <button
+    id="homeNav"
+    class="navButton active"
+    onclick="showHome()"
+  >
+    <span class="navIcon">⌂</span>
     Home
   </button>
 
-  <button class="nav" onclick="focusSearch()">
-    <span>⌕</span>
+
+  <button
+    class="navButton"
+    onclick="focusSearch()"
+  >
+    <span class="navIcon">⌕</span>
     Search
   </button>
 
-  <button class="nav" onclick="openPostCreator()">
-    <span>＋</span>
+
+  <button
+    class="navButton"
+    onclick="openPostCreator()"
+  >
+    <span class="navIcon">＋</span>
     Post
   </button>
 
-  <button class="nav" id="navReels" onclick="showReels()">
-    <span>▶</span>
+
+  <button
+    id="reelsNav"
+    class="navButton"
+    onclick="showReels()"
+  >
+    <span class="navIcon">▶</span>
     Reels
   </button>
 
-  <button class="nav" onclick="openNotifications()">
-    <span>♡</span>
+
+  <button
+    class="navButton"
+    onclick="openNotifications()"
+  >
+    <span class="navIcon">♡</span>
     Notifications
   </button>
 
 </nav>
 
 
-<!-- STORY CREATOR -->
-<div class="modal" id="storyModal">
+<!-- LOGIN MODAL -->
+
+<div
+  id="loginModal"
+  class="modal"
+>
 
   <div class="sheet">
 
-    <button class="close" onclick="closeModal('storyModal')">×</button>
+    <button
+      class="closeButton"
+      onclick="closeModal('loginModal')"
+    >
+      ×
+    </button>
 
-    <h2>＋ Your Story</h2>
+    <h2 class="sheetTitle">
+      Login
+    </h2>
 
-    <p class="small">
-      Text story • visible for 24 hours
-    </p>
+    <div class="subText">
+      Welcome back to two4nine 👋
+    </div>
+
+    <input
+      id="loginEmail"
+      class="authInput"
+      type="email"
+      placeholder="Email address"
+    >
+
+    <input
+      id="loginPassword"
+      class="authInput"
+      type="password"
+      placeholder="Password"
+    >
+
+    <button
+      class="primary"
+      onclick="loginUser()"
+    >
+      Login
+    </button>
+
+    <button
+      class="secondary"
+      onclick="openSignup()"
+    >
+      Create new account
+    </button>
+
+    <div
+      id="loginMessage"
+      class="authMessage"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- SIGNUP MODAL -->
+
+<div
+  id="signupModal"
+  class="modal"
+>
+
+  <div class="sheet">
+
+    <button
+      class="closeButton"
+      onclick="closeModal('signupModal')"
+    >
+      ×
+    </button>
+
+    <h2 class="sheetTitle">
+      Create account
+    </h2>
+
+    <div class="subText">
+      Join two4nine ❤️
+    </div>
+
+    <input
+      id="signupEmail"
+      class="authInput"
+      type="email"
+      placeholder="Email address"
+    >
+
+    <input
+      id="signupPassword"
+      class="authInput"
+      type="password"
+      placeholder="Password (minimum 6 characters)"
+    >
+
+    <button
+      class="primary"
+      onclick="signupUser()"
+    >
+      Create account
+    </button>
+
+    <button
+      class="secondary"
+      onclick="openLogin()"
+    >
+      Already have an account? Login
+    </button>
+
+    <div
+      id="signupMessage"
+      class="authMessage"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- STORY CREATOR -->
+
+<div
+  id="storyModal"
+  class="modal"
+>
+
+  <div class="sheet">
+
+    <button
+      class="closeButton"
+      onclick="closeModal('storyModal')"
+    >
+      ×
+    </button>
+
+    <h2 class="sheetTitle">
+      ＋ Your Story
+    </h2>
+
+    <div class="subText">
+      Text story • automatically hides after 24 hours
+    </div>
 
     <textarea
       id="storyText"
@@ -611,7 +1150,10 @@ textarea{
       placeholder="What's happening?"
     ></textarea>
 
-    <button class="primary" onclick="publishStory()">
+    <button
+      class="primary"
+      onclick="publishStory()"
+    >
       Publish Story
     </button>
 
@@ -621,16 +1163,35 @@ textarea{
 
 
 <!-- STORY VIEWER -->
-<div class="modal" id="storyViewer">
+
+<div
+  id="storyViewer"
+  class="modal"
+>
 
   <div class="sheet">
 
-    <button class="close" onclick="closeModal('storyViewer')">×</button>
+    <button
+      class="closeButton"
+      onclick="closeModal('storyViewer')"
+    >
+      ×
+    </button>
 
-    <h2 id="storyViewerName">Story</h2>
+    <h2
+      id="storyViewerName"
+      class="sheetTitle"
+    >
+      Story
+    </h2>
 
-    <div class="storyView">
-      <div class="storyText" id="storyViewerText"></div>
+    <div class="storyViewer">
+
+      <div
+        id="storyViewerText"
+        class="storyViewerText"
+      ></div>
+
     </div>
 
   </div>
@@ -639,13 +1200,28 @@ textarea{
 
 
 <!-- POST CREATOR -->
-<div class="modal" id="postModal">
+
+<div
+  id="postModal"
+  class="modal"
+>
 
   <div class="sheet">
 
-    <button class="close" onclick="closeModal('postModal')">×</button>
+    <button
+      class="closeButton"
+      onclick="closeModal('postModal')"
+    >
+      ×
+    </button>
 
-    <h2>Create Post</h2>
+    <h2 class="sheetTitle">
+      Create Post
+    </h2>
+
+    <div class="subText">
+      Share something with the community
+    </div>
 
     <textarea
       id="postText"
@@ -653,8 +1229,11 @@ textarea{
       placeholder="What's on your mind?"
     ></textarea>
 
-    <button class="primary" onclick="publishPost()">
-      Post
+    <button
+      class="primary"
+      onclick="publishPost()"
+    >
+      Publish Post
     </button>
 
   </div>
@@ -663,31 +1242,66 @@ textarea{
 
 
 <!-- MESSAGES -->
-<div class="modal" id="messagesModal">
+
+<div
+  id="messagesModal"
+  class="modal"
+>
 
   <div class="sheet">
 
-    <button class="close" onclick="closeModal('messagesModal')">×</button>
+    <button
+      class="closeButton"
+      onclick="closeModal('messagesModal')"
+    >
+      ×
+    </button>
 
-    <h2>💬 Messages</h2>
+    <h2 class="sheetTitle">
+      💬 Messages
+    </h2>
 
-    <div class="chat">
-      <div class="chatName">Rahul</div>
-      <div class="small">Hey! Welcome to two4nine 👋</div>
+    <div class="chatItem">
+
+      <div class="chatName">
+        Rahul
+      </div>
+
+      <div class="chatPreview">
+        Hey! Welcome to two4nine 👋
+      </div>
+
     </div>
 
-    <div class="chat">
-      <div class="chatName">Priya</div>
-      <div class="small">Did you see today's news?</div>
+
+    <div class="chatItem">
+
+      <div class="chatName">
+        Priya
+      </div>
+
+      <div class="chatPreview">
+        Did you see today's news?
+      </div>
+
     </div>
 
-    <div class="chat">
-      <div class="chatName">Aman</div>
-      <div class="small">Let's catch up later.</div>
+
+    <div class="chatItem">
+
+      <div class="chatName">
+        Aman
+      </div>
+
+      <div class="chatPreview">
+        Let's catch up later.
+      </div>
+
     </div>
 
-    <div class="notice">
-      🔒 Messages are private.
+
+    <div class="notification">
+      🔒 Private messages area
     </div>
 
   </div>
@@ -696,23 +1310,34 @@ textarea{
 
 
 <!-- NOTIFICATIONS -->
-<div class="modal" id="notificationsModal">
+
+<div
+  id="notificationsModal"
+  class="modal"
+>
 
   <div class="sheet">
 
-    <button class="close" onclick="closeModal('notificationsModal')">×</button>
+    <button
+      class="closeButton"
+      onclick="closeModal('notificationsModal')"
+    >
+      ×
+    </button>
 
-    <h2>♡ Notifications</h2>
+    <h2 class="sheetTitle">
+      ♡ Notifications
+    </h2>
 
-    <div class="notice">
+    <div class="notification">
       ❤️ Rahul liked your post.
     </div>
 
-    <div class="notice">
+    <div class="notification">
       💬 Priya commented on your post.
     </div>
 
-    <div class="notice">
+    <div class="notification">
       👋 Aman started following you.
     </div>
 
@@ -721,49 +1346,11 @@ textarea{
 </div>
 
 
-<!-- AUTH -->
-<div class="modal" id="authModal">
-
-  <div class="sheet">
-
-    <button class="close" onclick="closeModal('authModal')">×</button>
-
-    <h2 id="authTitle">Login</h2>
-
-    <input
-      class="authInput"
-      id="email"
-      type="email"
-      placeholder="Email"
-    >
-
-    <input
-      class="authInput"
-      id="password"
-      type="password"
-      placeholder="Password"
-    >
-
-    <button class="primary" onclick="loginUser()">
-      Login
-    </button>
-
-    <button class="linkBtn" onclick="signupUser()">
-      Create new account
-    </button>
-
-    <div id="authMessage" class="small"></div>
-
-  </div>
-
-</div>
-
-
 <script>
 
-/* =========================
-   FIREBASE
-========================= */
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYS5fr01fGoQ6RGUnojdoQKZwbmgrLVYU",
@@ -778,417 +1365,36 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
+
 const db = firebase.firestore();
 
 
-/* =========================
+/* =========================================
    AUTH STATE
-========================= */
+========================================= */
 
 auth.onAuthStateChanged(function(user){
 
-  const profile = document.getElementById("profileBtn");
+  const loginButton =
+    document.getElementById("loginButton");
+
+  const signupButton =
+    document.getElementById("signupButton");
+
+  const profileButton =
+    document.getElementById("profileButton");
+
 
   if(user){
 
-    profile.textContent =
-      (user.email || "U").charAt(0).toUpperCase();
+    loginButton.style.display = "none";
 
-  }else{
+    signupButton.style.display = "none";
 
-    profile.textContent = "?";
+    profileButton.style.display = "flex";
 
-  }
+    const email =
+      user.email || "U";
 
-});
-
-
-/* =========================
-   MODALS
-========================= */
-
-function openModal(id){
-  document.getElementById(id).classList.add("show");
-}
-
-function closeModal(id){
-  document.getElementById(id).classList.remove("show");
-}
-
-
-/* =========================
-   AUTH
-========================= */
-
-function openAuth(){
-
-  if(auth.currentUser){
-
-    if(confirm("Logout from two4nine?")){
-      auth.signOut();
-    }
-
-    return;
-  }
-
-  openModal("authModal");
-}
-
-function loginUser(){
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-  if(!email || !password){
-
-    document.getElementById("authMessage").textContent =
-      "Email and password required.";
-
-    return;
-  }
-
-  auth.signInWithEmailAndPassword(email,password)
-
-  .then(function(){
-
-    closeModal("authModal");
-
-  })
-
-  .catch(function(error){
-
-    document.getElementById("authMessage").textContent =
-      error.message;
-
-  });
-
-}
-
-function signupUser(){
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-  if(!email || !password){
-
-    document.getElementById("authMessage").textContent =
-      "Enter email and password.";
-
-    return;
-  }
-
-  if(password.length < 6){
-
-    document.getElementById("authMessage").textContent =
-      "Password must be at least 6 characters.";
-
-    return;
-  }
-
-  auth.createUserWithEmailAndPassword(email,password)
-
-  .then(function(){
-
-    closeModal("authModal");
-
-  })
-
-  .catch(function(error){
-
-    document.getElementById("authMessage").textContent =
-      error.message;
-
-  });
-
-}
-
-
-/* =========================
-   STORIES
-========================= */
-
-function openStoryCreator(){
-
-  if(!auth.currentUser){
-
-    alert("Please login first to post a Story.");
-
-    openAuth();
-
-    return;
-  }
-
-  document.getElementById("storyText").value = "";
-
-  openModal("storyModal");
-}
-
-
-async function publishStory(){
-
-  const user = auth.currentUser;
-
-  if(!user){
-
-    alert("Please login first.");
-
-    return;
-  }
-
-  const text =
-    document.getElementById("storyText").value.trim();
-
-  if(!text){
-
-    alert("Story mein kuch likho.");
-
-    return;
-  }
-
-  const now = firebase.firestore.Timestamp.now();
-
-  const expiresAt =
-    firebase.firestore.Timestamp.fromDate(
-      new Date(Date.now() + 24 * 60 * 60 * 1000)
-    );
-
-  try{
-
-    await db.collection("stories").add({
-
-      uid:user.uid,
-
-      email:user.email || "",
-
-      text:text,
-
-      createdAt:now,
-
-      expiresAt:expiresAt
-
-    });
-
-    document.getElementById("storyText").value = "";
-
-    closeModal("storyModal");
-
-    alert("Story published! 🎉");
-
-    loadStories();
-
-  }catch(error){
-
-    console.error(error);
-
-    alert("Story publish nahi hui: " + error.message);
-
-  }
-
-}
-
-
-/* =========================
-   LOAD STORIES
-========================= */
-
-function loadStories(){
-
-  const box =
-    document.getElementById("realStories");
-
-  box.innerHTML = "";
-
-  db.collection("stories")
-    .where(
-      "expiresAt",
-      ">",
-      firebase.firestore.Timestamp.now()
-    )
-    .orderBy("expiresAt","asc")
-    .limit(20)
-    .get()
-
-    .then(function(snapshot){
-
-      snapshot.forEach(function(doc){
-
-        const data = doc.data();
-
-        const name =
-          data.email
-          ? data.email.split("@")[0]
-          : "User";
-
-        const first =
-          name.charAt(0).toUpperCase();
-
-        const story =
-          document.createElement("div");
-
-        story.className = "story";
-
-        story.innerHTML = `
-          <div class="storyCircle">
-            <div class="storyInner">${first}</div>
-          </div>
-          ${escapeHtml(name)}
-        `;
-
-        story.onclick = function(){
-
-          viewStory(
-            name,
-            data.text
-          );
-
-        };
-
-        box.appendChild(story);
-
-      });
-
-    })
-
-    .catch(function(error){
-
-      console.log("Stories error:",error);
-
-    });
-
-}
-
-
-function viewStory(name,text){
-
-  document.getElementById("storyViewerName").textContent =
-    name + "'s Story";
-
-  document.getElementById("storyViewerText").textContent =
-    text;
-
-  openModal("storyViewer");
-
-}
-
-
-/* =========================
-   POST
-========================= */
-
-function openPostCreator(){
-
-  if(!auth.currentUser){
-
-    alert("Please login first to create a post.");
-
-    openAuth();
-
-    return;
-  }
-
-  document.getElementById("postText").value = "";
-
-  openModal("postModal");
-}
-
-
-async function publishPost(){
-
-  const user = auth.currentUser;
-
-  if(!user){
-
-    return;
-  }
-
-  const text =
-    document.getElementById("postText").value.trim();
-
-  if(!text){
-
-    alert("Post mein kuch likho.");
-
-    return;
-  }
-
-  try{
-
-    await db.collection("posts").add({
-
-      uid:user.uid,
-
-      email:user.email || "",
-
-      text:text,
-
-      createdAt:
-        firebase.firestore.FieldValue.serverTimestamp()
-
-    });
-
-    document.getElementById("postText").value = "";
-
-    closeModal("postModal");
-
-    alert("Post published! 🎉");
-
-    loadPosts();
-
-  }catch(error){
-
-    alert("Post publish nahi hui: " + error.message);
-
-  }
-
-}
-
-
-/* =========================
-   LOAD POSTS
-========================= */
-
-function loadPosts(){
-
-  db.collection("posts")
-    .orderBy("createdAt","desc")
-    .limit(20)
-    .get()
-
-    .then(function(snapshot){
-
-      const feed =
-        document.getElementById("feed");
-
-      snapshot.forEach(function(doc){
-
-        const data = doc.data();
-
-        const name =
-          data.email
-          ? data.email.split("@")[0]
-          : "User";
-
-        const card =
-          document.createElement("article");
-
-        card.className = "card searchable";
-
-        card.innerHTML = `
-
-          <div class="cardHead">
-
-            <div class="avatar">
-              ${name.charAt(0).toUpperCase()}
-            </div>
-
-            <div>
-
-              <div class="userName">
-                ${escapeHtml(name)}
-              <
+    profileButton.textContent =
+      email.charAt(
