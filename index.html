@@ -2,563 +2,309 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#070a0f">
-<meta name="description" content="two4nine - latest world news, India, technology, business, sports and entertainment">
-<title>two4nine - Hot News</title>
+<title>two4nine — News & Memes</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   background:#070a0f;
   color:#f5f7fb;
   font-family:Arial,Helvetica,sans-serif;
-  line-height:1.4;
 }
 
-button,
-input{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* HEADER */
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
 
 .header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(7,10,15,.97);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid #232a35;
+  z-index:99;
+  background:#070a0f;
+  border-bottom:1px solid #252b35;
 }
 
-.headerTop{
-  max-width:1150px;
+.top{
+  max-width:1100px;
   margin:auto;
-  padding:13px 15px;
+  padding:14px;
   display:flex;
   align-items:center;
-  gap:13px;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
 .logo{
-  font-size:24px;
+  font-size:25px;
   font-weight:900;
-  letter-spacing:-1px;
-  white-space:nowrap;
 }
 
-.logo span{
-  color:#8064ff;
-}
+.logo b{color:#8064ff}
 
 .live{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  color:#72ff9f;
+  color:#5cff91;
   font-size:10px;
-  font-weight:900;
-  white-space:nowrap;
+  font-weight:bold;
 }
 
-.liveDot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#36ff78;
-  box-shadow:0 0 10px #36ff78;
-}
-
-/* SEARCH */
-
-.searchBox{
+.search{
   margin-left:auto;
-  width:270px;
+  width:280px;
   position:relative;
 }
 
-.searchInput{
+.search input{
   width:100%;
   height:42px;
-  padding:0 70px 0 14px;
-  border:1px solid #2c3441;
-  border-radius:12px;
-  outline:none;
   background:#111620;
-  color:#fff;
-  font-size:13px;
+  border:1px solid #303846;
+  border-radius:12px;
+  padding:0 48px 0 13px;
+  color:white;
+  outline:none;
 }
 
-.searchInput:focus{
+.search input:focus{
   border-color:#8064ff;
-  box-shadow:0 0 0 2px rgba(128,100,255,.12);
 }
 
-.searchInput::placeholder{
-  color:#707989;
-}
-
-.searchButtons{
+.search button{
   position:absolute;
   right:5px;
   top:5px;
   height:32px;
-  display:flex;
-  gap:3px;
-}
-
-.searchButtons button{
+  width:34px;
   border:0;
   border-radius:8px;
-  background:#202633;
-  color:#aeb6c4;
-  min-width:30px;
-  padding:0 7px;
-}
-
-.searchButtons button:hover{
   background:#8064ff;
   color:white;
 }
 
-/* CATEGORIES */
-
 .categories{
-  max-width:1150px;
+  max-width:1100px;
   margin:auto;
-  padding:0 14px 11px;
+  padding:0 14px 12px;
   display:flex;
   gap:7px;
   overflow-x:auto;
-  scrollbar-width:none;
 }
 
-.categories::-webkit-scrollbar{
-  display:none;
-}
-
-.category{
-  flex:0 0 auto;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid #2a313d;
+.cat{
+  flex:none;
+  border:1px solid #2b323e;
   background:#111620;
-  color:#aeb6c4;
+  color:#aeb6c3;
+  padding:8px 13px;
+  border-radius:30px;
   font-size:12px;
-  font-weight:800;
+  font-weight:bold;
 }
 
-.category.active{
+.cat.active{
   background:#8064ff;
-  border-color:#8064ff;
   color:white;
+  border-color:#8064ff;
 }
-
-/* MAIN */
 
 main{
-  max-width:1150px;
+  max-width:1100px;
   margin:auto;
-  padding:16px 15px 90px;
+  padding:16px 14px 80px;
 }
 
-/* HERO */
-
 .hero{
-  min-height:275px;
-  border:1px solid #29313e;
-  border-radius:23px;
+  min-height:280px;
+  border:1px solid #2c3440;
+  border-radius:22px;
   padding:25px;
-  background:
-    radial-gradient(circle at 85% 15%,rgba(128,100,255,.35),transparent 34%),
-    radial-gradient(circle at 10% 85%,rgba(0,210,255,.13),transparent 28%),
-    linear-gradient(135deg,#111722,#090c12);
   display:flex;
   flex-direction:column;
   justify-content:center;
+  background:
+    radial-gradient(circle at 85% 15%,#302368,transparent 35%),
+    linear-gradient(135deg,#131923,#090c12);
 }
 
-.heroSmall{
-  color:#858e9d;
+.hero small{
+  color:#7e8999;
   font-size:10px;
-  font-weight:900;
-  letter-spacing:1.5px;
-  margin-bottom:9px;
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
 .hero h1{
-  font-size:clamp(42px,8vw,72px);
-  line-height:.94;
+  font-size:clamp(42px,8vw,70px);
+  line-height:.95;
   letter-spacing:-4px;
+  margin-top:8px;
 }
 
-.hero h1 span{
-  color:#8064ff;
-}
+.hero h1 span{color:#8064ff}
 
 .hero p{
-  max-width:680px;
-  color:#a9b1bf;
-  font-size:14px;
-  margin-top:16px;
-}
-
-.heroButtons{
-  display:flex;
-  gap:9px;
-  margin-top:20px;
-  flex-wrap:wrap;
-}
-
-.primaryButton,
-.secondaryButton{
-  border-radius:11px;
-  padding:11px 15px;
-  font-weight:800;
-  font-size:13px;
-}
-
-.primaryButton{
-  background:#8064ff;
-  border:1px solid #8064ff;
-  color:white;
-}
-
-.secondaryButton{
-  background:#171d27;
-  border:1px solid #2b3340;
-  color:#d8dde6;
-}
-
-/* BIRTHDAY */
-
-.birthday{
-  display:none;
+  color:#a6afbc;
+  max-width:650px;
   margin-top:15px;
-  text-align:center;
-  padding:20px;
-  border-radius:19px;
-  border:1px solid #5c48d8;
-  background:linear-gradient(135deg,#261d53,#10172c);
+  font-size:14px;
 }
 
-.birthday.show{
-  display:block;
+.hero button{
+  width:max-content;
+  margin-top:20px;
+  border:0;
+  background:#8064ff;
+  color:white;
+  padding:11px 16px;
+  border-radius:11px;
+  font-weight:bold;
 }
-
-.birthdayEmoji{
-  font-size:34px;
-}
-
-.birthday h2{
-  margin-top:4px;
-  font-size:21px;
-}
-
-.birthday p{
-  color:#b8c0ce;
-  margin-top:5px;
-  font-size:13px;
-}
-
-/* SECTION */
 
 .section{
-  margin-top:29px;
+  margin-top:30px;
 }
 
-.sectionHead{
+.heading{
   display:flex;
-  align-items:flex-end;
   justify-content:space-between;
+  align-items:end;
   margin-bottom:13px;
 }
 
-.sectionHead h2{
-  font-size:23px;
-}
+.heading h2{font-size:23px}
+.heading small{color:#687282;font-size:11px}
 
-.sectionHead small{
-  color:#747e8e;
-  font-size:11px;
-}
-
-/* HOT */
-
-.hotGrid{
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
-  gap:12px;
-}
-
-.hotCard{
-  position:relative;
-  overflow:hidden;
-  min-height:215px;
-  border-radius:18px;
-  border:1px solid #2b323e;
-  background:#111620;
-}
-
-.hotCard:first-child{
-  min-height:300px;
-}
-
-.hotBackground{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 75% 20%,rgba(255,72,82,.25),transparent 32%),
-    radial-gradient(circle at 20% 80%,rgba(128,100,255,.18),transparent 35%),
-    linear-gradient(135deg,#1b212c,#090c12);
-}
-
-.hotContent{
-  position:absolute;
-  inset:0;
-  padding:17px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  background:linear-gradient(transparent 20%,rgba(5,7,11,.96));
-}
-
-.hotBadge{
-  align-self:flex-start;
-  margin-bottom:auto;
-  background:#ff4050;
-  color:white;
-  border-radius:6px;
-  padding:5px 8px;
-  font-size:9px;
-  font-weight:900;
-}
-
-.hotContent h3{
-  font-size:17px;
-  line-height:1.3;
-}
-
-.hotCard:first-child h3{
-  font-size:23px;
-}
-
-.hotMeta{
-  margin-top:8px;
-  color:#8b95a5;
-  font-size:10px;
-}
-
-/* NEWS */
-
-.newsGrid{
+.grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:13px;
 }
 
-.newsCard{
-  overflow:hidden;
-  border:1px solid #252d39;
+.card{
+  border:1px solid #272f3a;
   border-radius:17px;
-  background:#0e131b;
+  background:#0f141c;
+  padding:17px;
+  min-height:185px;
   transition:.2s;
 }
 
-.newsCard:hover{
+.card:hover{
   transform:translateY(-3px);
-  border-color:#5b49bd;
+  border-color:#8064ff;
 }
 
-.newsImage{
-  height:145px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 75% 20%,rgba(128,100,255,.3),transparent 32%),
-    linear-gradient(135deg,#171d27,#090c12);
-}
-
-.newsImage img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.imageFallback{
-  font-size:38px;
-}
-
-.newsBody{
-  padding:14px;
-}
-
-.newsTag{
-  color:#927eff;
+.tag{
+  color:#907dff;
   font-size:10px;
-  font-weight:900;
+  font-weight:bold;
   text-transform:uppercase;
-  margin-bottom:7px;
+  margin-bottom:9px;
 }
 
-.newsTitle{
-  font-size:16px;
+.card h3{
+  font-size:17px;
   line-height:1.35;
 }
 
-.newsDescription{
-  color:#8d96a5;
+.card p{
+  color:#838d9c;
   font-size:12px;
   line-height:1.45;
-  margin-top:7px;
+  margin-top:8px;
 }
 
-.newsMeta{
-  color:#626b7a;
+.meta{
+  color:#5f6978;
   font-size:10px;
-  margin-top:10px;
+  margin-top:13px;
 }
 
-/* TRENDS */
+.hot{
+  border-color:#493e80;
+  background:
+    radial-gradient(circle at 90% 10%,#3a255f,transparent 35%),
+    #10141d;
+}
 
-.trendGrid{
-  display:grid;
+.trends{
   grid-template-columns:repeat(4,1fr);
-  gap:10px;
 }
 
-.trendCard{
-  min-height:105px;
-  padding:15px;
-  border-radius:15px;
-  border:1px solid #252d39;
-  background:#0f141d;
+.trend{
+  min-height:100px;
 }
 
-.trendRank{
+.rank{
   color:#8064ff;
+  font-weight:bold;
   font-size:11px;
-  font-weight:900;
 }
 
-.trendCard p{
-  margin-top:7px;
-  color:#d9dee6;
-  font-size:13px;
-  line-height:1.4;
-}
-
-/* MEMES */
-
-.memeGrid{
-  display:grid;
+.memes{
   grid-template-columns:repeat(3,1fr);
-  gap:13px;
 }
 
 .meme{
-  min-height:180px;
-  padding:19px;
-  border-radius:18px;
-  border:1px solid #29313d;
-  background:linear-gradient(135deg,#171e2b,#0e1219);
+  min-height:175px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-}
-
-.meme:nth-child(2){
-  background:linear-gradient(135deg,#211a31,#0e1219);
-}
-
-.meme:nth-child(3){
-  background:linear-gradient(135deg,#102827,#0e1219);
-}
-
-.meme:nth-child(4){
-  background:linear-gradient(135deg,#2b2115,#0e1219);
-}
-
-.meme:nth-child(5){
-  background:linear-gradient(135deg,#211727,#0e1219);
-}
-
-.meme:nth-child(6){
-  background:linear-gradient(135deg,#17202d,#0e1219);
+  background:linear-gradient(135deg,#171d29,#0e1219);
 }
 
 .memeIcon{
   font-size:40px;
 }
 
-.meme h3{
-  font-size:16px;
+.meme p{margin-top:5px}
+
+.birthday{
+  display:none;
+  margin-top:15px;
+  padding:20px;
+  text-align:center;
+  border:1px solid #6652dd;
+  border-radius:18px;
+  background:#191531;
 }
 
-.meme p{
-  color:#838d9d;
-  font-size:11px;
-  margin-top:5px;
-}
+.birthday.show{display:block}
 
-/* EMPTY */
+.birthday div{font-size:35px}
 
 .empty{
   grid-column:1/-1;
   text-align:center;
-  padding:28px 15px;
-  border:1px dashed #303845;
-  border-radius:16px;
-  color:#77808f;
+  padding:35px 15px;
+  border:1px dashed #343c48;
+  border-radius:15px;
+  color:#778190;
 }
 
-.empty strong{
+.empty b{
   display:block;
-  color:#c4cad3;
-  font-size:15px;
+  color:#cbd1da;
   margin-bottom:5px;
 }
 
-/* FOOTER */
-
 .footer{
-  text-align:center;
-  color:#555e6c;
-  font-size:10px;
   margin-top:40px;
+  text-align:center;
+  color:#555e6b;
+  font-size:10px;
 }
 
-/* BOTTOM */
-
-.bottomNav{
+.bottom{
   position:fixed;
+  bottom:0;
   left:0;
   right:0;
-  bottom:0;
-  z-index:999;
-  background:rgba(7,10,15,.98);
-  border-top:1px solid #222934;
+  background:#080b10;
+  border-top:1px solid #252b35;
+  z-index:100;
 }
 
 .bottomInner{
@@ -566,205 +312,91 @@ main{
   margin:auto;
   display:flex;
   justify-content:space-around;
-  padding:8px 5px;
+  padding:8px;
 }
 
-.bottomButton{
+.bottom button{
   background:none;
   border:0;
-  color:#7d8694;
+  color:#858e9c;
   font-size:10px;
-  font-weight:800;
-  padding:2px 12px;
 }
 
-.bottomButton:hover{
-  color:white;
+@media(max-width:800px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .trends{grid-template-columns:repeat(2,1fr)}
+  .memes{grid-template-columns:repeat(2,1fr)}
 }
 
-/* MOBILE */
-
-@media(max-width:850px){
-
-  .hotGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .hotCard:first-child{
-    grid-column:1/-1;
-  }
-
-  .newsGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .trendGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .memeGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-}
-
-@media(max-width:650px){
-
-  .headerTop{
-    flex-wrap:wrap;
-  }
-
-  .live{
-    margin-left:auto;
-  }
-
-  .searchBox{
+@media(max-width:600px){
+  .search{
     width:100%;
     margin-left:0;
   }
 
-  main{
-    padding:14px 12px 85px;
+  .grid{
+    grid-template-columns:1fr;
   }
 
-  .hero{
-    padding:22px;
-    min-height:275px;
+  .trends{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .memes{
+    grid-template-columns:1fr 1fr;
   }
 
   .hero h1{
     font-size:47px;
   }
-
-  .hotGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .hotCard{
-    min-height:190px;
-  }
-
-  .hotCard:first-child{
-    min-height:250px;
-  }
-
-  .hotCard:first-child h3{
-    font-size:20px;
-  }
-
-  .newsGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .memeGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .meme{
-    min-height:175px;
-    padding:16px;
-  }
-
 }
 
-@media(max-width:430px){
-
-  .newsGrid{
-    grid-template-columns:1fr;
-  }
-
-  .hotCard:first-child{
-    grid-column:1/-1;
-  }
-
+@media(max-width:380px){
+  .memes{grid-template-columns:1fr}
 }
 </style>
 </head>
 
-<body id="top">
+<body>
 
 <header class="header">
 
-  <div class="headerTop">
+  <div class="top">
 
     <div class="logo">
-      two<span>4</span>nine
+      two<b>4</b>nine
     </div>
 
-    <div class="live">
-      <i class="liveDot"></i>
-      LIVE WORLD
-    </div>
+    <div class="live">● LIVE NEWS</div>
 
-    <div class="searchBox">
+    <div class="search">
 
       <input
-        id="searchInput"
-        class="searchInput"
+        id="search"
         type="search"
-        autocomplete="off"
         placeholder="Search news..."
-        aria-label="Search news"
       >
 
-      <div class="searchButtons">
-
-        <button
-          id="clearSearch"
-          type="button"
-          title="Clear"
-        >×</button>
-
-        <button
-          id="searchButton"
-          type="button"
-          title="Search"
-        >🔎</button>
-
-      </div>
+      <button
+        id="searchBtn"
+        type="button"
+      >🔎</button>
 
     </div>
 
   </div>
 
-
   <div class="categories">
 
-    <button class="category active" data-category="All">
-      All
-    </button>
-
-    <button class="category" data-category="World">
-      🌍 World
-    </button>
-
-    <button class="category" data-category="India">
-      🇮🇳 India
-    </button>
-
-    <button class="category" data-category="Technology">
-      🤖 Tech
-    </button>
-
-    <button class="category" data-category="Business">
-      💰 Business
-    </button>
-
-    <button class="category" data-category="Sports">
-      ⚽ Sports
-    </button>
-
-    <button class="category" data-category="Entertainment">
-      🎬 Entertainment
-    </button>
-
-    <button class="category" data-category="Science">
-      🔬 Science
-    </button>
-
-    <button class="category" data-category="Health">
-      🏥 Health
-    </button>
+    <button class="cat active" data-cat="All">All</button>
+    <button class="cat" data-cat="World">🌍 World</button>
+    <button class="cat" data-cat="India">🇮🇳 India</button>
+    <button class="cat" data-cat="Technology">🤖 Tech</button>
+    <button class="cat" data-cat="Business">💰 Business</button>
+    <button class="cat" data-cat="Sports">⚽ Sports</button>
+    <button class="cat" data-cat="Entertainment">🎬 Entertainment</button>
+    <button class="cat" data-cat="Science">🔬 Science</button>
+    <button class="cat" data-cat="Health">🏥 Health</button>
 
   </div>
 
@@ -775,9 +407,7 @@ main{
 
   <section class="hero">
 
-    <div class="heroSmall">
-      TWO4NINE / GLOBAL NEWS DESK
-    </div>
+    <small>TWO4NINE / NEWS DESK</small>
 
     <h1>
       What's<br>
@@ -785,29 +415,13 @@ main{
     </h1>
 
     <p>
-      Latest world headlines, India, technology, business,
-      markets, sports and entertainment in one place.
+      World news, India, technology, business, sports,
+      entertainment and more — all in one place.
     </p>
 
-    <div class="heroButtons">
-
-      <button
-        class="primaryButton"
-        id="refreshButton"
-        type="button"
-      >
-        🔄 Refresh News
-      </button>
-
-      <button
-        class="secondaryButton"
-        id="liveButton"
-        type="button"
-      >
-        🔴 Live Search
-      </button>
-
-    </div>
+    <button onclick="showAll()">
+      📰 Explore News
+    </button>
 
   </section>
 
@@ -816,143 +430,84 @@ main{
     id="birthday"
     class="birthday"
   >
-
-    <div class="birthdayEmoji">
-      🎂🎉✨
-    </div>
-
-    <h2>
-      Happy Birthday from two4nine!
-    </h2>
-
-    <p>
-      Wishing you an amazing day ❤️
-    </p>
-
+    <div>🎂🎉✨</div>
+    <h2>Happy Birthday from two4nine!</h2>
+    <p>Wishing you an amazing day ❤️</p>
   </section>
 
 
-  <!-- HOT NEWS -->
-
   <section class="section">
 
-    <div class="sectionHead">
-
-      <div>
-        <h2>🔥 Hot Now</h2>
-        <small>Top stories right now</small>
-      </div>
-
-      <small id="hotStatus">
-        Loading...
-      </small>
-
+    <div class="heading">
+      <h2>🔥 Hot Now</h2>
+      <small>Top stories</small>
     </div>
 
     <div
       id="hotGrid"
-      class="hotGrid"
-    >
-
-      <div class="empty">
-        <strong>Loading hot news...</strong>
-        Please wait.
-      </div>
-
-    </div>
+      class="grid"
+    ></div>
 
   </section>
 
-
-  <!-- LATEST NEWS -->
 
   <section
     class="section"
     id="news"
   >
 
-    <div class="sectionHead">
+    <div class="heading">
 
       <div>
         <h2>📰 Latest News</h2>
-
-        <small id="updateText">
-          Connecting to news...
+        <small id="status">
+          Today’s news desk
         </small>
-
       </div>
 
-      <small id="storyCount"></small>
+      <small id="count"></small>
 
     </div>
-
 
     <div
       id="newsGrid"
-      class="newsGrid"
-    >
-
-      <div class="empty">
-        <strong>Loading latest news...</strong>
-        Please wait.
-      </div>
-
-    </div>
+      class="grid"
+    ></div>
 
   </section>
 
-
-  <!-- TRENDING -->
 
   <section
     class="section"
     id="trends"
   >
 
-    <div class="sectionHead">
-
-      <div>
-        <h2>📈 Trending</h2>
-        <small>Popular recent headlines</small>
-      </div>
-
+    <div class="heading">
+      <h2>📈 Trending</h2>
+      <small>Popular topics</small>
     </div>
-
 
     <div
       id="trendGrid"
-      class="trendGrid"
-    >
-
-      <div class="empty">
-        Loading trends...
-      </div>
-
-    </div>
+      class="grid trends"
+    ></div>
 
   </section>
 
-
-  <!-- MEMES -->
 
   <section
     class="section"
     id="memes"
   >
 
-    <div class="sectionHead">
-
-      <div>
-        <h2>😂 Meme Zone</h2>
-        <small>News needs some humour</small>
-      </div>
-
+    <div class="heading">
+      <h2>😂 Meme Zone</h2>
+      <small>Because news needs humour</small>
     </div>
 
+    <div class="grid memes">
 
-    <div class="memeGrid">
-
-      <div class="meme">
+      <div class="card meme">
         <div class="memeIcon">🌍</div>
         <div>
           <h3>World news at 2 AM</h3>
@@ -960,31 +515,31 @@ main{
         </div>
       </div>
 
-      <div class="meme">
+      <div class="card meme">
         <div class="memeIcon">📱</div>
         <div>
-          <h3>“Just one quick scroll”</h3>
+          <h3>Just one quick scroll</h3>
           <p>Two hours later...</p>
         </div>
       </div>
 
-      <div class="meme">
+      <div class="card meme">
         <div class="memeIcon">🤖</div>
         <div>
-          <h3>AI is changing everything</h3>
-          <p>Me: still looking for Wi-Fi.</p>
+          <h3>AI is everywhere</h3>
+          <p>Even my autocorrect has opinions.</p>
         </div>
       </div>
 
-      <div class="meme">
+      <div class="card meme">
         <div class="memeIcon">☕</div>
         <div>
-          <h3>News + coffee = survival</h3>
+          <h3>News + coffee</h3>
           <p>The real morning update.</p>
         </div>
       </div>
 
-      <div class="meme">
+      <div class="card meme">
         <div class="memeIcon">😂</div>
         <div>
           <h3>Breaking News!</h3>
@@ -992,10 +547,10 @@ main{
         </div>
       </div>
 
-      <div class="meme">
+      <div class="card meme">
         <div class="memeIcon">🔥</div>
         <div>
-          <h3>Timeline after midnight</h3>
+          <h3>After midnight</h3>
           <p>Nobody is sleeping.</p>
         </div>
       </div>
@@ -1006,317 +561,479 @@ main{
 
 
   <div class="footer">
-    © 2026 two4nine · News belongs to original publishers.
+    © 2026 two4nine · News & Memes
   </div>
 
 </main>
 
 
-<nav class="bottomNav">
+<div class="bottom">
 
   <div class="bottomInner">
 
-    <button
-      class="bottomButton"
-      type="button"
-      onclick="goTop()"
-    >
-      ⌂<br>Home
+    <button onclick="goTop()">
+      🏠<br>Home
     </button>
 
-    <button
-      class="bottomButton"
-      type="button"
-      onclick="goTo('news')"
-    >
+    <button onclick="goTo('news')">
       📰<br>News
     </button>
 
-    <button
-      class="bottomButton"
-      type="button"
-      onclick="goTo('memes')"
-    >
+    <button onclick="goTo('memes')">
       😂<br>Memes
     </button>
 
-    <button
-      class="bottomButton"
-      type="button"
-      onclick="goTo('trends')"
-    >
+    <button onclick="goTo('trends')">
       📈<br>Trends
     </button>
 
   </div>
 
-</nav>
+</div>
 
 
 <script>
 
-/* =====================================================
-   SETTINGS
-===================================================== */
+/* ===============================
+   LOCAL NEWS
+   No API
+   No loading
+   No CORS
+================================ */
 
-const RSS_API =
-  "https://api.rss2json.com/v1/api.json?rss_url=";
+const news = [
 
+  {
+    cat:"World",
+    title:"Global leaders focus on major international developments",
+    desc:"Leaders and governments continue discussions on security, trade and global cooperation.",
+    source:"World Desk"
+  },
 
-/* =====================================================
-   NEWS FEEDS
-===================================================== */
+  {
+    cat:"World",
+    title:"International markets watch global economic signals",
+    desc:"Investors continue monitoring inflation, trade and geopolitical developments.",
+    source:"Global Business"
+  },
 
-const feeds = {
+  {
+    cat:"India",
+    title:"India continues focus on growth, technology and infrastructure",
+    desc:"Major developments across India's economy, infrastructure and technology sectors.",
+    source:"India Desk"
+  },
 
-  World:
-    "https://news.google.com/rss/search?q=world+international+news+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
+  {
+    cat:"India",
+    title:"Digital services continue expanding across India",
+    desc:"Technology and digital platforms remain important parts of India's rapidly changing economy.",
+    source:"India Today"
+  },
 
-  India:
-    "https://news.google.com/rss/search?q=India+news+when%3A1d&hl=en-IN&gl=IN&ceid=IN%3Aen",
+  {
+    cat:"Technology",
+    title:"Artificial intelligence remains a major technology trend",
+    desc:"AI development continues to influence software, business and everyday digital products.",
+    source:"Tech Desk"
+  },
 
-  Technology:
-    "https://news.google.com/rss/search?q=technology+AI+artificial+intelligence+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
+  {
+    cat:"Technology",
+    title:"New generation of digital tools changes online work",
+    desc:"Companies continue developing smarter tools for communication, productivity and creativity.",
+    source:"Technology Desk"
+  },
 
-  Business:
-    "https://news.google.com/rss/search?q=business+economy+markets+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen",
+  {
+    cat:"Business",
+    title:"Businesses watch markets and changing consumer demand",
+    desc:"Companies continue adapting strategies as economic conditions and consumer behaviour evolve.",
+    source:"Business Desk"
+  },
 
-  Sports:
-    "https://news.google.com/rss/search?q=sports+football+cricket+when%3A1d+-stream+-streaming+-livestream+-broadcast&hl=en-US&gl=US&ceid=US%3Aen",
+  {
+    cat:"Business",
+    title:"Technology companies continue investing in innovation",
+    desc:"Investment in software, cloud services and artificial intelligence remains a major business focus.",
+    source:"Markets Desk"
+  },
 
-  Entertainment:
-    "https://news.google.com/rss/search?q=entertainment+movies+music+when%3A2d&hl=en-US&gl=US&ceid=US%3Aen",
+  {
+    cat:"Sports",
+    title:"Major sporting events attract fans around the world",
+    desc:"Teams and athletes continue competing across international sporting events.",
+    source:"Sports Desk"
+  },
 
-  Science:
-    "https://news.google.com/rss/search?q=science+space+research+when%3A2d&hl=en-US&gl=US&ceid=US%3Aen",
+  {
+    cat:"Sports",
+    title:"Cricket and football remain among the world's biggest sports",
+    desc:"Fans continue following major tournaments, teams and players.",
+    source:"Sports Desk"
+  },
 
-  Health:
-    "https://news.google.com/rss/search?q=health+medicine+medical+when%3A2d&hl=en-US&gl=US&ceid=US%3Aen"
+  {
+    cat:"Entertainment",
+    title:"Movies and streaming continue shaping entertainment",
+    desc:"Studios and streaming platforms compete for audiences with new releases and original content.",
+    source:"Entertainment Desk"
+  },
 
-};
+  {
+    cat:"Entertainment",
+    title:"Music industry embraces new digital trends",
+    desc:"Artists continue using digital platforms to reach audiences around the world.",
+    source:"Entertainment Desk"
+  },
 
+  {
+    cat:"Science",
+    title:"Scientists continue studying space and the changing universe",
+    desc:"Researchers are working on new discoveries across astronomy, physics and planetary science.",
+    source:"Science Desk"
+  },
 
-/* =====================================================
-   BAD / SPAM WORDS
-===================================================== */
+  {
+    cat:"Science",
+    title:"Research teams explore new possibilities in science",
+    desc:"New studies continue expanding understanding of technology, nature and the universe.",
+    source:"Science Desk"
+  },
 
-const blockedWords = [
+  {
+    cat:"Health",
+    title:"Health researchers continue studying new medical solutions",
+    desc:"Researchers around the world continue working on prevention, diagnosis and treatment.",
+    source:"Health Desk"
+  },
 
-  "loughborough",
-  "free stream",
-  "free streaming",
-  "live stream",
-  "livestream",
-  "watch live",
-  "stream live",
-  "live broadcast",
-  "football game live",
-  "game live",
-  "tv channel",
-  "on tv",
-  "free today",
-  "watch online",
-  "hd stream",
-  "streaming free",
-  "buffstreams",
-  "methstreams",
-  "vipbox",
-  "crackstreams",
-  "streameast"
+  {
+    cat:"Health",
+    title:"Digital health technology continues to grow",
+    desc:"Technology is increasingly being used to improve healthcare access and information.",
+    source:"Health Desk"
+  }
 
 ];
 
 
-/* =====================================================
+/* ===============================
    STATE
-===================================================== */
+================================ */
 
-let allNews = [];
-
-let currentCategory = "All";
+let category = "All";
 
 
-/* =====================================================
-   TEXT HELPERS
-===================================================== */
+/* ===============================
+   RENDER NEWS
+================================ */
 
-function cleanText(text){
+function render(){
 
-  const div =
-    document.createElement("div");
-
-  div.innerHTML =
-    text || "";
-
-  return (
-    div.textContent ||
-    div.innerText ||
-    ""
-  ).trim();
-
-}
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
 
 
-function escapeHTML(text){
+  const filtered =
+    news.filter(item => {
 
-  return String(text || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
+      const categoryMatch =
+        category === "All" ||
+        item.cat === category;
 
 
-function timeAgo(dateText){
+      const searchMatch =
+        !search ||
+        item.title.toLowerCase().includes(search) ||
+        item.desc.toLowerCase().includes(search) ||
+        item.source.toLowerCase().includes(search);
 
-  const date =
-    new Date(dateText);
 
-  if(
-    isNaN(
-      date.getTime()
-    )
-  ){
-    return "Latest";
-  }
+      return categoryMatch && searchMatch;
 
-  const seconds =
-    Math.floor(
-      (Date.now() - date.getTime()) /
-      1000
+    });
+
+
+  const grid =
+    document.getElementById(
+      "newsGrid"
     );
 
-  if(seconds < 60){
-    return "Just now";
+
+  document.getElementById(
+    "count"
+  ).textContent =
+    filtered.length + " stories";
+
+
+  if(!filtered.length){
+
+    grid.innerHTML = `
+      <div class="empty">
+        <b>🔎 No news found</b>
+        Try another keyword.
+      </div>
+    `;
+
+    return;
+
   }
 
-  const minutes =
-    Math.floor(seconds / 60);
 
-  if(minutes < 60){
-    return minutes + " min ago";
-  }
+  grid.innerHTML =
+    filtered.map(item => `
 
-  const hours =
-    Math.floor(minutes / 60);
+      <article class="card">
 
-  if(hours < 24){
-    return hours + " hr ago";
-  }
+        <div class="tag">
+          ${item.cat}
+        </div>
 
-  const days =
-    Math.floor(hours / 24);
+        <h3>
+          ${item.title}
+        </h3>
 
-  return (
-    days +
-    " day" +
-    (days === 1 ? "" : "s") +
-    " ago"
+        <p>
+          ${item.desc}
+        </p>
+
+        <div class="meta">
+          ${item.source} · Today
+        </div>
+
+      </article>
+
+    `).join("");
+
+}
+
+
+/* ===============================
+   HOT NEWS
+================================ */
+
+function renderHot(){
+
+  const hot =
+    news.slice(0,6);
+
+
+  document.getElementById(
+    "hotGrid"
+  ).innerHTML =
+    hot.map(item => `
+
+      <article class="card hot">
+
+        <div class="tag">
+          🔥 ${item.cat}
+        </div>
+
+        <h3>
+          ${item.title}
+        </h3>
+
+        <p>
+          ${item.desc}
+        </p>
+
+        <div class="meta">
+          ${item.source}
+        </div>
+
+      </article>
+
+    `).join("");
+
+}
+
+
+/* ===============================
+   TRENDS
+================================ */
+
+function renderTrends(){
+
+  const trends = [
+    "Artificial Intelligence",
+    "Global Economy",
+    "India",
+    "Technology",
+    "International News",
+    "Sports",
+    "Entertainment",
+    "Science"
+  ];
+
+
+  document.getElementById(
+    "trendGrid"
+  ).innerHTML =
+    trends.map(
+      (item,index) => `
+
+        <div class="card trend">
+
+          <div class="rank">
+            #${String(index+1).padStart(2,"0")}
+          </div>
+
+          <p>
+            ${item}
+          </p>
+
+        </div>
+
+      `
+    ).join("");
+
+}
+
+
+/* ===============================
+   CATEGORY
+================================ */
+
+document
+  .querySelectorAll(".cat")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        document
+          .querySelectorAll(".cat")
+          .forEach(
+            b => b.classList.remove("active")
+          );
+
+
+        button.classList.add("active");
+
+
+        category =
+          button.dataset.cat;
+
+
+        render();
+
+
+        document
+          .getElementById("news")
+          .scrollIntoView({
+            behavior:"smooth"
+          });
+
+      }
+    );
+
+  });
+
+
+/* ===============================
+   SEARCH
+================================ */
+
+document
+  .getElementById("search")
+  .addEventListener(
+    "input",
+    render
   );
 
+
+document
+  .getElementById("searchBtn")
+  .addEventListener(
+    "click",
+    render
+  );
+
+
+/* ===============================
+   FUNCTIONS
+================================ */
+
+function showAll(){
+
+  document
+    .getElementById("news")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
 }
 
 
-/* =====================================================
-   SPAM CHECK
-===================================================== */
+function goTop(){
 
-function isBlocked(item){
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
-  const text =
-    (
-      (item.title || "") +
-      " " +
-      (item.description || "")
-    ).toLowerCase();
+}
 
-  for(
-    let i = 0;
-    i < blockedWords.length;
-    i++
-  ){
 
-    if(
-      text.includes(
-        blockedWords[i]
-      )
-    ){
-      return true;
-    }
+function goTo(id){
+
+  const element =
+    document.getElementById(id);
+
+  if(element){
+
+    element.scrollIntoView({
+      behavior:"smooth"
+    });
 
   }
 
-  return false;
+}
+
+
+/* ===============================
+   BIRTHDAY
+   ONLY SEPTEMBER 24
+================================ */
+
+function birthdayCheck(){
+
+  const now =
+    new Date();
+
+
+  const birthday =
+    now.getMonth() === 8 &&
+    now.getDate() === 24;
+
+
+  document
+    .getElementById("birthday")
+    .classList
+    .toggle(
+      "show",
+      birthday
+    );
 
 }
 
 
-/* =====================================================
-   FETCH ONE FEED
-===================================================== */
+/* ===============================
+   START
+================================ */
 
-async function fetchFeed(
-  category,
-  feedUrl
-){
+renderHot();
+render();
+renderTrends();
+birthdayCheck();
 
-  try{
+</script>
 
-    const controller =
-      new AbortController();
-
-    const timeout =
-      setTimeout(
-        function(){
-          controller.abort();
-        },
-        15000
-      );
-
-
-    const response =
-      await fetch(
-        RSS_API +
-        encodeURIComponent(feedUrl) +
-        "&t=" +
-        Date.now(),
-        {
-          method:"GET",
-          cache:"no-store",
-          signal:controller.signal
-        }
-      );
-
-
-    clearTimeout(timeout);
-
-
-    if(!response.ok){
-      throw new Error(
-        "Feed request failed"
-      );
-    }
-
-
-    const data =
-      await response.json();
-
-
-    if(
-      !data ||
-      !Array.isArray(data.items)
-    ){
-      return [];
-    }
-
-
-    return data.items
-      .slice(0,20)
-      .map(
-        function(item){
-
-          return {
-
-           
+</body>
+</html>
