@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,33 +15,28 @@
 *{
   box-sizing:border-box;
   margin:0;
-  padding:0
+  padding:0;
 }
 
 body{
   background:
-    radial-gradient(circle at 15% 10%,#302060 0,#090b16 35%),
-    radial-gradient(circle at 90% 20%,#063d68 0,#070b14 35%);
-  background-attachment:fixed;
+    radial-gradient(circle at top left,#25145c 0,#0a0d1c 35%,#050711 100%);
   color:#fff;
   font-family:Arial,sans-serif;
-  padding-bottom:78px;
-  min-height:100vh
+  padding-bottom:82px;
+  min-height:100vh;
 }
 
 button{
   font-family:inherit;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .hidden{
-  display:none!important
+  display:none !important;
 }
 
-
-/* =========================
-   TOP BAR
-========================= */
+/* ================= TOP ================= */
 
 .topbar{
   height:70px;
@@ -55,168 +50,112 @@ button{
 
   padding:0 12px;
 
-  background:rgba(8,10,22,.94);
-  backdrop-filter:blur(18px);
+  background:rgba(8,9,24,.94);
+  backdrop-filter:blur(15px);
 
-  border-bottom:1px solid rgba(255,255,255,.10);
-
-  box-shadow:
-    0 8px 30px rgba(0,0,0,.25)
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .newsTop{
-  font-size:14px;
+  font-size:15px;
   font-weight:800;
-
-  color:#fff;
-
-  text-shadow:
-    0 0 12px #35b8ff
 }
 
 .logo{
-  font-size:24px;
-  font-weight:1000;
-
-  background:
-    linear-gradient(90deg,#6c63ff,#00d9ff,#ff4fd8);
-
+  font-size:25px;
+  font-weight:900;
+  background:linear-gradient(90deg,#8b5cf6,#22d3ee,#ec4899);
   -webkit-background-clip:text;
-  background-clip:text;
-
   color:transparent;
-
-  white-space:nowrap;
 }
 
 .topRight{
   display:flex;
   justify-content:flex-end;
   align-items:center;
-  gap:7px
+  gap:7px;
 }
 
 .topBtn{
+  border:1px solid #46527a;
+  background:#151c36;
+  color:white;
+
   padding:9px 11px;
-
   border-radius:12px;
-
-  border:1px solid rgba(125,150,255,.35);
-
-  background:
-    linear-gradient(135deg,#182544,#11172b);
-
-  color:#fff;
 
   font-size:11px;
   font-weight:800;
-
-  box-shadow:
-    0 0 15px rgba(74,118,255,.10)
 }
 
-.topBtn:active{
-  transform:scale(.96)
+.topBtn:hover{
+  background:#222c50;
 }
 
 .createTop{
-  background:
-    linear-gradient(135deg,#ffffff,#dfe7ff);
-
-  color:#101326;
-
+  background:linear-gradient(135deg,#8b5cf6,#ec4899);
   border:0;
-
-  box-shadow:
-    0 0 18px rgba(255,255,255,.18)
+  color:white;
 }
 
-.msgBtn{
-  font-size:13px;
-  padding:9px 11px
-}
-
-
-/* =========================
-   SEARCH
-========================= */
+/* ================= SEARCH ================= */
 
 .searchWrap{
-  padding:15px 13px 8px
+  padding:15px 13px 8px;
 }
 
 .search{
   width:100%;
-
   padding:14px 16px;
 
   border-radius:16px;
+  border:1px solid #39456d;
 
-  border:1px solid rgba(108,135,255,.35);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(20,29,54,.96),
-      rgba(15,19,38,.96)
-    );
-
-  color:#fff;
+  background:rgba(19,25,49,.9);
+  color:white;
 
   outline:none;
-
   font-size:14px;
 
-  box-shadow:
-    0 0 25px rgba(55,100,255,.08)
-}
-
-.search::placeholder{
-  color:#8995ad
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 
 .search:focus{
-  border-color:#687cff;
-
-  box-shadow:
-    0 0 20px rgba(83,110,255,.22)
+  border-color:#8b5cf6;
+  box-shadow:0 0 0 3px rgba(139,92,246,.15);
 }
 
-
-/* =========================
-   STORIES
-========================= */
+/* ================= STORIES ================= */
 
 .section{
-  padding:15px 13px
+  padding:15px 13px;
 }
 
 .title{
-  font-size:16px;
+  font-size:17px;
   font-weight:900;
-  margin-bottom:11px
+  margin-bottom:12px;
 }
 
 .stories{
   display:flex;
   gap:14px;
   overflow-x:auto;
-  scrollbar-width:none
+  scrollbar-width:none;
 }
 
 .stories::-webkit-scrollbar{
-  display:none
+  display:none;
 }
 
 .story{
-  flex:0 0 64px;
-  text-align:center
+  flex:0 0 65px;
+  text-align:center;
 }
 
 .storyCircle{
-  width:59px;
-  height:59px;
-
+  width:60px;
+  height:60px;
   margin:auto;
 
   border-radius:50%;
@@ -226,84 +165,61 @@ button{
   justify-content:center;
 
   background:
-    linear-gradient(145deg,#18284c,#11172c);
+    linear-gradient(#182344,#182344) padding-box,
+    linear-gradient(135deg,#8b5cf6,#ec4899,#22d3ee) border-box;
 
-  border:3px solid transparent;
+  border:2px solid transparent;
 
-  background-image:
-    linear-gradient(#151d35,#151d35),
-    linear-gradient(
-      135deg,
-      #ff4fd8,
-      #745cff,
-      #00d9ff
-    );
-
-  background-origin:border-box;
-  background-clip:padding-box,border-box;
-
-  font-size:18px;
+  font-size:20px;
   font-weight:900;
-
-  box-shadow:
-    0 0 18px rgba(106,82,255,.18)
 }
 
 .your{
   background:
-    linear-gradient(145deg,#342060,#142c51);
+    linear-gradient(#121a34,#121a34) padding-box,
+    linear-gradient(135deg,#fff,#8b5cf6,#ec4899) border-box;
 
-  border:3px solid #fff;
-
-  box-shadow:
-    0 0 20px rgba(255,255,255,.18)
+  font-size:30px;
 }
 
 .storyName{
   font-size:10px;
-  color:#b9c3d8;
+  color:#b7c0d9;
   margin-top:6px;
+
   overflow:hidden;
   text-overflow:ellipsis;
-  white-space:nowrap
+  white-space:nowrap;
 }
 
-
-/* =========================
-   FEED
-========================= */
+/* ================= FEED ================= */
 
 .feed{
   max-width:650px;
   margin:auto;
-  padding:10px 12px
+  padding:10px 12px;
 }
 
 .card{
   background:
-    linear-gradient(
-      145deg,
-      rgba(18,27,51,.97),
-      rgba(10,16,31,.97)
-    );
+    linear-gradient(145deg,rgba(20,27,54,.97),rgba(10,14,29,.97));
 
-  border:1px solid rgba(104,127,201,.22);
+  border:1px solid rgba(110,120,180,.25);
 
   border-radius:20px;
-
   overflow:hidden;
 
   margin-bottom:15px;
 
   box-shadow:
-    0 10px 35px rgba(0,0,0,.18)
+    0 12px 35px rgba(0,0,0,.25);
 }
 
 .head{
   display:flex;
   align-items:center;
   gap:10px;
-  padding:14px
+  padding:14px;
 }
 
 .avatar{
@@ -313,80 +229,71 @@ button{
   border-radius:50%;
 
   background:
-    linear-gradient(
-      135deg,
-      #705cff,
-      #00cfff
-    );
+    linear-gradient(135deg,#7c3aed,#ec4899);
 
   display:flex;
   align-items:center;
   justify-content:center;
 
   font-weight:900;
-
-  box-shadow:
-    0 0 15px rgba(84,100,255,.25)
 }
 
 .info{
-  flex:1
+  flex:1;
 }
 
 .name{
   font-size:14px;
-  font-weight:900
+  font-weight:900;
 }
 
 .time{
   font-size:10px;
-  color:#8794ad;
-  margin-top:3px
+  color:#8793b5;
+  margin-top:3px;
 }
 
 .body{
-  padding:0 14px 14px
+  padding:0 14px 15px;
 }
 
 .text{
   font-size:14px;
   line-height:1.6;
-  color:#e1e7f4
+  color:#e3e8f5;
 }
 
 .label{
   display:inline-block;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(112,91,255,.25),
-      rgba(0,207,255,.15)
-    );
+  background:linear-gradient(
+    135deg,
+    rgba(124,58,237,.35),
+    rgba(236,72,153,.25)
+  );
 
-  color:#aebaff;
+  color:#c9b7ff;
 
   padding:6px 9px;
-
   border-radius:8px;
 
   font-size:10px;
   font-weight:900;
 
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .newsTitle{
   font-size:17px;
   font-weight:900;
   line-height:1.4;
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .desc{
-  color:#9da9bf;
+  color:#9faac3;
   font-size:13px;
-  line-height:1.5
+  line-height:1.5;
 }
 
 .actions{
@@ -395,128 +302,94 @@ button{
 
   padding:11px 14px;
 
-  border-top:1px solid rgba(255,255,255,.07);
-
-  overflow-x:auto
+  border-top:1px solid rgba(255,255,255,.08);
 }
 
 .action{
-  background:
-    linear-gradient(
-      135deg,
-      #151f39,
-      #10162a
-    );
+  background:#151e38;
+  color:#dce3f5;
 
-  color:#d8e0f0;
-
-  border:1px solid rgba(110,133,205,.25);
+  border:1px solid #303d63;
 
   padding:9px 11px;
-
-  border-radius:11px;
+  border-radius:10px;
 
   font-size:11px;
-
-  white-space:nowrap
 }
 
-.action:active{
-  transform:scale(.96)
+.action:hover{
+  background:#26345b;
 }
 
-
-/* =========================
-   REELS
-========================= */
+/* ================= REELS ================= */
 
 #reelsSection{
   max-width:650px;
   margin:auto;
-  padding:15px 12px
+  padding:15px 12px;
 }
 
 .reel{
-  height:310px;
+  height:320px;
 
   border-radius:22px;
 
   background:
-    linear-gradient(
-      145deg,
-      #24145b,
-      #101b43,
-      #063d56
-    );
+    radial-gradient(circle at center,#39206e,#11152d 55%,#080a17);
 
-  border:1px solid rgba(112,126,255,.35);
+  border:1px solid #3b4774;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
   text-align:center;
-
-  box-shadow:
-    0 15px 50px rgba(44,25,130,.25)
 }
 
 .reelIcon{
-  font-size:48px;
-  margin-bottom:12px
+  font-size:50px;
+  margin-bottom:12px;
 }
 
-
-/* =========================
-   BOTTOM NAV
-========================= */
+/* ================= BOTTOM ================= */
 
 .bottom{
   position:fixed;
-
   bottom:0;
   left:0;
   right:0;
 
-  height:70px;
-
-  z-index:60;
+  height:72px;
+  z-index:80;
 
   display:flex;
   align-items:center;
   justify-content:space-around;
 
-  background:
-    rgba(7,10,21,.97);
-
+  background:rgba(7,9,21,.97);
   backdrop-filter:blur(18px);
 
-  border-top:1px solid rgba(255,255,255,.10);
-
-  box-shadow:
-    0 -10px 30px rgba(0,0,0,.30)
+  border-top:1px solid rgba(255,255,255,.12);
 }
 
 .nav{
   background:none;
-  color:#7f8ba5;
+  color:#7d89a8;
+
   border:0;
 
   font-size:10px;
-  text-align:center
+  text-align:center;
 }
 
 .navIcon{
   display:block;
   font-size:21px;
-  margin-bottom:3px
+  margin-bottom:3px;
 }
 
 .nav.active{
   color:#fff;
-
-  text-shadow:
-    0 0 12px #6d7dff
 }
 
 .post{
@@ -525,69 +398,53 @@ button{
 
   border-radius:15px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff,
-      #cbd6ff
-    );
+  background:linear-gradient(135deg,#8b5cf6,#ec4899);
 
-  color:#111426;
+  color:white;
+
+  border:0;
 
   font-size:27px;
   font-weight:900;
 
-  border:2px solid #fff;
-
-  box-shadow:
-    0 0 22px rgba(121,137,255,.30)
+  box-shadow:0 8px 25px rgba(139,92,246,.4);
 }
 
-
-/* =========================
-   MODAL
-========================= */
+/* ================= MODAL ================= */
 
 .modal{
   position:fixed;
   inset:0;
 
-  z-index:1000;
+  z-index:200;
 
-  background:
-    rgba(0,0,0,.78);
-
-  backdrop-filter:blur(7px);
+  background:rgba(0,0,0,.78);
 
   display:flex;
-
   align-items:flex-end;
-  justify-content:center
+  justify-content:center;
+
+  padding:0;
 }
 
 .box{
   width:100%;
   max-width:600px;
 
-  max-height:90vh;
-
+  max-height:92vh;
   overflow:auto;
 
   background:
-    linear-gradient(
-      145deg,
-      #111b35,
-      #090f20
-    );
+    radial-gradient(circle at top right,#271957,#0d1226 55%);
 
-  border:1px solid rgba(115,137,255,.35);
+  border:1px solid #414d79;
 
   border-radius:25px 25px 0 0;
 
   padding:22px;
 
   box-shadow:
-    0 -15px 60px rgba(48,45,180,.22)
+    0 -10px 50px rgba(0,0,0,.55);
 }
 
 .modalHead{
@@ -595,25 +452,22 @@ button{
   justify-content:space-between;
   align-items:center;
 
-  margin-bottom:20px
+  margin-bottom:20px;
 }
 
 .modalTitle{
-  font-size:21px;
+  font-size:22px;
   font-weight:900;
 
-  background:
-    linear-gradient(
-      90deg,
-      #fff,
-      #9caaff,
-      #62ddff
-    );
+  background:linear-gradient(
+    90deg,
+    #a78bfa,
+    #22d3ee,
+    #f472b6
+  );
 
   -webkit-background-clip:text;
-  background-clip:text;
-
-  color:transparent
+  color:transparent;
 }
 
 .close{
@@ -623,14 +477,44 @@ button{
   border:0;
   border-radius:11px;
 
-  background:#1d2944;
-  color:#fff;
+  background:#202a49;
+  color:white;
 
-  font-size:20px
+  font-size:20px;
 }
 
-.input,
-.textarea{
+.close:hover{
+  background:#34436e;
+}
+
+/* ================= AUTH ================= */
+
+.authLogo{
+  text-align:center;
+  font-size:31px;
+  font-weight:900;
+
+  margin:8px 0 5px;
+
+  background:linear-gradient(
+    90deg,
+    #8b5cf6,
+    #22d3ee,
+    #ec4899
+  );
+
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.authSub{
+  text-align:center;
+  color:#9ca8c2;
+  font-size:12px;
+  margin-bottom:20px;
+}
+
+.input{
   width:100%;
 
   padding:14px;
@@ -639,28 +523,22 @@ button{
 
   border-radius:13px;
 
-  border:1px solid rgba(110,133,205,.30);
+  border:1px solid #354266;
 
-  background:#0c1428;
+  background:#111a31;
 
-  color:#fff;
+  color:white;
 
   outline:none;
 
-  font-size:14px
+  font-size:14px;
 }
 
-.input:focus,
-.textarea:focus{
-  border-color:#7181ff;
+.input:focus{
+  border-color:#8b5cf6;
 
   box-shadow:
-    0 0 15px rgba(93,112,255,.15)
-}
-
-.textarea{
-  min-height:120px;
-  resize:none
+    0 0 0 3px rgba(139,92,246,.15);
 }
 
 .full{
@@ -669,26 +547,26 @@ button{
   padding:14px;
 
   border:0;
-
   border-radius:13px;
 
   background:
     linear-gradient(
-      90deg,
-      #695cff,
-      #00bde9
+      135deg,
+      #7c3aed,
+      #ec4899
     );
 
-  color:#fff;
+  color:white;
 
   font-weight:900;
+  font-size:14px;
 
   box-shadow:
-    0 8px 22px rgba(76,100,255,.22)
+    0 8px 25px rgba(124,58,237,.3);
 }
 
 .full:disabled{
-  opacity:.6
+  opacity:.6;
 }
 
 .authSwitch{
@@ -696,61 +574,64 @@ button{
 
   margin-top:16px;
 
-  color:#9da9bd;
-
-  font-size:12px
+  color:#9da8bf;
+  font-size:12px;
 }
 
 .link{
-  color:#fff;
-
+  color:#c4b5fd;
   text-decoration:underline;
-
   cursor:pointer;
-
-  font-weight:800
+  font-weight:800;
 }
 
 .error{
-  color:#ff9eac;
+  color:#ff9d9d;
+
+  background:rgba(239,68,68,.1);
+
+  border:1px solid rgba(239,68,68,.2);
+
+  border-radius:10px;
+
+  padding:9px;
+
+  margin-top:12px;
 
   font-size:12px;
-
-  margin-top:11px;
-
-  line-height:1.5
 }
 
 .success{
-  color:#75efac;
+  color:#86efac;
+
+  background:rgba(34,197,94,.1);
+
+  border:1px solid rgba(34,197,94,.2);
+
+  border-radius:10px;
+
+  padding:9px;
+
+  margin-top:12px;
 
   font-size:12px;
-
-  margin-top:11px
 }
+
+/* ================= MESSAGE ================= */
 
 .message{
   padding:15px 0;
-
-  border-bottom:1px solid rgba(255,255,255,.08)
+  border-bottom:1px solid #27314c;
 }
 
-.smallNote{
-  color:#77849d;
-
-  font-size:11px;
-
-  line-height:1.5;
-
-  margin-top:12px
-}
+/* ================= DESKTOP ================= */
 
 @media(min-width:700px){
 
   .feed,
   #reelsSection{
     padding-left:0;
-    padding-right:0
+    padding-right:0;
   }
 
 }
@@ -758,13 +639,11 @@ button{
 </style>
 </head>
 
-
 <body>
 
+<!-- ================= PUBLIC APP ================= -->
 
-<!-- =========================
-     TOP
-========================= -->
+<div id="app">
 
 <header class="topbar">
 
@@ -779,31 +658,28 @@ button{
   <div class="topRight">
 
     <button
-      type="button"
       class="topBtn"
       id="loginTop">
       Login
     </button>
 
     <button
-      type="button"
       class="topBtn createTop"
       id="createTop">
       Create Account
     </button>
 
     <button
-      type="button"
-      class="topBtn msgBtn hidden"
+      class="topBtn hidden"
       id="messageTop">
       💬
     </button>
 
-    <div
+    <button
       class="avatar hidden"
       id="profileTop">
       ?
-    </div>
+    </button>
 
   </div>
 
@@ -832,9 +708,7 @@ button{
 
   <div class="stories">
 
-    <div
-      class="story"
-      id="yourStory">
+    <div class="story" id="yourStory">
 
       <div class="storyCircle your">
         ＋
@@ -846,35 +720,70 @@ button{
 
     </div>
 
+    <div class="story"
+         onclick="demoStory('Rahul')">
 
-    <div class="story">
       <div class="storyCircle">R</div>
-      <div class="storyName">Rahul</div>
+
+      <div class="storyName">
+        Rahul
+      </div>
+
     </div>
 
-    <div class="story">
+    <div class="story"
+         onclick="demoStory('Priya')">
+
       <div class="storyCircle">P</div>
-      <div class="storyName">Priya</div>
+
+      <div class="storyName">
+        Priya
+      </div>
+
     </div>
 
-    <div class="story">
+    <div class="story"
+         onclick="demoStory('Aman')">
+
       <div class="storyCircle">A</div>
-      <div class="storyName">Aman</div>
+
+      <div class="storyName">
+        Aman
+      </div>
+
     </div>
 
-    <div class="story">
+    <div class="story"
+         onclick="demoStory('Neha')">
+
       <div class="storyCircle">N</div>
-      <div class="storyName">Neha</div>
+
+      <div class="storyName">
+        Neha
+      </div>
+
     </div>
 
-    <div class="story">
+    <div class="story"
+         onclick="demoStory('Simran')">
+
       <div class="storyCircle">S</div>
-      <div class="storyName">Simran</div>
+
+      <div class="storyName">
+        Simran
+      </div>
+
     </div>
 
-    <div class="story">
+    <div class="story"
+         onclick="demoStory('Rohan')">
+
       <div class="storyCircle">R</div>
-      <div class="storyName">Rohan</div>
+
+      <div class="storyName">
+        Rohan
+      </div>
+
     </div>
 
   </div>
@@ -886,157 +795,138 @@ button{
 
 <main class="feed" id="feed">
 
+<div class="card">
 
-  <!-- WELCOME -->
+  <div class="head">
 
-  <div class="card">
-
-    <div class="head">
-
-      <div class="avatar">
-        2
-      </div>
-
-      <div class="info">
-
-        <div class="name">
-          two4nine
-        </div>
-
-        <div class="time">
-          Welcome
-        </div>
-
-      </div>
-
+    <div class="avatar">
+      2
     </div>
 
+    <div class="info">
 
-    <div class="body">
-
-      <div class="text">
-
-        Different generations.
-        One place. ❤️
-
-        <br><br>
-
-        News, people, discussions,
-        memes and everything
-        happening around you.
-
+      <div class="name">
+        two4nine
       </div>
 
-    </div>
-
-
-    <div class="actions">
-
-      <button
-        class="action"
-        id="welcomeLike">
-        ❤️ Like
-      </button>
-
-      <button
-        class="action"
-        id="welcomeComment">
-        💬 Comment
-      </button>
-
-      <button
-        class="action"
-        id="welcomeShare">
-        ↗ Share
-      </button>
+      <div class="time">
+        Welcome
+      </div>
 
     </div>
 
   </div>
 
+  <div class="body">
 
-  <!-- NEWS -->
+    <div class="text">
 
-  <div id="newsFeed">
+      Different generations. One place. ❤️
 
-    <div
-      style="
-        text-align:center;
-        padding:30px;
-        color:#7f8ca2
-      ">
+      <br><br>
 
-      📰 Loading latest news...
+      News, people, discussions, memes and
+      everything happening around you.
 
     </div>
 
   </div>
 
+  <div class="actions">
 
-  <!-- USER POSTS -->
+    <button class="action"
+            onclick="requireLogin('Like')">
+      ❤️ Like
+    </button>
 
-  <div id="userPosts"></div>
+    <button class="action"
+            onclick="requireLogin('Comment')">
+      💬 Comment
+    </button>
+
+    <button class="action"
+            onclick="requireLogin('Share')">
+      ↗ Share
+    </button>
+
+  </div>
+
+</div>
 
 
-  <!-- MEME -->
+<!-- NEWS -->
 
-  <div class="card">
+<div id="newsFeed">
 
-    <div class="head">
+  <div style="
+    text-align:center;
+    padding:25px;
+    color:#8490ad;
+  ">
+    Loading latest news...
+  </div>
 
-      <div class="avatar">
-        😂
-      </div>
+</div>
 
-      <div class="info">
 
-        <div class="name">
-          Community Meme
-        </div>
+<!-- USER POSTS -->
 
-        <div class="time">
-          Demo
-        </div>
+<div id="userPosts"></div>
 
-      </div>
 
+<!-- MEME -->
+
+<div class="card">
+
+  <div class="head">
+
+    <div class="avatar">
+      😂
     </div>
 
+    <div class="info">
 
-    <div class="body">
-
-      <div class="text">
-
-        Me: "Bas 5 minute
-        social media dekhunga."
-
-        <br>
-
-        Also me 1 hour later:
-        😭😂
-
+      <div class="name">
+        Community Meme
       </div>
 
-    </div>
-
-
-    <div class="actions">
-
-      <button
-        class="action"
-        id="memeLike">
-        ❤️ Like
-      </button>
-
-      <button
-        class="action"
-        id="memeComment">
-        💬 Comment
-      </button>
+      <div class="time">
+        Demo
+      </div>
 
     </div>
 
   </div>
+
+  <div class="body">
+
+    <div class="text">
+
+      Me: "Bas 5 minute social media dekhunga."
+
+      <br>
+
+      Also me 1 hour later: 😭😂
+
+    </div>
+
+  </div>
+
+  <div class="actions">
+
+    <button class="action"
+            onclick="requireLogin('Like')">
+      ❤️ Like
+    </button>
+
+    <button class="action"
+            onclick="requireLogin('Comment')">
+      💬 Comment
+    </button>
+
+  </div>
+
+</div>
 
 </main>
 
@@ -1064,9 +954,8 @@ button{
       </div>
 
       <div class="desc">
-        Short videos from the
-        two4nine community will
-        appear here.
+        Short videos from the two4nine community
+        will appear here.
       </div>
 
     </div>
@@ -1082,7 +971,7 @@ button{
 
   <button
     class="nav active"
-    id="homeNav">
+    onclick="home(this)">
 
     <span class="navIcon">
       ⌂
@@ -1095,7 +984,7 @@ button{
 
   <button
     class="nav"
-    id="searchNav">
+    onclick="searchFocus(this)">
 
     <span class="navIcon">
       ⌕
@@ -1108,7 +997,7 @@ button{
 
   <button
     class="post"
-    id="postNav">
+    onclick="openPost()">
 
     +
 
@@ -1117,7 +1006,7 @@ button{
 
   <button
     class="nav"
-    id="reelsNav">
+    onclick="reels(this)">
 
     <span class="navIcon">
       ▶
@@ -1130,7 +1019,7 @@ button{
 
   <button
     class="nav"
-    id="notificationsNav">
+    onclick="notifications(this)">
 
     <span class="navIcon">
       ♡
@@ -1142,10 +1031,10 @@ button{
 
 </nav>
 
+</div>
 
-<!-- =========================
-     AUTH MODAL
-========================= -->
+
+<!-- ================= AUTH MODAL ================= -->
 
 <div
   id="authModal"
@@ -1155,33 +1044,48 @@ button{
 
     <div class="modalHead">
 
-      <div
-        id="authTitle"
-        class="modalTitle">
-
-        Login
-
+      <div class="modalTitle"
+           id="authTitle">
+        Create Account
       </div>
 
       <button
-        type="button"
         class="close"
         id="authClose">
-
         ×
-
       </button>
 
     </div>
 
 
+    <div class="authLogo">
+      two4nine
+    </div>
+
+    <div class="authSub">
+      Different generations. One place. ❤️
+    </div>
+
+
+    <!-- NAME -->
+
+    <input
+      id="nameInput"
+      class="input"
+      type="text"
+      placeholder="Your name">
+
+
+    <!-- EMAIL -->
+
     <input
       id="email"
       class="input"
       type="email"
-      autocomplete="email"
       placeholder="Email address">
 
+
+    <!-- PASSWORD -->
 
     <input
       id="password"
@@ -1190,59 +1094,49 @@ button{
       placeholder="Password">
 
 
+    <!-- CONFIRM -->
+
     <input
       id="confirm"
-      class="input hidden"
+      class="input"
       type="password"
       placeholder="Confirm password">
 
 
     <button
       id="authButton"
-      type="button"
       class="full">
 
-      Login
+      Create Account
 
     </button>
 
 
     <div
       id="authError"
-      class="error">
+      class="error hidden">
     </div>
 
 
     <div
       id="authSuccess"
-      class="success">
+      class="success hidden">
     </div>
 
 
     <div class="authSwitch">
 
       <span id="switchText">
-        Don't have an account?
+        Already have an account?
       </span>
-
-      &nbsp;
 
       <span
-        id="switchButton"
-        class="link">
+        class="link"
+        id="switchButton">
 
-        Create Account
+        Login
 
       </span>
-
-    </div>
-
-
-    <div class="smallNote">
-
-      Create an account to post,
-      create stories, message and
-      use interactive features.
 
     </div>
 
@@ -1251,7 +1145,7 @@ button{
 </div>
 
 
-<!-- POST MODAL -->
+<!-- ================= POST MODAL ================= -->
 
 <div
   id="postModal"
@@ -1267,22 +1161,21 @@ button{
 
       <button
         class="close"
-        id="postClose">
-
+        onclick="closeModal('postModal')">
         ×
-
       </button>
 
     </div>
 
     <textarea
       id="postText"
-      class="textarea"
+      class="input"
+      style="min-height:140px"
       placeholder="What's on your mind?"></textarea>
 
     <button
-      id="publishPostButton"
-      class="full">
+      class="full"
+      onclick="publishPost()">
 
       Publish Post
 
@@ -1293,49 +1186,7 @@ button{
 </div>
 
 
-<!-- STORY MODAL -->
-
-<div
-  id="storyModal"
-  class="modal hidden">
-
-  <div class="box">
-
-    <div class="modalHead">
-
-      <div class="modalTitle">
-        Create Story
-      </div>
-
-      <button
-        class="close"
-        id="storyClose">
-
-        ×
-
-      </button>
-
-    </div>
-
-    <textarea
-      id="storyText"
-      class="textarea"
-      placeholder="Write your story..."></textarea>
-
-    <button
-      id="publishStoryButton"
-      class="full">
-
-      Add Story
-
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- MESSAGE -->
+<!-- ================= MESSAGE ================= -->
 
 <div
   id="messageModal"
@@ -1351,10 +1202,8 @@ button{
 
       <button
         class="close"
-        id="messageClose">
-
+        onclick="closeModal('messageModal')">
         ×
-
       </button>
 
     </div>
@@ -1366,8 +1215,7 @@ button{
       </b>
 
       <div class="desc">
-        Private conversations will
-        appear here.
+        Private chat system will appear here.
       </div>
 
     </div>
@@ -1377,7 +1225,7 @@ button{
 </div>
 
 
-<!-- NOTIFICATIONS -->
+<!-- ================= NOTIFICATIONS ================= -->
 
 <div
   id="notificationModal"
@@ -1393,10 +1241,8 @@ button{
 
       <button
         class="close"
-        id="notificationClose">
-
+        onclick="closeModal('notificationModal')">
         ×
-
       </button>
 
     </div>
@@ -1404,12 +1250,11 @@ button{
     <div class="message">
 
       <b>
-        Welcome to two4nine
+        Welcome to two4nine ❤️
       </b>
 
       <div class="desc">
-        Your notifications will
-        appear here.
+        Your notifications will appear here.
       </div>
 
     </div>
@@ -1419,7 +1264,7 @@ button{
 </div>
 
 
-<!-- STORY VIEW -->
+<!-- ================= STORY VIEW ================= -->
 
 <div
   id="storyView"
@@ -1432,17 +1277,13 @@ button{
       <div
         id="storyViewTitle"
         class="modalTitle">
-
         Story
-
       </div>
 
       <button
         class="close"
-        id="storyViewClose">
-
+        onclick="closeModal('storyView')">
         ×
-
       </button>
 
     </div>
@@ -1459,9 +1300,9 @@ button{
 
 <script>
 
-/* ==========================================
+/* =====================================================
    FIREBASE
-========================================== */
+===================================================== */
 
 const firebaseConfig = {
 
@@ -1489,114 +1330,156 @@ const firebaseConfig = {
 };
 
 
-let auth = null;
-let db = null;
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+const db = firebase.firestore();
 
 
-try{
+/* =====================================================
+   AUTH
+===================================================== */
 
-  firebase.initializeApp(firebaseConfig);
-
-  auth = firebase.auth();
-
-  db = firebase.firestore();
-
-}catch(e){
-
-  console.log(
-    "Firebase error:",
-    e
-  );
-
-}
+let authMode = "signup";
 
 
-/* ==========================================
-   BASIC HELPERS
-========================================== */
+const authModal =
+  document.getElementById("authModal");
 
-function $(id){
+const authButton =
+  document.getElementById("authButton");
 
-  return document.getElementById(id);
+const loginTop =
+  document.getElementById("loginTop");
 
-}
+const createTop =
+  document.getElementById("createTop");
 
+const authClose =
+  document.getElementById("authClose");
 
-function show(id){
-
-  $(id).classList.remove("hidden");
-
-}
-
-
-function hide(id){
-
-  $(id).classList.add("hidden");
-
-}
+const switchButton =
+  document.getElementById("switchButton");
 
 
-/* ==========================================
-   AUTH UI
-========================================== */
+/* OPEN LOGIN */
 
-let authMode = "login";
+loginTop.addEventListener("click",function(){
 
+  openAuth("login");
+
+});
+
+
+/* OPEN CREATE ACCOUNT */
+
+createTop.addEventListener("click",function(){
+
+  openAuth("signup");
+
+});
+
+
+/* CLOSE */
+
+authClose.addEventListener("click",function(){
+
+  closeModal("authModal");
+
+});
+
+
+/* SWITCH */
+
+switchButton.addEventListener("click",function(){
+
+  if(authMode==="signup"){
+
+    openAuth("login");
+
+  }else{
+
+    openAuth("signup");
+
+  }
+
+});
+
+
+/* OPEN AUTH */
 
 function openAuth(mode){
 
-  authMode = mode || "login";
+  authMode = mode;
 
-  show("authModal");
+  document
+    .getElementById("authError")
+    .classList.add("hidden");
 
-  $("authError").textContent = "";
+  document
+    .getElementById("authSuccess")
+    .classList.add("hidden");
 
-  $("authSuccess").textContent = "";
+  document
+    .getElementById("email")
+    .value = "";
 
-  updateAuthUI();
+  document
+    .getElementById("password")
+    .value = "";
 
-}
+  document
+    .getElementById("confirm")
+    .value = "";
 
+  document
+    .getElementById("nameInput")
+    .value = "";
 
-function updateAuthUI(){
+  if(mode==="signup"){
 
-  if(authMode === "signup"){
+    document
+      .getElementById("authTitle")
+      .textContent="Create Account";
 
-    $("authTitle").textContent =
+    authButton.textContent=
       "Create Account";
 
-    $("authButton").textContent =
-      "Create Account";
+    document
+      .getElementById("nameInput")
+      .classList.remove("hidden");
 
-    $("confirm").classList.remove(
-      "hidden"
-    );
+    document
+      .getElementById("confirm")
+      .classList.remove("hidden");
 
-    $("switchText").textContent =
-      "Already have an account?";
+    document
+      .getElementById("switchText")
+      .textContent=
+        "Already have an account?";
 
-    $("switchButton").textContent =
+    switchButton.textContent=
       "Login";
 
   }else{
 
-    $("authTitle").textContent =
+    document
+      .getElementById("authTitle")
+      .textContent="Login";
+
+    authButton.textContent=
       "Login";
 
-    $("authButton").textContent =
-      "Login";
+    document
+      .getElementById("nameInput")
+      .classList.add("hidden");
 
-    $("confirm").classList.add(
-      "hidden"
-    );
+    document
+      .getElementById("confirm")
+      .classList.add("hidden");
 
-    $("switchText").textContent =
-      "Don't have an account?";
-
-    $("switchButton").textContent =
-      "Create Account";
-
-  }
-
-}
-  
+    document
+      .getElementById("switchText")
+      .textContent=
+        "Don't have an a
